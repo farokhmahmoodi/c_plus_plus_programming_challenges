@@ -6,8 +6,6 @@
 #include "Stats.h"
 using namespace std;
 
-
-void inputData(Stats&);
 void displayReport(Stats&);
 string getMonth(int);
 
@@ -40,8 +38,6 @@ int main()
 	displayReport(a);
 	return 0;
 }
-
-
 
 void displayReport(Stats& a)
 {
