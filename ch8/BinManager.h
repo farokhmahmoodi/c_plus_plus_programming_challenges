@@ -14,7 +14,15 @@ public:
 		numBins = 0; 
 	}
 
-	BinManager(int size, string d[], int q[]);
+	BinManager(int size, string d[], int q[])
+	{
+		numBins = size;
+		for (int i = 0; i < 30; i++)
+		{
+			bin[i].setDescription(d[i]);
+			bin[i].setQty(q[i]);
+		}
+	}
 	string getDescription(int);
 	int getQuantity(int);
 	bool addParts(int, int);
