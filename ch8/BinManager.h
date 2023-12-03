@@ -17,7 +17,7 @@ public:
 	BinManager(int size, string d[], int q[])
 	{
 		numBins = size;
-		for (int i = 0; i < 30; i++)
+		for (int i = 0; i < size; i++)
 		{
 			bin[i].setDescription(d[i]);
 			bin[i].setQty(q[i]);

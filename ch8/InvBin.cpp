@@ -12,7 +12,12 @@ string InvBin::getDescription()
 
 void InvBin::setQty(int q)
 {
-	qty = q;
+	qty += q;
+}
+
+void InvBin::removeQty(int q)
+{
+	qty -= q;
 }
 
 int InvBin::getQty()

@@ -19,6 +19,7 @@ public:
 	void setDescription(string);
 	string getDescription();
 	void setQty(int);
+	void removeQty(int);
 	int getQty();
 };
 #endif
