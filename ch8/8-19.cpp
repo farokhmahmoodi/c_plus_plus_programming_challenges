@@ -107,46 +107,100 @@ bool boardFull(const char board[][NUM_ROWS_AND_COLS])
 
 bool xwinner(const char board[][NUM_ROWS_AND_COLS])
 {
-	if ((board[0][0] == 'X' && board[0][1] == 'X') && (board[0][2] == 'X'))
-		return true;
-	else if ((board[1][0] == 'X' && board[1][1] == 'X') && (board[1][2] == 'X'))
-		return true;
-	else if ((board[2][0] == 'X' && board[2][1] == 'X') && (board[2][2] == 'X'))
-		return true;
-	else if ((board[0][0] == 'X' && board[1][0] == 'X') && (board[2][0] == 'X'))
-		return true;
-	else if ((board[0][1] == 'X' && board[1][1] == 'X') && (board[2][1] == 'X'))
-		return true;
-	else if ((board[0][2] == 'X' && board[1][2] == 'X') && (board[2][2] == 'X'))
-		return true;
-	else if ((board[0][0] == 'X' && board[1][1] == 'X') && (board[2][2] == 'X'))
-		return true;
-	else if ((board[0][2] == 'X' && board[1][1] == 'X') && (board[2][0] == 'X'))
-		return true;
-	else
-		return false;
+	int across, down, diagLToR, diagRToL;
+	across = down = diagLToR = diagRToL = 0;
+
+	for (int row = 0; row < NUM_ROWS_AND_COLS; row++)
+	{
+		for (int col = 0; col < NUM_ROWS_AND_COLS; col++)
+		{
+			if (board[row][col] == 'X')
+				across++;
+			if (col == 2 && across != 3)
+				across = 0;
+			if (across == 3)
+				return true;
+		}
+	}
+
+	for (int col = 0; col < NUM_ROWS_AND_COLS; col++)
+	{
+		for (int row = 0; row < NUM_ROWS_AND_COLS; row++)
+		{
+			if (board[row][col] == 'X')
+				down++;
+			if (row == 2 && down != 3)
+				down = 0;
+			if (down == 3)
+				return true;
+		}
+	}
+
+	for (int i = 0; i < NUM_ROWS_AND_COLS; i++)
+	{
+		if (board[i][i] == 'X')
+			diagLToR++;
+		if (diagLToR == 3)
+			return true;
+	}
+
+	for (int row = 0, col = NUM_ROWS_AND_COLS - 1; row < NUM_ROWS_AND_COLS; row++, col--)
+	{
+		if (board[row][col] == 'X')
+			diagRToL++;
+		if (diagRToL == 3)
+			return true;
+	}
+	return false;
 }
 
 bool owinner(const char board[][NUM_ROWS_AND_COLS])
 {
-	if ((board[0][0] == 'O' && board[0][1] == 'O') && (board[0][2] == 'O'))
-		return true;
-	else if ((board[1][0] == 'O' && board[1][1] == 'O') && (board[1][2] == 'O'))
-		return true;
-	else if ((board[2][0] == 'O' && board[2][1] == 'O') && (board[2][2] == 'O'))
-		return true;
-	else if ((board[0][0] == 'O' && board[1][0] == 'O') && (board[2][0] == 'O'))
-		return true;
-	else if ((board[0][1] == 'O' && board[1][1] == 'O') && (board[2][1] == 'O'))
-		return true;
-	else if ((board[0][2] == 'O' && board[1][2] == 'O') && (board[2][2] == 'O'))
-		return true;
-	else if ((board[0][0] == 'O' && board[1][1] == 'O') && (board[2][2] == 'O'))
-		return true;
-	else if ((board[0][2] == 'O' && board[1][1] == 'O') && (board[2][0] == 'O'))
-		return true;
-	else
-		return false;
+	int across, down, diagLToR, diagRToL;
+	across = down = diagLToR = diagRToL = 0;
+
+	for (int row = 0; row < NUM_ROWS_AND_COLS; row++)
+	{
+		for (int col = 0; col < NUM_ROWS_AND_COLS; col++)
+		{
+			if (board[row][col] == 'O')
+				across++;
+			if (col == 2 && across != 3)
+				across = 0;
+			if (across == 3)
+				return true;
+		}
+	}
+
+	for (int col = 0; col < NUM_ROWS_AND_COLS; col++)
+	{
+		for (int row = 0; row < NUM_ROWS_AND_COLS; row++)
+		{
+			if (board[row][col] == 'O')
+				down++;
+			if (row == 2 && down != 3)
+				down = 0;
+			if (down == 3)
+				return true;
+		}
+	}
+
+	for (int i = 0; i < NUM_ROWS_AND_COLS; i++)
+	{
+		if (board[i][i] == 'O')
+			diagLToR++;
+		if (diagLToR == 3)
+			return true;
+	}
+
+	for (int row = 0, col = NUM_ROWS_AND_COLS - 1; row < NUM_ROWS_AND_COLS; row++, col--)
+	{
+		if (board[row][col] == 'O')
+			diagRToL++;
+		if (diagRToL == 3)
+			return true;
+	}
+	return false;
 }
 
 void displayMessage(const char board[][NUM_ROWS_AND_COLS])
