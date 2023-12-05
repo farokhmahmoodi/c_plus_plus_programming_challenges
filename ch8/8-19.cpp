@@ -3,19 +3,18 @@
 #include <iostream>
 using namespace std;
 
-const int ROWS = 3;
-const int COLS = 3;
+const int NUM_ROWS_AND_COLS = 3;
 
-void displayBoard(const char[][COLS]);
-void selectLocation(char[][COLS]);
-bool boardFull(const char[][COLS]);
-bool xwinner(const char[][COLS]);
-bool owinner(const char [][COLS]);
-void displayMessage(const char [][COLS]);
+void displayBoard(const char[][NUM_ROWS_AND_COLS]);
+void selectLocation(char[][NUM_ROWS_AND_COLS]);
+bool boardFull(const char[][NUM_ROWS_AND_COLS]);
+bool xwinner(const char[][NUM_ROWS_AND_COLS]);
+bool owinner(const char [][NUM_ROWS_AND_COLS]);
+void displayMessage(const char [][NUM_ROWS_AND_COLS]);
 
 int main()
 {
-	char board[ROWS][COLS] = {{'*','*','*'},{'*','*','*'},{'*','*','*'}};
+	char board[NUM_ROWS_AND_COLS][NUM_ROWS_AND_COLS] = {{'*','*','*'},{'*','*','*'},{'*','*','*'}};
 
 	cout << "Welcome to Tic-Tac-Toe!" << endl;
 	displayBoard(board);
@@ -28,12 +27,12 @@ int main()
 	return 0;
 }
 
-void displayBoard(const char board[][COLS])
+void displayBoard(const char board[][NUM_ROWS_AND_COLS])
 {
 	cout << endl;
-	for (int r = 0; r < ROWS; r++)
+	for (int r = 0; r < NUM_ROWS_AND_COLS; r++)
 	{
-		for (int c = 0; c < COLS; c++)
+		for (int c = 0; c < NUM_ROWS_AND_COLS; c++)
 		{
 			cout << board[r][c];
 			if (c == 2)
@@ -43,7 +42,7 @@ void displayBoard(const char board[][COLS])
 	cout << endl;
 }
 
-void selectLocation(char board[][COLS])
+void selectLocation(char board[][NUM_ROWS_AND_COLS])
 {
 	int r, c;
 	do
@@ -53,17 +52,17 @@ void selectLocation(char board[][COLS])
 			cout << "Player 1 enter a board location to place an X starting with row selection (1-3):";
 			cin >> r;
 			if (r < 1 || r > 3)
-				cout << "Player 1 input error. Row selection must be between 1-3." << endl;
+				cout << "input error. Row selection must be between 1-3." << endl;
 		} while (r < 1 || r > 3);
 		do
 		{
 			cout << "Player 1 enter column selection (1-3):";
 			cin >> c;
 			if (c < 1 || c > 3)
-				cout << "Player 1 input error. Column selection must be between 1-3." << endl;
+				cout << "input error. Column selection must be between 1-3." << endl;
 		} while ((c < 1 || c > 3));
 		if (board[r-1][c-1] != '*')
-			cout << "Player 1 input error. location is already filled." << endl;
+			cout << "input error. location is already filled." << endl;
 	} while (board[r-1][c-1] != '*');
 	board[r - 1][c - 1] = 'X';
 	displayBoard(board);
@@ -76,28 +75,28 @@ void selectLocation(char board[][COLS])
 				cout << "Player 2 enter a board location to place an O starting with row selection (1-3):";
 				cin >> r;
 				if (r < 1 || r > 3)
-					cout << "Player 2 input error. Row selection must be between 1-3." << endl;
+					cout << "input error. Row selection must be between 1-3." << endl;
 			} while (r < 1 || r > 3);
 			do
 			{
 				cout << "Player 2 enter column selection (1-3):";
 				cin >> c;
 				if (c < 1 || c > 3)
-					cout << "Player 2 input error. Column selection must be between 1-3." << endl;
+					cout << "input error. Column selection must be between 1-3." << endl;
 			} while ((c < 1 || c > 3));
 			if (board[r-1][c-1] != '*')
-				cout << "Player 2 input error. location is already filled." << endl;
+				cout << "input error. location is already filled." << endl;
 		} while (board[r-1][c-1] != '*');
 		board[r-1][c-1] = 'O';
 		displayBoard(board);
 	}
 }
 
-bool boardFull(const char board[][COLS])
+bool boardFull(const char board[][NUM_ROWS_AND_COLS])
 {
-	for (int r = 0; r < ROWS; r++)
+	for (int r = 0; r < NUM_ROWS_AND_COLS; r++)
 	{
-		for (int c = 0; c < COLS; c++)
+		for (int c = 0; c < NUM_ROWS_AND_COLS; c++)
 		{
 			if (board[r][c] == '*')
 				return false;
@@ -106,7 +105,7 @@ bool boardFull(const char board[][COLS])
 	return true;
 }
 
-bool xwinner(const char board[][COLS])
+bool xwinner(const char board[][NUM_ROWS_AND_COLS])
 {
 	if ((board[0][0] == 'X' && board[0][1] == 'X') && (board[0][2] == 'X'))
 		return true;
@@ -126,9 +125,11 @@ bool xwinner(const char board[][COLS])
 		return true;
 	else
 		return false;
+
+	return false;
 }
 
-bool owinner(const char board[][COLS])
+bool owinner(const char board[][NUM_ROWS_AND_COLS])
 {
 	if ((board[0][0] == 'O' && board[0][1] == 'O') && (board[0][2] == 'O'))
 		return true;
@@ -148,9 +149,11 @@ bool owinner(const char board[][COLS])
 		return true;
 	else
 		return false;
+
+	return false;
 }
 
-void displayMessage(const char board[][COLS])
+void displayMessage(const char board[][NUM_ROWS_AND_COLS])
 {
 	if (xwinner(board))
 		cout << "Player 1 won." << endl;
