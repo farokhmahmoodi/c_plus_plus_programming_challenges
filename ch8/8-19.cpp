@@ -125,8 +125,6 @@ bool xwinner(const char board[][NUM_ROWS_AND_COLS])
 		return true;
 	else
 		return false;
-
-	return false;
 }
 
 bool owinner(const char board[][NUM_ROWS_AND_COLS])
@@ -149,8 +147,6 @@ bool owinner(const char board[][NUM_ROWS_AND_COLS])
 		return true;
 	else
 		return false;
-
-	return false;
 }
 
 void displayMessage(const char board[][NUM_ROWS_AND_COLS])
