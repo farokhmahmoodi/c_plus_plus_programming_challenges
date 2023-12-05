@@ -53,17 +53,17 @@ void selectLocation(char board[][COLS])
 			cout << "Player 1 enter a board location to place an X starting with row selection (1-3):";
 			cin >> r;
 			if (r < 1 || r > 3)
-				cout << "input error. Row selection must be between 1-3." << endl;
+				cout << "Player 1 input error. Row selection must be between 1-3." << endl;
 		} while (r < 1 || r > 3);
 		do
 		{
 			cout << "Player 1 enter column selection (1-3):";
 			cin >> c;
 			if (c < 1 || c > 3)
-				cout << "input error. Column selection must be between 1-3." << endl;
+				cout << "Player 1 input error. Column selection must be between 1-3." << endl;
 		} while ((c < 1 || c > 3));
 		if (board[r-1][c-1] != '*')
-			cout << "input error. location is already filled." << endl;
+			cout << "Player 1 input error. location is already filled." << endl;
 	} while (board[r-1][c-1] != '*');
 	board[r - 1][c - 1] = 'X';
 	displayBoard(board);
@@ -76,17 +76,17 @@ void selectLocation(char board[][COLS])
 				cout << "Player 2 enter a board location to place an O starting with row selection (1-3):";
 				cin >> r;
 				if (r < 1 || r > 3)
-					cout << "input error. Row selection must be between 1-3." << endl;
+					cout << "Player 2 input error. Row selection must be between 1-3." << endl;
 			} while (r < 1 || r > 3);
 			do
 			{
 				cout << "Player 2 enter column selection (1-3):";
 				cin >> c;
 				if (c < 1 || c > 3)
-					cout << "input error. Column selection must be between 1-3." << endl;
+					cout << "Player 2 input error. Column selection must be between 1-3." << endl;
 			} while ((c < 1 || c > 3));
 			if (board[r-1][c-1] != '*')
-				cout << "input error. location is already filled." << endl;
+				cout << "Player 2 input error. location is already filled." << endl;
 		} while (board[r-1][c-1] != '*');
 		board[r-1][c-1] = 'O';
 		displayBoard(board);
