@@ -14,23 +14,3 @@ TicketManager::TicketManager(ifstream& prices, ifstream& availability)
 		}
 	}
 }
-
-void TicketManager::displayChart() //test
-{
-	for (int r = 0; r < 15; r++)
-	{
-		for (int c = 0; c < 30; c++)
-		{
-			cout << a[r][c].availability;
-		}
-		cout << endl;
-	}
-	for (int r = 0; r < 15; r++)
-	{
-		for (int c = 0; c < 30; c++)
-		{
-			cout << a[r][c].price << " ";
-		}
-		cout << endl;
-	}
-}
