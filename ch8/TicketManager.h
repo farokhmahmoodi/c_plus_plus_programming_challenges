@@ -16,7 +16,6 @@ private:
 	SeatStructures a[15][30];
 public:
 	TicketManager(ifstream&, ifstream&);
-	void displayChart(); //test function
 
 };
 #endif
