@@ -1,5 +1,6 @@
 #ifndef TICKETMANAGER_H
 #define TICKETMANAGER_H
+#include <iostream>
 #include <fstream>
 #include <string>
 using namespace std;
@@ -9,14 +10,13 @@ class TicketManager
 private:
 	struct SeatStructures
 	{
-		double price = 0;
-		string availability = " ";
+		double price;
+		char availability;
 	};
 	SeatStructures a[15][30];
 public:
-	TicketManager(ifstream, ifstream);
-	string displaySeats();
-	string ticketRequest(int, int, int);
+	TicketManager(ifstream&, ifstream&);
+	void displayChart(); //test function
 
 };
 #endif

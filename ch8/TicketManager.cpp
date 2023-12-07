@@ -1,6 +1,6 @@
 #include "TicketManager.h"
 
-TicketManager::TicketManager(ifstream prices, ifstream availability)
+TicketManager::TicketManager(ifstream& prices, ifstream& availability)
 {
 	for (int row = 0; row < 15; row++)
 	{
@@ -15,27 +15,22 @@ TicketManager::TicketManager(ifstream prices, ifstream availability)
 	}
 }
 
-string TicketManager::displaySeats()
+void TicketManager::displayChart() //test
 {
-	string chart, rows, seats, title;
-	title = "                    Seats\n";
-	seats = "        123456789012345678901234567890\n";
-	for (int row = 0; row < 15; row++)
+	for (int r = 0; r < 15; r++)
 	{
-		rows += "Row " + (row + 1);
-		rows += "   ";
-		for (int column = 0; column < 30; column++)
+		for (int c = 0; c < 30; c++)
 		{
-			rows += a[row][column].availability;
-			if (column == 29)
-				rows += "\n";
+			cout << a[r][c].availability;
 		}
+		cout << endl;
 	}
-	chart = title + seats + rows;
-	return chart;
-}
-
-string TicketManager::ticketRequest(int numOfSeats, int rowNum, int seatNum)
-{
-
+	for (int r = 0; r < 15; r++)
+	{
+		for (int c = 0; c < 30; c++)
+		{
+			cout << a[r][c].price << " ";
+		}
+		cout << endl;
+	}
 }
