@@ -1,7 +1,8 @@
 #ifndef TICKETMANAGER_H
 #define TICKETMANAGER_H
+#include <iostream>
+#include <iomanip>
 #include <fstream>
-#include <string>
 using namespace std;
 
 class TicketManager
@@ -15,6 +16,7 @@ private:
 	SeatStructures a[15][30];
 public:
 	TicketManager(ifstream&, ifstream&);
-	string displaySeats();
+	void displaySeats();
+	void ticketsRequest(int,int,int);
 };
 #endif
