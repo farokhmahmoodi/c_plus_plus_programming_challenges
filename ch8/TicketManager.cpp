@@ -39,9 +39,24 @@ void TicketManager::displaySeats()
 	}
 }
 
-void TicketManager::ticketsRequest(int numSeats, int row, int startingSeat)
+void TicketManager::ticketsRequest(int numSeats, int rowNum, int startingSeat)
 {
-
-
-
+	double total = 0.0;
+	for (int row = rowNum - 1; row < rowNum; row++)
+	{
+		for (int column = startingSeat - 1,start = 0; start < numSeats; column++, start++)
+		{
+			if (a[row][column].availability == '*')
+				cout << "Seat in row " << (row + 1) << " column "
+				<< (column + 1) << " is unavailable." << endl;
+			else
+			{
+				total += a[row][column].price;
+			}
+		}
+	}
+	cout << "Number of requested seats: " << numSeats << endl;
+	cout << fixed << showpoint << setprecision(2);
+	cout << "Price per seat in requested row (" << rowNum << "): $ " << a[rowNum][startingSeat].price << endl;
+	cout << "Total price for seats: $" << total << endl;
 }

@@ -18,5 +18,6 @@ public:
 	TicketManager(ifstream&, ifstream&);
 	void displaySeats();
 	void ticketsRequest(int,int,int);
+
 };
 #endif
