@@ -14,10 +14,10 @@ private:
 		char availability;
 	};
 	SeatStructures a[15][30];
+	void purchaseTickets(int, int, int, double);
 public:
 	TicketManager(ifstream&, ifstream&);
 	void displaySeats();
 	void ticketsRequest(int,int,int);
-	void validateSale(double);
 };
 #endif
