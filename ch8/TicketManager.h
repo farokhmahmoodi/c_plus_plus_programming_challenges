@@ -17,7 +17,9 @@ private:
 	void purchaseTickets(int, int, int, double);
 public:
 	TicketManager(ifstream&, ifstream&);
+	~TicketManager();
 	void displaySeats();
 	void ticketsRequest(int,int,int);
+	void salesReport();
 };
 #endif
