@@ -66,7 +66,7 @@ void TicketManager::ticketsRequest(int numSeats, int rowNum, int startingSeat)
 	{
 		cout << "Number of requested seats: " << numSeats << endl;
 		cout << fixed << showpoint << setprecision(2);
-		cout << "Price per seat in requested row (" << rowNum << "): $ " << a[rowNum][startingSeat].price << endl;
+		cout << "Price per seat in row " << rowNum << ": $ " << a[rowNum][startingSeat].price << endl;
 		cout << "Total price for seats: $" << total << endl;
 		cout << "Would you like to purchase these seats? (Y\\N) ";
 		cin >> choice;
@@ -80,6 +80,7 @@ void TicketManager::ticketsRequest(int numSeats, int rowNum, int startingSeat)
 void TicketManager::purchaseTickets(int numSeats, int rowNum, int startingSeat, double total)
 {
 	double money;
+
 	cout << "Enter money to purchase the seats:";
 	cin >> money;
 	if (money < total)
@@ -110,5 +111,39 @@ void TicketManager::purchaseTickets(int numSeats, int rowNum, int startingSeat, 
 				cout << "------------------" << endl;
 			}
 		}
-	}	
+		if (money > total)
+			cout << endl << "Change due: $" << money - total << endl << endl;
+ 	}	
+}
+
+void TicketManager::salesReport()
+{
+	int seatsSold, seatsAvailable;
+	seatsSold = seatsAvailable = 0;
+	double totalCollected = 0.0;
+
+	for (int row = 0; row < 15; row++)
+	{
+		for (int column = 0; column < 30; column++)
+		{
+			if (a[row][column].availability == '*')
+			{
+				seatsSold++;
+				totalCollected += a[row][column].price;
+			}
+			else
+				seatsAvailable++;
+		}
+	}
+	cout << endl << setw(30) << "Sales Report" << endl;
+	cout << "------------------------------------------------" << endl;
+	cout << "Seats Sold: " << seatsSold << endl;
+	cout << "Seats Available: " << seatsAvailable << endl;
+	cout << fixed << showpoint << setprecision(2);
+	cout << "Total Collected from sold seats: $" << totalCollected << endl << endl;
+}
+
+TicketManager::~TicketManager()
+{
+	displaySeats();
 }
