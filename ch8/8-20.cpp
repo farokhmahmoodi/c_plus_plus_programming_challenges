@@ -4,8 +4,8 @@
 
 int main()
 {
-    ifstream prices("C:\\Users\\p3209584\\source\\repos\\start c++ ch 8\\8-20\\8-20\\SeatPrices.dat");
-    ifstream availability("C:\\Users\\p3209584\\source\\repos\\start c++ ch 8\\8-20\\8-20\\SeatAvailability.dat");
+    ifstream prices("C:\\Users\\FM\\source\\repos\\start c++ ch8\\8-20\\8-20\\SeatPrices.dat");
+    ifstream availability("C:\\Users\\FM\\source\\repos\\start c++ ch8\\8-20\\8-20\\SeatAvailability.dat");
     TicketManager b(prices, availability);
     int choice;
 
@@ -32,21 +32,21 @@ int main()
             int numSeats, rowNum, seatNum;
             do
             {
-                cout << "Enter number of seats you want to purchase(between 1 and 450): ";
+                cout << "Enter number of seats you want to purchase(between 1 and 30) for a particular row: ";
                 cin >> numSeats;
-                if (numSeats < 1 || numSeats > 450)
-                    cout << "Input error. Please enter valid number between 1 and 450." << endl;
-            } while (numSeats < 1 || numSeats > 450);
+                if (numSeats < 1 || numSeats > 30)
+                    cout << "Input error. Please enter valid number between 1 and 30." << endl;
+            } while (numSeats < 1 || numSeats > 30);
             do
             {
-                cout << "Enter row number of seats you want to purchase(between 1 and 15): ";
+                cout << "Enter desired row number for seats you want to purchase(between 1 and 15): ";
                 cin >> rowNum;
-                if(rowNum < 1 || rowNum > 15)
+                if (rowNum < 1 || rowNum > 15)
                     cout << "Input error. Please enter valid number between 1 and 15." << endl;
             } while (rowNum < 1 || rowNum > 15);
             do
             {
-                cout << "Enter starting seat number for seats you want to purchase(between 1 and 30): ";
+                cout << "Enter desired starting seat number for seats you want to purchase(between 1 and 30): ";
                 cin >> seatNum;
                 if (seatNum < 1 || seatNum > 30)
                     cout << "Input error. Please enter valid number between 1 and 30." << endl;

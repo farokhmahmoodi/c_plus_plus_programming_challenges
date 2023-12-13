@@ -42,18 +42,24 @@ void TicketManager::displaySeats()
 void TicketManager::ticketsRequest(int numSeats, int rowNum, int startingSeat)
 {
 	double total = 0.0;
-	int unavailableSeats = 0;
+	bool available = true;
 	char choice;
 
 	for (int row = rowNum - 1; row < rowNum; row++)
 	{
-		for (int column = startingSeat - 1,start = 0; start < numSeats; column++, start++)
+		for (int column = startingSeat - 1, start = 0; start < numSeats; column++, start++)
 		{
 			if (a[row][column].availability == '*')
 			{
 				cout << "Seat in row " << (row + 1) << " column "
 					<< (column + 1) << " is unavailable." << endl;
-				unavailableSeats++;
+				available = false;
+				break;
+			}
+			else if (column == 31)
+			{
+				cout << "Requested seats do not exist." << endl;
+				available = false;
 				break;
 			}
 			else
@@ -62,17 +68,17 @@ void TicketManager::ticketsRequest(int numSeats, int rowNum, int startingSeat)
 			}
 		}
 	}
-	if (unavailableSeats == 0)
+	if (available)
 	{
 		cout << "Number of requested seats: " << numSeats << endl;
 		cout << fixed << showpoint << setprecision(2);
-		cout << "Price per seat in row " << rowNum << ": $ " << a[rowNum][startingSeat].price << endl;
+		cout << "Price per seat in row " << rowNum << ": $ " << a[rowNum - 1][startingSeat - 1].price << endl;
 		cout << "Total price for seats: $" << total << endl;
 		cout << "Would you like to purchase these seats? (Y\\N) ";
 		cin >> choice;
 		if (toupper(choice) == 'Y')
 		{
-			purchaseTickets(numSeats, rowNum, startingSeat,total);
+			purchaseTickets(numSeats, rowNum, startingSeat, total);
 		}
 	}
 }
@@ -95,16 +101,16 @@ void TicketManager::purchaseTickets(int numSeats, int rowNum, int startingSeat, 
 				a[row][column].availability = '*';
 				cout << setw(15) << "Ticket Sold" << endl;
 				cout << "------------------" << endl;
-				if(rowNum < 10)
+				if (rowNum < 10)
 					cout << "|" << "Row " << rowNum << setw(12) << "|" << endl;
 				else
 					cout << "|" << "Row " << rowNum << setw(11) << "|" << endl;
-				if(seatNum < 10)
+				if (seatNum < 10)
 					cout << "|" << "Seat Number " << seatNum << setw(4) << "|" << endl;
 				else
 					cout << "|" << "Seat Number " << seatNum << setw(3) << "|" << endl;
 				cout << fixed << showpoint << setprecision(2);
-				if(a[row][column].price < 10.00)
+				if (a[row][column].price < 10.00)
 					cout << "|" << "Price $" << a[row][column].price << setw(6) << "|" << endl;
 				else
 					cout << "|" << "Price $" << a[row][column].price << setw(5) << "|" << endl;
@@ -113,7 +119,7 @@ void TicketManager::purchaseTickets(int numSeats, int rowNum, int startingSeat, 
 		}
 		if (money > total)
 			cout << endl << "Change due: $" << money - total << endl << endl;
- 	}	
+	}
 }
 
 void TicketManager::salesReport()

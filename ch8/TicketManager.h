@@ -19,7 +19,7 @@ public:
 	TicketManager(ifstream&, ifstream&);
 	~TicketManager();
 	void displaySeats();
-	void ticketsRequest(int,int,int);
+	void ticketsRequest(int, int, int);
 	void salesReport();
 };
 #endif
