@@ -1,20 +1,21 @@
-//
-/*
+/*In a population, the birth rate and death rate are calculated as follows:
+
+Birth Rate = Number of Births ÷ Population
+Death Rate = Number of Deaths ÷ Population
+
+For example, in a population of 100,000 that has 5,000 births and 2,000 deaths per year,
+
+Birth Rate = 5,000 ÷ 100,000 = 0.05
+Death Rate = 2,000 ÷ 100,000 = 0.02
+Design a Population class that stores a current population, annual number of births, and annual number of deaths for some geographic area. The class should allow these three values to be set in either of two ways: by passing arguments to a three-parameter constructor when a new Population object is created or by calling the setPopulation, setBirths, and setDeaths class member functions. In either case, if a population figure less than 2 is passed to the class, use a default value of 2. If a birth or death figure less than 0 is passed in, use a default value of 0. The class should also have getBirthRate and getDeathRate functions that compute and return the birth and death rates. Write a short program that uses the Population class and illustrates its capabilities.
 */
 
 #include <iostream>
 #include <iomanip>
 #include <string>
 #include <cmath>
-#include <cstdlib>
-#include <ctime>
-#include <cctype>
-#include <fstream>
-//#include <windows.h>
 #include "Population.h"
 using namespace std;
-
-
 
 int main()
 {
@@ -70,7 +71,6 @@ int main()
 			break;
 		}
 	} while (choice != 3);
-
 
 	return 0;
 }
