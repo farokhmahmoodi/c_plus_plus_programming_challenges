@@ -1,8 +1,10 @@
-// ConsoleApplication2.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-/*
-dsfasf
-asdfasdfasdfsad
+/*Write a program that asks the user to enter an item’s wholesale cost and its markup percentage. It should then display the item’s retail price. For example:
+
+If an item’s wholesale cost is $5.00 and its markup percentage is 100 percent, then the item’s retail price is $10.00.
+
+If an item’s wholesale cost is $5.00 and its markup percentage is 50 percent, then the item’s retail price is $7.50.
+
+The program should have a function named calculateRetail that receives the wholesale cost and the markup percentage as arguments and returns the retail price of the item.
 */
 
 #include <iostream>
@@ -47,15 +49,3 @@ double calculateRetail(double wholeCost, double markUpPercent)
 {
 	return wholeCost + (wholeCost * markUpPercent * .01);
 }
-
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
