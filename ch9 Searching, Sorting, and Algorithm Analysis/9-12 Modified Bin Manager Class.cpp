@@ -5,6 +5,7 @@
 void displayMainMenu();
 void displaySubMenu(BinManager&, int);
 bool validateChoice(int);
+bool validateInput(BinManager&, string);
 void displayReport(BinManager&);
 
 int main()
@@ -23,6 +24,7 @@ int main()
 			displayMainMenu();
 			cin >> choice;
 		} while (!validateChoice(choice));
+		cin.ignore();
 		if (choice != 4)
 			displaySubMenu(a, choice);
 		else
@@ -42,26 +44,27 @@ void displayMainMenu()
 
 void displaySubMenu(BinManager& a, int choice)
 {
-	int q, subchoice;
+	int q;
+	string subchoice;
 	switch (choice)
 	{
 	case 1:
 		do
 		{
-			cout << "Select a bin to add parts to." << endl;
+			cout << endl << "Enter item description of bin you want to add parts to." << endl;
 			for (int i = 1; i < 10; i++)
 			{
 				if (i % 3 == 0)
-					cout << i << ".) " << a.getDescription(i)
-					<< " " << a.getQuantity(i) << endl;
+					cout << a.getDescription(i) << " " 
+					<< a.getQuantity(a.getDescription(i)) << endl;
 				else
-					cout << i << ".) " << a.getDescription(i)
-					<< " " << a.getQuantity(i) << "    ";
+					cout << a.getDescription(i) << " " 
+					<< a.getQuantity(a.getDescription(i)) << "    ";
 			}
-			cin >> subchoice;
-			if (subchoice < 1 || subchoice > 9)
-				cout << "Invalid choice." << endl;
-		} while (subchoice < 1 || subchoice > 9);
+			getline(cin,subchoice);
+			if (!validateInput(a,subchoice))
+				cout << "Item description not found." << endl;
+		} while (!validateInput(a, subchoice));
 		cout << "How many parts do you want to add? ";
 		cin >> q;
 		if (!a.addParts(subchoice, q))
@@ -70,20 +73,20 @@ void displaySubMenu(BinManager& a, int choice)
 	case 2:
 		do
 		{
-			cout << "Select a bin to remove parts from." << endl;
+			cout << endl << "Enter item description of bin you want to remove parts from." << endl;
 			for (int i = 1; i < 10; i++)
 			{
 				if (i % 3 == 0)
-					cout << i << ".) " << a.getDescription(i)
-					<< " " << a.getQuantity(i) << endl;
+					cout << a.getDescription(i) << " " 
+					<< a.getQuantity(a.getDescription(i)) << endl;
 				else
-					cout << i << ".) " << a.getDescription(i)
-					<< " " << a.getQuantity(i) << "    ";
+					cout << a.getDescription(i) << " " 
+					<< a.getQuantity(a.getDescription(i)) << "    ";
 			}
-			cin >> subchoice;
-			if (subchoice < 1 || subchoice > 9)
-				cout << "Invalid choice." << endl;
-		} while (subchoice < 1 || subchoice > 9);
+			getline(cin,subchoice);
+			if (!validateInput(a, subchoice))
+				cout << "Item description not found." << endl;
+		} while (!validateInput(a, subchoice));
 		cout << "How many parts do you want to remove? ";
 		cin >> q;
 		if (!a.removeParts(subchoice, q))
@@ -107,16 +110,26 @@ bool validateChoice(int choice)
 		return true;
 }
 
+bool validateInput(BinManager &a, string input) //validate item description user input
+{
+	for (int i = 1; i < 10; i++)
+	{
+		if (input == a.getDescription(i))
+			return true;
+	}
+	return false;
+}
+
 void displayReport(BinManager& a)
 {
 	cout << endl;
 	for (int i = 1; i < 10; i++)
 	{
 		if (i % 3 == 0)
-			cout << i << ".) " << a.getDescription(i)
+			cout << a.getDescription(i)
 			<< " " << a.getQuantity(i) << endl;
 		else
-			cout << i << ".) " << a.getDescription(i)
+			cout << a.getDescription(i)
 			<< " " << a.getQuantity(i) << "    ";
 	}
 	cout << endl;

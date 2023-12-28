@@ -7,7 +7,7 @@ class BinManager
 private:
 	InvBin bin[30];
 	int numBins;
-
+	int searchItemDescription(string);
 public:
 	BinManager()
 	{
@@ -27,5 +27,8 @@ public:
 	int getQuantity(int);
 	bool addParts(int, int);
 	bool removeParts(int, int);
+	bool addParts(string, int);
+	bool removeParts(string, int);
+	int getQuantity(string);
 };
 #endif
