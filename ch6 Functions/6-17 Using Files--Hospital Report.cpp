@@ -1,8 +1,5 @@
-// 6_16.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-//
-//
-/*
+/*Modify Programming Challenge 16, Overloaded Hospital, to write the report it creates to a file. 
+Print the contents of the file to hand in to your instructor.
 */
 
 #include <iostream>
@@ -13,15 +10,17 @@
 #include<fstream>
 #include<cctype>
 #include<cmath> 
-#include <windows.h> //for colored text
 using namespace std;
 
 void validateData(int&, double&, double&, double&);
 double totalCharges(int, double, double, double);
 double totalCharges(double, double);
+void outFile(ofstream&, string, int, double, double, double);
+void outFile(ofstream&, string, double, double);
 
 int main()
 {
+
     string patientType;
     int numDays = 0;
     double dailyRate = 0.0, serviceCharges, medicationCharges;
@@ -39,9 +38,10 @@ int main()
             cin >> serviceCharges;
             cout << "charges for medication?:";
             cin >> medicationCharges;
-            validateData(numDays, dailyRate, serviceCharges, medicationCharges);
-            cout << fixed << showpoint << setprecision(2);
-            cout << "total charges is $" << totalCharges(numDays, dailyRate, serviceCharges, medicationCharges) << ".\n";
+            validateData(numDays, dailyRate, serviceCharges, medicationCharges);\
+            ofstream outputFile("C:\\Users\\FM\\source\\repos\\start c++ ch6\\6_17\\report.txt");
+            outFile(outputFile, patientType, numDays, dailyRate, serviceCharges, medicationCharges);
+            outputFile.close();
         }
         else if (patientType == "outpatient") //outpatient
         {
@@ -50,8 +50,9 @@ int main()
             cout << "charges for medication?:";
             cin >> medicationCharges;
             validateData(numDays, dailyRate, serviceCharges, medicationCharges);
-            cout << fixed << showpoint << setprecision(2);
-            cout << "total charges is $" << totalCharges(serviceCharges, medicationCharges) << ".\n";
+            ofstream outputFile("C:\\Users\\FM\\source\\repos\\start c++ ch6\\6_17\\report.txt");
+            outFile(outputFile, patientType, serviceCharges, medicationCharges);
+            outputFile.close();
         }
         else
         {
@@ -93,4 +94,28 @@ double totalCharges(int numDays, double dailyRate, double serviceCharges, double
 double totalCharges(double serviceCharges, double medicationCharges)
 {
     return serviceCharges + medicationCharges;
+}
+
+void outFile(ofstream& outFile, string patientType, int numDays, double dailyRate, double serviceCharges, double medicationCharges) //inpatient
+{
+    outFile << "Hospital Report\n";
+    outFile << "-------------------\n";
+    outFile << "Patient Type: " << patientType << '\n';
+    outFile << "Number of Days Spent in Hospital: " << numDays << '\n';
+    outFile << fixed << showpoint << setprecision(2);
+    outFile << "Daily Rate: $" << dailyRate << '\n';
+    outFile << "Service Charges: $" << serviceCharges << '\n';
+    outFile << "Medication Charges: $" << medicationCharges << '\n';
+    outFile << "Total Charges: $" << totalCharges(numDays, dailyRate, serviceCharges, medicationCharges) << '\n';
+}
+
+void outFile(ofstream& outFile, string patientType, double serviceCharges, double medicationCharges) //outpatient
+{
+    outFile << "Hospital Report\n";
+    outFile << "-------------------\n";
+    outFile << "Patient Type: " << patientType << '\n';
+    outFile << fixed << showpoint << setprecision(2);
+    outFile << "Service Charges: $" << serviceCharges << '\n';
+    outFile << "Medication Charges: $" << medicationCharges<< '\n';
+    outFile << "Total Charges: $" << totalCharges(serviceCharges, medicationCharges) << '\n';
 }

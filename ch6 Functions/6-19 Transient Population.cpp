@@ -1,8 +1,5 @@
-// 6_19.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-//
-//
-/*
+/*Modify Programming Challenge 17 to also consider the effect on population caused by people moving into or out of a geographic area. Given as input a starting population size, the annual birth rate, the annual death rate, the number of individuals that typically move into the area each year, and the number of individuals that typically leave the area each year, the program should project what the population will be numYears from now. 
+You can either prompt the user to input a value for numYears, or you can set it within the program.
 */
 
 #include <iostream>

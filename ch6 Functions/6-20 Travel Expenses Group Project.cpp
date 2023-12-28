@@ -1,8 +1,30 @@
-// ch6_20.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-//
-//
-/*
+/*This program should be designed and written by a team of students.
+
+Start by analyzing the program requirements. Decide what functions are needed and what each one must do. Divide the work so that each student is given about the same workload. For example, one student might design the main function while others design individual functions that main will call. Then, before beginning to write any code, decide on function names, parameters, and return types so all the completed modules will properly work together when they are combined into the final program.
+
+Here is the assignment. Write a program that calculates and displays the total travel expenses of a company employee on a trip. The program should have functions that ask for and return the following:
+
+The trip dates
+
+The total number of nights spent away from home on the trip
+
+The amount of any round-trip airfare
+
+The amount of any car rentals
+
+Miles driven, if a private vehicle was used. Vehicle allowance is $0.58 per mile.
+
+Parking fees
+
+Taxi fees
+
+Conference or seminar registration fees
+
+Hotel expenses. The company allows up to $120 per night for lodging.
+
+The cost of meals
+
+The program should perform any necessary calculations, such as computing mileage reimbursement and allowed hotel reimbursement. It should then create a nicely formatted expense report that includes the amount spent in each category, as well as the total amount spent for the entire trip. This report should be written to a file.
 */
 
 #include <iostream>
@@ -51,11 +73,7 @@ int main()
     mealFees = mealCosts();
     outFile(tripsDates, totalNightsAway, airfareFees, carRentalFees, milesDrove, mileageReimburse, parkingFees, taxiCosts, conferenceCosts, hotelCosts,
         hotelReimbursement, mealFees);
-        
-        
-        //ofstream outFile(string tripDates, int totalNightsAway, double airfare, double carRental,
-        //int milesDriven, double milesRe, double park
-        //, double taxi, double conf, double hotelExp, double hotelRe, double meals)
+    
 
     return 0;
 }

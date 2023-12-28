@@ -1,7 +1,24 @@
-// start c++ 10th ed. maddis ch6_15.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-//
-/*
+/*The Middletown Wholesale Copper Wire Company sells spools of copper wiring for $100 each and ships them for $10 apiece. Write a program that displays the status of an order. It should use two functions. The first function asks for the following data and stores the input values in reference parameters.
+
+The number of spools ordered.
+
+The number of spools in stock.
+
+Any special shipping and handling charges (above the regular $10 rate).
+
+The second function receives as arguments any values needed to compute and display the following information:
+
+The number of ordered spools ready to ship from current stock.
+
+The number of ordered spools on backorder (if the number ordered is greater than what is in stock).
+
+Total selling price of the portion ready to ship (the number of spools ready to ship times $100).
+
+Total shipping and handling charges on the portion ready to ship.
+
+Total of the order ready to ship.
+
+The shipping and handling parameter in the second function should have the default argument 10.00.
 */
 
 #include <iostream>
@@ -19,7 +36,6 @@ const int PRICE_SPOOL = 100; //$100
 
 void inputData(int&, int&, int&);
 void printReport(int, int, int, int = 10);
-
 
 int main()
 {

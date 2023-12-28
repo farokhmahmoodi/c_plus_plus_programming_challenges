@@ -1,8 +1,28 @@
-// 6_18.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-//
-//
-/*
+/*In a population, the birth rate is the percentage increase of the population due to births, and the death rate is the percentage decrease of the population due to deaths. Write a program that asks for the following:
+
+The starting size of a population (minimum 2)
+
+The annual birth rate
+
+The annual death rate
+
+The number of years to display (minimum 1)
+
+The program should then display the starting population and the projected population at the end of each year. It should use a function that calculates and returns the projected new size of the population after a year. The formula is
+
+     N = P(1+B)(1-D)
+
+where
+
+N is the new population size,
+
+P is the previous population size,
+
+B is the birth rate,
+
+and D is the death rate.
+
+Annual birth rate and death rate are the typical number of births and deaths in a year per 1,000 people, expressed as a decimal. So, for example, if there are normally about 32 births and 26 deaths per 1,000 people in a given population, the birth rate would be .032 and the death rate would be .026.
 */
 
 #include <iostream>
