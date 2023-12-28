@@ -1,8 +1,15 @@
-// ConsoleApplication2.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-/*
-dsfasf
-asdfasdfasdfsad
+/*The Fast Freight Shipping Company charges the following rates:
+
+Weight of Package (in kilograms)	Rate per 500 Miles Shipped
+2 kg or less	$3.10
+Over 2 kg but not more than 6 kg	$4.20
+Over 6 kg but not more than 10 kg	$5.30
+over 10 kg	$6.40
+Miles that are not a multiple of 500 are charged at the next higher rate. For example, 520 miles would be charged as 1000 miles.
+
+Write a program that asks for the weight of a package and the distance it is to be shipped. 
+These two data items should be passed as arguments to a calculateCharge function that computes and returns the shipping charge to be displayed. 
+The main function should loop to handle multiple packages until a weight of 0 is entered.
 */
 
 #include <iostream>
@@ -56,7 +63,6 @@ int main()
 	return 0;
 }
 
-
 double calculateCharge(double weight, int distance)
 {
 	if (weight <= 2)
@@ -88,19 +94,3 @@ double calculateCharge(double weight, int distance)
 			return ((distance / 500) + 1) * RATE_FOR_OVER_10KG_PER_500_MILES;
 	}
 }
-
-
-
-
-
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file

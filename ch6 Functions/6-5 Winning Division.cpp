@@ -1,8 +1,9 @@
-// ConsoleApplication2.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-/*
-dsfasf
-asdfasdfasdfsad
+/*Write a program that determines which of a company’s four divisions (Northeast, Southeast, Northwest, and Southwest) had the greatest sales for a quarter. 
+It should include the following two functions, which are called by main.
+
+double getSales() is passed the name of a division. It asks the user for a division’s quarterly sales figure, validates that the input is not less than 0, then returns it. It should be called once for each division.
+
+void findHighest() is passed the four sales totals. It determines which is the largest and prints the name of the high grossing division, along with its sales figure.
 */
 
 #include <iostream>
@@ -59,14 +60,3 @@ void findHighest(double neSales, double seSales, double nwSales, double swSales)
 		cout << sw << " division has highest sales this quarter which is $" << swSales << endl;
 }
 
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
