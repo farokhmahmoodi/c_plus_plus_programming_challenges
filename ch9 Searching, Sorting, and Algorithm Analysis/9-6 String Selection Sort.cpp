@@ -1,3 +1,20 @@
+/*Modify the selectionSort function presented in this chapter so it sorts an array of strings instead of an array of ints. Test the function with a driver program. Use Program 9-9 as a skeleton to complete.
+
+Program 9-9
+
+// Include needed header files here.
+int main()
+{
+const int SIZE = 20;
+string name[SIZE] = 
+{"Collins, Bill",  "Smith, Bart",  "Michalski, Joe", "Griffin, Jim",
+"Sanchez, Manny",  "Rubin, Sarah", "Taylor, Tyrone", "Johnson, Jill", 
+ "Allison, Jeff",  "Moreno, Juan", "Wolfe, Bill",    "Whitman, Jean",
+ "Moretti, Bella", "Wu, Eric",     "Patel, Renee",   "Harrison, Rose",
+ "Smith, Cathy",   "Conroy, Pat",  "Kelly, Sean",    "Holland, Beth"};
+// Insert your code to complete this program.
+}*/
+
 #include <iostream>
 #include <string>
 using namespace std;

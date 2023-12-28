@@ -1,3 +1,7 @@
+/*Write a program that uses two identical arrays of at least 20 integers stored in a random order. It should call a function that uses the bubble sort algorithm modified to sort one of the 
+arrays in descending order. The function should count the number of exchanges it makes. The program should then call a function that uses the selection sort algorithm modified to sort the other array in descending order. 
+It should also count the number of exchanges it makes. Display the sorted data along with these two clearly labeled counts on the screen.*/
+
 #include <iostream>
 using namespace std;
 

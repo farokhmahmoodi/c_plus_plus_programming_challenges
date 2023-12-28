@@ -1,3 +1,8 @@
+/*Modify the program you wrote for Programming Challenge 15 so it stores the names in a vector of strings, rather than in an 
+array of strings. Create the vector without specifying a size and then use the push_back member function to add an element 
+holding each string to the vector as it is read in from a file. Instead of assuming there are always 20 strings, read in the 
+strings and add them to the vector until there is no data left in the file. The data can be found in the names.dat file.*/
+
 #include <iostream>
 #include <fstream>
 #include <string>

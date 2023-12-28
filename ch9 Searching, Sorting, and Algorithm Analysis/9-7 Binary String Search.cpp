@@ -1,3 +1,6 @@
+/*Modify the binarySearch function presented in this chapter so it searches an array of strings instead of an array of ints. Test the function with a driver program. 
+Use Program 9-9 as a skeleton to complete. (The array must be sorted before the binary search will work.)*/
+
 #include <iostream>
 #include <string>
 using namespace std;

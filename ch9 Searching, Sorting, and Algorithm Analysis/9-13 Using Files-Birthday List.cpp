@@ -1,3 +1,11 @@
+/*Write a program that produces a list of stored names and birthdays in date order. It should use a 10-element array of 
+structures or class objects that each holds two string variables, name and birthday. The program should fill the array elements 
+by reading in the data from the birthdays.dat file located in the Chapter 9 programs folder on the book’s companion website. 
+The file contains 20 lines with a person’s name on one line, followed by his or her birthday on the next line in the form mm/dd. 
+Once the data has been read in and stored, the program should sort the elements in ascending order of date and display the 
+birthday list. Make the program modular with main calling different functions to read in the file data, perform the sort, swap 
+two elements, and display the list.*/
+
 #include <iostream>
 #include <fstream>
 #include <iomanip>

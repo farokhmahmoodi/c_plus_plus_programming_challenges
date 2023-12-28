@@ -1,3 +1,7 @@
+/*Write a program that creates and displays a report of 12 Little League baseball players and their batting averages, listed in order of batting average from highest to 
+lowest. The program should use an array of structures or class objects to store the data, where each structure or object holds the name of a player and their batting average. 
+Make the program modular by having main call on  different functions to input the data, sort the data, perform swaps, and display the report.*/
+
 #include <iostream>
 #include <iomanip>
 #include "BattingAvg.h"

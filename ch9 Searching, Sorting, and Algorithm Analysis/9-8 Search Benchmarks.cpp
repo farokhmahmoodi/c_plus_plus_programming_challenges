@@ -1,3 +1,8 @@
+/*Write a program that has at least 20 integers stored in an array in ascending order. It should call a function that uses the linear search algorithm to locate one of the values. 
+The function should keep a count of the number of comparisons  it makes until it finds the value. The program then should call a 
+function that uses the binary search algorithm to locate the same value. It should also keep 
+count of the number of comparisons it makes. Display these two counts on the screen.*/
+
 #include <iostream>
 using namespace std;
 

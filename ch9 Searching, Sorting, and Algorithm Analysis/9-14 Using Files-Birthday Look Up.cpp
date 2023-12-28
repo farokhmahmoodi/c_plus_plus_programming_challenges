@@ -1,3 +1,7 @@
+/*Modify the program you wrote for Programming Challenge 13 so that after reading in the data from the birthdays.dat file it 
+sorts the array elements alphabetically by the name field and then prints the names, prompting the user to enter the name of the 
+person whose birthday they want to find. It should then locate and display that person’s birthday.*/
+
 #include <iostream>
 #include <fstream>
 #include <iomanip>

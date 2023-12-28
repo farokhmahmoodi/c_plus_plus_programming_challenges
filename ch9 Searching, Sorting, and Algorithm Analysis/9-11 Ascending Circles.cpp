@@ -1,3 +1,8 @@
+/*Program 8-31 from Chapter 8 creates an array of four Circle objects, then displays the area of each object. Using a copy of 
+that program as a starting point, modify it to create an array of seven Circle objects initialized with the following radii: 2.5, 
+4.0, 1.0, 3.0, 6.0, 5.5, 2.0. Then use a bubble sort to arrange the objects in ascending order of radius size before displaying 
+the radius and area of each object.*/
+
 #include <iostream>
 #include <iomanip>
 #include "Circle.h"

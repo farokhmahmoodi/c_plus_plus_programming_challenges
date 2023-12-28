@@ -1,3 +1,9 @@
+/*Write a program that uses two identical arrays of eight randomly ordered integers. It should display the contents of the 
+first array, then call a function to sort it using an ascending order bubble sort, 
+modified to print out the array contents after each pass of the sort. Next the program should display the contents of the second 
+array, then call a function to sort it using an ascending order selection sort, 
+modified to print out the array contents after each pass of the sort.*/
+
 #include <iostream>
 using namespace std;
 

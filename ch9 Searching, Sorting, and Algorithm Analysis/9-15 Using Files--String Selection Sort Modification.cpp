@@ -1,3 +1,6 @@
+/*Modify the program you wrote for Programming Challenge 6 so it reads in the 20 strings from a file. The data can be found in 
+the names.dat file located in the Chapter 9 programs folder on the book’s companion website.*/
+
 #include <iostream>
 #include <fstream>
 #include <string>

@@ -1,8 +1,10 @@
-#include "TicketCombos.h"
+/*Modify the program you wrote for Programming Challenge 2 (Lottery Winners) so it performs a binary search instead of a linear search.*/
+
+#include "TicketCombosBinary.h"
 
 int main()
 {
-	TicketCombos a;
+	TicketCombosBinary a;
 	int value;
 	char choice;
 
@@ -16,4 +18,6 @@ int main()
 	} while (toupper(choice) == 'Y');
 	return 0;
 }
+
+
 
