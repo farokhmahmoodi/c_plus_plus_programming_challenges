@@ -8,14 +8,10 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
-#include <cmath>
-#include <cstdlib>
 #include <ctime>
-#include <cctype>
 #include <fstream>
 #include <windows.h>
 using namespace std;
-
 
 int main()
 {

@@ -1,17 +1,13 @@
-/*
+/*Modify the program you wrote for Programming Challenge 12 to display the words LEFT (starting at the right-hand side of the screen a row or two down from the middle) and RIGHT (starting at the left-hand side of the screen a row or two up from the middle). 
+Moving about six moves per second, move LEFT to the left and RIGHT to the right until both words disappear off the screen.
 */
 
 #include <iostream>
 #include <iomanip>
 #include <string>
-#include <cmath>
-#include <cstdlib>
 #include <ctime>
-#include <cctype>
-#include <fstream>
 #include <windows.h>
 using namespace std;
-
 
 int main()
 {

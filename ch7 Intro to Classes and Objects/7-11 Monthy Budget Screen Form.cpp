@@ -1,15 +1,22 @@
-//
-/*
+/*A student has established the following monthly budget:
+
+Housing	1200.00
+Utilities, Internet & Phone	215.00
+Household expenses	65.00
+Transportation	50.00
+Food	250.00
+Medical	30.00
+Insurance	100.00
+Entertainment	120.00
+Clothing	75.00
+Miscellaneous	50.00
+Write a modular program that declares a MonthlyBudget structure with member variables to hold each of these expense categories. The program should create two MonthlyBudget structure variables. The first will hold the budget figures given above. The second will hold the user-enter amounts actually spent during the past month. Using Program 7-19 as a model, the program should create a screen form that displays each category name and its budgeted amount, then positions the cursor next to it for the user to enter the amount actually spent in that category. Once the user data has all been entered, the program should compute and display the amount over or under budget the student’s expenditures were in each category, as well as the amount over or under budget for the entire month.
 */
 
 #include <iostream>
 #include <iomanip>
 #include <string>
-#include <cmath>
-#include <cstdlib>
 #include <ctime>
-#include <cctype>
-#include <fstream>
 #include <windows.h>
 using namespace std;
 

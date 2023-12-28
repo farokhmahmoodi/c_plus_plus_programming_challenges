@@ -1,16 +1,13 @@
-//
-/*
+/* Write a program that uses a structure named MovieData to store the following information about a movie: title, director, release year, and running time.
+
+Include a constructor that allows all four of these member data values to be specified at the time a MovieData variable is created. The program should create two MovieData variables and pass each one in turn to a function that displays the information about the movie in a clearly formatted manner. 
+Pass the MovieData variables to the display function by value.
 */
 
 #include <iostream>
 #include <iomanip>
 #include <string>
 #include <cmath>
-#include <cstdlib>
-#include <ctime>
-#include <cctype>
-#include <fstream>
-//#include <windows.h>
 using namespace std;
 
 struct MovieData
@@ -25,9 +22,7 @@ struct MovieData
 	}
 };
 
-
 void displayInfo(const MovieData &);
-
 
 int main()
 {
