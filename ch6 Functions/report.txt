@@ -1,0 +1,15 @@
+Travel Expenses Report
+------------------------------------------------------
+Trip Dates: 5/6 - 6/2
+Total Number of Nights Spent Away From Home on Trip:                                       23
+Amount of any Round-Trip Airfare: $                                 1200.34
+Amount of any Car Rentals: $                                  504.67
+Miles Driven, if a private vehicle was used:                                       42
+Private Vehicle Mileage Reimbursement: $                                   24.36
+Parking Fees: $                                   56.76
+Taxi Fees: $                                    5.43
+Conference or seminar registration Fees: $                                  435.34
+Hotel Expenses: $                                 2301.54
+Allowed Hotel Reimbursement: $                                 2760.00
+Cost of Meals: $                                  765.43
+Total Expenses: $                                 5293.87
