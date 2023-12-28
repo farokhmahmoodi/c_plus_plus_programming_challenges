@@ -1,6 +1,5 @@
-/*
-dsfasf
-asdfasdfasdfsad
+/*Three cars drive a 500 mile route. Write a program that inputs the car make and the number of gallons of fuel used by each car. 
+After calling a calcMPG() function once for each car, have main determine and display which car was the most fuel efficient and how many miles per gallon it got. The calcMPG() function should be passed the distance driven and the gallons of gas used as arguments, and should return the miles per gallon obtained.
 */
 
 #include <iostream>
@@ -15,7 +14,6 @@ using namespace std;
 
 const int DISTANCE = 500; //500 miles
 double calcMPG(int, double);
-
 
 int main()
 {
@@ -69,17 +67,3 @@ double calcMPG(int distance, double gallons)
 	return distance / gallons;
 
 }
-
-
-
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file

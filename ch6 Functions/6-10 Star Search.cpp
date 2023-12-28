@@ -1,8 +1,14 @@
-// start c++ 10th ed. maddis ch6_10.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-/*
-dsfasf
-asdfasdfasdfsad
+/*A particular talent competition has five judges, each of whom awards a score between 0 and 10 to each performer. Fractional scores, such as 8.3, are allowed. A performer’s final score is determined by dropping the highest and lowest score received, then averaging the three remaining scores. Write a program that uses these rules to calculate and display a contestant’s score. It should include the following functions:
+
+double getJudgeData() should ask the user for a judge’s score, validate it, and then return it. This function should be called by main once for each of the five judges.
+
+double calcScore() should calculate and return the average of the three scores that remain after dropping the highest and lowest scores the performer received. This function should be called just once by main and should be passed the five scores.
+
+Two additional functions, described below, should be called by calcScore, which uses the returned information to determine which scores to drop.
+
+int findLowest() should find and return the lowest of the five scores passed to it.
+
+int findHighest() should find and return the highest of the five scores passed to it.
 */
 
 #include <iostream>
