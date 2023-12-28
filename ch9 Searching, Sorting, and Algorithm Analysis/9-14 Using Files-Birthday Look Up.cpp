@@ -20,20 +20,25 @@ int main()
 	string value;
 	char choice;
 
-	readInData(a, SIZE, inFile);
-	selectionSort(a, SIZE);
-	do
+	if(inFile)
 	{
-		displayNamesList(a, SIZE);
-		value = getInput(a, SIZE);
-		if (validateInput(value, a, SIZE))
-			binarySearch(a, SIZE, value);
-		else
-			cout << endl << "Name not found in list." << endl;
-		cout << endl << "Would you like to enter another name? (Y/N)";
-		cin >> choice;
-		cin.ignore();
-	} while (toupper(choice) == 'Y'); 
+		readInData(a, SIZE, inFile);
+		selectionSort(a, SIZE);
+		do
+		{
+			displayNamesList(a, SIZE);
+			value = getInput(a, SIZE);
+			if (validateInput(value, a, SIZE))
+				binarySearch(a, SIZE, value);
+			else
+				cout << endl << "Name not found in list." << endl;
+			cout << endl << "Would you like to enter another name? (Y/N)";
+			cin >> choice;
+			cin.ignore();
+		} while (toupper(choice) == 'Y'); 		
+	}
+	else
+		cout << "Error opening file." << endl;
 
 	return 0;
 }
@@ -41,19 +46,13 @@ int main()
 void readInData(BirthdayObject a[], int size, ifstream& in)
 {
 	string input;
-	if (in)
+	for (int i = 0; i < SIZE; i++)
 	{
-		for (int i = 0; i < SIZE; i++)
-		{
-			getline(in, input);
-			a[i].setName(input);
-			getline(in, input);
-			a[i].setBirthday(input);
-		}
-		cout << "Data successfully read into array from file." << endl;
+		getline(in, input);
+		a[i].setName(input);
+		getline(in, input);
+		a[i].setBirthday(input);
 	}
-	else
-		cout << "Error opening file." << endl;
 }
 
 void selectionSort(BirthdayObject a[], int size)
