@@ -1,5 +1,6 @@
-// 8-2.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+/*Create a program with a function that accepts three arguments: an integer array, an integer size that indicates how many elements are in the array, and an integer n. 
+The function should display all of the numbers in the array that are greater than the number n.
+*/
 
 #include <iostream>
 using namespace std;

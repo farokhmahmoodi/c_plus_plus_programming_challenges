@@ -1,5 +1,6 @@
-// 8-3.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+/*Write a program that displays the Roman numeral equivalent of any decimal number between 1 and 20 that the user enters. The Roman numerals should be stored in an array of strings, 
+and the decimal number that the user enters should be used to locate the array element holding the Roman numeral equivalent. 
+The program should have a loop that allows the user to continue entering numbers until an end sentinel of 0 is entered.*/
 
 #include <iostream>
 #include <string>

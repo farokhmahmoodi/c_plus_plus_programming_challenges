@@ -1,5 +1,7 @@
-// 8-1.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+/*Write a modular program that accepts up to 20 integer test scores in the range of 0 to 100 from the user and stores them in an array. Then main 
+should report how many perfect scores were entered (i.e., scores of 100), using a value-returning countPerfect function to help it. Hint: Have the program count the scores as they are entered. 
+Your program may need this information later.
+*/
 
 #include <iostream>
 #include <cctype>

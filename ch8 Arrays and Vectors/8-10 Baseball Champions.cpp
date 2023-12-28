@@ -1,5 +1,14 @@
-// 
-//
+/*This challenge uses two files located in the Chapter 8 programs folder on the book’s companion website.
+
+teams.dat contains an alphabetical list of a number of Major League baseball teams that have won the World Series at least once.
+
+WorldSeriesWinners.dat contains a chronological list of World Series’ winning teams from 1950 through 2014. The first line in the 
+file is the name of the team that won in 1950, and the last line is the name of the team that won in 2014. (Note that the 
+World Series was not played in 1994.)
+
+Write a program that reads the contents of each of these files into an array or vector. It should then display the contents of 
+the teams.dat file on the screen and prompt the user to enter the name of one of the teams. When the user enters a team name, 
+the program should display the number of times that team has won the World Series in the time period from 1950 through 2014.*/
 
 #include <iostream>
 #include <vector>

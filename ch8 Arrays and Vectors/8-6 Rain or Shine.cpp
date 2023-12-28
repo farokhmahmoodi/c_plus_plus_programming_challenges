@@ -1,5 +1,13 @@
-// 
-//
+/*An amateur meteorologist wants to keep track of weather conditions during the past year’s three-month summer season and has 
+designated each day as either rainy (‘R’), cloudy (‘C’), or sunny (‘S’). Write a modular program that stores this information in a 
+3 × 30 array of characters, where the row indicates the month (0 = June, 1=July, 2=August) and the column indicates the day of 
+the month. Note that data is not being collected for the 31st of any month. The program should begin by calling a function 
+to read the weather data in from a file. Then it should create a report that displays for each month and for the whole 
+three-month period, how many days were rainy, how many were cloudy, and how many were sunny. To help it do this, 
+it should use a value-returning function that is passed the array, the number of the month to examine, and the 
+character to look for (‘R’, ‘C’, or ‘S’). This function should return the number of days the indicated month had 
+the requested weather. Data for the program can be found in the rain_or_shine.dat file located in the Chapter 8 
+programs folder on this book’s companion website.*/
 
 #include <iostream>
 #include <fstream>

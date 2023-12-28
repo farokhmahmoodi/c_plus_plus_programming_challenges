@@ -1,5 +1,12 @@
-// 
-//
+/*The Lo Shu Magic Square is a grid with three rows and three columns that has the following properties:
+
+The grid contains the numbers 1 through 9 exactly.
+
+The sum of each row, each column, and each diagonal all add up to the same number. 
+Write a program that simulates a magic square using a two-dimensional 3 × 3 array. It should have a Boolean function 
+isMagicSquare that accepts the array as an argument and returns true if it determines it is a Lo Shu Magic Square 
+and false if it is not. Test the program with one array, such as the one shown in Figure 8-18, that is a magic square and
+ one that is not.*/
 
 #include <iostream>
 using namespace std;

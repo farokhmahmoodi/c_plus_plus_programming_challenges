@@ -1,5 +1,18 @@
-// 8-8.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+/*Write a modular program that analyzes a year’s worth of rainfall data. In addition to main, the program should have a getData 
+function that accepts the total rainfall for each of 12 months from the user and stores it in an array holding double numbers. 
+It should also have four value-returning functions that compute and return to main the totalRainfall, averageRainfall, 
+driestMonth, and wettestMonth. These last two functions return the number of the month with the lowest and highest rainfall 
+amounts, not the amount of rain that fell those months. Notice that this month number can be used to obtain the amount of rain 
+that fell those months. This information should be used either by main or by a displayReport function called by main to print a 
+summary rainfall report similar to the following:
+
+
+   2019 Rain Report for Springdale County
+
+Total rainfall: 23.19 inches
+Average monthly rainfall: 1.93 inches
+The least rain fell in January with 0.24 inches.
+The most rain fell in April with 4.29 inches.*/
 
 #include <iostream>
 #include <iomanip>

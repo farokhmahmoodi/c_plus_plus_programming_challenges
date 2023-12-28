@@ -1,5 +1,5 @@
-// 
-//
+/*Revise Programming Challenge 4 to use an array of Product objects instead of two parallel arrays. 
+The Product class will need member variables to hold a product name and a quantity.*/
 
 #include <iostream>
 #include <string>

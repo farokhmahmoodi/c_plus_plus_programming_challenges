@@ -1,5 +1,16 @@
-// 
-//
+/*Create a Stats class whose member data includes an array capable of storing 30 double data values, and whose member functions 
+include total, average, lowest, and highest functions for returning information about the data to the client program. These are 
+general versions of the same functions you created for Programming Challenge 8, but now they belong to the Stats class, not the 
+application program. In addition to these functions, the Stats class should have a Boolean storeValue function that accepts a 
+double value from the client program and stores it in the array. It is the job of this function to keep track of how many values 
+are currently in the array, so it will know where to put the next value it receives and will know how many values there are to 
+process when it is carrying out its other functions. It is also the job of this function to make sure that no more than 30 values 
+are accepted. If the storeValue function is able to successfully store the value sent to it, it should return true to the client 
+program. However, if the client program tries to store a thirty-first value, the function should not store the value and should 
+return false to the client program.
+
+The client program should create and use a Stats object to carry out the same rainfall analysis requested by Programming 
+Challenge 8. Notice that the Stats object does no I/O. All input and output is done by the client program.*/
 
 #include <iostream>
 #include <iomanip>
