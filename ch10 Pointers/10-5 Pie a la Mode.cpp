@@ -15,7 +15,7 @@ int findMode(int[], int);
 
 int main()
 {
-    int a[SIZE], mode;
+    int a[SIZE];
 
     getData(a, SIZE);
     cout << "The mode is " << findMode(a, SIZE) << "." << endl;
