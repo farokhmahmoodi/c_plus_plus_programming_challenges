@@ -53,7 +53,7 @@ int findMode(int a[], int size)
 
     modeIndex = count[0];
     modeValue = a[0];
-    for (int i = 1; i < size; i++) 
+    for (int i = 1; i < size; i++) //finding value that occurs most in array by comparing count values
     {
         if (count[i] > modeIndex)
         {
