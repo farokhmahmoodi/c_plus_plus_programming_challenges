@@ -8,7 +8,7 @@ are in the array.*/
 #include <iostream>
 using namespace std;
 
-const int SIZE = 10;
+const int SIZE = 30;
 
 void getData(int[], int);
 int findMode(int[], int);
