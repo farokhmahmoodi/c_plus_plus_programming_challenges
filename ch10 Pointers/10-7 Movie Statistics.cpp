@@ -29,8 +29,6 @@ int main()
 	a = new int[size];
 	getData(a, size);
 	selectionSort(a, size);
-	cout << "Sorted array in ascending order below." << endl;
-	displayArray(a, size);
 	cout << "Mode:" << findMode(a, size) << endl;
 	cout << fixed << showpoint << setprecision(2);
 	cout << "Average:" << calcAverage(a, size) << endl;
@@ -72,6 +70,8 @@ void selectionSort(int* a, int size)
 		}
 		swap(*(a + minIndex), *(a + start));
 	}
+	cout << "Sorted array in ascending order below." << endl;
+	displayArray(a, size);
 }
 
 void swap(int& a, int& b)
@@ -111,7 +111,24 @@ double calcAverage(const int* a, int size)
 	return avg;
 }
 
-int findMode(int *a, int size)
+int findMode(int* a, int size)
 {
-	
+	int count, max, mode;
+	count = max = mode = 0;
+
+	for (int i = 0; i < size; i++)
+	{
+		count++;
+		if (*(a + i) < *(a + (i + 1)))
+		{
+			if (count > max)
+			{
+				max = count;
+				mode = *(a + i);
+			}
+			count = 0;
+		}
+	}
+
+	return mode;
 }
