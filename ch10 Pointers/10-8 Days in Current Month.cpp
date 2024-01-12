@@ -23,8 +23,8 @@ The current month, September 2009, has 30 days.*/
 #include <ctime>
 using namespace std;
 
-bool leapYear(int);
 int days(int *,int *, int, int);
+bool leapYear(int);
 
 int main()
 {
@@ -51,23 +51,12 @@ int main()
         if(mIn != 0 && yIn != 0)
             cout << days(m, d, mIn, yIn) << " days" << endl;
     } while (mIn != 0 && yIn != 0);
-
+    cout << "The current month, " << monthName[pCalendarTime->tm_mon] << " "
+        << 1900 + pCalendarTime->tm_year << " has "
+        << days(m, d, (pCalendarTime->tm_mon + 1), (1900 + pCalendarTime->tm_year))
+        << " days." << endl;
 
     return 0;
-}
-
-bool leapYear(int year)
-{
-    if (year % 100 == 0)
-    {
-        if (year % 400 == 0)
-            return true;
-        return false;
-    }
-    else if (year % 4 == 0)
-        return true;
-    else
-        return false;
 }
 
 int days(int *m,int *d, int month, int year)
@@ -94,4 +83,16 @@ int days(int *m,int *d, int month, int year)
     return days;
 }
 
-
+bool leapYear(int year)
+{
+    if (year % 100 == 0)
+    {
+        if (year % 400 == 0)
+            return true;
+        return false;
+    }
+    else if (year % 4 == 0)
+        return true;
+    else
+        return false;
+}
