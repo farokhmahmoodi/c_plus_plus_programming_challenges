@@ -23,17 +23,13 @@ The current month, September 2009, has 30 days.*/
 #include <ctime>
 using namespace std;
 
-int days(int *,int *, int, int);
-bool leapYear(int);
+string days(int, int);
 
 int main()
 {
-    int month[12] = { 1,2,3,4,5,6,7,8,9,10,11,12 }, 
-        day[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 }, mIn, yIn;
-    int *m = month, *d = day;
+    int  mIn, yIn; //month and year input
     string monthName[12] = {"January", "February", "March", "April", "May"
-    ,"June", "July", "August", "September", "October", "November", "December" };
-    string* n = monthName;
+    ,"June", "July", "August", "September", "October", "November", "December" }; 
     time_t epSeconds; //Seconds since epoch (January 1, 1970)
     tm* pCalendarTime = nullptr; //Pointer to calendar time
     epSeconds = time(NULL); //Seconds since epoch
@@ -45,54 +41,50 @@ int main()
         {
             cout << "Enter month and year: ";
             cin >> mIn >> yIn;
-            if (mIn < 0)
-                cout << "Error. Input for month must be greater than or equal to 0." << endl;
-        } while (mIn < 0);
+            if (mIn < 0 || mIn > 12)
+                cout << "Error. Input for month must be greater than or equal to 0 and less than or equal to 12." << endl;
+        } while (mIn < 0 || mIn > 12);
         if(mIn != 0 && yIn != 0)
-            cout << days(m, d, mIn, yIn) << " days" << endl;
+            cout << days(mIn, yIn) << endl;
     } while (mIn != 0 && yIn != 0);
     cout << "The current month, " << monthName[pCalendarTime->tm_mon] << " "
         << 1900 + pCalendarTime->tm_year << " has "
-        << days(m, d, (pCalendarTime->tm_mon + 1), (1900 + pCalendarTime->tm_year))
-        << " days." << endl;
+        << days((pCalendarTime->tm_mon + 1), (1900 + pCalendarTime->tm_year)) << "." << endl;
 
     return 0;
 }
 
-int days(int *m,int *d, int month, int year)
+string days(int month, int year)
 {
-    int days;
-
-    for (int i = 0; i < 12; i++)
-    {      
-        if (month == *(m + 1)) //february
-        {
-            if (leapYear(year)) //test for leap year
-                days = 29;
-            else
-                days = *(d + 1);
-            break;
-        }
-        else if (month == *(m + i)) //any other month
-        {
-            days = *(d + i);
-            break;
-        }
-    }
-
-    return days;
-}
-
-bool leapYear(int year)
-{
-    if (year % 100 == 0)
+    switch (month)
     {
-        if (year % 400 == 0)
-            return true;
-        return false;
+    case 1:
+    case 3:
+    case 5:
+    case 7:
+    case 8:
+    case 10:
+    case 12:
+        return "31 days";
+    case 4:
+    case 6:
+    case 9:
+    case 11:
+        return "30 days";
+    case 2:  //test for leap year
+        if (year % 100 == 0)
+        {
+            if (year % 400 == 0)
+                return "29 days";
+            else
+                return "28 days";
+        }
+        else if (year % 100 != 0)
+        {
+            if (year % 4 == 0)
+                return "29 days";
+            else
+                return "28 days";
+        }
     }
-    else if (year % 4 == 0)
-        return true;
-    else
-        return false;
 }
