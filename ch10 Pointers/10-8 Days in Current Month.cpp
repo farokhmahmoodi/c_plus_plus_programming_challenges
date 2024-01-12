@@ -24,7 +24,7 @@ The current month, September 2009, has 30 days.*/
 using namespace std;
 
 bool leapYear(int);
-void days(int *,int *, int, int);
+int days(int *,int *, int, int);
 
 int main()
 {
@@ -35,8 +35,9 @@ int main()
     ,"June", "July", "August", "September", "October", "November", "December" };
     string* n = monthName;
     time_t epSeconds; //Seconds since epoch (January 1, 1970)
-    tm* pCalendarTime = nullptr;
-    epSeconds = time(NULL);
+    tm* pCalendarTime = nullptr; //Pointer to calendar time
+    epSeconds = time(NULL); //Seconds since epoch
+    pCalendarTime = localtime(&epSeconds); //Convert to local time
 
     do
     {
@@ -47,8 +48,10 @@ int main()
             if (mIn < 0)
                 cout << "Error. Input for month must be greater than or equal to 0." << endl;
         } while (mIn < 0);
-            days(m, d, mIn, yIn);
+        if(mIn != 0 && yIn != 0)
+            cout << days(m, d, mIn, yIn) << " days" << endl;
     } while (mIn != 0 && yIn != 0);
+
 
     return 0;
 }
@@ -67,9 +70,10 @@ bool leapYear(int year)
         return false;
 }
 
-void days(int *m,int *d, int month, int year)
+int days(int *m,int *d, int month, int year)
 {
     int days;
+
     for (int i = 0; i < 12; i++)
     {      
         if (month == *(m + 1)) //february
@@ -78,14 +82,16 @@ void days(int *m,int *d, int month, int year)
                 days = 29;
             else
                 days = *(d + 1);
-            cout << days << " days" << endl;
             break;
         }
         else if (month == *(m + i)) //any other month
         {
             days = *(d + i);
-            cout << days << " days" << endl;
             break;
         }
     }
+
+    return days;
 }
+
+
