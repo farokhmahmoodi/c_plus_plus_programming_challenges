@@ -53,7 +53,6 @@ void outputSquares(Squares* sqPtr)
 
 }
 
-
 int main()
 {
     // Main allocates a Squares object
