@@ -1679,8 +1679,34 @@ public:
 				break;
 			}
 			break;
-		case '4': //numbers 1000-9999
+		case 4: //numbers 1000-9999
+			switch (n[0]) //examining first digit
+			{
+			case '1': //1000-1999
+				cout << lessThan20[1] << " " << thousand;
+				if (number != 1000) 
+				{
+					if (number < 1010) //1001-1009
+					{	
+						char x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x)
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+					}
+				}
+				break;
 
+
+
+
+
+			}
 
 
 
