@@ -8,7 +8,7 @@ class Numbers
 {
 private:
 	int number;
-	static string lessThan20[], twenty, thirty,forty, fifty,
+	static string lessThan20[], twenty, thirty, forty, fifty,
 		sixty, seventy, eighty, ninety, hundred, thousand;
 public:
 	Numbers(int a)
@@ -45,9 +45,43 @@ public:
 					}
 				}
 			}
-			else
+			else //20-99
 			{
-
+				switch (n[0]) //examining first digit
+				{
+				case '2':
+					cout << twenty;
+					if (n[1] != '0') //examining second digit
+					{	
+						char x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[1] == x)
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+					}
+					break;
+				case '3':
+					cout << thirty;
+					if (n[1] != '0') //examining second digit
+					{
+						char x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[1] == x)
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+					}
+					break;
+				}
 			}
 			break;
 		}
