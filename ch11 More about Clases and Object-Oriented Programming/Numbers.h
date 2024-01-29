@@ -20,7 +20,8 @@ public:
 	}	
 	void print()
 	{
-
+		string n = to_string(number); //convert number to string
+		
 	}
 };
 #endif
