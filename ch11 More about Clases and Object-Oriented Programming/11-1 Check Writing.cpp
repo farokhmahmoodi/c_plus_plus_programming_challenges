@@ -23,7 +23,7 @@ description.*/
 
 int main()
 {
-    Numbers a(999);
+    Numbers a(1009);
     a.print();
 
     
