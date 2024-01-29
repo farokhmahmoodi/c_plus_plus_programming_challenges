@@ -67,7 +67,103 @@ public:
 					break;
 				case '3':
 					cout << thirty;
-					if (n[1] != '0') //examining second digit
+					if (n[1] != '0')
+					{
+						char x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[1] == x)
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+					}
+					break;
+				case '4':
+					cout << forty;
+					if (n[1] != '0')
+					{
+						char x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[1] == x)
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+					}
+					break;
+				case '5':
+					cout << fifty;
+					if (n[1] != '0')
+					{
+						char x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[1] == x)
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+					}
+					break;
+				case '6':
+					cout << sixty;
+					if (n[1] != '0')
+					{
+						char x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[1] == x)
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+					}
+					break;
+				case '7':
+					cout << seventy;
+					if (n[1] != '0')
+					{
+						char x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[1] == x)
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+					}
+					break;
+				case '8':
+					cout << eighty;
+					if (n[1] != '0')
+					{
+						char x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[1] == x)
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+					}
+					break;
+				case '9':
+					cout << ninety;
+					if (n[1] != '0')
 					{
 						char x = '1';
 						for (int i = 1; i < 10; i++)
@@ -83,6 +179,20 @@ public:
 					break;
 				}
 			}
+			break;
+		case '3': //numbers 100-999
+
+
+
+
+
+			break;
+		case '4': //numbers 1000-9999
+
+
+
+
+
 			break;
 		}
 	}
