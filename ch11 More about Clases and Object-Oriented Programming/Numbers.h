@@ -8,9 +8,8 @@ class Numbers
 {
 private:
 	int number;
-	static string lessThan20[],
-		hundred,
-		thousand;
+	static string lessThan20[], twenty, thirty,forty, fifty,
+		sixty, seventy, eighty, ninety, hundred, thousand;
 public:
 	Numbers(int a)
 	{
@@ -18,20 +17,10 @@ public:
 			number = a;
 		else
 			number = 0;
-	}
+	}	
 	void print()
 	{
-		if (number < 20)
-		{
-			for (int i = 0; i < 20; i++)
-			{
-				if (number == i)
-				{
-					cout << lessThan20[i];
-					break;
-				}
-			}
-		}
+
 	}
 };
 #endif
