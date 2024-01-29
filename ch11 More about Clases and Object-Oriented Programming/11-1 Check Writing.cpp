@@ -23,8 +23,9 @@ description.*/
 
 int main()
 {
-    
-    
+    Numbers a(999);
+    a.print();
+
     
     return 0;
 }
