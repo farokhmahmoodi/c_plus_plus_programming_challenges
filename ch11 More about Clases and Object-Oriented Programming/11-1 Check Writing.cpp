@@ -23,8 +23,21 @@ description.*/
 
 int main()
 {
-    Numbers a(1009);
-    a.print();
+    int choice, num;
+
+    cout << "This program converts a number between 0 and 9999 to an english description." << endl;
+    do {
+        do {
+            cout << "Enter a number between 0 and 9999: ";
+            cin >> num;
+            if (num < 0 || num > 9999)
+                cout << "Input error. Number must be between 0 and 9999." << endl;
+        } while (num < 0 || num > 9999);
+        Numbers a(num);
+        a.print();
+        cout << "Would you like to enter another number? (1 for yes/2 for no)?";
+        cin >> choice;
+    } while (choice != 2);
 
     
     return 0;
