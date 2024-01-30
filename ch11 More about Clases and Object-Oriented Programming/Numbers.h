@@ -3297,7 +3297,7 @@ public:
 					}
 					break; //1900-1999
 				}
-				break; //1000-1999
+				break; 
 			case '2': //2000-2999
 				cout << lessThan20[2] << " " << thousand;
 				switch (n[1]) //examining second digit
@@ -4912,7 +4912,9429 @@ public:
 					}
 					break; //2900-2999
 				}
-				break; //2000-2999
+				break;
+			case '3': //3000-3999
+				cout << lessThan20[3] << " " << thousand;
+				switch (n[1]) //examining second digit
+				{
+				case '0': 
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2': 
+						cout << " " << twenty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '3':
+						cout << " " << thirty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '4':
+						cout << " " << forty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '5': 
+						cout << " " << fifty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '6':
+						cout << " " << sixty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '7': 
+						cout << " " << seventy;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '8':
+						cout << " " << eighty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '9':
+						cout << " " << ninety;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					}
+					break;
+				case '1':
+					cout << " " << lessThan20[1] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '3':
+						cout << " " << thirty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '4': 
+						cout << " " << forty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '5': 
+						cout << " " << fifty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '6': 
+						cout << " " << sixty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '7': 
+						cout << " " << seventy;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '8':
+						cout << " " << eighty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '9': 
+						cout << " " << ninety;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					}
+					break;
+				case '2':
+					cout << " " << lessThan20[2] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0': 
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '3':
+						cout << " " << thirty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '4':
+						cout << " " << forty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '5':
+						cout << " " << fifty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '6':
+						cout << " " << sixty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '7':
+						cout << " " << seventy;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '8':
+						cout << " " << eighty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '9':
+						cout << " " << ninety;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					}
+					break;
+				case '3':
+					cout << " " << lessThan20[3] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '1': 
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '3': 
+						cout << " " << thirty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '4': 
+						cout << " " << forty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '5':
+						cout << " " << fifty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '6':
+						cout << " " << sixty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '7':
+						cout << " " << seventy;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '8':
+						cout << " " << eighty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '9': 
+						cout << " " << ninety;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+
+						break;
+					}
+					break;
+				case '4':
+					cout << " " << lessThan20[4] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '3':
+						cout << " " << thirty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '4': 
+						cout << " " << forty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '5':
+						cout << " " << fifty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '6':
+						cout << " " << sixty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '7':
+						cout << " " << seventy;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '8':
+						cout << " " << eighty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '9':
+						cout << " " << ninety;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					}
+					break;
+				case '5':
+					cout << " " << lessThan20[5] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '1': 
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '3':
+						cout << " " << thirty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '4':
+						cout << " " << forty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '5':
+						cout << " " << fifty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '6':
+						cout << " " << sixty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '7':
+						cout << " " << seventy;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '8':
+						cout << " " << eighty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '9':
+						cout << " " << ninety;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					}
+					break;
+				case '6':
+					cout << " " << lessThan20[6] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '3':
+						cout << " " << thirty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '4':
+						cout << " " << forty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '5': 
+						cout << " " << fifty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '6':
+						cout << " " << sixty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '7':
+						cout << " " << seventy;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '8':
+						cout << " " << eighty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '9':
+						cout << " " << ninety;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					}
+					break;
+				case '7':
+					cout << " " << lessThan20[7] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2': 
+						cout << " " << twenty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '3':
+						cout << " " << thirty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '4':
+						cout << " " << forty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '5':
+						cout << " " << fifty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '6':
+						cout << " " << sixty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '7':
+						cout << " " << seventy;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '8':
+						cout << " " << eighty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '9':
+						cout << " " << ninety;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					}
+					break; 
+				case '8':
+					cout << " " << lessThan20[8] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '1': 
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '3':
+						cout << " " << thirty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '4':
+						cout << " " << forty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '5':
+						cout << " " << fifty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '6':
+						cout << " " << sixty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '7':
+						cout << " " << seventy;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '8':
+						cout << " " << eighty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '9':
+						cout << " " << ninety;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					}
+					break;
+				case '9': 
+					cout << " " << lessThan20[9] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '3':
+						cout << " " << thirty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '4':
+						cout << " " << forty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '5':
+						cout << " " << fifty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '6':
+						cout << " " << sixty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '7':
+						cout << " " << seventy;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '8': 
+						cout << " " << eighty;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					case '9':
+						cout << " " << ninety;
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						break;
+					}
+					break; 
+				}
+				break; 
+			case '4': //4000-4999
+				cout << lessThan20[4] << " " << thousand;
+				switch (n[1]) //examining second digit
+				{
+				case '0':
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '1':
+					cout << " " << lessThan20[1] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '2':
+					cout << " " << lessThan20[2] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '3':
+					cout << " " << lessThan20[3] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+
+						break;
+					}
+					break;
+				case '4':
+					cout << " " << lessThan20[4] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '5':
+					cout << " " << lessThan20[5] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '6':
+					cout << " " << lessThan20[6] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '7':
+					cout << " " << lessThan20[7] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '8':
+					cout << " " << lessThan20[8] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '9':
+					cout << " " << lessThan20[9] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				}
+				break;
+			case '5': //5000-5999
+				cout << lessThan20[5] << " " << thousand;
+				switch (n[1]) //examining second digit
+				{
+				case '0':
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '1':
+					cout << " " << lessThan20[1] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '2':
+					cout << " " << lessThan20[2] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '3':
+					cout << " " << lessThan20[3] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+
+						break;
+					}
+					break;
+				case '4':
+					cout << " " << lessThan20[4] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '5':
+					cout << " " << lessThan20[5] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '6':
+					cout << " " << lessThan20[6] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '7':
+					cout << " " << lessThan20[7] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '8':
+					cout << " " << lessThan20[8] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '9':
+					cout << " " << lessThan20[9] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				}
+				break;
+			case '6': //6000-6999
+				cout << lessThan20[6] << " " << thousand;
+				switch (n[1]) //examining second digit
+				{
+				case '0':
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '1':
+					cout << " " << lessThan20[1] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '2':
+					cout << " " << lessThan20[2] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '3':
+					cout << " " << lessThan20[3] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+
+						break;
+					}
+					break;
+				case '4':
+					cout << " " << lessThan20[4] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '5':
+					cout << " " << lessThan20[5] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '6':
+					cout << " " << lessThan20[6] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '7':
+					cout << " " << lessThan20[7] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '8':
+					cout << " " << lessThan20[8] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '9':
+					cout << " " << lessThan20[9] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				}
+				break;
+			case '7': //7000-7999
+				cout << lessThan20[7] << " " << thousand;
+				switch (n[1]) //examining second digit
+				{
+				case '0':
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '1':
+					cout << " " << lessThan20[1] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '2':
+					cout << " " << lessThan20[2] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '3':
+					cout << " " << lessThan20[3] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+
+						break;
+					}
+					break;
+				case '4':
+					cout << " " << lessThan20[4] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '5':
+					cout << " " << lessThan20[5] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '6':
+					cout << " " << lessThan20[6] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '7':
+					cout << " " << lessThan20[7] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '8':
+					cout << " " << lessThan20[8] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '9':
+					cout << " " << lessThan20[9] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				}
+				break;
+			case '8': //8000-8999
+				cout << lessThan20[8] << " " << thousand;
+				switch (n[1]) //examining second digit
+				{
+				case '0':
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '1':
+					cout << " " << lessThan20[1] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '2':
+					cout << " " << lessThan20[2] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '3':
+					cout << " " << lessThan20[3] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+
+						break;
+					}
+					break;
+				case '4':
+					cout << " " << lessThan20[4] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '5':
+					cout << " " << lessThan20[5] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '6':
+					cout << " " << lessThan20[6] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '7':
+					cout << " " << lessThan20[7] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '8':
+					cout << " " << lessThan20[8] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '9':
+					cout << " " << lessThan20[9] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				}
+				break;
+			case '9': //9000-9999
+				cout << lessThan20[9] << " " << thousand;
+				switch (n[1]) //examining second digit
+				{
+				case '0':
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '1':
+					cout << " " << lessThan20[1] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '2':
+					cout << " " << lessThan20[2] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '3':
+					cout << " " << lessThan20[3] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+
+						break;
+					}
+					break;
+				case '4':
+					cout << " " << lessThan20[4] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '5':
+					cout << " " << lessThan20[5] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '6':
+					cout << " " << lessThan20[6] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '7':
+					cout << " " << lessThan20[7] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '8':
+					cout << " " << lessThan20[8] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				case '9':
+					cout << " " << lessThan20[9] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0':
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '1':
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2':
+						cout << " " << twenty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '3':
+						cout << " " << thirty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '4':
+						cout << " " << forty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '5':
+						cout << " " << fifty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '6':
+						cout << " " << sixty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '7':
+						cout << " " << seventy;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '8':
+						cout << " " << eighty;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '9':
+						cout << " " << ninety;
+						x = '1';
+						for (int i = 1; i < 10; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					}
+					break;
+				}
+				break;
 			}
 			break; //1000-9999
 		}
