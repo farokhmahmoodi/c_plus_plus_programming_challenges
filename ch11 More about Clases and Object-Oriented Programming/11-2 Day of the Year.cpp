@@ -18,10 +18,32 @@ format.*/
 #include <iostream>
 using namespace std;
 
+class DayOfYear
+{
+private:
+    int day;
+    //static string variables
+public:
+    DayOfYear(int d)
+    {
+        if (d > 0 && d < 366)
+        {
+            day = d;
+        }
+        else
+        {
+            cout << "Please enter a day from 1-365." << endl;
+        }
+    }
+    void print()
+    {
+
+    }
+};
+
 int main()
 {
-    
-
+   
 
     return 0;
 }
