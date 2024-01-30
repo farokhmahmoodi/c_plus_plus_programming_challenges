@@ -32,7 +32,7 @@ public:
 					break;
 				}
 			}
-			break;
+			break; //0-9
 		case 2: //numbers 10-99
 			if (number < 20) //10-19
 			{
@@ -179,7 +179,7 @@ public:
 					break;
 				}
 			}
-			break;
+			break; //10-99
 		case 3: //numbers 100-999
 			switch (n[0]) //examining first digit
 			{
@@ -1678,7 +1678,7 @@ public:
 				}
 				break;
 			}
-			break;
+			break; //100-999
 		case 4: //numbers 1000-9999
 			char x;
 			switch (n[0]) //examining first digit
@@ -1846,7 +1846,7 @@ public:
 						}
 						break;
 					}
-					break;
+					break; 
 				case '1': //1100-1199
 					cout << " " << lessThan20[1] << " " << hundred;
 					switch (n[2]) //examining third digit
@@ -2008,17 +2008,171 @@ public:
 						break;					
 					}
 					break;
+				case '2': //1200-1299
+					cout << " " << lessThan20[2] << " " << hundred;
+					switch (n[2]) //examining third digit
+					{
+					case '0': //1200-1209
+						if (number != 1200)
+						{
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						}
+						break;
+					case '1': //1210-1219
+						x = '0';
+						for (int i = 10; i < 20; i++)
+						{
+							if (n[3] == x) //examining fourth digit
+							{
+								cout << " " << lessThan20[i] << endl;
+								break;
+							}
+							x++;
+						}
+						break;
+					case '2': //1220-1229
+						cout << " " << twenty;
+						if (number != 1220)
+						{
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						}
+						break;
+					case '3': //1230-1239
+						cout << " " << thirty;
+						if (number != 1230)
+						{
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						}
+						break;
+					case '4': //1240-1249
+						cout << " " << forty;
+						if (number != 1240)
+						{
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						}
+						break;
+					case '5': //1250-1259
+						cout << " " << fifty;
+						if (number != 1250)
+						{
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						}
+						break;
+					case '6': //1260-1269
+						cout << " " << sixty;
+						if (number != 1260)
+						{
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						}
+						break;
+					case '7': //1270-1279
+						cout << " " << seventy;
+						if (number != 1270)
+						{
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						}
+						break;
+					case '8': //1280-1289
+						cout << " " << eighty;
+						if (number != 1280)
+						{
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						}
+						break;
+					case '9': //1290-1299
+						cout << " " << ninety;
+						if (number != 1290)
+						{
+							x = '1';
+							for (int i = 1; i < 10; i++)
+							{
+								if (n[3] == x) //examining fourth digit
+								{
+									cout << " " << lessThan20[i] << endl;
+									break;
+								}
+								x++;
+							}
+						}
+						break;
+					}
+					break; //1200-1299
 				}
-				break;
+				break; //1000-1999
 			}
-
-
-
-
-
-
-
-			break;
+			break; //1000-9999
 		}
 	}
 };
