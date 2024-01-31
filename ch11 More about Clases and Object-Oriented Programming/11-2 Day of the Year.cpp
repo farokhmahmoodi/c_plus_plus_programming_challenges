@@ -16,13 +16,14 @@ Test your class by inputting various integers representing days and printing out
 format.*/
 
 #include <iostream>
+#include <string>
 using namespace std;
 
 class DayOfYear
 {
 private:
     int day;
-    //static string variables
+    static string month[];
 public:
     DayOfYear(int d)
     {
@@ -37,13 +38,20 @@ public:
     }
     void print()
     {
+        int daysInMonth[] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+        int numberedDay[] = { 31,59,90,120,151,181,212,243,273,304,334,365 };
 
     }
 };
 
+static string month[] = { "January", "February", "March", "April", "May",
+"June", "July", "August", "September", "October", "November", "December" };
+
 int main()
 {
-   
+    
+
+
 
     return 0;
 }
