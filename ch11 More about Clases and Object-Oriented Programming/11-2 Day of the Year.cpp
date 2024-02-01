@@ -38,11 +38,27 @@ public:
     }
     void print()
     {
-        int daysInMonth[] = {31,28,31,30,31,30,31,31,30,31,30,31},
-            numberedDay[] = {31,59,90,120,151,181,212,243,273,304,334,365};
+        int numberedDay[] = { 31,59,90,120,151,181,212,243,273,304,334,365 },
+            first = 0, //binary search
+            last = 11,
+            middle,
+            position = -1;
+        bool found = false;
 
+        while (!found)
+        {
+            middle = (first + last) / 2;
+                if (numberedDay[middle] == day)
+                {
+                    found = true;
+                    position = middle;
+                }
+                else if (numberedDay[middle] > day)
+                    last = middle - 1;
+                else if (numberedDay[middle] < day)
+                    first = middle + 1;
 
-
+        }
     }
 };
 
