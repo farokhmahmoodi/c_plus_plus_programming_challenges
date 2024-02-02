@@ -17,19 +17,26 @@ private:
 public:
     DayOfYear(string m, int d)
     {
+        int sum = 0;
         for (int i = 0; i < 12; i++)
         {
-            if ((m == month[i] && d <= daysInEachMonth[i]) && (d > 31)) //february-december
+            sum += daysInEachMonth[i];
+            if (m == month[i] && d <= daysInEachMonth[i]) 
             {
-                day = d;
-                cout << m << " " << d << " is Day " << day << " of the year." << endl;
+                if (sum > 31) //february-december
+                {
+                    day = sum - (daysInEachMonth[i] - d);
+                    cout << m << " " << d << " is Day " << day << " of the year." << endl;
+                    break;
+                }
+                else //january
+                {
+                    day = d;
+                    cout << m << " " << d << " is Day " << day << " of the year." << endl;
+                    break;
+                }
             }
-            else if (m == month[i] && d <= daysInEachMonth[i]) //january
-            {
-                day = d;
-                cout << m << " " << d << " is Day " << day << " of the year." << endl;
-            }
-            else
+            else if(i == 11)
             {
                 cout << "Error. Number entered is outside the range of days for the month given." << endl;
                 exit(0); //terminates program
@@ -121,7 +128,7 @@ public:
     }
 };
 
-int DayOfYear::daysInYear[] = { 31,59,90,120,151,181,212,243,273,304,334,365 },
+int DayOfYear::daysInYear[] = { 31,59,90,120,151,181,212,243,273,304,334,365 };
 int DayOfYear::daysInEachMonth[] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
 string DayOfYear::month[] = { "January", "February", "March", "April", "May",
 "June", "July", "August", "September", "October", "November", "December" };
