@@ -38,38 +38,46 @@ public:
     }
     void print()
     {
-        int numberedDay[] = { 31,59,90,120,151,181,212,243,273,304,334,365 },
-            first = 0, //binary search
-            last = 11,
-            middle,
-            position = -1;
-        bool found = false;
+        int daysInYear[] = { 31,59,90,120,151,181,212,243,273,304,334,365 },
+            daysInEachMonth[] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
 
-        while (!found)
+        for (int i = 0; i < 12; i++)
         {
-            middle = (first + last) / 2;
-                if (numberedDay[middle] == day)
-                {
-                    found = true;
-                    position = middle;
-                }
-                else if (numberedDay[middle] > day)
-                    last = middle - 1;
-                else if (numberedDay[middle] < day)
-                    first = middle + 1;
-
+            if (day <= daysInYear[i] && day > 31) 
+            {
+                cout << month[i] << " " << day - daysInYear[i - 1] << endl;
+                break;
+            }
+            else if (day <= daysInYear[i]) //january
+            {
+                cout << month[i] << " " << day << endl;
+                break;
+            }
         }
     }
 };
 
-static string month[] = { "January", "February", "March", "April", "May",
+string DayOfYear::month[] = { "January", "February", "March", "April", "May",
 "June", "July", "August", "September", "October", "November", "December" };
 
 int main()
 {
+    int choice, d;
     
-
-
-
+    do
+    {
+        cout << "Enter an integer to represent day of the year and" <<
+            " the program will translate it to a string consisting of the month" <<
+            " followed by day of the month: ";
+        cin >> d;
+        DayOfYear a(d);
+        if (d > 0 && d < 366)
+        {
+            a.print();
+        }
+        cout << "Would you like to enter another integer to translate? (1 for yes/2 for no): ";
+        cin >> choice;
+    } while (choice != 2);
+    
     return 0;
 }
