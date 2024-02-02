@@ -14,6 +14,10 @@ private:
     int day;
     static string month[];
 public:
+    DayOfYear(string month, int d)
+    {
+
+    }
     DayOfYear(int d)
     {
         if (d > 0 && d < 366)
@@ -43,6 +47,22 @@ public:
                 break;
             }
         }
+    }
+    DayOfYear operator++() //prefix increment
+    {
+
+    }
+    DayOfYear operator--() //prefix decrement
+    {
+
+    }
+    DayOfYear operator++(int) //postfix increment
+    {
+
+    }
+    DayOfYear operator--(int) //postfix decrement
+    {
+
     }
 };
 
