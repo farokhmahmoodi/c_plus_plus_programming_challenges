@@ -45,12 +45,12 @@ public:
         {
             if (day <= daysInYear[i] && day > 31) 
             {
-                cout << month[i] << " " << day - daysInYear[i - 1] << endl;
+                cout << "Day " << day << " is " << month[i] << " " << day - daysInYear[i - 1] << endl;
                 break;
             }
             else if (day <= daysInYear[i]) //january
             {
-                cout << month[i] << " " << day << endl;
+                cout << "Day " << day << " is " << month[i] << " " << day << endl;
                 break;
             }
         }
@@ -63,7 +63,7 @@ string DayOfYear::month[] = { "January", "February", "March", "April", "May",
 int main()
 {
     int choice, d;
-    
+
     do
     {
         cout << "Enter an integer to represent day of the year and" <<
@@ -78,6 +78,6 @@ int main()
         cout << "Would you like to enter another integer to translate? (1 for yes/2 for no): ";
         cin >> choice;
     } while (choice != 2);
-    
+  
     return 0;
 }
