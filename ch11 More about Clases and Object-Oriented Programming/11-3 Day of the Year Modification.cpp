@@ -13,10 +13,28 @@ class DayOfYear
 private:
     int day;
     static string month[];
+    static int daysInYear[], daysInEachMonth[];
 public:
-    DayOfYear(string month, int d)
+    DayOfYear(string m, int d)
     {
-
+        for (int i = 0; i < 12; i++)
+        {
+            if ((m == month[i] && d <= daysInEachMonth[i]) && (d > 31)) //february-december
+            {
+                day = d;
+                cout << m << " " << d << " is Day " << day << " of the year." << endl;
+            }
+            else if (m == month[i] && d <= daysInEachMonth[i]) //january
+            {
+                day = d;
+                cout << m << " " << d << " is Day " << day << " of the year." << endl;
+            }
+            else
+            {
+                cout << "Error. Number entered is outside the range of days for the month given." << endl;
+                exit(0); //terminates program
+            }
+        }
     }
     DayOfYear(int d)
     {
@@ -31,9 +49,6 @@ public:
     }
     void print()
     {
-        int daysInYear[] = { 31,59,90,120,151,181,212,243,273,304,334,365 },
-            daysInEachMonth[] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
-
         for (int i = 0; i < 12; i++)
         {
             if (day <= daysInYear[i] && day > 31)
@@ -50,41 +65,80 @@ public:
     }
     DayOfYear operator++() //prefix increment
     {
-
+        if (day == 365)
+        {
+            day = 1;
+            return *this;
+        }
+        else
+        {
+            day++;
+            return *this;
+        }
     }
     DayOfYear operator--() //prefix decrement
     {
-
+        if (day == 1)
+        {
+            day = 365;
+            return *this;
+        }
+        else
+        {
+            day--;
+            return *this;
+        }
     }
     DayOfYear operator++(int) //postfix increment
     {
-
+        if (day == 365)
+        {
+            DayOfYear temp = *this;
+            day = 1;
+            return temp;
+        }
+        else
+        {
+            DayOfYear temp = *this;
+            day++;
+            return temp;
+        }
     }
     DayOfYear operator--(int) //postfix decrement
     {
-
+        if (day == 1)
+        {
+            DayOfYear temp = *this;
+            day = 365;
+            return *this;
+        }
+        else
+        {
+            DayOfYear temp = *this;
+            day--;
+            return *this;
+        }
     }
 };
 
+int DayOfYear::daysInYear[] = { 31,59,90,120,151,181,212,243,273,304,334,365 },
+int DayOfYear::daysInEachMonth[] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
 string DayOfYear::month[] = { "January", "February", "March", "April", "May",
 "June", "July", "August", "September", "October", "November", "December" };
 
 int main()
 {
     int choice, d;
+    string m;
 
     do
     {
-        cout << "Enter an integer to represent day of the year and" <<
-            " the program will translate it to a string consisting of the month" <<
-            " followed by day of the month: ";
+        cout << "Enter a month and day and the program will translate" <<
+            " it to a day of the year (from 1-365): ";
+        cin >> m;
         cin >> d;
-        DayOfYear a(d);
-        if (d > 0 && d < 366)
-        {
-            a.print();
-        }
-        cout << "Would you like to enter another integer to translate? (1 for yes/2 for no): ";
+        DayOfYear a(m,d);
+        cout << "Would you like to enter another month and day to translate? (1 for yes/2 for no): ";
         cin >> choice;
     } while (choice != 2);
 
