@@ -21,8 +21,31 @@ using namespace std;
 
 class DivSales
 {
-
+private:
+    double division[4];
+    static double totalSales;
+public:
+    DivSales()
+    {
+        for (int i = 0; i < 4; i++)
+            division[i] = 0;
+    }
+    void addSales(double q1, double q2, double q3, double q4)
+    {
+        division[0] = q1, 
+        division[1] = q2, 
+        division[2] = q3,
+        division[3] = q4;
+        totalSales += q1 + q2 + q3 + q4;
+    }
+    void getQuarterlySales(int index)
+    {
+        //if(index > -1 && index < 4)
+            
+    }
 };
+
+double DivSales::totalSales = 0;
 
 int main()
 {
