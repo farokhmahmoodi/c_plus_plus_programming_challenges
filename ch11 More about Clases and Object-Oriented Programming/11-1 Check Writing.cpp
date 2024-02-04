@@ -35,10 +35,14 @@ int main()
         } while (num < 0 || num > 9999);
         Numbers a(num);
         a.print();
-        cout << "Would you like to enter another number? (1 for yes/2 for no)?";
-        cin >> choice;
+		do
+		{
+			cout << "Would you like to enter another number? (1 for yes/2 for no)?";
+			cin >> choice;	
+			if(choice != 1 && choice != 2)
+				cout << "Invalid input for choice." << endl;
+		}while(choice != 1 && choice != 2);
     } while (choice != 2);
-
-    
+   
     return 0;
 }
