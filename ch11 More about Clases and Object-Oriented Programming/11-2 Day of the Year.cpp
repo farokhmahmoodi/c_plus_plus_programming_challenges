@@ -75,8 +75,13 @@ int main()
         {
             a.print();
         }
-        cout << "Would you like to enter another integer to translate? (1 for yes/2 for no): ";
-        cin >> choice;
+        do
+		{
+			cout << "Would you like to enter another integer to translate? (1 for yes/2 for no): ";
+			cin >> choice;
+			if(choice != 1 && choice != 2)
+				cout << "Invalid input for choice." << endl;
+		}while(choice != 1 && choice != 2);
     } while (choice != 2);
   
     return 0;
