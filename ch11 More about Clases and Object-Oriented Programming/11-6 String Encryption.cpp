@@ -9,11 +9,18 @@ object are letters a, .., z and A, .., Z, and that the successor of z is a and t
 with a program that asks the user to enter strings that are then encrypted and printed.*/
 
 #include <iostream>
+#include <string>
 using namespace std;
+
+class EncryptableString : public string
+{
+
+
+};
 
 int main()
 {
     
+
     return 0;
 }
-
