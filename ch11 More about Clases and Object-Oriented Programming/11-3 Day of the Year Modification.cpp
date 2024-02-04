@@ -145,8 +145,13 @@ int main()
         cin >> m;
         cin >> d;
         DayOfYear a(m,d);
-        cout << "Would you like to enter another month and day to translate? (1 for yes/2 for no): ";
-        cin >> choice;
+        do
+		{
+			cout << "Would you like to enter another month and day to translate? (1 for yes/2 for no): ";
+			cin >> choice;
+			if(choice != 1 && choice != 2)
+				cout << "Invalid input for choice." << endl;
+		}while(choice != 1 && choice != 2);
     } while (choice != 2);
 
     return 0;
