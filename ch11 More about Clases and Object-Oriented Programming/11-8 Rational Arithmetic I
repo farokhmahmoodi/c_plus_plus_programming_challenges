@@ -21,27 +21,27 @@ public:
         if (d != 0)
         {
             numerator = n, denominator = d;
+            reduce();
         }
         else
             cout << "Denominator cannot equal zero." << endl;
     }
     void reduce()
     {
-        if (numerator % denominator == 0)
-        {
-
-        }
-        else
+        if (denominator < 0)
             denominator = denominator * -1;
     }
-    friend ostream& operator<<(ostream& out, Rational& a)
+    friend ostream &operator<<(ostream& out, Rational a)
     {
-
+        out << "Reduced form rational number is " << a.numerator << "/" << a.denominator << "." << endl;
+        return out;
     }
 };
 
 int main()
 {
-    
+    Rational test(-3, 4);
+    cout << test << endl;
+
     return 0;
 }
