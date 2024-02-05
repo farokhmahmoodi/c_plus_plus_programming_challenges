@@ -15,6 +15,19 @@ class Rational
 {
 private:
     int numerator, denominator;
+    void reduce()
+    {
+        while (numerator % 2 == 0 && denominator % 2 == 0)
+        {
+            numerator = numerator / 2,
+            denominator = denominator / 2;
+        }
+        if (denominator < 0)
+        {
+            denominator = denominator * -1;
+            numerator = numerator * -1;
+        }
+    }
 public:
     Rational(int n, int d)
     {
@@ -26,11 +39,6 @@ public:
         else
             cout << "Denominator cannot equal zero." << endl;
     }
-    void reduce()
-    {
-        if (denominator < 0)
-            denominator = denominator * -1;
-    }
     friend ostream &operator<<(ostream& out, Rational a)
     {
         out << "Reduced form rational number is " << a.numerator << "/" << a.denominator << "." << endl;
@@ -40,7 +48,7 @@ public:
 
 int main()
 {
-    Rational test(-3, 4);
+    Rational test(12, -4);
     cout << test << endl;
 
     return 0;
