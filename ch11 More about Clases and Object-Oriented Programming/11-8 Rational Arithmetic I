@@ -11,6 +11,35 @@ insertion operator << that will be used for output of objects of the class.*/
 #include <iostream>
 using namespace std;
 
+class Rational
+{
+private:
+    int numerator, denominator;
+public:
+    Rational(int n, int d)
+    {
+        if (d != 0)
+        {
+            numerator = n, denominator = d;
+        }
+        else
+            cout << "Denominator cannot equal zero." << endl;
+    }
+    void reduce()
+    {
+        if (numerator % denominator == 0)
+        {
+
+        }
+        else
+            denominator = denominator * -1;
+    }
+    friend ostream& operator<<(ostream& out, Rational& a)
+    {
+
+    }
+};
+
 int main()
 {
     
