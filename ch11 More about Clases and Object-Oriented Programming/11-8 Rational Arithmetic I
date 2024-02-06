@@ -110,7 +110,7 @@ public:
 
 int main()
 {
-    int a = 8, b = -18;
+    int a = 8, b = -16;
     Rational test(a,b);
 
     cout << "Reduced form rational number of " << a << "/"
