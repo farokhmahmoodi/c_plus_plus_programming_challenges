@@ -50,7 +50,7 @@ private:
         }
         else
         {
-            for(int i = 2; i <= 10; i++)
+            for(int i = 2; i <= 10; i++) //finding common divisors for numerator and denominator
             {
                 while (numerator % i == 0 && denominator % i == 0)
                 {
@@ -95,11 +95,25 @@ public:
 
 int main()
 {
-    int a = 12, b = -9;
-    Rational test(a,b);
+    int a, b, choice;
 
-    cout << "Reduced form rational number of " << a << "/"
-        << b << " is " << test << endl;
+    do
+    {
+        cout << "Enter a numerator and denominator for a quotient"
+            << " of two integers and the program will transform it to reduced rational "
+            << " form of the quotient:";
+        cin >> a >> b;
+        Rational test(a, b);
+        cout << "Reduced form rational number of " << a << "/"
+            << b << " is " << test << endl;
+        do
+        {
+            cout << "Would you like to run this program again? (1 for yes/ 2 for no)";
+            cin >> choice;
+            if (choice != 1 && choice != 2)
+                cout << "Invalid input for choice." << endl;
+        } while (choice != 1 && choice != 2);
+    } while (choice != 2);
 
     return 0;
 }
