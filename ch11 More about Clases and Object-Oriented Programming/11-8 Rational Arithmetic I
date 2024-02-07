@@ -84,7 +84,11 @@ public:
             reduce();
         }
         else
+        {
             cout << "Denominator cannot equal zero." << endl;
+            numerator = 0,
+            denominator = 0;
+        }
     }
     friend ostream &operator<<(ostream& out, Rational a)
     {
