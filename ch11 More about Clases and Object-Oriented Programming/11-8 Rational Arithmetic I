@@ -50,7 +50,21 @@ private:
         }
         else if (abs(numerator) % 2 == 0 && abs(denominator) % 2 == 0) //numerator and denominator are even
         {
-
+            while (numerator % 2 == 0 && denominator % 2 == 0)
+            {
+                numerator = numerator / 2;
+                denominator = denominator / 2;
+            }
+            if (denominator < 0)
+            {
+                denominator = denominator * -1;
+                numerator = numerator * -1;
+            }
+            if (numerator < 0 && denominator < 0)
+            {
+                denominator = denominator * -1;
+                numerator = numerator * -1;
+            }
         }
     }
 public:
@@ -78,7 +92,7 @@ public:
 
 int main()
 {
-    int a = 4, b = 6;
+    int a = 5, b = -14;
     Rational test(a,b);
 
     cout << "Reduced form rational number of " << a << "/"
