@@ -75,7 +75,7 @@ public:
     Rational()
     {
         numerator = 0,
-            denominator = 0;
+        denominator = 0;
     }
     Rational(int n, int d)
     {
@@ -88,7 +88,7 @@ public:
         {
             cout << "Denominator cannot equal zero." << endl;
             numerator = 0,
-                denominator = 0;
+            denominator = 0;
         }
     }
     friend ostream& operator<<(ostream& out, Rational a)
