@@ -51,7 +51,7 @@ private:
         }
         else
         {
-            for (int i = 10; i >= 2; i++) //finding common divisors for numerator and denominator
+            for (int i = 10; i >= 2; i--) //finding common divisors for numerator and denominator
             {
                 while (numerator % i == 0 && denominator % i == 0)
                 {
@@ -100,19 +100,16 @@ public:
     {
         Rational result;
         
-        for(int i = 10; i >= 2; i--)
-        {
-            if (a.denominator % i == 0 && b.denominator % i == 0)
-            {
-                 
-            }
-        }
+        result.denominator = a.denominator * b.denominator;
+        result.numerator = (result.denominator / a.numerator) + (result.denominator / b.numerator);
+
+        return result;
     }
 };
 
 int main()
 {
-    int a, b, choice;
+    int a, b, choice, subchoice;
 
     do
     {
@@ -121,8 +118,30 @@ int main()
             << " form of the quotient:";
         cin >> a >> b;
         Rational test(a, b);
-        cout << "Reduced form rational number of " << a << "/"
+        cout << "Reduced form rational number of " << a << " / "
             << b << " is " << test << endl;
+        cout << "Enter another numerator and denominator for a quotient"
+            << " of two integers and the program will transform it to reduced rational "
+            << " form of the quotient:";
+        cin >> a >> b;
+        Rational test2(a, b);
+        cout << "Reduced form rational number of " << a << " / "
+            << b << " is " << test2 << endl;
+        do
+        {
+            do
+            {
+                cout << "Select an option below to perform operations on rational numbers entered:" << endl;
+                cout << "1. Addition" << endl;
+                cout << "2. Subtraction" << endl;
+                cout << "3. Multiplication" << endl;
+                cout << "4. Division" << endl;
+                cout << "5. Quit" << endl;
+                cin >> subchoice;
+                if (subchoice < 1 || subchoice > 5)
+                    cout << "Invalid input for choice." << endl;
+            } while (subchoice < 1 || subchoice > 5);
+        } while (subchoice != 5);
         do
         {
             cout << "Would you like to run this program again? (1 for yes/ 2 for no)";
