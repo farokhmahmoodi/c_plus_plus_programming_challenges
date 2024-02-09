@@ -51,7 +51,7 @@ private:
         }
         else
         {
-            for (int i = 2; i <= 10; i++) //finding common divisors for numerator and denominator
+            for (int i = 10; i >= 2; i++) //finding common divisors for numerator and denominator
             {
                 while (numerator % i == 0 && denominator % i == 0)
                 {
@@ -93,8 +93,20 @@ public:
     }
     friend ostream& operator<<(ostream& out, Rational a)
     {
-        out << a.numerator << "/" << a.denominator << "." << endl;
+        out << a.numerator << " / " << a.denominator << endl;
         return out;
+    }
+    friend Rational operator+(Rational a, Rational b)
+    {
+        Rational result;
+        
+        for(int i = 10; i >= 2; i--)
+        {
+            if (a.denominator % i == 0 && b.denominator % i == 0)
+            {
+                 
+            }
+        }
     }
 };
 
