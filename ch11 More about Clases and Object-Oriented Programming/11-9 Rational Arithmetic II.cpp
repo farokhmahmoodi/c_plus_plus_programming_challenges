@@ -100,15 +100,22 @@ public:
     {
         Rational result;
         
-        if (a.denominator != b.denominator)
+        if (a.numerator >= 0 && b.numerator >= 0) //if both expressions are positive
         {
-            result.denominator = a.denominator * b.denominator;
-            result.numerator = (a.numerator * b.denominator) + (b.numerator * a.denominator);
+            if (a.denominator != b.denominator)
+            {
+                result.denominator = a.denominator * b.denominator;
+                result.numerator = (a.numerator * b.denominator) + (b.numerator * a.denominator);
+            }
+            else
+            {
+                result.denominator = a.denominator;
+                result.numerator = a.numerator + b.numerator;
+            }
         }
         else
         {
-            result.denominator = a.denominator;
-            result.numerator = a.numerator + b.numerator;
+
         }
 
         return result;
