@@ -100,8 +100,16 @@ public:
     {
         Rational result;
         
-        result.denominator = a.denominator * b.denominator;
-        result.numerator = (result.denominator / a.numerator) + (result.denominator / b.numerator);
+        if (a.denominator != b.denominator)
+        {
+            result.denominator = a.denominator * b.denominator;
+            result.numerator = (a.numerator * b.denominator) + (b.numerator * a.denominator);
+        }
+        else
+        {
+            result.denominator = a.denominator;
+            result.numerator = a.numerator + b.numerator;
+        }
 
         return result;
     }
@@ -131,7 +139,8 @@ int main()
         {
             do
             {
-                cout << "Select an option below to perform operations on rational numbers entered:" << endl;
+                cout << "Select an option below to perform operations on rational numbers "
+                    << test << " and " << test2 << ":" << endl;
                 cout << "1. Addition" << endl;
                 cout << "2. Subtraction" << endl;
                 cout << "3. Multiplication" << endl;
@@ -153,9 +162,12 @@ int main()
             case 4:
                 break;
             }
+            if (subchoice == 5)
+                break;
             do
             {
-                cout << "Would you like to perform another operation on rational numbers entered? (1 for yes/2 for no):";
+                cout << "Would you like to perform another operation on rational numbers "
+                    << test << " and " << test2 << "? (1 for yes/2 for no):";
                 cin >> subchoice;
                 if (subchoice < 1 || subchoice > 2)
                     cout << "Invalid input for choice." << endl;
@@ -163,7 +175,7 @@ int main()
         } while (subchoice != 2);
         do
         {
-            cout << "Would you like to run this program again? (1 for yes/ 2 for no)";
+            cout << "Would you like to run this program again? (1 for yes/2 for no)";
             cin >> choice;
             if (choice != 1 && choice != 2)
                 cout << "Invalid input for choice." << endl;
