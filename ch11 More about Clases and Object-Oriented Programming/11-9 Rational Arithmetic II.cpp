@@ -141,7 +141,26 @@ int main()
                 if (subchoice < 1 || subchoice > 5)
                     cout << "Invalid input for choice." << endl;
             } while (subchoice < 1 || subchoice > 5);
-        } while (subchoice != 5);
+            switch (subchoice)
+            {
+            case 1:
+                cout << test + test2 << endl;
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            }
+            do
+            {
+                cout << "Would you like to perform another operation on rational numbers entered? (1 for yes/2 for no):";
+                cin >> subchoice;
+                if (subchoice < 1 || subchoice > 2)
+                    cout << "Invalid input for choice." << endl;
+            } while (subchoice < 1 || subchoice > 2);
+        } while (subchoice != 2);
         do
         {
             cout << "Would you like to run this program again? (1 for yes/ 2 for no)";
