@@ -1,4 +1,4 @@
-/*Modify the class Rational of Programming Challenge 8 to add overloaded operators +, −, *, and / to be used for addition,
+﻿/*Modify the class Rational of Programming Challenge 8 to add overloaded operators +, −, *, and / to be used for addition,
 subtraction, multiplication, and division. Test the class by reading and processing from the keyboard (or from a file) a
 series of rational expressions such as
 
@@ -75,7 +75,7 @@ public:
     Rational()
     {
         numerator = 0,
-        denominator = 0;
+            denominator = 0;
     }
     Rational(int n, int d)
     {
@@ -88,35 +88,65 @@ public:
         {
             cout << "Denominator cannot equal zero." << endl;
             numerator = 0,
-            denominator = 0;
+                denominator = 0;
         }
     }
     friend ostream& operator<<(ostream& out, Rational a)
     {
-        out << a.numerator << " / " << a.denominator << endl;
+        out << a.numerator << "/" << a.denominator;
         return out;
     }
     friend Rational operator+(Rational a, Rational b)
     {
         Rational result;
-        
-        if (a.numerator >= 0 && b.numerator >= 0) //if both expressions are positive
+
+        if (a.denominator != b.denominator)
         {
-            if (a.denominator != b.denominator)
-            {
-                result.denominator = a.denominator * b.denominator;
-                result.numerator = (a.numerator * b.denominator) + (b.numerator * a.denominator);
-            }
-            else
-            {
-                result.denominator = a.denominator;
-                result.numerator = a.numerator + b.numerator;
-            }
+            result.denominator = a.denominator * b.denominator;
+            result.numerator = (a.numerator * b.denominator) + (b.numerator * a.denominator);
+        }
+        else 
+        {
+            result.denominator = a.denominator;
+            result.numerator = a.numerator + b.numerator;
+        }
+        result.reduce();
+
+        return result;
+    }
+    friend Rational operator-(Rational a, Rational b)
+    {
+        Rational result;
+
+        if (a.denominator != b.denominator)
+        {
+            result.denominator = a.denominator * b.denominator;
+            result.numerator = (a.numerator * b.denominator) - (b.numerator * a.denominator);
         }
         else
         {
-
+            result.denominator = a.denominator;
+            result.numerator = a.numerator - b.numerator;
         }
+        result.reduce();
+
+        return result;
+    }
+    friend Rational operator*(Rational a, Rational b)
+    {
+        Rational result;
+
+        if (a.denominator != b.denominator)
+        {
+            result.denominator = a.denominator * b.denominator;
+            result.numerator = (a.numerator * b.denominator) * (b.numerator * a.denominator);
+        }
+        else
+        {
+            result.denominator = a.denominator;
+            result.numerator = a.numerator * b.numerator;
+        }
+        result.reduce();
 
         return result;
     }
@@ -133,14 +163,14 @@ int main()
             << " form of the quotient:";
         cin >> a >> b;
         Rational test(a, b);
-        cout << "Reduced form rational number of " << a << " / "
+        cout << "Reduced form rational number of " << a << "/"
             << b << " is " << test << endl;
         cout << "Enter another numerator and denominator for a quotient"
             << " of two integers and the program will transform it to reduced rational "
             << " form of the quotient:";
         cin >> a >> b;
         Rational test2(a, b);
-        cout << "Reduced form rational number of " << a << " / "
+        cout << "Reduced form rational number of " << a << "/"
             << b << " is " << test2 << endl;
         do
         {
@@ -160,11 +190,16 @@ int main()
             switch (subchoice)
             {
             case 1:
-                cout << test + test2 << endl;
+                cout << test << " + " << test2 << " = " <<
+                    test + test2 << endl;
                 break;
             case 2:
+                cout << test << " - " << test2 << " = " <<
+                    test - test2 << endl;
                 break;
             case 3:
+                cout << test << " * " << test2 << " = " <<
+                    test * test2 << endl;
                 break;
             case 4:
                 break;
