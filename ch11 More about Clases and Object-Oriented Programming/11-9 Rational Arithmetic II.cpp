@@ -19,56 +19,33 @@ private:
     int numerator, denominator;
     void reduce()
     {
-        if (abs(numerator) % denominator == 0) //numerator divided by denominator remainder = 0
+        int high,divisor = 2;
+
+        if (numerator > denominator)
         {
-            numerator = numerator / denominator;
-            denominator = denominator / denominator;
-            if (denominator < 0)
-            {
-                denominator = 1;
-                numerator = numerator * -1;
-            }
-            if (numerator < 0 && denominator < 0)
-            {
-                denominator = 1;
-                numerator = numerator * -1;
-            }
-        }
-        else if (abs(denominator) % abs(numerator) == 0) //denominator divided by numerator remainder = 0
-        {
-            denominator = denominator / numerator;
-            numerator = numerator / numerator;
-            if (denominator < 0)
-            {
-                denominator = denominator * -1;
-                numerator = numerator * -1;
-            }
-            if (numerator < 0 && denominator < 0)
-            {
-                denominator = denominator * -1;
-                numerator = numerator * -1;
-            }
+            high = numerator;
         }
         else
         {
-            for (int i = 100; i >= 2; i--) //finding common divisors for numerator and denominator
+            high = denominator;
+        }
+        while (divisor <= high) //finding common divisor
+        {
+            if (numerator % divisor == 0 && denominator % divisor == 0)
             {
-                while (numerator % i == 0 && denominator % i == 0)
-                {
-                    numerator = numerator / i;
-                    denominator = denominator / i;
-                }
+                numerator /= divisor;
+                denominator /= divisor;
+                divisor = 2;
             }
-            if (denominator < 0)
+            else
             {
-                denominator = denominator * -1;
-                numerator = numerator * -1;
+                divisor++;
             }
-            if (numerator < 0 && denominator < 0)
-            {
-                denominator = denominator * -1;
-                numerator = numerator * -1;
-            }
+        }
+        if (denominator < 0)
+        {
+            denominator *= -1;
+            numerator *= -1;
         }
     }
 public:
