@@ -34,23 +34,27 @@ public:
 };
 
 // This class allows a 2-dimensional table expressed as
-// a vectors of vector of strings to be transformed into
+// a vectors of vector of Student objects to be transformed into
 // HTML form.
 class HTMLTable
 {
 private:
 	vector<string> headers;
-	vector<vector<string> > rows;
+	vector<vector<Student> > rows;
 	// Helper method for writing an HTML row in a table
-	void writeRow(ostream& out, string tag, vector<string> row);
+	void writeRow(ostream& out, string tag, vector<Student> row);
 public:
+	HTMLTable(vector<Student> a)
+	{
+
+	}
 	// Set headers for the table columns
 	void setHeaders(const vector<string>& headers)
 	{
 		this->headers = headers;
 	}
 	// Add rows to the table
-	void addRow(const vector<string>& row)
+	void addRow(const vector<Student>& row)
 	{
 		rows.push_back(row);
 	}
@@ -65,13 +69,13 @@ public:
 // table header.                                             *
 //************************************************************
 void HTMLTable::writeRow(ostream& out, string tag,
-	vector<string> row)
+	vector<Student> row)
 {
 	out << "<tr>\n";
 	for (unsigned int k = 0; k < headers.size(); k++)
 	{
-		out << "<" << tag << "> "
-			<< row[k] << " </" << tag << "> ";
+		//out << "<" << tag << "> "
+		//	<< row[k] << " </" << tag << "> ";
 	}
 	out << "\n</tr>\n";
 }
@@ -83,7 +87,7 @@ ostream& operator<<(ostream& out, HTMLTable htmlTable)
 {
 	out << "<table border = \"1\">\n";
 	// Write the headers
-	htmlTable.writeRow(out, "th", htmlTable.headers);
+	//htmlTable.writeRow(out, "th", htmlTable.headers);
 	// Write the rows of the table
 	for (unsigned int r = 0; r < htmlTable.rows.size(); r++)
 	{
@@ -97,7 +101,7 @@ ostream& operator<<(ostream& out, HTMLTable htmlTable)
 int main()
 {
 	// Hard-coded data for table column headers   
-	vector<string> headers{ "Name", "Address", "Phone" };
+	vector<string> headers{ "Name", "Score"};
 
 	// Hard-coded data for the two rows of the table
 	// 
@@ -107,18 +111,18 @@ int main()
 	{ "Natasha Upenski", "513 Briarcliff Ln", "412-672-1004" };
 
 	// Create the HTML table object and set its members
-	HTMLTable hTable;
-	hTable.setHeaders(headers);
-	hTable.addRow(person1);
-	hTable.addRow(person2);
+	//HTMLTable hTable;
+	//hTable.setHeaders(headers);
+	//hTable.addRow(person1);
+	//hTable.addRow(person2);
 
 	// Open a file and write the HTML code to the file
 	ofstream outFile("c:\\temp\\table.html");
-	outFile << hTable;
+	//outFile << hTable;
 	outFile.close();
 
 	// Write the same HTML code to the screen for ease of viewing
-	cout << hTable;
+	//cout << hTable;
 	// Use the default browser to view generated HTML table
 	system("c:\\temp\\table.html");
 
