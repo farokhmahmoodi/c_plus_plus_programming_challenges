@@ -51,7 +51,7 @@ private:
         }
         else
         {
-            for (int i = 10; i >= 2; i--) //finding common divisors for numerator and denominator
+            for (int i = 100; i >= 2; i--) //finding common divisors for numerator and denominator
             {
                 while (numerator % i == 0 && denominator % i == 0)
                 {
@@ -136,16 +136,18 @@ public:
     {
         Rational result;
 
-        if (a.denominator != b.denominator)
-        {
-            result.denominator = a.denominator * b.denominator;
-            result.numerator = (a.numerator * b.denominator) * (b.numerator * a.denominator);
-        }
-        else
-        {
-            result.denominator = a.denominator;
-            result.numerator = a.numerator * b.numerator;
-        }
+        result.denominator = a.denominator * b.denominator;
+        result.numerator = a.numerator * b.numerator;
+        result.reduce();
+
+        return result;
+    }
+    friend Rational operator/(Rational a, Rational b)
+    {
+        Rational result;
+
+        result.denominator = a.denominator * b.numerator;
+        result.numerator = a.numerator * b.denominator;
         result.reduce();
 
         return result;
@@ -202,6 +204,8 @@ int main()
                     test * test2 << endl;
                 break;
             case 4:
+                cout << test << " / " << test2 << " = " <<
+                    test / test2 << endl;
                 break;
             }
             if (subchoice == 5)
