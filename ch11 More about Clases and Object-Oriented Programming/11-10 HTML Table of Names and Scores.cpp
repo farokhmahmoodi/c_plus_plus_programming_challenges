@@ -31,6 +31,22 @@ public:
 			score = 0;
 		}
 	}
+	void setName(string n)
+	{
+		name = n;
+	}
+	void setScore(int s)
+	{
+		score = s;
+	}
+	string getName() const
+	{
+		return name;
+	}
+	int getScore() const
+	{
+		return score;
+	}
 };
 
 // This class allows a 2-dimensional table expressed as
@@ -40,13 +56,21 @@ class HTMLTable
 {
 private:
 	vector<string> headers;
-	vector<vector<Student> > rows;
-	// Helper method for writing an HTML row in a table
-	void writeRow(ostream& out, string tag, vector<Student> row);
+	vector<vector<string>> rows;
+	// Helper methods for writing an HTML row in a table
+	void writeRow(ostream& out, string tag, vector<string> row);
+	void writeDataRow(ostream& out, string tag, vector<Student> row);
 public:
-	HTMLTable(vector<Student> a)
+	HTMLTable()
 	{
 
+	}
+	HTMLTable(vector<Student> a)
+	{
+		for (int i = 0; i < a.size(); i++)
+		{
+
+		}
 	}
 	// Set headers for the table columns
 	void setHeaders(const vector<string>& headers)
@@ -54,7 +78,7 @@ public:
 		this->headers = headers;
 	}
 	// Add rows to the table
-	void addRow(const vector<Student>& row)
+	void addRow(const vector<string>& row)
 	{
 		rows.push_back(row);
 	}
@@ -69,13 +93,26 @@ public:
 // table header.                                             *
 //************************************************************
 void HTMLTable::writeRow(ostream& out, string tag,
+	vector<string> row)
+{
+	out << "<tr>\n";
+	for (unsigned int k = 0; k < headers.size(); k++)
+	{
+		out << "<" << tag << "> "
+			<< row[k] << " </" << tag << "> ";
+	}
+	out << "\n</tr>\n";
+}
+
+void HTMLTable::writeDataRow(ostream& out, string tag,
 	vector<Student> row)
 {
 	out << "<tr>\n";
 	for (unsigned int k = 0; k < headers.size(); k++)
 	{
-		//out << "<" << tag << "> "
-		//	<< row[k] << " </" << tag << "> ";
+		out << "<" << tag << "> "
+			<< row[k].getName() << " " << 
+			row[k].getScore() << " </" << tag << "> ";
 	}
 	out << "\n</tr>\n";
 }
@@ -87,11 +124,11 @@ ostream& operator<<(ostream& out, HTMLTable htmlTable)
 {
 	out << "<table border = \"1\">\n";
 	// Write the headers
-	//htmlTable.writeRow(out, "th", htmlTable.headers);
+	htmlTable.writeRow(out, "th", htmlTable.headers);
 	// Write the rows of the table
 	for (unsigned int r = 0; r < htmlTable.rows.size(); r++)
 	{
-		htmlTable.writeRow(out, "td", htmlTable.rows[r]);
+		//htmlTable.writeDataRow(out, "td", htmlTable.rows[r]);
 	}
 	// Write end tag for table
 	out << "</table>\n";
@@ -104,11 +141,21 @@ int main()
 	vector<string> headers{ "Name", "Score"};
 
 	// Hard-coded data for the two rows of the table
-	// 
-	vector<string> person1
-	{ "Mike Sane", "1215 Mills St", "630-728-1293" };
-	vector<string> person2
-	{ "Natasha Upenski", "513 Briarcliff Ln", "412-672-1004" };
+	vector<Student> test (2);
+	string n;
+	int s;
+
+	for (int i = 0; i < test.size(); i++)
+	{
+		cout << "Enter name of student " <<
+			(i + 1) << ":";
+		cin >> n;
+		test[i].setName(n);
+		cout << "Enter score of student " <<
+			(i + 1) << ":";
+		cin >> s;
+		test[i].setScore(s);
+	}
 
 	// Create the HTML table object and set its members
 	//HTMLTable hTable;
