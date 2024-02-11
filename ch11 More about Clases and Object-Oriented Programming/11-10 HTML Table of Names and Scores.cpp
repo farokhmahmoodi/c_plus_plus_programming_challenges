@@ -57,11 +57,10 @@ class HTMLTable
 private:
 	vector<string> headers, names;
 	vector<vector<string>> rows;
-	//vector<vector<int>> rows;
 	vector<int> scores;
 	// Helper methods for writing an HTML row in a table
-	void writeRow(ostream& out, string tag, vector<string> row);
-	void writeIntRow(ostream& out, string tag, vector<int> scores);
+	void writeHeadersRow(ostream& out, string tag, vector<string> row);
+	void writeDataRow(ostream& out, string tag, vector<string> names, vector<int> scores);
 public:
 	HTMLTable()
 	{
@@ -96,7 +95,7 @@ public:
 // table data. The tag may be td for table data or th for    *
 // table header.                                             *
 //************************************************************
-void HTMLTable::writeRow(ostream& out, string tag,
+void HTMLTable::writeHeadersRow(ostream& out, string tag,
 	vector<string> row)
 {
 	out << "<tr>\n";
@@ -108,16 +107,18 @@ void HTMLTable::writeRow(ostream& out, string tag,
 	out << "\n</tr>\n";
 }
 
-void HTMLTable::writeIntRow(ostream& out, string tag,
+void HTMLTable::writeDataRow(ostream& out, string tag,vector<string> names,
 	vector<int> scores)
 {
-	out << "<tr>\n";
-	for (unsigned int k = 0; k < headers.size(); k++)
+	for (unsigned int k = 0; k < rows.size(); k++)
 	{
+		out << "<tr>\n";
+		out << "<" << tag << "> "
+			<< names[k] << " </" << tag << "> ";
 		out << "<" << tag << "> "
 			<< scores[k] << " </" << tag << "> ";
+		out << "\n</tr>\n";
 	}
-	out << "\n</tr>\n";
 }
 
 //******************************************************
@@ -127,13 +128,9 @@ ostream& operator<<(ostream& out, HTMLTable htmlTable)
 {
 	out << "<table border = \"1\">\n";
 	// Write the headers
-	htmlTable.writeRow(out, "th", htmlTable.headers);
+	htmlTable.writeHeadersRow(out, "th", htmlTable.headers);
 	// Write the rows of the table
-	for (unsigned int r = 0; r < htmlTable.rows.size(); r++)
-	{
-		htmlTable.writeRow(out, "td", htmlTable.names);
-		//htmlTable.writeIntRow(out, "td", htmlTable.scores);
-	}
+	htmlTable.writeDataRow(out, "td", htmlTable.names, htmlTable.scores);
 	// Write end tag for table
 	out << "</table>\n";
 	return out;
@@ -145,7 +142,7 @@ int main()
 	vector<string> headers{ "Name", "Score"};
 
 	// Hard-coded data for the two rows of the table
-	vector<Student> test (2);
+	vector<Student> test (3);
 	string n;
 	int s;
 
