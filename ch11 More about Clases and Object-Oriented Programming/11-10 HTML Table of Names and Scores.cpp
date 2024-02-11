@@ -142,20 +142,23 @@ int main()
 	vector<string> headers{ "Name", "Score"};
 
 	// Hard-coded data for the two rows of the table
-	vector<Student> test (3);
-	string n;
-	int s;
+	string name;
+	int score,num;
 
+	cout << "How many students test scores would you like to "
+		<< "input to display on HTML table?:";
+	cin >> num;
+	vector<Student> test(num);
 	for (int i = 0; i < test.size(); i++)
 	{
 		cout << "Enter name of student " <<
 			(i + 1) << ":";
-		cin >> n;
-		test[i].setName(n);
+		cin >> name;
+		test[i].setName(name);
 		cout << "Enter score of student " <<
 			(i + 1) << ":";
-		cin >> s;
-		test[i].setScore(s);
+		cin >> score;
+		test[i].setScore(score);
 	}
 
 	// Create the HTML table object and set its members
