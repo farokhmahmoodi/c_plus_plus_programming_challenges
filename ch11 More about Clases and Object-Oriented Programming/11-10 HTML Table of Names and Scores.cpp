@@ -55,11 +55,13 @@ public:
 class HTMLTable
 {
 private:
-	vector<string> headers;
+	vector<string> headers, names;
 	vector<vector<string>> rows;
+	//vector<vector<int>> rows;
+	vector<int> scores;
 	// Helper methods for writing an HTML row in a table
 	void writeRow(ostream& out, string tag, vector<string> row);
-	void writeDataRow(ostream& out, string tag, vector<Student> row);
+	void writeIntRow(ostream& out, string tag, vector<int> scores);
 public:
 	HTMLTable()
 	{
@@ -69,7 +71,9 @@ public:
 	{
 		for (int i = 0; i < a.size(); i++)
 		{
-
+			names.push_back(a[i].getName());
+			scores.push_back(a[i].getScore());
+			rows.push_back(names);
 		}
 	}
 	// Set headers for the table columns
@@ -104,15 +108,14 @@ void HTMLTable::writeRow(ostream& out, string tag,
 	out << "\n</tr>\n";
 }
 
-void HTMLTable::writeDataRow(ostream& out, string tag,
-	vector<Student> row)
+void HTMLTable::writeIntRow(ostream& out, string tag,
+	vector<int> scores)
 {
 	out << "<tr>\n";
 	for (unsigned int k = 0; k < headers.size(); k++)
 	{
 		out << "<" << tag << "> "
-			<< row[k].getName() << " " << 
-			row[k].getScore() << " </" << tag << "> ";
+			<< scores[k] << " </" << tag << "> ";
 	}
 	out << "\n</tr>\n";
 }
@@ -128,7 +131,8 @@ ostream& operator<<(ostream& out, HTMLTable htmlTable)
 	// Write the rows of the table
 	for (unsigned int r = 0; r < htmlTable.rows.size(); r++)
 	{
-		//htmlTable.writeDataRow(out, "td", htmlTable.rows[r]);
+		htmlTable.writeRow(out, "td", htmlTable.names);
+		//htmlTable.writeIntRow(out, "td", htmlTable.scores);
 	}
 	// Write end tag for table
 	out << "</table>\n";
@@ -158,18 +162,16 @@ int main()
 	}
 
 	// Create the HTML table object and set its members
-	//HTMLTable hTable;
-	//hTable.setHeaders(headers);
-	//hTable.addRow(person1);
-	//hTable.addRow(person2);
+	HTMLTable hTable(test);
+	hTable.setHeaders(headers);
 
 	// Open a file and write the HTML code to the file
 	ofstream outFile("c:\\temp\\table.html");
-	//outFile << hTable;
+	outFile << hTable;
 	outFile.close();
 
 	// Write the same HTML code to the screen for ease of viewing
-	//cout << hTable;
+	cout << hTable;
 	// Use the default browser to view generated HTML table
 	system("c:\\temp\\table.html");
 
