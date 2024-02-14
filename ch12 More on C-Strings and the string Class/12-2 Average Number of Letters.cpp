@@ -18,7 +18,7 @@ int main()
         cout << "Enter a string with no more than 200 characters and the program will determine how many "
             << "words are in the string:";
         cin.getline(test, LENGTH);
-        cout << "There are " << numWords(test) << " words in the string "
+        cout << "There are " << numWords(test) << " words in the string: "
             << test << endl;
         cout << "The average number of letters in each word of this string is "
             << averageNumLettersInEachWord(test) << endl;
@@ -58,13 +58,14 @@ int numWords(const char* a)
 
 int averageNumLettersInEachWord(const char* a)
 {
-    int index = 0, avg = 0, sum = 0, hold;       
+    int index = 0, avg, sum = 0, hold = 0;       
 
     while (a[index] != '\0')
     {
         if (isspace(a[index]))
         {
-            hold = index;
+            hold = index - hold;
+            cout << hold << endl;
             sum += hold;
         }
         index++;
