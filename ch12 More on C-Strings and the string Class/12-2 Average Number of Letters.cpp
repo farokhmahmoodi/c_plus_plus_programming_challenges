@@ -72,5 +72,6 @@ int averageNumLettersInEachWord(const char* a)
         index++;
     }
     avg = sum / numWords(a);
+
     return avg;
 }
