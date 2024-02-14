@@ -20,6 +20,8 @@ int main()
         cin.getline(test, LENGTH);
         cout << "There are " << numWords(test) << " words in the string "
             << test << endl;
+        cout << "The average number of letters in each word of this string is "
+            << averageNumLettersInEachWord(test) << endl;
         cout << "Would you like to run this program again? (Y for yes/N for no)";
         cin >> choice;
         while (toupper(choice) != 'Y' && toupper(choice) != 'N')
@@ -56,17 +58,17 @@ int numWords(const char* a)
 
 int averageNumLettersInEachWord(const char* a)
 {
-    int index = 0, avg = 0, sum = 0;       
+    int index = 0, avg = 0, sum = 0, hold;       
 
     while (a[index] != '\0')
     {
         if (isspace(a[index]))
         {
-
+            hold = index;
+            sum += hold;
         }
         index++;
     }
-
+    avg = sum / numWords(a);
     return avg;
-
 }
