@@ -5,6 +5,7 @@ letters in each word.*/
 using namespace std;
 
 int numWords(const char*);
+int averageNumLettersInEachWord(const char*);
 
 int main()
 {
@@ -51,4 +52,21 @@ int numWords(const char* a)
     }
 
     return count;
+}
+
+int averageNumLettersInEachWord(const char* a)
+{
+    int index = 0, avg = 0, sum = 0;       
+
+    while (a[index] != '\0')
+    {
+        if (isspace(a[index]))
+        {
+
+        }
+        index++;
+    }
+
+    return avg;
+
 }
