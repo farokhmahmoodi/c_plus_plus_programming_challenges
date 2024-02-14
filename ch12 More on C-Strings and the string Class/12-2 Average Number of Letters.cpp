@@ -64,9 +64,10 @@ int averageNumLettersInEachWord(const char* a)
     {
         if (isspace(a[index]))
         {
-            hold = index - hold;
-            cout << hold << endl;
-            sum += hold;
+            if (a[index + 1] != ' ' && a[index + 1] != '\0')
+            {
+
+            }
         }
         index++;
     }
