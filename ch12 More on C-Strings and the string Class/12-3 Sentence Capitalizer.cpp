@@ -24,7 +24,7 @@ int main()
 
 void sentenceCapitalizer(char* a, char* b)
 {
-    int index = 0;
+    int index = 0, inner;
     
     strcpy(b, a);
     if (a[index] != ' ')
@@ -32,10 +32,12 @@ void sentenceCapitalizer(char* a, char* b)
 
     while (a[index] != '\0')
     {
-        if (ispunct(a[index]))
+        if (a[index] == '.' || a[index] == '!' || a[index] == '?')
         {
-            if (a[index + 1] != ' ')
-                b[index + 1] = toupper(a[index + 1]);
+            inner = index + 1;
+            while (a[inner] == ' ' && a[inner] != '\0')
+                inner++;
+            b[inner] = toupper(a[inner]);
         }
         index++;
     }
