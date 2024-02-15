@@ -10,11 +10,11 @@ void sentenceCapitalizer(char*, char*);
 
 int main()
 {
-    const int LENGTH = 100;
+    const int LENGTH = 101;
     char* a = nullptr, * b = nullptr;
     a = new char[LENGTH], b = new char[LENGTH];
 
-    cout << "Enter a string and the program will capitalize "
+    cout << "Enter a string no more than 100 characters and the program will capitalize "
         << "the first character of each sentence in the string:";
     cin.getline(a, LENGTH);
     sentenceCapitalizer(a, b);
@@ -27,16 +27,16 @@ void sentenceCapitalizer(char* a, char* b)
     int index = 0, inner;
     
     strcpy(b, a);
-    if (a[index] == ' ')
-    {
-        inner = index + 1;
-        while (a[inner] == ' ' && a[inner] != '\0')
-            inner++;
-        b[inner] = toupper(a[inner]);
-    }
     while (a[index] != '\0')
     {
-        if (a[index] == '.' || a[index] == '!' || a[index] == '?')
+        if (a[index] == ' ')
+        {
+            inner = index + 1;
+            while (a[inner] == ' ' && a[inner] != '\0')
+                inner++;
+            b[inner] = toupper(a[inner]);
+        }
+        else if (a[index] == '.' || a[index] == '!' || a[index] == '?')
         {
             inner = index + 1;
             while (a[inner] == ' ' && a[inner] != '\0')
