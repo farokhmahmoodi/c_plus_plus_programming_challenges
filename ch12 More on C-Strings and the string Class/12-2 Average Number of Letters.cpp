@@ -58,16 +58,23 @@ int numWords(const char* a)
 
 int averageNumLettersInEachWord(const char* a)
 {
-    int index = 0, avg, sum = 0, hold = 0;       
+    int index = 0, avg, sum = 0, hold = 0;
 
     while (a[index] != '\0')
     {
-        if (isspace(a[index]))
+        if (a[index] != ' ')
+            hold++;
+        else if (isspace(a[index]))
         {
-            if (a[index + 1] != ' ' && a[index + 1] != '\0')
+            if (a[index + 1] != ' ')
             {
-
+                sum += hold;
+                hold = 0;
             }
+        }
+        if (a[index + 1] == '\0')
+        {          
+            sum += hold;
         }
         index++;
     }
