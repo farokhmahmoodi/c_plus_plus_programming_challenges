@@ -29,10 +29,10 @@ int main()
     char choice;
     char* a = new char[LENGTH];
 
+    cout << "Enter a string:";
+    cin.getline(a, LENGTH);
     do
     {
-        cout << "Enter a string:";
-        cin.getline(a, LENGTH);
         do
         {
             cout << "Select an option from menu below" << endl;
@@ -42,6 +42,7 @@ int main()
             cout << "D.Enter another string" << endl;
             cout << "E.Exit the program" << endl;
             cin >> choice;
+            cin.ignore();
             if (toupper(choice) != 'A' && toupper(choice) != 'B' &&
                 toupper(choice) != 'C' && toupper(choice) != 'D' &&
                 toupper(choice) != 'E')
@@ -63,6 +64,10 @@ int main()
             cout << "There are " << countVowels(a) + countConsonants(a) 
                 << " vowels and consonants in the string: "
                 << a << endl;
+            break;
+        case 'D':
+            cout << "Enter another string:";
+            cin.getline(a, LENGTH);
             break;
         }
     } while (toupper(choice) != 'E');
@@ -95,7 +100,10 @@ int countConsonants(const char* a)
         if (tolower(a[index]) != 'a' && tolower(a[index]) != 'e'
             && tolower(a[index]) != 'i' && tolower(a[index]) != 'o'
             && tolower(a[index]) != 'u')
-            count++;
+        {
+            if(isalpha(a[index]))
+                count++;
+        }
         index++;
     }
 
