@@ -6,7 +6,7 @@ user to input a string and then passes it to the function. The modified string s
 #include <iostream>
 using namespace std;
 
-void sentenceCapitalizer(char*, char*);
+void sentenceCapitalizer(const char*, char*);
 
 int main()
 {
@@ -22,7 +22,7 @@ int main()
     return 0;
 }
 
-void sentenceCapitalizer(char* a, char* b)
+void sentenceCapitalizer(const char* a, char* b)
 {
     int index = 0, inner;
     
