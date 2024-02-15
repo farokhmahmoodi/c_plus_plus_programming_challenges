@@ -29,7 +29,8 @@ int main()
     char choice;
     char* a = new char[LENGTH];
 
-    cout << "Enter a string:";
+    cout << "Enter a string with no more than " << LENGTH - 1
+        << " characters:";
     cin.getline(a, LENGTH);
     do
     {
@@ -62,11 +63,12 @@ int main()
             break;
         case 'C':
             cout << "There are " << countVowels(a) + countConsonants(a) 
-                << " vowels and consonants in the string: "
+                << " vowels and consonants in the string:"
                 << a << endl;
             break;
         case 'D':
-            cout << "Enter another string:";
+            cout << "Enter another string with no more than " << LENGTH - 1
+                << " characters:";
             cin.getline(a, LENGTH);
             break;
         }
