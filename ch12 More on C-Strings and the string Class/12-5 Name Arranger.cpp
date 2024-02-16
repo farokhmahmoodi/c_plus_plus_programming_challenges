@@ -25,16 +25,20 @@ int main()
     cout << "Enter last name no longer than " << LENGTH - 1
         << " characters:";
     cin.getline(lastName, LENGTH);
-
-
+    nameArranger(firstName, middleName, lastName);
 
     return 0;
 }
 
 void nameArranger(const char* first, const char* middle, const char* last)
 {
-    char* arranger = nullptr;
+    char* arranger = new char[strlen(first)+strlen(middle)+strlen(last) + 6]; 
+    //length for the whole name plus null terminators and spaces
 
-
-
+    strcpy(arranger, last);
+    strcat(arranger, ", ");
+    strcat(arranger, first);
+    strcat(arranger, " ");
+    strcat(arranger, middle);
+    cout << "The name arranged:" << arranger << endl;
 }
