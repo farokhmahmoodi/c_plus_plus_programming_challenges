@@ -8,7 +8,20 @@ using namespace std;
 
 int main()
 {
-    
+    const int LENGTH = 101;
+    char a[LENGTH];
+    int sum = 0, index = 0, high, low;
+
+    cout << "Enter a series of single-digit numbers no more than "
+        << LENGTH - 1 << " characters with nothing separating the digits:";
+    cin.getline(a, LENGTH);
+    while (a[index] != '\0')
+    {
+        if (isdigit(a[index]))
+            sum += static_cast<int>(a[index] - 48);
+        index++;
+    }
+    cout << "The sum of the digits in the string is " << sum << endl;
 
     return 0;
 }
