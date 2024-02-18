@@ -12,11 +12,62 @@ flip, lower, and upper.*/
 #include <iostream>
 using namespace std;
 
-
+void upper(char*);
+void lower(char*);
+void flip(char*);
 
 int main()
 {
-    
+    const int LENGTH = 101;
+    char* a = new char[LENGTH];
+
+    cout << "Enter a string no greater than "
+        << LENGTH - 1 << " characters:";
+    cin.getline(a, LENGTH);
+    cout << "String flipped:";
+    flip(a);
+    for (int i = 0; i < strlen(a); i++)
+        cout << a[i];
+    cout << endl;
+    cout << "String after passed to lower function:";
+    lower(a);
+    for (int i = 0; i < strlen(a); i++)
+        cout << a[i];
+    cout << endl;
+    cout << "String after passed to upper function:";
+    upper(a);
+    for (int i = 0; i < strlen(a); i++)
+        cout << a[i];
+    cout << endl;
 
     return 0;
+}
+
+void upper(char* a)
+{
+    for (int i = 0; i < strlen(a); i++)
+    {
+        if (islower(a[i]))
+            a[i] = toupper(a[i]);
+    }
+}
+
+void lower(char* a)
+{
+    for (int i = 0; i < strlen(a); i++)
+    {
+        if (isupper(a[i]))
+            a[i] = tolower(a[i]);
+    }
+}
+
+void flip(char* a)
+{
+    for (int i = 0; i < strlen(a); i++)
+    {
+        if (isupper(a[i]))
+            a[i] = tolower(a[i]);
+        else if (islower(a[i]))
+            a[i] = toupper(a[i]);
+    }
 }
