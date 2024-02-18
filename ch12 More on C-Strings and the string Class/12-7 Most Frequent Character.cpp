@@ -45,9 +45,6 @@ char mostFrequent(const char* a)
             most = current;
         }
         index++;
-        cout << "current:" << current << endl;
-        cout << "most:" << most << endl;
-        cout << "mode:" << mode << endl << endl;
     }
 
     return most;
