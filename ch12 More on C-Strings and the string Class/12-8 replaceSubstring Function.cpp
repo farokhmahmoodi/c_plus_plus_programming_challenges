@@ -13,7 +13,7 @@ that fence”. Demonstrate the function in a complete program.*/
 #include <iostream>
 using namespace std;
 
-string replaceSubstring(char*, const char*, const char*);
+string replaceSubstring(const char*, const char*, const char*);
 
 int main()
 {
@@ -21,24 +21,35 @@ int main()
     char* string1 = new char[LENGTH],
         *string2 = new char[LENGTH], *string3 = new char[LENGTH];
     
+    cout << "This program asks user to enter 3 strings(each string no longer than "
+        << LENGTH - 1 << " characters)." << endl << "Lets call them string1, string2, and string3." 
+        << endl << "It will search string1 for all occurrences of string2." << endl
+        << "When it finds an occurrence of string2,"
+        << "it will replace it with string3." << endl;
+    cout << "Enter string1:";
     cin.getline(string1, LENGTH);
+    cout << "Enter string2:";
     cin.getline(string2, LENGTH);
+    cout << "Enter string3:";
     cin.getline(string3, LENGTH);
-    replaceSubstring(string1, string2, string3);
+    cout << replaceSubstring(string1, string2, string3) << endl;
 
     return 0;
 }
 
-string replaceSubstring(char* string1, const char* string2, const char* string3)
+string replaceSubstring(const char* string1, const char* string2, const char* string3)
 {
     int index = 0;
+    string s1 = string1;
 
     while (isprint(string1[index]) && string1[index] != '\0')
     {
-
-
+        if (index == s1.find(string2))
+        {
+            s1.replace(index, strlen(string2), string3);
+        }
         index++;
     }
 
-    return string1;
+    return s1;
 }
