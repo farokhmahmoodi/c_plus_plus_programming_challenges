@@ -31,7 +31,7 @@ char mostFrequent(const char* a)
     char most, current;
     most = current = a[index];
 
-    while (isprint(a[index]))
+    while (isprint(a[index]) && a[index] != '\0')
     {
         if (a[index] != current)
         {
@@ -55,7 +55,7 @@ void selectionSort(char* a)
     int minIndex, start = 0;
     char minValue;
 
-    while (isprint(a[start]))
+    while (isprint(a[start]) && a[start] != '\0')
     {
         minIndex = start;
         minValue = a[start];
