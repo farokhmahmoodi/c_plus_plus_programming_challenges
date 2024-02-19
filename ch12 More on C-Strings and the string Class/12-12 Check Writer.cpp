@@ -17,6 +17,7 @@ this program.*/
 using namespace std;
 
 void checkWriter(string, string, double);
+string amountWrittenOut(double);
 
 int main()
 {
@@ -32,9 +33,9 @@ int main()
         cout << "Enter amount of check no greater than $10000 "
             << " or less than $0:";
         cin >> amount;
-        if (amount > 10000 || amount < 0)
+        if (amount > 10000.0 || amount < 0.0)
             cout << "Invalid input." << endl;
-    } while (amount > 10000 || amount < 0);
+    } while (amount > 10000.0 || amount < 0.0);
     cin.ignore();
     checkWriter(payeeName, date, amount);
 
@@ -43,7 +44,18 @@ int main()
 
 void checkWriter(string name, string date, double amount)
 {
+    cout << setw(40) << "Date: " << date << endl;
+    cout << "Pay to the Order of: " << name << setw(10) << fixed << showpoint
+        << setprecision(2) << "$" << amount << endl;
+    cout << amountWrittenOut(amount) << endl;
+}
+
+string amountWrittenOut(double amount)
+{
+    string str;
 
 
 
+
+    return str;
 }
