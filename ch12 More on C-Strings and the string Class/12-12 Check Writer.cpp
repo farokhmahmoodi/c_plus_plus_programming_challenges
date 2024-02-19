@@ -58,7 +58,8 @@ string amountWrittenOut(double amount)
     "thirteen","fourteen", "fifteen", "sixteen",
     "seventeen", "eighteen", "nineteen", "twenty",
     "thirty", "forty", "fifty", "sixty", "seventy",
-    "eighty", "ninety", "hundred", "thousand"};
+    "eighty", "ninety", "hundred", "thousand"},
+    amountStr = to_string(amount);
 
     if (amount < 20.0)
     {
