@@ -52,7 +52,19 @@ void checkWriter(string name, string date, double amount)
 
 string amountWrittenOut(double amount)
 {
-    string str;
+    string str = "", convert[] = {"zero", "one",
+    "two", "three", "four", "five", "six", "seven",
+    "eight", "nine", "ten", "eleven", "twelve",
+    "thirteen","fourteen", "fifteen", "sixteen",
+    "seventeen", "eighteen", "nineteen", "twenty",
+    "thirty", "forty", "fifty", "sixty", "seventy",
+    "eighty", "ninety", "hundred", "thousand"};
+
+    if (amount < 20.0)
+    {
+
+
+    }
 
 
 
