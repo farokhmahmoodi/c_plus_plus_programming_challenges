@@ -97,13 +97,26 @@ string amountWrittenOut(double amount)
             cout << "nine dollars";
             break;
         }
-        if (amountStr[2] != 0 && amountStr[3] != 0)
+        if (amountStr[2] != '0' && amountStr[3] != '0')
         {
             cout << " and " << amountStr[2]
                 << amountStr[3] << " cents";
         }
+        else if (amountStr[2] != '0')
+        {
+            cout << " and " << amountStr[2]
+                << "0 cents";
+        }
+        else if (amountStr[3] != '0')
+        {
+            cout << " and " << amountStr[3]
+                << " cents";
+        }
         break;
+    case 2:
 
+
+        break;
 
     }
 
