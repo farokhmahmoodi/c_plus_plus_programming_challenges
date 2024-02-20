@@ -17,7 +17,7 @@ this program.*/
 using namespace std;
 
 void checkWriter(string, string, double);
-string amountWrittenOut(double);
+void amountWrittenOut(double);
 
 int main()
 {
@@ -47,10 +47,10 @@ void checkWriter(string name, string date, double amount)
     cout << setw(40) << "Date: " << date << endl;
     cout << "Pay to the Order of: " << name << setw(10) << fixed << showpoint
         << setprecision(2) << "$" << amount << endl;
-    cout << amountWrittenOut(amount) << endl;
+    amountWrittenOut(amount);
 }
 
-string amountWrittenOut(double amount)
+void amountWrittenOut(double amount)
 {
     string str = "", convert[] = {"zero", "one",
     "two", "three", "four", "five", "six", "seven",
@@ -100,25 +100,38 @@ string amountWrittenOut(double amount)
         if (amountStr[2] != '0' && amountStr[3] != '0')
         {
             cout << " and " << amountStr[2]
-                << amountStr[3] << " cents";
+                << amountStr[3] << " cents" << endl;
         }
         else if (amountStr[2] != '0')
         {
             cout << " and " << amountStr[2]
-                << "0 cents";
+                << "0 cents" << endl;
         }
         else if (amountStr[3] != '0')
         {
             cout << " and " << amountStr[3]
-                << " cents";
+                << " cents" << endl;
         }
         break;
     case 2:
+        string s = to_string(amountStr[0] - 48);
+        s.append(1,amountStr[1]);
+        int st = stoi(s);
+        if (st >= 10 && st <= 20)
+        {
+            for (int i = 10; i <= 20; i++)
+            {
+                if (st == i)
+                {
+                    cout << convert[i] << " dollars";
+                }
+            }
+        }
+        else if (st >= 20 && st <= 30)
+        {
 
-
+        }
         break;
 
     }
-
-    return str;
 }
