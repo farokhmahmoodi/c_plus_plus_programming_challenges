@@ -401,12 +401,56 @@ void amountWrittenOut(double amount)
             }
             break;
         case '9':
-
+            switch (amountStr[1])
+            {
+            case '0':
+                cout << convert[27] << " dollars";
+                break;
+            case '1':
+                cout << convert[27] << " " << convert[1] << " dollars";
+                break;
+            case '2':
+                cout << convert[27] << " " << convert[2] << " dollars";
+                break;
+            case '3':
+                cout << convert[27] << " " << convert[3] << " dollars";
+                break;
+            case '4':
+                cout << convert[27] << " " << convert[4] << " dollars";
+                break;
+            case '5':
+                cout << convert[27] << " " << convert[5] << " dollars";
+                break;
+            case '6':
+                cout << convert[27] << " " << convert[6] << " dollars";
+                break;
+            case '7':
+                cout << convert[27] << " " << convert[7] << " dollars";
+                break;
+            case '8':
+                cout << convert[27] << " " << convert[8] << " dollars";
+                break;
+            case '9':
+                cout << convert[27] << " " << convert[9] << " dollars";
+                break;
+            }
             break;
         }
-
-
+        if (amountStr[3] != '0' && amountStr[4] != '0')
+        {
+            cout << " and " << amountStr[3]
+                << amountStr[4] << " cents" << endl;
+        }
+        else if (amountStr[3] != '0')
+        {
+            cout << " and " << amountStr[3]
+                << "0 cents" << endl;
+        }
+        else if (amountStr[4] != '0')
+        {
+            cout << " and " << amountStr[4]
+                << " cents" << endl;
+        }
         break;
-
     }
 }
