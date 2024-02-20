@@ -61,14 +61,51 @@ string amountWrittenOut(double amount)
     "eighty", "ninety", "hundred", "thousand"},
     amountStr = to_string(amount);
 
-    if (amount < 20.0)
+    switch (amountStr.find('.'))
     {
+    case 1:
+        switch (amountStr[0])
+        {
+        case '0':
+            cout << "zero dollars";
+            break;
+        case '1':
+            cout << "one dollar";
+            break;
+        case '2':
+            cout << "two dollars";
+            break;
+        case '3':
+            cout << "three dollars";
+            break;
+        case '4':
+            cout << "four dollars";
+            break;
+        case '5':
+            cout << "five dollars";
+            break;
+        case '6':
+            cout << "six dollars";
+            break;
+        case '7':
+            cout << "seven dollars";
+            break;
+        case '8':
+            cout << "eight dollars";
+            break;
+        case '9':
+            cout << "nine dollars";
+            break;
+        }
+        if (amountStr[2] != 0 && amountStr[3] != 0)
+        {
+            cout << " and " << amountStr[2]
+                << amountStr[3] << " cents";
+        }
+        break;
 
 
     }
-
-
-
 
     return str;
 }
