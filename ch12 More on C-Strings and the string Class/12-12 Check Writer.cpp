@@ -65,4 +65,66 @@ void amountWrittenOut(double amount)
         tens = (amt % 100) / 10, ones = amt % 100,
         decimal = (amount - amt) * 100;
 
+    for (int i = 0; i <= 10; i++)
+    {
+       if (i == thousands && thousands > 0)
+       {
+            cout << convert[i] << " " << convert[29] << " ";
+            for (int i = 0; i <= 9; i++)
+            {
+                if (i == hundreds)
+                {
+                    cout << convert[i] << " " << convert[28] << " ";
+                    for (int i = 0; i <= 9; i++)
+                    {
+                       if (i == tens)
+                       {
+                           switch (tens)
+                           {
+                            case 0:
+                            case 1:
+                                break;
+                            case 2:
+                                cout << convert[20] << " ";
+                                break;
+                            case 3:
+                                cout << convert[21] << " ";
+                                break;
+                            case 4:
+                                cout << convert[22] << " ";
+                                break;
+                            case 5:
+                                cout << convert[23] << " ";
+                                break;
+                            case 6:
+                                cout << convert[24] << " ";
+                                break;
+                            case 7:
+                                cout << convert[25] << " ";
+                                break;
+                            case 8:
+                                cout << convert[26] << " ";
+                                break;
+                            case 9:
+                                cout << convert[27] << " ";
+                                break;
+                           }
+                           for (int i = 0; i <= 9; i++)
+                           {
+                               if (i == ones && ones < 2)
+                               {
+
+                                   break;
+                               }
+                           }
+                           break;
+                       }
+                   }
+                   break;
+               }
+           }
+           break;
+       }
+        
+    }
 }
