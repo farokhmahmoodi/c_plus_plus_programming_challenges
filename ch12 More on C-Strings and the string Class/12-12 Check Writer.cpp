@@ -65,101 +65,130 @@ void amountWrittenOut(double amount)
         tens = (amt % 100) / 10, ones = amt % 10,
         decimal = (amount - amt) * 100;
 
-    for (int i = 0; i <= 10; i++)
+    for (int i = 1; i <= 10; i++)
     {
-       if (i == thousands && thousands > 0)
-       {
-            cout << convert[i] << " " << convert[29] << " ";
-            for (int i = 0; i <= 9; i++)
+        if (i == thousands)
+        {
+            cout << convert[i] << " " << convert[29];
+            break;
+        }
+        else if (i == hundreds)
+        {
+            cout << convert[i] << " " << convert[28];
+            break;
+        }
+        else if (i == tens)
+        {
+            switch (tens)
             {
-                if (i == hundreds)
+            case 1:
+                switch (ones)
                 {
-                    if(hundreds > 0)
-                        cout << convert[i] << " " << convert[28] << " ";
-                    for (int i = 0; i <= 9; i++)
+                case 0:
+                    cout << convert[10];
+                    break;
+                case 1:
+                    cout << convert[11];
+                    break;
+                case 2:
+                    cout << convert[12];
+                    break;
+                case 3:
+                    cout << convert[13];
+                    break;
+                case 4:
+                    cout << convert[14];
+                    break;
+                case 5:
+                    cout << convert[15];
+                    break;
+                case 6:
+                    cout << convert[16];
+                    break;
+                case 7:
+                    cout << convert[17];
+                    break;
+                case 8:
+                    cout << convert[18];
+                    break;
+                case 9:
+                    cout << convert[19];
+                    break;
+                }
+                break;
+            case 2:
+                cout << convert[20];
+                for (int i = 1; i <= 9; i++)
+                {
+                    if (i == ones)
                     {
-                       if (i == tens)
-                       {
-                           switch (tens)
-                           {
-                            case 0:
-                            case 1:
-                                break;
-                            case 2:
-                                cout << convert[20] << " ";
-                                break;
-                            case 3:
-                                cout << convert[21] << " ";
-                                break;
-                            case 4:
-                                cout << convert[22] << " ";
-                                break;
-                            case 5:
-                                cout << convert[23] << " ";
-                                break;
-                            case 6:
-                                cout << convert[24] << " ";
-                                break;
-                            case 7:
-                                cout << convert[25] << " ";
-                                break;
-                            case 8:
-                                cout << convert[26] << " ";
-                                break;
-                            case 9:
-                                cout << convert[27] << " ";
-                                break;
-                           }
-                           for (int i = 0; i <= 9; i++)
-                           {
-                               if (i == ones && tens == 0)
-                               {
-                                   cout << convert[i];
-                                   break;
-                               }
-                               else if (i == ones && tens == 1)
-                               {
-                                   switch (ones)
-                                   {
-                                   case 0:
-                                   case 1:
-                                       break;
-                                   case 2:
-                                       cout << convert[20] << " ";
-                                       break;
-                                   case 3:
-                                       cout << convert[21] << " ";
-                                       break;
-                                   case 4:
-                                       cout << convert[22] << " ";
-                                       break;
-                                   case 5:
-                                       cout << convert[23] << " ";
-                                       break;
-                                   case 6:
-                                       cout << convert[24] << " ";
-                                       break;
-                                   case 7:
-                                       cout << convert[25] << " ";
-                                       break;
-                                   case 8:
-                                       cout << convert[26] << " ";
-                                       break;
-                                   case 9:
-                                       cout << convert[27] << " ";
-                                       break;
-                                   }
-                                   break;
-                               }
-                           }
-                           break;
-                       }
-                   }
-                   break;
-               }
-           }
-           break;
-       }
-        
+                        cout << " " << convert[i];
+                        break;
+                    }
+                }
+                break;
+            case 3:
+                cout << convert[21];
+                for (int i = 1; i <= 9; i++)
+                {
+                    if (i == ones)
+                    {
+                        cout << " " << convert[i];
+                        break;
+                    }
+                }
+                break;
+            case 4:
+                cout << convert[22];
+                for (int i = 1; i <= 9; i++)
+                {
+                    if (i == ones)
+                    {
+                        cout << " " << convert[i];
+                        break;
+                    }
+                }
+                break;
+            case 5:
+                cout << convert[23];
+                for (int i = 1; i <= 9; i++)
+                {
+                    if (i == ones)
+                    {
+                        cout << " " << convert[i];
+                        break;
+                    }
+                }
+                break;
+            case 6:
+                cout << convert[24];
+                for (int i = 1; i <= 9; i++)
+                {
+                    if (i == ones)
+                    {
+                        cout << " " << convert[i];
+                        break;
+                    }
+                }
+                break;
+            case 7:
+                cout << convert[25];
+                for (int i = 1; i <= 9; i++)
+                {
+                    if (i == ones)
+                    {
+                        cout << " " << convert[i];
+                        break;
+                    }
+                }
+                break;
+            }
+            break;
+        }
+        else if(i == ones)
+        {
+            cout << convert[i];
+            break;
+        }
     }
 }
