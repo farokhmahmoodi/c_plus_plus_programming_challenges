@@ -62,7 +62,7 @@ void amountWrittenOut(double amount)
 {
     int amt = static_cast<int>(amount);
     int thousands = amt / 1000, hundreds = (amt % 1000) / 100,
-        tens = (amt % 100) / 10, ones = amt % 100,
+        tens = (amt % 100) / 10, ones = amt % 10,
         decimal = (amount - amt) * 100;
 
     for (int i = 0; i <= 10; i++)
@@ -74,7 +74,8 @@ void amountWrittenOut(double amount)
             {
                 if (i == hundreds)
                 {
-                    cout << convert[i] << " " << convert[28] << " ";
+                    if(hundreds > 0)
+                        cout << convert[i] << " " << convert[28] << " ";
                     for (int i = 0; i <= 9; i++)
                     {
                        if (i == tens)
@@ -111,9 +112,43 @@ void amountWrittenOut(double amount)
                            }
                            for (int i = 0; i <= 9; i++)
                            {
-                               if (i == ones && ones < 2)
+                               if (i == ones && tens == 0)
                                {
-
+                                   cout << convert[i];
+                                   break;
+                               }
+                               else if (i == ones && tens == 1)
+                               {
+                                   switch (ones)
+                                   {
+                                   case 0:
+                                   case 1:
+                                       break;
+                                   case 2:
+                                       cout << convert[20] << " ";
+                                       break;
+                                   case 3:
+                                       cout << convert[21] << " ";
+                                       break;
+                                   case 4:
+                                       cout << convert[22] << " ";
+                                       break;
+                                   case 5:
+                                       cout << convert[23] << " ";
+                                       break;
+                                   case 6:
+                                       cout << convert[24] << " ";
+                                       break;
+                                   case 7:
+                                       cout << convert[25] << " ";
+                                       break;
+                                   case 8:
+                                       cout << convert[26] << " ";
+                                       break;
+                                   case 9:
+                                       cout << convert[27] << " ";
+                                       break;
+                                   }
                                    break;
                                }
                            }
