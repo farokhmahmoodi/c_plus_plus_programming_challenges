@@ -64,7 +64,7 @@ void amountWrittenOut(double amount)
 
     switch (amountStr.find('.'))
     {
-    case 1:
+    case 1: //$0.00-9.99
         switch (amountStr[0])
         {
         case '0':
@@ -114,13 +114,346 @@ void amountWrittenOut(double amount)
                 << " cents" << endl;
         }
         break;
-    case 2:
-        string s = to_string(amountStr[0] - 48);
-        s.append(1, amountStr[1]);
-        int st = stoi(s);
+    case 2: //$10.00-99.99
         switch (amountStr[0])
         {
         case '1':
+            switch (amountStr[1])
+            {
+            case '0':
+                cout << convert[10] << " dollars";
+                break;
+            case '1':
+                cout << convert[11] << " dollars";
+                break;
+            case '2':
+                cout << convert[12] << " dollars";
+                break;
+            case '3':
+                cout << convert[13] << " dollars";
+                break;
+            case '4':
+                cout << convert[14] << " dollars";
+                break;
+            case '5':
+                cout << convert[15] << " dollars";
+                break;
+            case '6':
+                cout << convert[16] << " dollars";
+                break;
+            case '7':
+                cout << convert[17] << " dollars";
+                break;
+            case '8':
+                cout << convert[18] << " dollars";
+                break;
+            case '9':
+                cout << convert[19] << " dollars";
+                break;
+            }
+            break;
+        case '2':
+            switch (amountStr[1])
+            {
+            case '0':
+                cout << convert[20] << " dollars";
+                break;
+            case '1':
+                cout << convert[20] << " " << convert[1] << " dollars";
+                break;
+            case '2':
+                cout << convert[20] << " " << convert[2] << " dollars";
+                break;
+            case '3':
+                cout << convert[20] << " " << convert[3] << " dollars";
+                break;
+            case '4':
+                cout << convert[20] << " " << convert[4] << " dollars";
+                break;
+            case '5':
+                cout << convert[20] << " " << convert[5] << " dollars";
+                break;
+            case '6':
+                cout << convert[20] << " " << convert[6] << " dollars";
+                break;
+            case '7':
+                cout << convert[20] << " " << convert[7] << " dollars";
+                break;
+            case '8':
+                cout << convert[20] << " " << convert[8] << " dollars";
+                break;
+            case '9':
+                cout << convert[20] << " " << convert[9] << " dollars";
+                break;
+            }
+            break;
+        case '3':
+            switch (amountStr[1])
+            {
+            case '0':
+                cout << convert[21] << " dollars";
+                break;
+            case '1':
+                cout << convert[21] << " " << convert[1] << " dollars";
+                break;
+            case '2':
+                cout << convert[21] << " " << convert[2] << " dollars";
+                break;
+            case '3':
+                cout << convert[21] << " " << convert[3] << " dollars";
+                break;
+            case '4':
+                cout << convert[21] << " " << convert[4] << " dollars";
+                break;
+            case '5':
+                cout << convert[21] << " " << convert[5] << " dollars";
+                break;
+            case '6':
+                cout << convert[21] << " " << convert[6] << " dollars";
+                break;
+            case '7':
+                cout << convert[21] << " " << convert[7] << " dollars";
+                break;
+            case '8':
+                cout << convert[21] << " " << convert[8] << " dollars";
+                break;
+            case '9':
+                cout << convert[21] << " " << convert[9] << " dollars";
+                break;
+            }
+            break;
+        case '4':
+            switch (amountStr[1])
+            {
+            case '0':
+                cout << convert[22] << " dollars";
+                break;
+            case '1':
+                cout << convert[22] << " " << convert[1] << " dollars";
+                break;
+            case '2':
+                cout << convert[22] << " " << convert[2] << " dollars";
+                break;
+            case '3':
+                cout << convert[22] << " " << convert[3] << " dollars";
+                break;
+            case '4':
+                cout << convert[22] << " " << convert[4] << " dollars";
+                break;
+            case '5':
+                cout << convert[22] << " " << convert[5] << " dollars";
+                break;
+            case '6':
+                cout << convert[22] << " " << convert[6] << " dollars";
+                break;
+            case '7':
+                cout << convert[22] << " " << convert[7] << " dollars";
+                break;
+            case '8':
+                cout << convert[22] << " " << convert[8] << " dollars";
+                break;
+            case '9':
+                cout << convert[22] << " " << convert[9] << " dollars";
+                break;
+            }
+            break;
+        case '5':
+            switch (amountStr[1])
+            {
+            case '0':
+                cout << convert[23] << " dollars";
+                break;
+            case '1':
+                cout << convert[23] << " " << convert[1] << " dollars";
+                break;
+            case '2':
+                cout << convert[23] << " " << convert[2] << " dollars";
+                break;
+            case '3':
+                cout << convert[23] << " " << convert[3] << " dollars";
+                break;
+            case '4':
+                cout << convert[23] << " " << convert[4] << " dollars";
+                break;
+            case '5':
+                cout << convert[23] << " " << convert[5] << " dollars";
+                break;
+            case '6':
+                cout << convert[23] << " " << convert[6] << " dollars";
+                break;
+            case '7':
+                cout << convert[23] << " " << convert[7] << " dollars";
+                break;
+            case '8':
+                cout << convert[23] << " " << convert[8] << " dollars";
+                break;
+            case '9':
+                cout << convert[23] << " " << convert[9] << " dollars";
+                break;
+            }
+            break;
+        case '6':
+            switch (amountStr[1])
+            {
+            case '0':
+                cout << convert[24] << " dollars";
+                break;
+            case '1':
+                cout << convert[24] << " " << convert[1] << " dollars";
+                break;
+            case '2':
+                cout << convert[24] << " " << convert[2] << " dollars";
+                break;
+            case '3':
+                cout << convert[24] << " " << convert[3] << " dollars";
+                break;
+            case '4':
+                cout << convert[24] << " " << convert[4] << " dollars";
+                break;
+            case '5':
+                cout << convert[24] << " " << convert[5] << " dollars";
+                break;
+            case '6':
+                cout << convert[24] << " " << convert[6] << " dollars";
+                break;
+            case '7':
+                cout << convert[24] << " " << convert[7] << " dollars";
+                break;
+            case '8':
+                cout << convert[24] << " " << convert[8] << " dollars";
+                break;
+            case '9':
+                cout << convert[24] << " " << convert[9] << " dollars";
+                break;
+            }
+            break;
+        case '7':
+            switch (amountStr[1])
+            {
+            case '0':
+                cout << convert[25] << " dollars";
+                break;
+            case '1':
+                cout << convert[25] << " " << convert[1] << " dollars";
+                break;
+            case '2':
+                cout << convert[25] << " " << convert[2] << " dollars";
+                break;
+            case '3':
+                cout << convert[25] << " " << convert[3] << " dollars";
+                break;
+            case '4':
+                cout << convert[25] << " " << convert[4] << " dollars";
+                break;
+            case '5':
+                cout << convert[25] << " " << convert[5] << " dollars";
+                break;
+            case '6':
+                cout << convert[25] << " " << convert[6] << " dollars";
+                break;
+            case '7':
+                cout << convert[25] << " " << convert[7] << " dollars";
+                break;
+            case '8':
+                cout << convert[25] << " " << convert[8] << " dollars";
+                break;
+            case '9':
+                cout << convert[25] << " " << convert[9] << " dollars";
+                break;
+            }
+            break;
+        case '8':
+            switch (amountStr[1])
+            {
+            case '0':
+                cout << convert[26] << " dollars";
+                break;
+            case '1':
+                cout << convert[26] << " " << convert[1] << " dollars";
+                break;
+            case '2':
+                cout << convert[26] << " " << convert[2] << " dollars";
+                break;
+            case '3':
+                cout << convert[26] << " " << convert[3] << " dollars";
+                break;
+            case '4':
+                cout << convert[26] << " " << convert[4] << " dollars";
+                break;
+            case '5':
+                cout << convert[26] << " " << convert[5] << " dollars";
+                break;
+            case '6':
+                cout << convert[26] << " " << convert[6] << " dollars";
+                break;
+            case '7':
+                cout << convert[26] << " " << convert[7] << " dollars";
+                break;
+            case '8':
+                cout << convert[26] << " " << convert[8] << " dollars";
+                break;
+            case '9':
+                cout << convert[26] << " " << convert[9] << " dollars";
+                break;
+            }
+            break;
+        case '9':
+            switch (amountStr[1])
+            {
+            case '0':
+                cout << convert[27] << " dollars";
+                break;
+            case '1':
+                cout << convert[27] << " " << convert[1] << " dollars";
+                break;
+            case '2':
+                cout << convert[27] << " " << convert[2] << " dollars";
+                break;
+            case '3':
+                cout << convert[27] << " " << convert[3] << " dollars";
+                break;
+            case '4':
+                cout << convert[27] << " " << convert[4] << " dollars";
+                break;
+            case '5':
+                cout << convert[27] << " " << convert[5] << " dollars";
+                break;
+            case '6':
+                cout << convert[27] << " " << convert[6] << " dollars";
+                break;
+            case '7':
+                cout << convert[27] << " " << convert[7] << " dollars";
+                break;
+            case '8':
+                cout << convert[27] << " " << convert[8] << " dollars";
+                break;
+            case '9':
+                cout << convert[27] << " " << convert[9] << " dollars";
+                break;
+            }
+            break;
+        }
+        if (amountStr[3] != '0' && amountStr[4] != '0')
+        {
+            cout << " and " << amountStr[3]
+                << amountStr[4] << " cents" << endl;
+        }
+        else if (amountStr[3] != '0')
+        {
+            cout << " and " << amountStr[3]
+                << "0 cents" << endl;
+        }
+        else if (amountStr[4] != '0')
+        {
+            cout << " and " << amountStr[4]
+                << " cents" << endl;
+        }
+        break;
+    case 3: //$100.00-999.99
+        switch (amountStr[0])
+        {
+        case '1':
+            cout << convert[1] << " hundred";
             switch (amountStr[1])
             {
             case '0':
