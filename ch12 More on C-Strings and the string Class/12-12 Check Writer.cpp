@@ -3673,5 +3673,130 @@ void amountWrittenOut(double amount)
                 << " cents" << endl;
         }
         break;
+    case 4: //$1000.00-10000.00
+        switch (amountStr[0])
+        {
+        case '1': //$1000.00-1999.99
+            cout << convert[1] << " " << convert[29] << " ";
+            switch (amountStr[1])
+            {
+            case '0': //$1000.00-1099.99
+                switch (amountStr[2])
+                {
+                case '0':
+                    switch (amountStr[3])
+                    {
+                    case '1':
+
+                        break;
+                    case '2':
+
+                        break;
+                    case '3':
+
+                        break;
+                    case '4':
+
+                        break;
+                    case '5':
+
+                        break;
+                    case '6':
+
+                        break;
+                    case '7':
+
+                        break;
+                    case '8':
+
+                        break;
+                    case '9':
+
+                        break;
+                    }
+                    break;
+                case '1':
+
+                    break;
+                case '2':
+
+                    break;
+                case '3':
+
+                    break;
+                case '4':
+
+                    break;
+                case '5':
+
+                    break;
+                case '6':
+
+                    break;
+                case '7':
+
+                    break;
+                case '8':
+
+                    break;
+                case '9':
+
+                    break;
+                }
+                break;
+
+
+
+
+            case '1': //$1100.00-1199.99
+
+                break;
+            case '2': //$1200.00-1299.99
+
+                break;
+            case '3': //$1300.00-1399.99
+
+                break;
+            case '4': //$1400.00-1499.99
+
+                break;
+            case '5': //$1500.00-1599.99
+
+                break;
+            case '6': //$1600.00-1699.99
+
+                break;
+            case '7': //$1700.00-1799.99
+
+                break;
+            case '8': //$1800.00-1899.99
+
+                break;
+            case '9': //$1900.00-1999.99
+
+                break;
+            }
+            break;
+
+
+
+
+        }
+        if (amountStr[5] != '0' && amountStr[6] != '0')
+        {
+            cout << " and " << amountStr[5]
+                << amountStr[6] << " cents" << endl;
+        }
+        else if (amountStr[5] != '0')
+        {
+            cout << " and " << amountStr[4]
+                << "0 cents" << endl;
+        }
+        else if (amountStr[6] != '0')
+        {
+            cout << " and " << amountStr[5]
+                << " cents" << endl;
+        }
+        break;
     }
 }
