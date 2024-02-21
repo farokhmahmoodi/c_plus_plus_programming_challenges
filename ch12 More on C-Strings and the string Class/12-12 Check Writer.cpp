@@ -3673,7 +3673,7 @@ void amountWrittenOut(double amount)
                 << " cents" << endl;
         }
         break;
-    case 4: //$1000.00-10000.00
+    case 4: //$1000.00-9999.99
         switch (amountStr[0])
         {
         case '1': //$1000.00-1999.99
@@ -35777,6 +35777,9 @@ void amountWrittenOut(double amount)
             cout << " and " << amountStr[5]
                 << " cents" << endl;
         }
+        break;
+    case 5: //$10000.00
+        cout << convert[10] << " " << convert[29] << " dollars";
         break;
     }
 }
