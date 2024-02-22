@@ -25,7 +25,7 @@ int main()
 string pigLatin(string in)
 {
     string convert = in;
-    int letterCount = 0, space = 0;
+    int letterCount = 0;
 
     for (int i = convert.length(); i >= 0; i--)
     {
@@ -35,19 +35,29 @@ string pigLatin(string in)
         }
         else if (isspace(convert[i]))
         {
-            if (i - 1 == 0)
+            if (i == 0)
             {
-                convert.insert(i, "ay");
+                if (isalnum(convert[i]))
+                {
+                    convert.insert(i+1, "ay");
+                }
             }
-            else if (!isspace(convert[i + 1]))
+            else
             {
-                cout << letterCount << endl;
-                string temp;
-                temp = convert[i + 1];
-                temp += "ay";
-                convert.erase(i + 1, 1);
-                convert.insert(i+letterCount,temp);
-                letterCount = 0;
+                int x = i + 1;
+                while (!isalnum(convert[x]) && convert[x] != '\0')
+                {
+                    x++;
+                }
+                if (convert[x] != '\0')
+                {
+                    string temp;
+                    temp = convert[x];
+                    temp += "ay";
+                    convert.erase(x, 1);
+                    convert.insert(i + letterCount, temp);
+                    letterCount = 0;
+                }
             }
         }
     }
