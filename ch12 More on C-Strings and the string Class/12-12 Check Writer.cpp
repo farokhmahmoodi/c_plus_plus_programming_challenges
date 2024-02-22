@@ -65,11 +65,11 @@ string amountWrittenOut(double amount)
         hundreds = (amt % 1000) / 100,tens = (amt % 100) / 10, 
         ones = amt % 10, decimal = (amount - amt) * 100;
 
-    if (thousands == 0 && hundreds == 0 && tens == 0 && ones == 0 && decimal == 0)
-    {
-        str = convert[0];
-        return str;
-    }
+    //if (thousands == 0 && hundreds == 0 && tens == 0 && ones == 0 && decimal == 0)
+    //{
+    //    str = convert[0];
+    //    return str;
+    //}
     if (thousands != 0)
     {
         for (int i = 1; i <= 10; i++)
@@ -87,13 +87,159 @@ string amountWrittenOut(double amount)
         {
             if (i == hundreds)
             {
-                str += convert[i], str += " ", str += convert[28];
+                str += convert[i]; 
+                str += " "; 
+                str += convert[28];
                 break;
             }
         }
     }
-    if (tens != 0)
+    switch (tens)
     {
-
+    case 0:
+        for (int i = 0; i <= 9; i++)
+        {
+            if (i == ones)
+            {
+                str += convert[i];
+                break;
+            }
+        }
+        break;
+    case 1:
+        for (int i = 0; i <= 9; i++)
+        {
+            if (i == ones)
+            {
+                str += convert[10 + i];
+                break;
+            }
+        }
+        break;
+    case 2:
+        str += convert[20];
+        if (ones > 0)
+        {
+            for (int i = 1; i <= 9; i++)
+            {
+                if (i == ones)
+                {
+                    str += " ";
+                    str += convert[i];
+                    break;
+                }
+            }
+        }
+        break;
+    case 3:
+        str += convert[21];
+        if (ones > 0)
+        {
+            for (int i = 1; i <= 9; i++)
+            {
+                if (i == ones)
+                {
+                    str += " ";
+                    str += convert[i];
+                    break;
+                }
+            }
+        }
+        break;
+    case 4:
+        str += convert[22];
+        if (ones > 0)
+        {
+            for (int i = 1; i <= 9; i++)
+            {
+                if (i == ones)
+                {
+                    str += " ";
+                    str += convert[i];
+                    break;
+                }
+            }
+        }
+        break;
+    case 5:
+        str += convert[23];
+        if (ones > 0)
+        {
+            for (int i = 1; i <= 9; i++)
+            {
+                if (i == ones)
+                {
+                    str += " ";
+                    str += convert[i];
+                    break;
+                }
+            }
+        }
+        break;
+    case 6:
+        str += convert[24];
+        if (ones > 0)
+        {
+            for (int i = 1; i <= 9; i++)
+            {
+                if (i == ones)
+                {
+                    str += " ";
+                    str += convert[i];
+                    break;
+                }
+            }
+        }
+        break;
+    case 7:
+        str += convert[25];
+        if (ones > 0)
+        {
+            for (int i = 1; i <= 9; i++)
+            {
+                if (i == ones)
+                {
+                    str += " ";
+                    str += convert[i];
+                    break;
+                }
+            }
+        }
+        break;
+    case 8:
+        str += convert[26];
+        if (ones > 0)
+        {
+            for (int i = 1; i <= 9; i++)
+            {
+                if (i == ones)
+                {
+                    str += " ";
+                    str += convert[i];
+                    break;
+                }
+            }
+        }
+        break;
+    case 9:
+        str += convert[27];
+        if (ones > 0)
+        {
+            for (int i = 1; i <= 9; i++)
+            {
+                if (i == ones)
+                {
+                    str += " ";
+                    str += convert[i];
+                    break;
+                }
+            }
+        }
+        break;
     }
+
+
+
+
+    return str;
 }
