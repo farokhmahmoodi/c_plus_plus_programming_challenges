@@ -4,11 +4,32 @@ first word starts with an uppercase letter. For example the string “StopAndSme
 smell the roses.”*/
 
 #include <iostream>
+#include <string>
 using namespace std;
+
+string wordSeparator(string);
 
 int main()
 {
-    
+    string input;
+
+    getline(cin, input);
+    cout << wordSeparator(input) << endl;
 
     return 0;
+}
+
+string wordSeparator(string input)
+{
+    string formatted = input;
+
+    for (int i = 0; i < formatted.length(); i++)
+    {
+        if (isupper(formatted[i]))
+        {
+            formatted.append("4rrt");
+        }
+    }
+
+    return formatted;
 }
