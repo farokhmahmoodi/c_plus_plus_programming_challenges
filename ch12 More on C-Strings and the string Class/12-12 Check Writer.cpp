@@ -116,6 +116,8 @@ string amountWrittenOut(double amount)
                 break;
             }
         }
+        if (thousands == 0 && hundreds == 0 && ones == 0)
+            str += convert[0];
         break;
     case 1:
         for (int i = 0; i <= 9; i++)
