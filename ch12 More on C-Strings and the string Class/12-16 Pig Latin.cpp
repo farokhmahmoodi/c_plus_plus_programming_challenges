@@ -7,11 +7,44 @@ English: I SLEPT MOST OF THE NIGHT
 Pig Latin: IAY LEPTSAY OSTMAY FOAY HETAY IGHTNAY*/
 
 #include <iostream>
+#include <string>
 using namespace std;
+
+string pigLatin(string);
 
 int main()
 {
+    string input;
     
+    getline(cin, input);
+    cout << pigLatin(input) << endl;
 
     return 0;
+}
+
+string pigLatin(string in)
+{
+    string convert = in;
+    int letterCount = 0, space = 0;
+
+    for (int i = convert.length(); i >= 0; i--)
+    {
+        if (!isspace(convert[i]))
+        {
+            letterCount++;
+        }
+        else if (isspace(convert[i]))
+        {
+            if (!isspace(convert[i + 1]))
+            {
+                string temp;
+                temp = convert[i + 1];
+                convert.erase(i + 1, 1);
+                convert.append(temp);
+                letterCount = 0;
+            }
+        }
+    }
+
+    return convert;
 }
