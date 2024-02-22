@@ -7,6 +7,7 @@ sign and commas inserted at the appropriate locations. Test your function using 
 
 #include <iostream>
 #include <sstream>
+#include <iomanip>
 #include <string>
 using namespace std;
 
@@ -29,7 +30,7 @@ string dollarFormat(double amount)
 {
     ostringstream ostr;
     string str;
-    ostr << amount;
+    ostr << fixed << showpoint << setprecision(2) << amount;
     string amt = ostr.str();
     istringstream istr(amt);
     istr >> str;
@@ -42,7 +43,6 @@ string dollarFormat(double amount)
         str.insert(pos, ",");
     }
     str.insert(0, "$");
-
 
     return str;
 }
