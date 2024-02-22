@@ -13,6 +13,11 @@ int main()
 {
     string input;
 
+    cout << "Enter a sentence  in which all of the words are run together,"
+        << " but the first character of each word is uppercase" << endl
+        << "and the program will convert the sentence to a string"
+        << " in which the words are separated by spaces and only the" << endl
+        << "first word starts with an uppercase letter:";
     getline(cin, input);
     cout << wordSeparator(input) << endl;
 
@@ -23,11 +28,11 @@ string wordSeparator(string input)
 {
     string formatted = input;
 
-    for (int i = 0; i < formatted.length(); i++)
+    for (int i = formatted.length(); i > 0; i--)
     {
         if (isupper(formatted[i]))
         {
-            formatted.append("4rrt");
+            formatted.insert(i, " ");
         }
     }
 
