@@ -29,18 +29,24 @@ string pigLatin(string in)
 
     for (int i = convert.length(); i >= 0; i--)
     {
-        if (!isspace(convert[i]))
+        if (!isspace(convert[i]) && convert[i] != '\0')
         {
             letterCount++;
         }
         else if (isspace(convert[i]))
         {
-            if (!isspace(convert[i + 1]))
+            if (i - 1 == 0)
             {
+                convert.insert(i, "ay");
+            }
+            else if (!isspace(convert[i + 1]))
+            {
+                cout << letterCount << endl;
                 string temp;
                 temp = convert[i + 1];
+                temp += "ay";
                 convert.erase(i + 1, 1);
-                convert.append(temp);
+                convert.insert(i+letterCount,temp);
                 letterCount = 0;
             }
         }
