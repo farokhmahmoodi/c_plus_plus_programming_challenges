@@ -65,11 +65,6 @@ string amountWrittenOut(double amount)
         hundreds = (amt % 1000) / 100,tens = (amt % 100) / 10, 
         ones = amt % 10, decimal = (amount - amt) * 100;
 
-    //if (thousands == 0 && hundreds == 0 && tens == 0 && ones == 0 && decimal == 0)
-    //{
-    //    str = convert[0];
-    //    return str;
-    //}
     if (thousands != 0)
     {
         for (int i = 1; i <= 10; i++)
@@ -87,6 +82,8 @@ string amountWrittenOut(double amount)
         {
             if (i == hundreds)
             {
+                if (thousands > 0)
+                    str += " ";
                 str += convert[i]; 
                 str += " "; 
                 str += convert[28];
@@ -97,10 +94,12 @@ string amountWrittenOut(double amount)
     switch (tens)
     {
     case 0:
-        for (int i = 0; i <= 9; i++)
+        for (int i = 1; i <= 9; i++)
         {
             if (i == ones)
             {
+                if(thousands > 0 || hundreds > 0)
+                    str += " ";
                 str += convert[i];
                 break;
             }
@@ -111,12 +110,16 @@ string amountWrittenOut(double amount)
         {
             if (i == ones)
             {
+                if (thousands > 0 || hundreds > 0)
+                    str += " ";
                 str += convert[10 + i];
                 break;
             }
         }
         break;
     case 2:
+        if (thousands > 0 || hundreds > 0)
+            str += " ";
         str += convert[20];
         if (ones > 0)
         {
@@ -132,6 +135,8 @@ string amountWrittenOut(double amount)
         }
         break;
     case 3:
+        if (thousands > 0 || hundreds > 0)
+            str += " ";
         str += convert[21];
         if (ones > 0)
         {
@@ -147,6 +152,8 @@ string amountWrittenOut(double amount)
         }
         break;
     case 4:
+        if (thousands > 0 || hundreds > 0)
+            str += " ";
         str += convert[22];
         if (ones > 0)
         {
@@ -162,6 +169,8 @@ string amountWrittenOut(double amount)
         }
         break;
     case 5:
+        if (thousands > 0 || hundreds > 0)
+            str += " ";
         str += convert[23];
         if (ones > 0)
         {
@@ -177,6 +186,8 @@ string amountWrittenOut(double amount)
         }
         break;
     case 6:
+        if (thousands > 0 || hundreds > 0)
+            str += " ";
         str += convert[24];
         if (ones > 0)
         {
@@ -192,6 +203,8 @@ string amountWrittenOut(double amount)
         }
         break;
     case 7:
+        if (thousands > 0 || hundreds > 0)
+            str += " ";
         str += convert[25];
         if (ones > 0)
         {
@@ -207,6 +220,8 @@ string amountWrittenOut(double amount)
         }
         break;
     case 8:
+        if (thousands > 0 || hundreds > 0)
+            str += " ";
         str += convert[26];
         if (ones > 0)
         {
@@ -222,6 +237,8 @@ string amountWrittenOut(double amount)
         }
         break;
     case 9:
+        if (thousands > 0 || hundreds > 0)
+            str += " ";
         str += convert[27];
         if (ones > 0)
         {
@@ -237,9 +254,12 @@ string amountWrittenOut(double amount)
         }
         break;
     }
-
-
-
+    if (decimal != 0)
+    {
+        str += " and ";
+        str += to_string(decimal);
+        str += " cents";
+    }
 
     return str;
 }
