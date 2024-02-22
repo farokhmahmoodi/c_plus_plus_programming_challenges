@@ -31,21 +31,33 @@ int main()
 {
     string date, payeeName;
     double amount;
+    char choice;
 
-    cout << "Enter payee name:";
-    getline(cin, payeeName);
-    cout << "Enter date formatted as MM/DD/YYYY:";
-    getline(cin, date);
     do
     {
-        cout << "Enter amount of check no greater than $10000 "
-            << " or less than $0:";
-        cin >> amount;
-        if (amount > 10000.0 || amount < 0.0)
-            cout << "Invalid input." << endl;
-    } while (amount > 10000.0 || amount < 0.0);
-    cin.ignore();
-    checkWriter(payeeName, date, amount);
+        cout << "Enter payee name:";
+        getline(cin, payeeName);
+        cout << "Enter date formatted as MM/DD/YYYY:";
+        getline(cin, date);
+        do
+        {
+            cout << "Enter amount of check no greater than $10000 "
+                << " or less than $0:";
+            cin >> amount;
+            if (amount > 10000.0 || amount < 0.0)
+                cout << "Invalid input." << endl;
+        } while (amount > 10000.0 || amount < 0.0);
+        cin.ignore();
+        checkWriter(payeeName, date, amount);
+        do
+        {
+            cout << "Would you like to enter create another check? (Y for yes/N for no):";
+            cin >> choice;
+            if (toupper(choice) != 'Y' && toupper(choice) != 'N')
+                cout << "Invalid input for choice." << endl;
+        } while (toupper(choice) != 'Y' && toupper(choice) != 'N');
+        cin.ignore();
+    } while (toupper(choice) != 'N');
 
     return 0;
 }
