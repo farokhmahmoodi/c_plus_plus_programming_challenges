@@ -29,36 +29,30 @@ string pigLatin(string in)
 
     for (int i = convert.length(); i >= 0; i--)
     {
-        if (!isspace(convert[i]) && convert[i] != '\0')
+        if (i == 0 && isalnum(convert[i]))
+        {
+            convert.insert(i+1, "ay");
+        }
+        else if (!isspace(convert[i]) && convert[i] != '\0')
         {
             letterCount++;
         }
         else if (isspace(convert[i]))
         {
-            if (i == 0)
-            {
-                if (isalnum(convert[i]))
-                {
-                    convert.insert(i+1, "ay");
-                }
-            }
-            else
-            {
-                int x = i + 1;
-                while (!isalnum(convert[x]) && convert[x] != '\0')
-                {
-                    x++;
-                }
-                if (convert[x] != '\0')
-                {
-                    string temp;
-                    temp = convert[x];
-                    temp += "ay";
-                    convert.erase(x, 1);
-                    convert.insert(i + letterCount, temp);
-                    letterCount = 0;
-                }
-            }
+             int x = i + 1;
+             while (!isalnum(convert[x]) && convert[x] != '\0')
+             {
+                x++;
+             }
+             if (convert[x] != '\0')
+             {
+                string temp;
+                temp = convert[x];
+                temp += "ay";
+                convert.erase(x, 1);
+                convert.insert(i + letterCount, temp);
+                letterCount = 0;
+             }        
         }
     }
 
