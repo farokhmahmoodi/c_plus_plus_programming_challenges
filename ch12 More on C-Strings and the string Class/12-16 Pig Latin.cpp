@@ -27,16 +27,35 @@ int main()
 string pigLatin(string in)
 {
     string convert, word;
-    istringstream istr(in);
+    int wordCount = 0;
+    istringstream istr(in), istr2(in);;
     ostringstream ostr;
 
-    istr >> word;
-    if (word.length() == 1)
+    for (int i = 0; i < in.length(); i++)
     {
-        word.append("ay");
+        if (istr >> word)
+        {
+            wordCount++;
+        }      
     }
-    convert += word;
-    convert += " ";
+    for (int x = 0; x < wordCount; x++)
+    {
+        istr2 >> word;
+        if (word.length() == 1)
+        {
+            word.append("ay");
+        }
+        else
+        {
+            string temp;
+            temp = word[0];
+            temp += "ay";
+            word.erase(0, 1);
+            word.append(temp);
+        }
+        convert += word;
+        convert += " ";
+    }
 
     return convert;
 }
