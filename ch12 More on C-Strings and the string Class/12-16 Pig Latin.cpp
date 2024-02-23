@@ -7,6 +7,7 @@ English: I SLEPT MOST OF THE NIGHT
 Pig Latin: IAY LEPTSAY OSTMAY FOAY HETAY IGHTNAY*/
 
 #include <iostream>
+#include <sstream>
 #include <string>
 using namespace std;
 
@@ -25,46 +26,17 @@ int main()
 
 string pigLatin(string in)
 {
-    string convert = in;
-    int index = convert.length();
+    string convert, word;
+    istringstream istr(in);
+    ostringstream ostr;
 
-    cout << "length" << index << endl;
-    while (index >= 0)
+    istr >> word;
+    if (word.length() == 1)
     {
-        if (isspace(convert[index]))
-        {
-            int x = index + 1;
-            while (convert[x] != '\0' && isspace(convert[x])) //moving to first character of word
-            {
-                x++;
-            }
-            if (convert[x] != '\0')
-            {
-                string temp;
-                temp = convert[x];
-                int y = x + 1; //character count of word starting at 1
-                while (convert[y] != '\0' && !isspace(convert[y]))
-                {
-                    y++;
-                }
-                if (convert[y] != '\0')
-                {
-                    cout << "y:" << convert[y] << endl;
-                    if (y == x + 1)
-                    {
-                        convert.insert(y, "ay");
-                    }
-                    if (y > x + 1)
-                    {
-                        convert.erase(convert[x], 1); //compile error here
-                        temp += "ay";
-                        convert.insert(y, temp);
-                    }
-                }
-            }
-        }
-        index--;
+        word.append("ay");
     }
+    convert += word;
+    convert += " ";
 
     return convert;
 }
