@@ -29,14 +29,14 @@ string pigLatin(string in)
 
     while (index >= 0)
     {
-        if (isalnum(convert[index]))
+        if (isalpha(convert[index]))
         {
             letterCount++;
         }
         if (isspace(convert[index]))
         {
             int x = index + 1;
-            while (!isalnum(convert[x]) && convert[x] != '\0')
+            while (!isalpha(convert[x]) && convert[x] != '\0')
             {
                 x++;
             }
@@ -46,12 +46,6 @@ string pigLatin(string in)
                 temp = convert[x];
                 temp += "ay";
                 convert.erase(x, 1);
-                convert.insert(index + letterCount, temp);
-            }
-            if (letterCount == 1)
-            {
-                string temp;
-                temp = "ay";
                 convert.insert(index + letterCount, temp);
             }
             letterCount = 0;
