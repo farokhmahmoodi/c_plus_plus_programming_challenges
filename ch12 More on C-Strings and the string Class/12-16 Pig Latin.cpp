@@ -15,7 +15,8 @@ string pigLatin(string);
 int main()
 {
     string input;
-    
+
+    cout << "Enter a sentence and the program will convert it to Pig Latin:";
     getline(cin, input);
     cout << pigLatin(input) << endl;
 
@@ -25,42 +26,33 @@ int main()
 string pigLatin(string in)
 {
     string convert = in;
-    int index = convert.length(), letterCount = 0;
+    int index = convert.length();
 
     while (index >= 0)
     {
-        if (isalpha(convert[index]))
-        {
-            letterCount++;
-            if (index == 0)
-            {
-                string temp;
-                temp += "ay";
-                convert.insert(index + 1, temp);
-            }
-        }
         if (isspace(convert[index]))
         {
             int x = index + 1;
-            while (!isalpha(convert[x]) && convert[x] != '\0')
+            while (convert[index] != '\0' && isspace(convert[index]))
             {
                 x++;
             }
-            if (letterCount > 1)
+            string temp;
+            temp = convert[x];
+            int y = x + 1; //letter count starting at 1
+            while (convert[y] != '\0' && !isspace(convert[y]))
             {
-                string temp;
-                temp = convert[x];
-                temp += "ay";
-                convert.erase(x, 1);
-                convert.insert(index + letterCount, temp);
+                y++;
             }
-            if (letterCount == 1)
+            if (y == x + 1)
             {
-                string temp;
-                temp += "ay";
-                convert.insert(x+1, temp);
+                convert.insert(y,"ay");
             }
-            letterCount = 0;
+            if (y > x + 1)
+            {
+                temp += "ay";
+                convert.insert(y, temp);
+            }
         }
         index--;
     }
