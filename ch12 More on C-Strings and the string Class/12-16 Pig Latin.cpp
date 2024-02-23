@@ -27,11 +27,10 @@ int main()
 string pigLatin(string in)
 {
     string convert, word;
-    int wordCount = 0;
+    int wordCount = 0, upperCount = 0;
     istringstream istr(in), istr2(in);
-    ostringstream ostr;
 
-    for (int i = 0; i < in.length(); i++)
+    for (int i = 0; i < in.length(); i++) //seeing how many words are in the string
     {
         if (istr >> word)
         {
@@ -41,20 +40,32 @@ string pigLatin(string in)
     for (int x = 0; x < wordCount; x++)
     {
         istr2 >> word;
-        if (word.length() == 1)
+        for (int y = 0; y < word.length(); y++) //testing to see if all letters in word are capitalized
         {
-            word.append("ay");
+            if (isupper(word[y]))
+                upperCount++;
         }
-        else
+        if (word.length() == 1) //if word is one letter
+        {
+            if (upperCount == word.length()) //if all letters are capitalized
+                word.append("AY");
+            else
+                word.append("ay");
+        }
+        else //else if word is more than one letter
         {
             string temp;
             temp = word[0];
-            temp += "ay";
+            if (upperCount == word.length()) //if all letters are capitalized
+                temp += "AY";
+            else
+                temp += "ay";;
             word.erase(0, 1);
             word.append(temp);
         }
         convert += word;
         convert += " ";
+        upperCount = 0;
     }
 
     return convert;
