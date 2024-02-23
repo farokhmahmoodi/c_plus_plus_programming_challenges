@@ -28,7 +28,7 @@ string pigLatin(string in)
 {
     string convert, word;
     int wordCount = 0;
-    istringstream istr(in), istr2(in);;
+    istringstream istr(in), istr2(in);
     ostringstream ostr;
 
     for (int i = 0; i < in.length(); i++)
