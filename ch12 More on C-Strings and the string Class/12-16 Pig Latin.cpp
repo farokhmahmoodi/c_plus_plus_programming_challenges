@@ -33,7 +33,7 @@ string pigLatin(string in)
         if (isspace(convert[index]))
         {
             int x = index + 1;
-            while (convert[index] != '\0' && isspace(convert[index]))
+            while (convert[x] != '\0' && isspace(convert[x]))
             {
                 x++;
             }
