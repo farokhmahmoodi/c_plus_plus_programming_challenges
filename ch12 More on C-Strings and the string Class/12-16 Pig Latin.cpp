@@ -52,5 +52,6 @@ string pigLatin(string in)
         }
         index--;
     }
+
     return convert;
 }
