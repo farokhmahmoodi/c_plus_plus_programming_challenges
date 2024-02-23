@@ -32,6 +32,12 @@ string pigLatin(string in)
         if (isalpha(convert[index]))
         {
             letterCount++;
+            if (index == 0)
+            {
+                string temp;
+                temp += "ay";
+                convert.insert(index + 1, temp);
+            }
         }
         if (isspace(convert[index]))
         {
