@@ -28,30 +28,39 @@ string pigLatin(string in)
     string convert = in;
     int index = convert.length();
 
+    cout << "length" << index << endl;
     while (index >= 0)
     {
         if (isspace(convert[index]))
         {
             int x = index + 1;
-            while (convert[x] != '\0' && isspace(convert[x]))
+            while (convert[x] != '\0' && isspace(convert[x])) //moving to first character of word
             {
                 x++;
             }
-            string temp;
-            temp = convert[x];
-            int y = x + 1; //letter count starting at 1
-            while (convert[y] != '\0' && !isspace(convert[y]))
+            if (convert[x] != '\0')
             {
-                y++;
-            }
-            if (y == x + 1)
-            {
-                convert.insert(y,"ay");
-            }
-            if (y > x + 1)
-            {
-                temp += "ay";
-                convert.insert(y, temp);
+                string temp;
+                temp = convert[x];
+                int y = x + 1; //character count of word starting at 1
+                while (convert[y] != '\0' && !isspace(convert[y]))
+                {
+                    y++;
+                }
+                if (convert[y] != '\0')
+                {
+                    cout << "y:" << convert[y] << endl;
+                    if (y == x + 1)
+                    {
+                        convert.insert(y, "ay");
+                    }
+                    if (y > x + 1)
+                    {
+                        convert.erase(convert[x], 1); //compile error here
+                        temp += "ay";
+                        convert.insert(y, temp);
+                    }
+                }
             }
         }
         index--;
