@@ -11,7 +11,7 @@ Pig Latin: IAY LEPTSAY OSTMAY FOAY HETAY IGHTNAY*/
 #include <string>
 using namespace std;
 
-string pigLatin(string);
+void pigLatin(string);
 
 int main()
 {
@@ -19,16 +19,17 @@ int main()
 
     cout << "Enter a sentence and the program will convert it to Pig Latin:";
     getline(cin, input);
-    cout << pigLatin(input) << endl;
+    pigLatin(input);
 
     return 0;
 }
 
-string pigLatin(string in)
+void pigLatin(string in)
 {
-    string convert, word;
+    string word;
     int wordCount = 0, upperCount = 0;
     istringstream istr(in), istr2(in);
+    ostringstream ostr;
 
     for (int i = 0; i < in.length(); i++) //seeing how many words are in the string
     {
@@ -63,10 +64,8 @@ string pigLatin(string in)
             word.erase(0, 1);
             word.append(temp);
         }
-        convert += word;
-        convert += " ";
+        ostr << word << " ";
         upperCount = 0;
     }
-
-    return convert;
+    cout << ostr.str() << endl;
 }
