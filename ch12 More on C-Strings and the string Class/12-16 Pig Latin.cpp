@@ -40,13 +40,19 @@ string pigLatin(string in)
             {
                 x++;
             }
-            if (convert[x] != '\0' && letterCount > 1)
+            if (letterCount > 1)
             {
                 string temp;
                 temp = convert[x];
                 temp += "ay";
                 convert.erase(x, 1);
                 convert.insert(index + letterCount, temp);
+            }
+            if (letterCount == 1)
+            {
+                string temp;
+                temp += "ay";
+                convert.insert(x+1, temp);
             }
             letterCount = 0;
         }
