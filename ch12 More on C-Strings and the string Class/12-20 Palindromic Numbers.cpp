@@ -16,6 +16,11 @@ The code to do that is:
 reverse(str.begin(), str.end());*/
 
 #include <iostream>
+#include <string>
+#include <sstream>
+using namespace std;
+
+
 
 int main()
 {
