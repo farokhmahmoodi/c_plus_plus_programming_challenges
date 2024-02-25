@@ -1,6 +1,6 @@
-/*Write a program that reads a sentence as input and converts each word to ‚ÄúPig Latin.‚Äù In one version, 
-to convert a word to Pig Latin you remove the first letter and place that letter at the end of the word. 
-Then you append the string ‚Äúay‚Äù to the word. Here is an example:
+/*Write a program that reads a sentence as input and converts each word to ìPig Latin.î In one version,
+to convert a word to Pig Latin you remove the first letter and place that letter at the end of the word.
+Then you append the string ìayî to the word. Here is an example:
 
 English: I SLEPT MOST OF THE NIGHT
 
@@ -26,18 +26,28 @@ int main()
 
 void pigLatin(string in)
 {
-    string word;
+    string word, actual;
     int wordCount = 0, upperCount = 0;
-    istringstream istr(in), istr2(in);
+    istringstream istr(in), istr2;
     ostringstream ostr;
 
     for (int i = 0; i < in.length(); i++) //seeing how many words are in the string
     {
         if (istr >> word)
         {
-            wordCount++;
-        }      
+            for (int x = 0; x < word.length(); x++)
+            {
+                if (isalpha(word[x]))
+                {
+                    wordCount++;
+                    actual += word;
+                    actual += " ";
+                    break;
+                }
+            }
+        }
     }
+    istr2.str(actual);
     for (int x = 0; x < wordCount; x++)
     {
         istr2 >> word;
@@ -46,25 +56,22 @@ void pigLatin(string in)
             if (isupper(word[y]))
                 upperCount++;
         }
-        if (word.length() == 1) //if word is one letter
+        string temp;
+        temp = word[0];
+        if (upperCount == word.length()) //if all letters are capitalized
+            temp += "AY";
+        else
+            temp += "ay";;
+        word.erase(0, 1);
+        word.append(temp);
+        for (int x = 0; x < word.length(); x++)
         {
-            if (upperCount == word.length()) //if all letters are capitalized
-                word.append("AY");
-            else
-                word.append("ay");
+            if (isalpha(word[x]))
+            {
+                ostr << word[x];
+            }
         }
-        else //else if word is more than one letter
-        {
-            string temp;
-            temp = word[0];
-            if (upperCount == word.length()) //if all letters are capitalized
-                temp += "AY";
-            else
-                temp += "ay";;
-            word.erase(0, 1);
-            word.append(temp);
-        }
-        ostr << word << " ";
+        ostr << " ";
         upperCount = 0;
     }
     cout << ostr.str() << endl;
