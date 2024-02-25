@@ -64,7 +64,7 @@ void pigLatin(string in)
             temp += "ay";;
         word.erase(0, 1);
         word.append(temp);
-        for (int x = 0; x < word.length(); x++)
+        for (int x = 0; x < word.length(); x++) //only outputting letters to screen
         {
             if (isalpha(word[x]))
             {
