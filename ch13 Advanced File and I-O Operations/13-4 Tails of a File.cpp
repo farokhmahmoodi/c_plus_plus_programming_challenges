@@ -5,11 +5,39 @@ this by seeking to the end of the file and then backing up to the tenth line fro
 
 #include <iostream>
 #include <fstream>
+#include <string>
 using namespace std;
 
 int main()
 {
-    
+    fstream file;
+    string filename, input;
+    char ch;
+    long position = 0;
+    int lines = 0;
+
+    cout << "Enter file name:";
+    getline(cin, filename);
+    file.open(filename, ios::in);
+    if (!file)
+    {
+        cout << "File failed to open." << endl;
+        return 0;
+    }
+    file.seekg(0L, ios::end);
+    while (file.seekg(--position, ios::end) && lines < 10)
+    {
+        ch = file.get();
+        if (ch == '\n')
+        {
+            lines++;
+        }
+        file.clear();
+    }
+    while (getline(file,input))
+    {
+        cout << input << endl;
+    }
 
     return 0;
 }
