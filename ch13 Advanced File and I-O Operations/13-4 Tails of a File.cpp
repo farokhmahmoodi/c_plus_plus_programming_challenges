@@ -25,10 +25,10 @@ int main()
         return 0;
     }
     file.seekg(0L, ios::end);
-    while (file.seekg(--position, ios::end) && lines < 10)
+    while (file.seekg(--position, ios::end) && lines <= 10)
     {
         ch = file.get();
-        if (ch == '\n')
+        if (ch == '\n' && file.peek() != EOF && file.peek() != '\n')
         {
             lines++;
         }
