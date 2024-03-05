@@ -6,11 +6,30 @@ the file.*/
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <sstream>
 using namespace std;
 
 int main()
 {
-    
+    fstream file;
+    string filename, input, search, temp;
+    int count = 0;
+
+    cout << "Enter filename:";
+    getline(cin, filename);
+    file.open(filename, ios::in);
+    if (!file)
+    {
+        cout << "File failed to open." << endl;
+        return 0;
+    }
+    cout << "Enter a string to search for in the file:";
+    getline(cin, search);
+    while (getline(file, input))
+    {
+        
+    }
+    cout << "The string occured " << count << " times in the file." << endl;
 
     return 0;
 }
