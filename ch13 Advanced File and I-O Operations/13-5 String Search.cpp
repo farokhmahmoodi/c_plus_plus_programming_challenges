@@ -25,10 +25,7 @@ int main()
     }
     cout << "Enter a string to search for in the file:";
     getline(cin, search);
-    while (getline(file, input))
-    {
-        
-    }
+
     cout << "The string occured " << count << " times in the file." << endl;
 
     return 0;
