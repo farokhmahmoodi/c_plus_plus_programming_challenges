@@ -33,22 +33,7 @@ int main()
         cout << "File failed to open." << endl;
         return 0;
     }
-    while (getline(in, input))
-    {
-        if (isalpha(input[0]))
-            input[0] = toupper(input[0]);
-        for (int index = 0; index < input.length(); index++)
-        {
-            if (input[index] == '.' || input[index] == '!' || input[index] == '?')
-            {
-                inner = index + 1;
-                while (input[inner] == ' ' && input[inner] != '\0')
-                    inner++;
-                input[inner] = toupper(input[inner]);
-            }
-        }
-        out << input << endl;
-    }
+
     in.close();
     out.close();
 
