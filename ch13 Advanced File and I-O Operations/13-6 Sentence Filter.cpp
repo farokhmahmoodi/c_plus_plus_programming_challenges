@@ -15,7 +15,7 @@ int main()
     ifstream in;
     ofstream out;
     string input, filename;
-    int inner;
+    char ch;
 
     cout << "Enter filename for input file:";
     getline(cin, filename);
@@ -33,7 +33,33 @@ int main()
         cout << "File failed to open." << endl;
         return 0;
     }
-
+    ch = in.get();
+    if (static_cast<char>(isalpha(ch)) && static_cast<char>(islower(ch)))
+        out << static_cast<char>(toupper(ch));
+    else
+        out << ch;
+    while (ch != EOF)
+    {
+        ch = in.get();
+        if (ch == '.' || ch == '?' || ch == '!')
+        {
+            out << ch;
+            ch = in.get();
+            if (ch != EOF)
+            {
+                while (!static_cast<char>(isalpha(ch)) && ch != EOF)
+                {
+                    out << ch;
+                    ch = in.get();
+                }
+                out << static_cast<char>(toupper(ch));
+            }
+        }
+        else
+        {
+            out << ch;
+        }
+    }
     in.close();
     out.close();
 
