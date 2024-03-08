@@ -7,10 +7,50 @@ second file.*/
 
 #include <iostream>
 #include <fstream>
+#include <string>
 using namespace std;
 
 int main()
 {
-    
+    ifstream in;
+    ofstream out;
+    string input, filename;
+    int inner;
+
+    cout << "Enter filename for input file:";
+    getline(cin, filename);
+    in.open(filename);
+    if (!in)
+    {
+        cout << "File failed to open." << endl;
+        return 0;
+    }
+    cout << "Enter filename for output file:";
+    getline(cin, filename);
+    out.open(filename);
+    if (!out)
+    {
+        cout << "File failed to open." << endl;
+        return 0;
+    }
+    while (getline(in, input))
+    {
+        if (isalpha(input[0]))
+            input[0] = toupper(input[0]);
+        for (int index = 0; index < input.length(); index++)
+        {
+            if (input[index] == '.' || input[index] == '!' || input[index] == '?')
+            {
+                inner = index + 1;
+                while (input[inner] == ' ' && input[inner] != '\0')
+                    inner++;
+                input[inner] = toupper(input[inner]);
+            }
+        }
+        out << input << endl;
+    }
+    in.close();
+    out.close();
+
     return 0;
 }
