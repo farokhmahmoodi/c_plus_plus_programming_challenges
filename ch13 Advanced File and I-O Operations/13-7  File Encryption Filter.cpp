@@ -35,8 +35,6 @@ int main()
         cout << "File failed to open." << endl;
         return 0;
     }
-    ch = in.get();
-    out << static_cast<char>(ch + 10);
     while (ch != EOF)
     {
         ch = in.get();
