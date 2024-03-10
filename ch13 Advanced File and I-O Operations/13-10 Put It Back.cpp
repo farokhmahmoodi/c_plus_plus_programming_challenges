@@ -1,4 +1,4 @@
-/*C++ input stream classes have two member functions, unget() and putback(), that can be used to “undo” an
+/*C++ input stream classes have two member functions, unget() and putback(), that can be used to â€œundoâ€ an
 operation performed by the get() function. Research these functions on the Internet, and then use one of them
 to rewrite Program 13-9 without using the peek() function.*/
 
@@ -22,7 +22,6 @@ int main()
         cout << "Failed to open file." << endl;
         return 0;
     }
-    int iter = 0;
     while (!in.fail())
     {
         ch = in.get();
@@ -41,7 +40,6 @@ int main()
                 continue;
             }
         }
-        cout << ++iter << endl;
         for (int i = 97; i < 123; i++)
         {
             if (static_cast<int>(tolower(ch)) == i)
