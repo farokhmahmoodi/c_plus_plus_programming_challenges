@@ -14,31 +14,31 @@ using namespace std;
 
 int main()
 {
-    ifstream in;
-    ofstream out;
+    fstream in, out;
     string filename;
     char ch;
 
     cout << "Enter filename of input file to encrypt:";
     getline(cin, filename);
-    in.open(filename);
+    in.open(filename, ios::in);
     if (!in)
     {
         cout << "File failed to open." << endl;
         return 0;
     }
-    cout << "Enter filename for output file:";
+    cout << "Enter filename for encrypted output file:";
     getline(cin, filename);
-    out.open(filename);
+    out.open(filename, ios::out);
     if (!out)
     {
         cout << "File failed to open." << endl;
         return 0;
     }
-    while (ch != EOF)
+    while (!in.fail())
     {
         ch = in.get();
-        out << static_cast<char>(ch + 10);
+        if (ch != EOF)
+            out << static_cast<char>(ch + 10);
     }
     in.close();
     out.close();
