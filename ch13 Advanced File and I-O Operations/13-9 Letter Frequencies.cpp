@@ -1,21 +1,17 @@
-﻿/*The letter e is the most frequently used letter in English prose, and the letter z is the least frequently 
-used. A friend of yours doing a sociology experiment believes that this may not necessarily be true of the 
-writings of first-year college students. To test his theory, he asks you to write a program that will take a 
-text file and print, for each letter of the English alphabet, the number of times the letter appears in the file.
-
-Hint: Use an integer array of size 128, and use the ASCII values of letters to index into the array to store 
-and retrieve counts for the letters.*/
+/*C++ input stream classes have two member functions, unget() and putback(), that can be used to “undo” an 
+operation performed by the get() function. Research these functions on the Internet, and then use one of them 
+to rewrite Program 13-9 without using the peek() function.*/
 
 #include <iostream>
 #include <fstream>
-#include <string>
+#include<string>
 using namespace std;
 
 int main()
 {
     fstream in;
     string filename;
-    int letterCount[128] = {0};
+    int letterCount[128] = { 0 };
     char ch;
 
     cout << "Enter filename of input file:";
@@ -29,10 +25,9 @@ int main()
     while (!in.fail())
     {
         ch = in.get();
-        ch = tolower(ch);
         for (int i = 97; i < 123; i++)
         {
-            if (static_cast<int>(ch) == i)
+            if (static_cast<int>(tolower(ch)) == i)
             {
                 letterCount[i]++;
             }
