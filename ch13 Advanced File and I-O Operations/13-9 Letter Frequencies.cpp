@@ -26,19 +26,22 @@ int main()
         cout << "Failed to open file." << endl;
         return 0;
     }
+    int iter = 0;
     while (!in.fail())
     {
-        ch = in.get();
+        ch = in.peek();
         if (static_cast<int>(ch) < 65)
         {
             ch = in.get();
+            continue;
         }
         else if (static_cast<int>(ch) > 90)
         {
             if (static_cast<int>(ch) < 97 || static_cast<int>(ch) > 122)
             {
                 ch = in.get();
-            }
+                continue;
+            };
         }
         for (int i = 97; i < 123; i++)
         {
@@ -47,6 +50,7 @@ int main()
                 letterCount[i]++;
             }
         }
+        ch = in.get();
     }
     for (int i = 97; i < 123; i++)
     {
