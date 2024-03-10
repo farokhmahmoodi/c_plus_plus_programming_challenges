@@ -26,7 +26,6 @@ int main()
         cout << "Failed to open file." << endl;
         return 0;
     }
-    int iter = 0;
     while (!in.fail())
     {
         ch = in.peek();
