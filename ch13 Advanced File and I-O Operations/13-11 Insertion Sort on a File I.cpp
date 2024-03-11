@@ -17,11 +17,11 @@ int main()
     fstream file;
     char choice;
     vector<int> buffer;
-    int num;
+    int num, pos = 0;
 
     do
     {
-        file.open("13-11.dat", ios::out | ios::binary);
+        file.open("13-11.dat", ios::in | ios::out | ios::binary);
         if (!file)
         {
             cout << "Error opening file.";
@@ -37,9 +37,17 @@ int main()
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
             cout << "Invalid input for new integer." << endl;
         }
-        buffer.push_back(num);
-        file.write(reinterpret_cast<char*>(&buffer), sizeof(buffer));
-        file.close();
+        if (buffer.size() == 0)
+        {
+            buffer.push_back(num);
+            file.write(reinterpret_cast<char*>(&buffer), sizeof(buffer));
+            file.close();
+        }
+        else
+        {
+            file.seekg(pos, ios::end);
+
+        }
         do
         {
             cout << "Would you like to add another integer?(y for yes/n for no)";
