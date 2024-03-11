@@ -27,7 +27,6 @@ int main()
             cout << "Error opening file.";
             return 0;
         }
-        file.read(reinterpret_cast<char*>(&buffer), sizeof(buffer));
         for (int i = 0; i < buffer.size(); i++)
             cout << buffer[i] << " ";
         cout << endl;
@@ -36,17 +35,6 @@ int main()
             cin.clear(); //clear bad input flag
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
             cout << "Invalid input for new integer." << endl;
-        }
-        if (buffer.size() == 0)
-        {
-            buffer.push_back(num);
-            file.write(reinterpret_cast<char*>(&buffer), sizeof(buffer));
-            file.close();
-        }
-        else
-        {
-            file.seekg(pos, ios::end);
-
         }
         do
         {
