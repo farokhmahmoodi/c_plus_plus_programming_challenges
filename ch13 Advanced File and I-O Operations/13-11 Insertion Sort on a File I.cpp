@@ -14,39 +14,22 @@ using namespace std;
 
 int main()
 {
-    fstream file;
-    char choice;
     vector<int> buffer;
     int num, pos = 0;
 
-    do
+    fstream file("13-11.dat",  ios::out | ios::in | ios::binary);
+    if (!file)
     {
-        file.open("13-11.dat", ios::in | ios::out | ios::binary);
-        if (!file)
-        {
-            cout << "Error opening file.";
-            return 0;
-        }
-        for (int i = 0; i < buffer.size(); i++)
-            cout << buffer[i] << " ";
-        cout << endl;
-        while (cout << "Enter a new integer X: "
-            && !(cin >> num)){
-            cin.clear(); //clear bad input flag
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
-            cout << "Invalid input for new integer." << endl;
-        }
-        do
-        {
-            cout << "Would you like to add another integer?(y for yes/n for no)";
-            cin >> choice;
-            if (tolower(choice) != 'y' && tolower(choice) != 'n')
-            {
-                cout << "Invalid input for choice." << endl;
-            }
-            cin.ignore();
-        } while (tolower(choice) != 'y' && tolower(choice) != 'n');
-    } while (tolower(choice) != 'n');
+        cout << "Error opening file.";
+        return 0;
+    }
+    while (cout << "Enter a new integer X: "
+    && !(cin >> num)) {
+    cin.clear(); //clear bad input flag
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
+    cout << "Invalid input for new integer." << endl;
+    }
+
 
     return 0;
 }
