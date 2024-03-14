@@ -52,10 +52,10 @@ int main()
 	{
 		while (file.seekg(--pos, ios::end))
 		{
-			if (pos % 4 == 0) //if new integer is largest in the sorted list
+			if (pos % 4 == 0) 
 			{
 				file.read(reinterpret_cast<char*>(&in), sizeof(in));
-				if (in <= out && pos == -4)
+				if (in <= out && pos == -4) //if new integer is largest in the sorted list
 				{
 					file.close();
 					file.open("13-11.dat", ios::out | ios::app | ios::binary);
@@ -63,13 +63,12 @@ int main()
 					file.close();
 					break;
 				}
-				else
+				else if(in <= out)
 				{
-
+					
 				}
 			}
 		}
-
 	}
 
 	return 0;
