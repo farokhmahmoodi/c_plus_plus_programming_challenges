@@ -9,27 +9,25 @@ position in the file where X should be stored. The program then writes X at that
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <vector>
 using namespace std;
 
 int main()
 {
-    vector<int> buffer;
-    int num, pos = 0;
+    int num;
 
-    fstream file("13-11.dat",  ios::out | ios::in | ios::binary);
+    fstream file("13-11.dat",  ios::in | ios::binary);
     if (!file)
     {
         cout << "Error opening file.";
         return 0;
     }
-    while (cout << "Enter a new integer X: "
-    && !(cin >> num)) {
-    cin.clear(); //clear bad input flag
-    cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
-    cout << "Invalid input for new integer." << endl;
+    while (!file.eof())
+    {
+        file.read(reinterpret_cast<char*>(&num), sizeof(num));
+        cout << num << " ";
     }
-
+    cout << endl;
+    file.close();
 
     return 0;
 }
