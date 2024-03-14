@@ -12,28 +12,30 @@ position in the file where X should be stored. The program then writes X at that
 using namespace std;
 int main()
 {
-	int num, pos = 0;
+	int num;
+
 	fstream file("13-11.dat", ios::in | ios::binary);
 	if (!file)
 	{
 		cout << "Error opening file.";
 		return 0;
 	}
-	while (file.read(reinterpret_cast<char*>(&num), sizeof(num)))
+	file.read(reinterpret_cast<char*>(&num), sizeof(num));
+	if (!file.fail())
 	{
 		cout << num << " ";
+		while (file.read(reinterpret_cast<char*>(&num), sizeof(num)))
+		{
+			cout << num << " ";
+		}
+		cout << endl;
 	}
-	cout << endl;
-	file.close();
-	file.open("13-11.dat", ios::out | ios::app | ios::in | ios::binary);
 	while (cout << "Enter a new integer X:"
 		&& !(cin >> num)) {
 		cin.clear(); //clear bad input flag
 		cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
 		cout << "Invalid input for new integer X." << endl;
 	}
-	file.write(reinterpret_cast<char*>(&num), sizeof(num));
-	file.close();
 
 	return 0;
 }
