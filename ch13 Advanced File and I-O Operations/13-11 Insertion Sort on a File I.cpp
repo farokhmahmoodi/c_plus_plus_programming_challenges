@@ -13,7 +13,7 @@ using namespace std;
 
 int main()
 {
-    int num;
+    int num, pos = 0;
 
     fstream file("13-11.dat",  ios::in | ios::binary);
     if (!file)
@@ -27,15 +27,14 @@ int main()
     }
     cout << endl;
     file.close();
-    file.open("13-11.dat", ios::out | ios::app | ios::binary);
+    file.open("13-11.dat", ios::out | ios::app | ios::in | ios::binary);
     while (cout << "Enter a new integer X:"
         && !(cin >> num)) {
         cin.clear(); //clear bad input flag
         cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
         cout << "Invalid input for new integer X." << endl;
     }
-    file.write(reinterpret_cast<char*>(&num), sizeof(num));
-    file.close();
+    
 
     return 0;
 }
