@@ -13,6 +13,7 @@ using namespace std;
 int main()
 {
 	int in,out;
+	long pos = 0;
 
 	fstream file("13-11.dat", ios::in | ios::binary);
 	if (!file)
@@ -46,6 +47,29 @@ int main()
 		file.write(reinterpret_cast<char*>(&out), sizeof(out));
 		file.close();
 		file.clear();
+	}
+	else
+	{
+		while (file.seekg(--pos, ios::end))
+		{
+			if (pos % 4 == 0) //if new integer is largest in the sorted list
+			{
+				file.read(reinterpret_cast<char*>(&in), sizeof(in));
+				if (in <= out && pos == -4)
+				{
+					file.close();
+					file.open("13-11.dat", ios::out | ios::app | ios::binary);
+					file.write(reinterpret_cast<char*>(&out), sizeof(out));
+					file.close();
+					break;
+				}
+				else
+				{
+
+				}
+			}
+		}
+
 	}
 
 	return 0;
