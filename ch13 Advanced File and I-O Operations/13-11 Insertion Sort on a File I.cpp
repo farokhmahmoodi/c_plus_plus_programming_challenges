@@ -14,7 +14,7 @@ using namespace std;
 int main()
 {
 	int out;
-	vector<int> readIn(1);
+	vector<int> readIn(1), buffer;
 	long pos = 0;
 
 	fstream file("13-11.dat", ios::in | ios::binary);
@@ -45,7 +45,7 @@ int main()
 	if (file.fail()) //if file is empty
 	{
 		file.close();
-		file.open("13-11.dat", ios::out | ios::app | ios::binary);
+		file.open("13-11.dat", ios::out | ios::binary);
 		readIn[0] = out;
 		file.write(reinterpret_cast<char*>(&readIn[0]), readIn.size()); //store first integer into the file
 		file.close();
@@ -60,11 +60,19 @@ int main()
 			{
 				file.close();
 				file.open("13-11.dat", ios::out | ios::app | ios::binary);
-				readIn[0] = out;
+				readIn[0] = out; 
 				file.write(reinterpret_cast<char*>(&readIn[0]), readIn.size());
 				file.close();
 				break;
-			}			
+			}
+			else if (readIn[0] > out)
+			{
+				buffer.push_back(readIn[0]);
+			}
+			else if (readIn[0] <= out)
+			{
+
+			}
 		}
 	}
 
