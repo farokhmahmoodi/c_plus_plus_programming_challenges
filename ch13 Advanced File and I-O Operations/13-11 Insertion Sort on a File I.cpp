@@ -14,7 +14,7 @@ using namespace std;
 int main()
 {
 	int out;
-	vector<int> buffer, readIn(1);
+	vector<int> readIn(1);
 	long pos = 0;
 
 	fstream file("13-11.dat", ios::in | ios::binary);
@@ -27,11 +27,9 @@ int main()
 	if (!file.fail()) //if file is not empty
 	{
 		cout << readIn[0] << " ";
-		buffer.push_back(readIn[0]);
 		while (file.read(reinterpret_cast<char*>(&readIn[0]), readIn.size()))
 		{
 			cout << readIn[0] << " ";
-			buffer.push_back(readIn[0]);
 		}
 		cout << endl;
 	}
@@ -48,33 +46,27 @@ int main()
 	{
 		file.close();
 		file.open("13-11.dat", ios::out | ios::app | ios::binary);
-		buffer.push_back(out); //store first integer into the file
-		file.write(reinterpret_cast<char*>(&buffer[0]), buffer.size());
+		readIn[0] = out;
+		file.write(reinterpret_cast<char*>(&readIn[0]), readIn.size()); //store first integer into the file
 		file.close();
 		file.clear();
 	}
-	//else //if file is not empty
-	//{	
-	//	while (file.seekg(--pos, ios::end))
-	//	{
-	//		if (pos % 4 == 0)
-	//		{
-	//			file.read(reinterpret_cast<char*>(&in), sizeof(in));
-	//			if (in <= out && pos == -4) //if new integer is largest in the sorted list
-	//			{
-	//				file.close();
-	//				file.open("13-11.dat", ios::out | ios::app | ios::binary);
-	//				file.write(reinterpret_cast<char*>(&out), sizeof(out));
-	//				file.close();
-	//				break;
-	//			}
-	//			else if (in > out)
-	//			{
-
-	//			}
-	//		}
-	//	}
-	//}
+	else //if file is not empty
+	{	
+		while (file.seekg(--pos, ios::end))
+		{
+			file.read(reinterpret_cast<char*>(&readIn[0]), readIn.size());
+			if (readIn[0] <= out && pos == -1) //if new integer is largest in file
+			{
+				file.close();
+				file.open("13-11.dat", ios::out | ios::app | ios::binary);
+				readIn[0] = out;
+				file.write(reinterpret_cast<char*>(&readIn[0]), readIn.size());
+				file.close();
+				break;
+			}			
+		}
+	}
 
 	return 0;
 }
