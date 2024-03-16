@@ -15,7 +15,7 @@ int main()
 {
 	int out;
 	vector<int> buffer, readIn(1);
-	long readPos = 0, writePos;
+	long readPos = 0, writePos = -1;
 
 	fstream file("13-11.dat", ios::in | ios::binary);
 	if (!file)
@@ -55,7 +55,76 @@ int main()
 	{	
 		while (file.seekg(--readPos, ios::end))
 		{
-
+			file.read(reinterpret_cast<char*>(&readIn[0]), readIn.size());
+			if (readIn[0] <= out && readPos == -1) //if new integer is largest in file
+			{
+				file.close();
+				file.open("13-11.dat", ios::out | ios::app | ios::binary);
+				readIn[0] = out;
+				file.write(reinterpret_cast<char*>(&readIn[0]), readIn.size()); 
+				file.close();
+				break;
+			}
+			else if (readIn[0] <= out)
+			{
+				while (file.seekg(++writePos, ios::beg)) //adding smaller integers than new integer to buffer vector
+				{
+					file.read(reinterpret_cast<char*>(&readIn[0]), readIn.size());
+					if (readIn[0] <= out)
+						buffer.push_back(readIn[0]);
+					else if (readIn[0] > out)
+						break;
+				}
+				buffer.push_back(out);
+				buffer.push_back(readIn[0]);
+				while (file.seekg(++writePos, ios::beg)) //adding larger integers than new integer to buffer vector
+				{
+					file.read(reinterpret_cast<char*>(&readIn[0]), readIn.size());
+					if(readIn[0] > out && !file.eof())
+						buffer.push_back(readIn[0]);
+				}
+				file.close();
+				writePos = -1;
+				int i = 0;
+				file.open("13-11.dat", ios::out | ios::binary);
+				while (file.seekp(++writePos, ios::beg) && i < buffer.size()) //writing buffer vector to file
+				{
+					file.write(reinterpret_cast<char*>(&buffer[i]), 1);
+					i++;
+				}
+				file.close();
+				break;
+			}
+			else if (readIn[0] > out)
+			{
+				file.seekg(0L, ios::beg);
+				file.read(reinterpret_cast<char*>(&readIn[0]), readIn.size());
+				if (readIn[0] > out) //if new integer is smallest integer in the file
+				{
+					cout << "hi" << endl;
+					readPos = writePos = -1;
+					buffer.push_back(out);
+					while (file.seekg(++readPos, ios::beg))
+					{
+						file.read(reinterpret_cast<char*>(&readIn[0]), readIn.size());
+						buffer.push_back(readIn[0]);
+					}
+					file.close();
+					int i = 0;
+					file.open("13-11.dat", ios::out | ios::binary);
+					while (file.seekp(++writePos, ios::beg) && i < buffer.size()) //writing buffer vector to file
+					{
+						file.write(reinterpret_cast<char*>(&buffer[i]), 1);
+						i++;
+					}
+					file.close();
+					break;
+				}
+				else
+				{
+					file.seekg(readPos, ios::end);
+				}
+			}
 		}
 	}
 
