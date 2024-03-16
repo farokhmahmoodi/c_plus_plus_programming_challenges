@@ -9,11 +9,13 @@ position in the file where X should be stored. The program then writes X at that
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
 using namespace std;
 int main()
 {
-	int in, out;
-	long pos = 0;
+	int out;
+	vector<int> buffer, readIn(1);
+	long readPos = 0, writePos;
 
 	fstream file("13-11.dat", ios::in | ios::binary);
 	if (!file)
@@ -21,13 +23,13 @@ int main()
 		cout << "Error opening file.";
 		return 0;
 	}
-	file.read(reinterpret_cast<char*>(&in), sizeof(in));
+	file.read(reinterpret_cast<char*>(&readIn[0]), readIn.size());
 	if (!file.fail()) //if file is not empty
 	{
-		cout << in << " ";
-		while (file.read(reinterpret_cast<char*>(&in), sizeof(in)))
+		cout << readIn[0] << " ";
+		while (file.read(reinterpret_cast<char*>(&readIn[0]), readIn.size()))
 		{
-			cout << in << " ";
+			cout << readIn[0] << " ";
 		}
 		cout << endl;
 	}
@@ -39,31 +41,21 @@ int main()
 		cout << "Invalid input for new integer X." << endl;
 	}
 	file.seekg(0L, ios::beg);
-	file.read(reinterpret_cast<char*>(&in), sizeof(in));
+	file.read(reinterpret_cast<char*>(&readIn[0]), readIn.size());
 	if (file.fail()) //if file is empty
 	{
 		file.close();
 		file.open("13-11.dat", ios::out | ios::binary);
-		file.write(reinterpret_cast<char*>(&out), sizeof(out)); //store first integer into the file
+		readIn[0] = out;
+		file.write(reinterpret_cast<char*>(&readIn[0]), readIn.size()); //store first integer into the file
 		file.close();
 		file.clear();
 	}
 	else //if file is not empty
 	{	
-		while (file.seekg(--pos, ios::end))
+		while (file.seekg(--readPos, ios::end))
 		{
-			if (pos % 4 == 0)
-			{
-				file.read(reinterpret_cast<char*>(&in), sizeof(in));
-				if (in <= out && pos == -4) //if new integer is largest in file
-				{
-					file.close();
-					file.open("13-11.dat", ios::out | ios::app | ios::binary);
-					file.write(reinterpret_cast<char*>(&out), sizeof(out));
-					file.close();
-					break;
-				}
-			}
+
 		}
 	}
 
