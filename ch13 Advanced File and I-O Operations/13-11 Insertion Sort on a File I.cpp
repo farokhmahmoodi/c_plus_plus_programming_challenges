@@ -87,7 +87,7 @@ int main()
 				writePos = -1;
 				int i = 0;
 				file.open("13-11.dat", ios::out | ios::binary);
-				while (file.seekp(++writePos, ios::beg) && i < buffer.size()) //writing buffer vector to file
+				while (i < buffer.size()) //writing buffer vector to file
 				{
 					file.write(reinterpret_cast<char*>(&buffer[i]), 1);
 					i++;
@@ -101,18 +101,18 @@ int main()
 				file.read(reinterpret_cast<char*>(&readIn[0]), readIn.size());
 				if (readIn[0] > out) //if new integer is smallest integer in the file
 				{
-					cout << "hi" << endl;
 					readPos = writePos = -1;
 					buffer.push_back(out);
 					while (file.seekg(++readPos, ios::beg))
 					{
 						file.read(reinterpret_cast<char*>(&readIn[0]), readIn.size());
-						buffer.push_back(readIn[0]);
+						if(!file.eof())
+							buffer.push_back(readIn[0]);
 					}
 					file.close();
 					int i = 0;
 					file.open("13-11.dat", ios::out | ios::binary);
-					while (file.seekp(++writePos, ios::beg) && i < buffer.size()) //writing buffer vector to file
+					while (i < buffer.size()) //writing buffer vector to file
 					{
 						file.write(reinterpret_cast<char*>(&buffer[i]), 1);
 						i++;
