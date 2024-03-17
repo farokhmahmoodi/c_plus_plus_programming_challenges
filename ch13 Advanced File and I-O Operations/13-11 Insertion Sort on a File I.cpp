@@ -8,12 +8,12 @@ position in the file where X should be stored. The program then writes X at that
 
 #include <iostream>
 #include <fstream>
-#include <string>
 using namespace std;
+
 int main()
 {
-	int out, readIn[1], *buffer = nullptr, size = 0;
-	long readPos = 0, writePos = -1;
+	int in, out;
+	long readPos = 0, writePos;
 
 	fstream file("13-11.dat", ios::in | ios::binary);
 	if (!file)
@@ -21,13 +21,14 @@ int main()
 		cout << "Error opening file.";
 		return 0;
 	}
-	file.read(reinterpret_cast<char*>(readIn), sizeof(readIn));
+	file.read(reinterpret_cast<char*>(&in), sizeof(in));
 	if (!file.fail()) //if file is not empty
 	{
-		cout << readIn[0] << " ";
-		while (file.read(reinterpret_cast<char*>(readIn), sizeof(readIn)))
+		cout << "Sorted list of integers:"
+		<< in << " ";
+		while (file.read(reinterpret_cast<char*>(&in), sizeof(in)))
 		{
-			cout << readIn[0] << " ";
+			cout << in << " ";
 		}
 		cout << endl;
 	}
@@ -39,13 +40,12 @@ int main()
 		cout << "Invalid input for new integer X." << endl;
 	}
 	file.seekg(0L, ios::beg);
-	file.read(reinterpret_cast<char*>(readIn), sizeof(readIn));
+	file.read(reinterpret_cast<char*>(&in), sizeof(in));
 	if (file.fail()) //if file is empty
 	{
 		file.close();
 		file.open("13-11.dat", ios::out | ios::binary);
-		readIn[0] = out;
-		file.write(reinterpret_cast<char*>(readIn), sizeof(readIn)); //store first integer into the file
+		file.write(reinterpret_cast<char*>(&out), sizeof(out)); //store first integer into the file
 		file.close();
 		file.clear();
 	}
@@ -55,19 +55,15 @@ int main()
 		{
 			if (readPos % 4 == 0)
 			{
-				file.read(reinterpret_cast<char*>(readIn), sizeof(readIn));
-				if (readIn[0] <= out && readPos == -4) //if new integer is largest in file
+				file.read(reinterpret_cast<char*>(&in), sizeof(in));
+				if (in <= out && readPos == -4) //if new integer is largest in file
 				{
 					file.close();
 					file.open("13-11.dat", ios::out | ios::app | ios::binary);
-					readIn[0] = out;
-					file.write(reinterpret_cast<char*>(readIn), sizeof(readIn));
+					file.write(reinterpret_cast<char*>(&out), sizeof(out));
 					file.close();
 					break;
 				}
-			}
-			else if (readIn[0] <= out)
-			{
 
 			}
 		}
