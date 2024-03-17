@@ -64,7 +64,24 @@ int main()
 					file.close();
 					break;
 				}
-
+				else
+				{
+					file.close();
+					writePos = readPos - 1;
+					file.open("13-11.dat", ios::in | ios::out | ios::binary);
+					while (file.seekg(++writePos, ios::end))
+					{
+						if (writePos % 4 == 0)
+						{
+							file.read(reinterpret_cast<char*>(&in), sizeof(in));
+							int temp = in;
+						}
+					}
+					//file.seekp(readPos, ios::end);
+					//file.write(reinterpret_cast<char*>(&out), sizeof(out));
+					file.close();
+					break;
+				}
 			}
 		}
 	}
