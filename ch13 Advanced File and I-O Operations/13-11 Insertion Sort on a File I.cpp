@@ -13,7 +13,7 @@ using namespace std;
 int main()
 {
 	int in, out;
-	long readPos = 0, writePos;
+	long readPos = 0;
 
 	fstream file("13-11.dat", ios::in | ios::binary);
 	if (!file)
@@ -51,38 +51,18 @@ int main()
 	}
 	else //if file is not empty
 	{	
-		while (file.seekg(--readPos, ios::end))
+		file.seekg(-4L, ios::end);
+		file.read(reinterpret_cast<char*>(&in), sizeof(in));
+		if (in <= out) //if new integer is largest in the file
 		{
-			if (readPos % 4 == 0)
-			{
-				file.read(reinterpret_cast<char*>(&in), sizeof(in));
-				if (in <= out && readPos == -4) //if new integer is largest in file
-				{
-					file.close();
-					file.open("13-11.dat", ios::out | ios::app | ios::binary);
-					file.write(reinterpret_cast<char*>(&out), sizeof(out));
-					file.close();
-					break;
-				}
-				else
-				{
-					file.close();
-					writePos = readPos - 1;
-					file.open("13-11.dat", ios::in | ios::out | ios::binary);
-					while (file.seekg(++writePos, ios::end))
-					{
-						if (writePos % 4 == 0)
-						{
-							file.read(reinterpret_cast<char*>(&in), sizeof(in));
-							int temp = in;
-						}
-					}
-					//file.seekp(readPos, ios::end);
-					//file.write(reinterpret_cast<char*>(&out), sizeof(out));
-					file.close();
-					break;
-				}
-			}
+			file.close();
+			file.open("13-11.dat", ios::out | ios::app | ios::binary);
+			file.write(reinterpret_cast<char*>(&out), sizeof(out));
+			file.close();
+		}
+		else 
+		{
+
 		}
 	}
 
