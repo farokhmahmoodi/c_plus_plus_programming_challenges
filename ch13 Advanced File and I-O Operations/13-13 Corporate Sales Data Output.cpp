@@ -35,9 +35,9 @@ int main()
         cout << "File failed to open." << endl;
         return 0;
     } 
-    for (int i = 0, y = 0; i < DIVISION_LENGTH; i++)
+    for (int i = 0; i < DIVISION_LENGTH; i++)
     {
-        for (int x = 0; x < DIVISION_LENGTH; x++, y++)
+        for (int x = 0; x < DIVISION_LENGTH; x++)
         {          
             do
             {
