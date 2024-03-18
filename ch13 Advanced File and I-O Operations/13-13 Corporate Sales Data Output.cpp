@@ -20,7 +20,7 @@ const int SALES_LENGTH = 16;
 struct Company {
     static string name[DIVISION_LENGTH];
     static int quarter[DIVISION_LENGTH];
-    double sales[DIVISION_LENGTH] = { 0 };
+    double sales;
 };
 
 string Company::name[DIVISION_LENGTH] = {"East", "West", "North", "South"};
@@ -44,26 +44,15 @@ int main()
             {
                 while (cout << "Enter sales for quarter " <<
                     a.quarter[x] << " for " << a.name[i] << " Division:"
-                    && !(cin >> a.sales[y])) {
+                    && !(cin >> a.sales)) {
                     cin.clear(); //clear bad input flag
                     cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
                     cout << "Invalid input for sales." << endl;
                 }
-            } while (a.sales[y] < 0);
+            } while (a.sales < 0);
+            file.write(reinterpret_cast<char*>(&a), sizeof(a));
         }
     }
-    file.write(reinterpret_cast<char*>(&a), sizeof(a));
-    //file.read(reinterpret_cast<char*>(&a), sizeof(a));
-    //for (int i = 0, y = 0; i < DIVISION_LENGTH; i++)
-    //{
-    //    for (int x = 0; x < DIVISION_LENGTH; x++)
-    //    {
-    //        cout << "Sales for Quarter " << a.quarter[x]
-    //            << " of " << a.name[i] << " Division:$"
-    //            << a.sales[y] << endl;
-    //        y++;
-    //    }
-    //}
     file.close();
 
     return 0;
