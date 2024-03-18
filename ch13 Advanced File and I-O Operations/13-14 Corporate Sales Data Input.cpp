@@ -1,4 +1,4 @@
-/*Write a program that reads the information in the file created by the program in Programming Challenge 13. 
+/*Write a program that reads the information in the file created by the program in Programming Challenge 13.
 The program should calculate and display the following figures:
 
 Total corporate sales for each quarter
@@ -29,7 +29,7 @@ int Company::quarter[DIVISION_LENGTH] = { 1,2,3,4 };
 int main()
 {
     Company a;
-    fstream file("13-12.dat", ios::in | ios::binary);
+    fstream file("13-14.dat", ios::in | ios::binary);
     double totalCorpSalesForEachQ, totalAnnualSalesForEachDiv,
         totalAnnualCorpSales, averageQSalesForDiv, highestQForCorp, lowestQForCorp;
 
@@ -38,7 +38,7 @@ int main()
         cout << "Error opening file." << endl;
         return 0;
     }
-    
+
 
     return 0;
 }
