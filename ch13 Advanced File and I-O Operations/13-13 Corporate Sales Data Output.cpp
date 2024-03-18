@@ -29,16 +29,16 @@ int Company::quarter[DIVISION_LENGTH] = { 1,2,3,4 };
 int main()
 {
     Company a;
-    fstream file("13-12.dat", ios::in | ios::out | ios::binary);
+    fstream file("13-12.dat", ios::out | ios::binary);
 
     if (!file)
     {
         cout << "File failed to open." << endl;
         return 0;
-    }
+    } 
     for (int i = 0, y = 0; i < DIVISION_LENGTH; i++)
     {
-        for (int x = 0; x < DIVISION_LENGTH; x++)
+        for (int x = 0; x < DIVISION_LENGTH; x++, y++)
         {          
             do
             {
@@ -50,7 +50,6 @@ int main()
                     cout << "Invalid input for sales." << endl;
                 }
             } while (a.sales[y] < 0);
-            y++;
         }
     }
     file.write(reinterpret_cast<char*>(&a), sizeof(a));
