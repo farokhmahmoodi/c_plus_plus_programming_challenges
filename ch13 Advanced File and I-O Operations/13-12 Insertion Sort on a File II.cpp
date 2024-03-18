@@ -11,7 +11,7 @@ int main()
 	int in, out;
 	long readPos = 0;
 
-	fstream file("13-11.dat", ios::in | ios::binary);
+	fstream file("13-12.dat", ios::in | ios::binary);
 	if (!file)
 	{
 		cout << "Error opening file.";
@@ -40,7 +40,7 @@ int main()
 	if (file.fail()) //if file is empty
 	{
 		file.close();
-		file.open("13-11.dat", ios::out | ios::binary);
+		file.open("13-12.dat", ios::out | ios::binary);
 		file.write(reinterpret_cast<char*>(&out), sizeof(out)); //store first integer into the file
 		file.close();
 		file.clear();
@@ -52,7 +52,7 @@ int main()
 		if (in <= out) //if new integer is largest in the file
 		{
 			file.close();
-			file.open("13-11.dat", ios::out | ios::app | ios::binary);
+			file.open("13-12.dat", ios::out | ios::app | ios::binary);
 			file.write(reinterpret_cast<char*>(&out), sizeof(out));
 			file.close();
 		}
@@ -66,18 +66,18 @@ int main()
 					if (in > out) //if integer read in from file is greater than new integer
 					{
 						file.close();
-						file.open("13-11.dat", ios::in | ios::out | ios::binary);
+						file.open("13-12.dat", ios::in | ios::out | ios::binary);
 						file.seekp(readPos + 4, ios::end);
 						file.write(reinterpret_cast<char*>(&in), sizeof(in));
 						file.seekp(readPos, ios::end);
 						file.write(reinterpret_cast<char*>(&out), sizeof(out));
 						file.close();
-						file.open("13-11.dat", ios::in | ios::binary);
+						file.open("13-12.dat", ios::in | ios::binary);
 					}
 					else if (in <= out) //if integer read in is less than or equal to new integer
 					{
 						file.close();
-						file.open("13-11.dat", ios::in | ios::out | ios::binary);
+						file.open("13-12.dat", ios::in | ios::out | ios::binary);
 						file.seekp(readPos + 4, ios::end);
 						file.write(reinterpret_cast<char*>(&out), sizeof(out));
 						file.seekp(readPos, ios::end);
