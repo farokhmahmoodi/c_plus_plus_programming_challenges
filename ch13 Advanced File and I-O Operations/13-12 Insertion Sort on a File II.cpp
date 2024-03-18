@@ -71,45 +71,47 @@ int main()
 		file.seekg(readPos, ios::end);
 		file.read(reinterpret_cast<char*>(&readIn), sizeof(readIn));
  		if (strcmp(person.name,readIn.name) == 0 || 
-			strcmp(person.name, readIn.name) == 1) //if new record's name is last alphabetically in the file
+			strcmp(person.name, readIn.name) > 0) //if new record's name is largest alphabetically in the file
 		{
 			file.close();
 			file.open("13-12.dat", ios::out | ios::app | ios::binary);
 			file.write(reinterpret_cast<char*>(&person), sizeof(person));
 			file.close();
 		}
-	//	else
-	//	{
-	//		while (file.seekg(--readPos, ios::end))
-	//		{
-	//			if (readPos % 4 == 0)
-	//			{
-	//				file.read(reinterpret_cast<char*>(&in), sizeof(in));
-	//				if (in > out) //if integer read in from file is greater than new integer
-	//				{
-	//					file.close();
-	//					file.open("13-12.dat", ios::in | ios::out | ios::binary);
-	//					file.seekp(readPos + 4, ios::end);
-	//					file.write(reinterpret_cast<char*>(&in), sizeof(in));
-	//					file.seekp(readPos, ios::end);
-	//					file.write(reinterpret_cast<char*>(&out), sizeof(out));
-	//					file.close();
-	//					file.open("13-12.dat", ios::in | ios::binary);
-	//				}
-	//				else if (in <= out) //if integer read in is less than or equal to new integer
-	//				{
-	//					file.close();
-	//					file.open("13-12.dat", ios::in | ios::out | ios::binary);
-	//					file.seekp(readPos + 4, ios::end);
-	//					file.write(reinterpret_cast<char*>(&out), sizeof(out));
-	//					file.seekp(readPos, ios::end);
-	//					file.write(reinterpret_cast<char*>(&in), sizeof(in));
-	//					file.close();
-	//					break;
-	//				}
-	//			}
-	//		}
-	//	}
+		else
+		{
+			readPos = (sizeof(Info) + 1) * -1;
+			while (file.seekg(--readPos, ios::end))
+			{
+				if (readPos % sizeof(Info) == 0)
+				{
+					file.read(reinterpret_cast<char*>(&readIn), sizeof(readIn));
+					if (strcmp(person.name, readIn.name) < 0) //if record name read in from file is alphabetically larger than record name entered
+					{
+						file.close();
+						file.open("13-12.dat", ios::in | ios::out | ios::binary);
+						file.seekp(readPos + sizeof(Info), ios::end);
+						file.write(reinterpret_cast<char*>(&readIn), sizeof(readIn));
+						file.seekp(readPos, ios::end);
+						file.write(reinterpret_cast<char*>(&person), sizeof(person));
+						file.close();
+						file.open("13-12.dat", ios::in | ios::binary);
+					}
+					else if (strcmp(person.name, readIn.name) == 0 ||
+						strcmp(person.name, readIn.name) > 0) //if record name read in from file is alphabetically smaller than record name entered
+					{
+						file.close();
+						file.open("13-12.dat", ios::in | ios::out | ios::binary);
+						file.seekp(readPos + sizeof(Info), ios::end);
+						file.write(reinterpret_cast<char*>(&person), sizeof(person));
+						file.seekp(readPos, ios::end);
+						file.write(reinterpret_cast<char*>(&readIn), sizeof(readIn));
+						file.close();
+						break;
+					}
+				}
+			}
+		}
 	}
 
 	return 0;
