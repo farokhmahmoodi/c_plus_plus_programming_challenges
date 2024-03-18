@@ -6,7 +6,7 @@ Quarter (1, 2, 3, or 4)
 
 Quarterly sales
 
-The user should be asked for the four quartersâ€™ sales figures for the East, West, North, and South divisions. The information
+The user should be asked for the four quarters’ sales figures for the East, West, North, and South divisions. The information
 for each quarter for each division should be written to a file.*/
 
 #include <iostream>
@@ -22,7 +22,7 @@ struct Company {
     double sales;
 };
 
-string Company::name[DIVISION_LENGTH] = {"East", "West", "North", "South"};
+string Company::name[DIVISION_LENGTH] = { "East", "West", "North", "South" };
 int Company::quarter[DIVISION_LENGTH] = { 1,2,3,4 };
 
 int main()
@@ -34,11 +34,11 @@ int main()
     {
         cout << "File failed to open." << endl;
         return 0;
-    } 
-    for (int i = 0; i < DIVISION_LENGTH; i++)
+    }
+    for (int i = 0, y = 0; i < DIVISION_LENGTH; i++)
     {
-        for (int x = 0; x < DIVISION_LENGTH; x++)
-        {          
+        for (int x = 0; x < DIVISION_LENGTH; x++, y++)
+        {
             do
             {
                 while (cout << "Enter sales for quarter " <<
