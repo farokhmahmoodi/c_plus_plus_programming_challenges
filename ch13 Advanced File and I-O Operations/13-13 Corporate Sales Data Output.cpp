@@ -14,16 +14,17 @@ for each quarter for each division should be written to a file.*/
 #include <string>
 using namespace std;
 
-const int LENGTH = 4;
+const int DIVISION_LENGTH = 4;
+const int SALES_LENGTH = 16;
 
 struct Company {
-    static string name[LENGTH];
-    static int quarter[LENGTH];
-    double sales = 0.0;
+    static string name[DIVISION_LENGTH];
+    static int quarter[DIVISION_LENGTH];
+    double sales[SALES_LENGTH];
 };
 
-string Company::name[LENGTH] = {"East", "West", "North", "South"};
-int Company::quarter[LENGTH] = { 1,2,3,4 };
+string Company::name[DIVISION_LENGTH] = {"East", "West", "North", "South"};
+int Company::quarter[DIVISION_LENGTH] = { 1,2,3,4 };
 
 int main()
 {
@@ -35,20 +36,23 @@ int main()
         cout << "File failed to open." << endl;
         return 0;
     }
-    for (int i = 0; i < LENGTH; i++)
+    for (int i = 0; i < DIVISION_LENGTH; i++)
     {
-        for (int x = 0; x < LENGTH; x++)
+        for (int x = 0; x < DIVISION_LENGTH; x++)
         {
-            do
+            for (int y = 0; y < DIVISION_LENGTH; y++)
             {
-                while (cout << "Enter sales for quarter " <<
-                    x + 1 << " for " << a.name[i] << " Division:"
-                    && !(cin >> a.sales)) {
-                    cin.clear(); //clear bad input flag
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
-                    cout << "Invalid input for sales." << endl;
-                }
-            } while (a.sales < 0);
+                do
+                {
+                    while (cout << "Enter sales for quarter " <<
+                        x + 1 << " for " << a.name[i] << " Division:"
+                        && !(cin >> a.sales[y])) {
+                        cin.clear(); //clear bad input flag
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
+                        cout << "Invalid input for sales." << endl;
+                    }
+                } while (a.sales[y] < 0);
+            }
         }
     }
     file.write(reinterpret_cast<char*>(&a), sizeof(a));
