@@ -31,12 +31,10 @@ int main()
 	if (!file.fail()) //if file is not empty
 	{
 		cout << "List of records sorted alphabetically:" << endl;
-		cout << "Name:" << readIn.name << endl;
-		cout << "Age:" << readIn.age << endl;
+		cout << "Name:" << readIn.name << " Age:" << readIn.age << endl;
  		while (file.read(reinterpret_cast<char*>(&readIn), sizeof(readIn)))
 		{
-			cout << "Name:" << readIn.name << endl;
-			cout << "Age:" << readIn.age << endl;
+			cout << "Name:" << readIn.name << " Age:" << readIn.age << endl;
 		}
 		cout << endl;
 	}
@@ -50,7 +48,7 @@ int main()
 			cout << "Name too long." << endl;
 	} while (name.length() > 10);
 	strcpy(person.name, name.c_str());
-	while (cout << "Age:"
+ 	while (cout << "Age:"
 		&& !(cin >> person.age)) {
 		cin.clear(); //clear bad input flag
 		cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
@@ -67,17 +65,19 @@ int main()
 		file.close();
 		file.clear();
 	}
-	//else //if file is not empty
-	//{
-	//	file.seekg(-4L, ios::end);
-	//	file.read(reinterpret_cast<char*>(&in), sizeof(in));
-	//	if (in <= out) //if new integer is largest in the file
-	//	{
-	//		file.close();
-	//		file.open("13-12.dat", ios::out | ios::app | ios::binary);
-	//		file.write(reinterpret_cast<char*>(&out), sizeof(out));
-	//		file.close();
-	//	}
+	else //if file is not empty
+	{
+		readPos = sizeof(Info) * -1;
+		file.seekg(readPos, ios::end);
+		file.read(reinterpret_cast<char*>(&readIn), sizeof(readIn));
+ 		if (strcmp(person.name,readIn.name) == 0 || 
+			strcmp(person.name, readIn.name) == 1) //if new record's name is last alphabetically in the file
+		{
+			file.close();
+			file.open("13-12.dat", ios::out | ios::app | ios::binary);
+			file.write(reinterpret_cast<char*>(&person), sizeof(person));
+			file.close();
+		}
 	//	else
 	//	{
 	//		while (file.seekg(--readPos, ios::end))
@@ -110,7 +110,7 @@ int main()
 	//			}
 	//		}
 	//	}
-	//}
+	}
 
 	return 0;
 }
