@@ -28,7 +28,7 @@ int Company::quarter[DIVISION_LENGTH] = { 1,2,3,4 };
 int main()
 {
     Company a;
-    fstream file("13-12.dat", ios::out | ios::binary);
+    fstream file("13-13.dat", ios::out | ios::binary);
 
     if (!file)
     {
