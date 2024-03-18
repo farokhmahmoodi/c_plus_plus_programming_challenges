@@ -80,7 +80,7 @@ int main()
 		}
 		else
 		{
-			readPos = (sizeof(Info) + 1) * -1;
+			readPos = 0;
 			while (file.seekg(--readPos, ios::end))
 			{
 				if (readPos % sizeof(Info) == 0)
