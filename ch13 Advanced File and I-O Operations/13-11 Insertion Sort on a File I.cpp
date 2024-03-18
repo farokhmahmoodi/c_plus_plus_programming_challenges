@@ -67,7 +67,7 @@ int main()
 				if (readPos % 4 == 0)
 				{
 					file.read(reinterpret_cast<char*>(&in), sizeof(in));
-					if (in > out)
+					if (in > out) //if integer read in from file is greater than new integer
 					{
 						file.close();
 						file.open("13-11.dat", ios::in | ios::out | ios::binary);
@@ -78,7 +78,7 @@ int main()
 						file.close();
 						file.open("13-11.dat", ios::in | ios::binary);
 					}
-					else if (in <= out)
+					else if (in <= out) //if integer read in is less than or equal to new integer
 					{
 						file.close();
 						file.open("13-11.dat", ios::in | ios::out | ios::binary);
