@@ -14,15 +14,20 @@ for each quarter for each division should be written to a file.*/
 #include <string>
 using namespace std;
 
-struct Division {
-    string name;
-    int quarter = 0;
+const int LENGTH = 4;
+
+struct Company {
+    static string name[LENGTH];
+    static int quarter[LENGTH];
     double sales = 0.0;
 };
 
+string Company::name[LENGTH] = {"East", "West", "North", "South"};
+int Company::quarter[LENGTH] = { 1,2,3,4 };
+
 int main()
 {
-    Division a;
+    Company a;
     fstream file("13-12.dat", ios::out | ios::binary);
 
     if (!file)
@@ -30,70 +35,23 @@ int main()
         cout << "File failed to open." << endl;
         return 0;
     }
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < LENGTH; i++)
     {
-        do
+        for (int x = 0; x < LENGTH; x++)
         {
-            while (cout << "Enter sales for quarter " <<
-                i + 1 << " for East division:"
-                && !(cin >> a.sales)) {
-                cin.clear(); //clear bad input flag
-                cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
-                cout << "Invalid input for sales." << endl;
-            }
-        } while (a.sales < 0);
-        a.quarter = i + 1;
-        a.name = "East";
-        file.write(reinterpret_cast<char*>(&a), sizeof(a));
+            do
+            {
+                while (cout << "Enter sales for quarter " <<
+                    x + 1 << " for " << a.name[i] << " Division:"
+                    && !(cin >> a.sales)) {
+                    cin.clear(); //clear bad input flag
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
+                    cout << "Invalid input for sales." << endl;
+                }
+            } while (a.sales < 0);
+        }
     }
-    for (int i = 0; i < 4; i++)
-    {
-        do
-        {
-            while (cout << "Enter sales for quarter " <<
-                i + 1 << " for West division:"
-                && !(cin >> a.sales)) {
-                cin.clear(); //clear bad input flag
-                cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
-                cout << "Invalid input for sales." << endl;
-            }
-        } while (a.sales < 0);
-        a.quarter = i + 1;
-        a.name = "West";
-        file.write(reinterpret_cast<char*>(&a), sizeof(a));
-    }
-    for (int i = 0; i < 4; i++)
-    {
-        do
-        {
-            while (cout << "Enter sales for quarter " <<
-                i + 1 << " for North division:"
-                && !(cin >> a.sales)) {
-                cin.clear(); //clear bad input flag
-                cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
-                cout << "Invalid input for sales." << endl;
-            }
-        } while (a.sales < 0);
-        a.quarter = i + 1;
-        a.name = "East";
-        file.write(reinterpret_cast<char*>(&a), sizeof(a));
-    }
-    for (int i = 0; i < 4; i++)
-    {
-        do
-        {
-            while (cout << "Enter sales for quarter " <<
-                i + 1 << " for South division:"
-                && !(cin >> a.sales)) {
-                cin.clear(); //clear bad input flag
-                cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
-                cout << "Invalid input for sales." << endl;
-            }
-        } while (a.sales < 0);
-        a.quarter = i + 1;
-        a.name = "East";
-        file.write(reinterpret_cast<char*>(&a), sizeof(a));
-    }
+    file.write(reinterpret_cast<char*>(&a), sizeof(a));
     file.close();
 
     return 0;
