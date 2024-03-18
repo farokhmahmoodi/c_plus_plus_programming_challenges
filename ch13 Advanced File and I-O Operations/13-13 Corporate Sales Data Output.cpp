@@ -15,7 +15,6 @@ for each quarter for each division should be written to a file.*/
 using namespace std;
 
 const int DIVISION_LENGTH = 4;
-const int SALES_LENGTH = 16;
 
 struct Company {
     static string name[DIVISION_LENGTH];
