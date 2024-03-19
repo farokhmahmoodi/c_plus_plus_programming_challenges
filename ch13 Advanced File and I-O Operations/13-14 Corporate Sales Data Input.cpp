@@ -42,14 +42,17 @@ int main()
         cout << "Error opening file." << endl;
         return 0;
     }
-    for (int i = 0; i < DIVISION_LENGTH; i++)
+    for (int i = 0; i < DIVISION_LENGTH; i++) //stepping through each division
     {
-        for (int x = 0; x < DIVISION_LENGTH; x++)
+        for (int x = 0; x < DIVISION_LENGTH; x++) //stepping through each quarter
         {
             file.read(reinterpret_cast<char*>(&a), sizeof(a));
             totalYearlyCorpSales += a.sales;
-
+            totalCorpSalesForEachQuarter[x] += a.sales;
+            totalYearlySalesForEachDivision[i] += a.sales;
+            avgQuartlySalesForDivisions[i] += a.sales;
         }
+        avgQuartlySalesForDivisions[i] /= 4.0;
     }
     highestQuarterForCorp = lowestQuarterForCorp = totalCorpSalesForEachQuarter[0];
     for (int i = 0; i < DIVISION_LENGTH; i++)
@@ -71,7 +74,7 @@ int main()
     cout << "Total yearly corporate sales: $" << fixed << showpoint 
         << setprecision(2) << totalYearlyCorpSales << endl;
     cout << "Highest quarter for corporation:" << highest << endl;
-    cout << "Lowest quarter for coporation:" << lowest << endl;
+    cout << "Lowest quarter for corporation:" << lowest << endl;
     file.close();
 
     return 0;
