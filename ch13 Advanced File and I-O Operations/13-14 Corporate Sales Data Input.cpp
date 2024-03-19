@@ -35,6 +35,7 @@ int main()
         totalYearlySalesForEachDivision[DIVISION_LENGTH] = { 0.0 },
         totalYearlyCorpSales = 0.0, avgQuartlySalesForDivisions[DIVISION_LENGTH] = { 0.0 },
         highestQuarterForCorp = 0.0, lowestQuarterForCorp = 0.0;
+    int highest = 0, lowest = 0;
 
     if (!file)
     {
@@ -50,18 +51,27 @@ int main()
 
         }
     }
-    cout << fixed << showpoint << setprecision(2);
     highestQuarterForCorp = lowestQuarterForCorp = totalCorpSalesForEachQuarter[0];
     for (int i = 0; i < DIVISION_LENGTH; i++)
     {
         cout << "Total corporate sales for quarter "
-            << a.quarter[i] << ":$"
-            << totalCorpSalesForEachQuarter[i] << endl;
+            << a.quarter[i] << ": $"
+            << fixed << showpoint << setprecision(2) << totalCorpSalesForEachQuarter[i] << endl;
         if (totalCorpSalesForEachQuarter[i] > highestQuarterForCorp)
-            highestQuarterForCorp = totalCorpSalesForEachQuarter[i];
+            highest = i + 1;
         if (totalCorpSalesForEachQuarter[i] < lowestQuarterForCorp)
-            lowestQuarterForCorp = totalCorpSalesForEachQuarter[i];
+            lowest = i + 1;
+        cout << "Total yearly sales for " << a.name[i]
+            << " division: $" << fixed << showpoint << setprecision(2) 
+            << totalYearlySalesForEachDivision[i] << endl;
+        cout << "Average Quarterly Sales for " << a.name[i]
+            << " division: $" << fixed << showpoint << setprecision(2) 
+            << avgQuartlySalesForDivisions[i] << endl;
     }
+    cout << "Total yearly corporate sales: $" << fixed << showpoint 
+        << setprecision(2) << totalYearlyCorpSales << endl;
+    cout << "Highest quarter for corporation:" << highest << endl;
+    cout << "Lowest quarter for coporation:" << lowest << endl;
     file.close();
 
     return 0;
