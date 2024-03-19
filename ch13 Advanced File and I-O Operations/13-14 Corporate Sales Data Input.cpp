@@ -35,7 +35,7 @@ int main()
         totalYearlySalesForEachDivision[DIVISION_LENGTH] = { 0.0 },
         totalYearlyCorpSales = 0.0, avgQuartlySalesForDivisions[DIVISION_LENGTH] = { 0.0 },
         highestQuarterForCorp = 0.0, lowestQuarterForCorp = 0.0;
-    int highest = 0, lowest = 0;
+    int highest = 1, lowest = 1;
 
     if (!file)
     {
