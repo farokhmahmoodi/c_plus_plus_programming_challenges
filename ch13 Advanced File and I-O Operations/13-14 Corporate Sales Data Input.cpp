@@ -30,7 +30,10 @@ int main()
 {
     Company a;
     fstream file("13-14.dat", ios::in | ios::binary);
-    double totalYearlyCorpSales = 0.0;
+    double totalCorpSalesForEachQuarter[DIVISION_LENGTH] = { 0.0 },
+        totalYearlySalesForEachDivision[DIVISION_LENGTH] = { 0.0 },
+        totalYearlyCorpSales = 0.0, avgQuartlySalesForDivisions[DIVISION_LENGTH] = { 0.0 },
+        highestQuarterForCorp = 0.0, lowestQuarterForCorp = 0.0;
 
     if (!file)
     {
