@@ -13,6 +13,7 @@ The highest and lowest quarters for the corporation*/
 
 #include <iostream>
 #include <fstream>
+#include <iomanip>
 using namespace std;
 
 const int DIVISION_LENGTH = 4;
@@ -48,6 +49,18 @@ int main()
             totalYearlyCorpSales += a.sales;
 
         }
+    }
+    cout << fixed << showpoint << setprecision(2);
+    highestQuarterForCorp = lowestQuarterForCorp = totalCorpSalesForEachQuarter[0];
+    for (int i = 0; i < DIVISION_LENGTH; i++)
+    {
+        cout << "Total corporate sales for quarter "
+            << a.quarter[i] << ":$"
+            << totalCorpSalesForEachQuarter[i] << endl;
+        if (totalCorpSalesForEachQuarter[i] > highestQuarterForCorp)
+            highestQuarterForCorp = totalCorpSalesForEachQuarter[i];
+        if (totalCorpSalesForEachQuarter[i] < lowestQuarterForCorp)
+            lowestQuarterForCorp = totalCorpSalesForEachQuarter[i];
     }
     file.close();
 
