@@ -30,15 +30,23 @@ int main()
 {
     Company a;
     fstream file("13-14.dat", ios::in | ios::binary);
-    double totalCorpSalesForEachQ, totalAnnualSalesForEachDiv,
-        totalAnnualCorpSales, averageQSalesForDiv, highestQForCorp, lowestQForCorp;
+    double totalYearlyCorpSales = 0.0;
 
     if (!file)
     {
         cout << "Error opening file." << endl;
         return 0;
     }
+    for (int i = 0; i < DIVISION_LENGTH; i++)
+    {
+        for (int x = 0; x < DIVISION_LENGTH; x++)
+        {
+            file.read(reinterpret_cast<char*>(&a), sizeof(a));
+            totalYearlyCorpSales += a.sales;
 
+        }
+    }
+    file.close();
 
     return 0;
 }
