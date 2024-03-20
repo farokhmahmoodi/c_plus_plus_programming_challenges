@@ -79,8 +79,12 @@ int main()
     }
     cout << "Total yearly corporate sales: $" << fixed << showpoint 
         << setprecision(2) << totalYearlyCorpSales << endl;
-    cout << "Highest quarter for corporation:" << highest << endl;
-    cout << "Lowest quarter for corporation:" << lowest << endl;
+    cout << "Highest quarter for corporation: Quarter " << highest
+        << " with $" << fixed << showpoint << setprecision(2) << highestQuarterForCorp
+        << " sales" << endl;
+    cout << "Lowest quarter for corporation: Quarter " << lowest 
+        << " with $" << fixed << showpoint << setprecision(2) << lowestQuarterForCorp
+        << " sales" << endl;
     file.close();
 
     return 0;
