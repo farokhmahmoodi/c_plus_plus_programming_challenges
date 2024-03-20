@@ -61,9 +61,15 @@ int main()
             << a.quarter[i] << ": $"
             << fixed << showpoint << setprecision(2) << totalCorpSalesForEachQuarter[i] << endl;
         if (totalCorpSalesForEachQuarter[i] > highestQuarterForCorp)
+        {
+            highestQuarterForCorp = totalCorpSalesForEachQuarter[i];
             highest = i + 1;
+        }
         if (totalCorpSalesForEachQuarter[i] < lowestQuarterForCorp)
+        {
+            lowestQuarterForCorp = totalCorpSalesForEachQuarter[i];
             lowest = i + 1;
+        }
         cout << "Total yearly sales for " << a.name[i]
             << " division: $" << fixed << showpoint << setprecision(2) 
             << totalYearlySalesForEachDivision[i] << endl;
