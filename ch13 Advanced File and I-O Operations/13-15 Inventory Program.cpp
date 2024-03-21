@@ -35,13 +35,24 @@ int main()
 {
     Inventory a;
     fstream file("13-15.dat", ios::in | ios::out | ios::binary);
+    int choice;
 
     if (!file)
     {
         cout << "File failed to open." << endl;
         return 0;
     }
-
+    do
+    {
+        cout << "Select option from menu below." << endl;
+        cout << "1. Add new records to the file." << endl;
+        cout << "2. Display any record in the file." << endl;
+        cout << "3. Change any record in the file." << endl;
+        cout << "4. Quit" << endl;
+        cin >> choice;
+        cin.ignore();
+        
+    } while (choice != '4');
 
     file.close();
 
