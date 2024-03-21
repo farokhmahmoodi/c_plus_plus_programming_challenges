@@ -20,10 +20,30 @@ Change any record in the file.*/
 
 #include <iostream>
 #include <fstream>
+#include <string>
 using namespace std;
+
+struct Inventory {
+    string itemDescription;
+    int quantityOnHand;
+    double wholeSaleCost,
+        retailCost;
+    string dateAddedToInventory;
+};
 
 int main()
 {
-    
+    Inventory a;
+    fstream file("13-15.dat", ios::in | ios::out | ios::binary);
+
+    if (!file)
+    {
+        cout << "File failed to open." << endl;
+        return 0;
+    }
+
+
+    file.close();
+
     return 0;
 }
