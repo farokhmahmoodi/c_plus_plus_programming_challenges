@@ -42,9 +42,54 @@ No negative account balances should be entered.*/
 #include <string>
 using namespace std;
 
+struct Account {
+    string name,
+        address,
+        city, state,
+        dateOfLastPayment;
+    int zip = 0;
+    double accountBalance = 0.0;
+};
+
+void displayMenu();
+
 int main()
 {
-    
+    Account a;
+    int choice;
+    fstream file("13-17.dat", ios::out | ios::app | ios::binary);
+
+    if (!file)
+    {
+        cout << "Error opening file." << endl;
+        return 0;
+    }
+    do
+    {
+        do
+        {
+            displayMenu();
+            while (!(cin >> choice)) {
+                cin.clear(); //clear bad input flag
+                cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
+                cout << "Invalid input for choice." << endl;
+                displayMenu();
+            }
+            if (choice < 1 || choice > 6)
+                cout << "Invalid input for choice.\n";
+        } while (choice < 1 || choice > 6);
+    } while (choice != 6);
+    file.close();
 
     return 0;
+}
+
+void displayMenu()
+{
+    cout << "1. Enter new records into the file\n";
+    cout << "2. Search for a particular customer's record and display it.\n";
+    cout << "3. Search for a particular customer’s record and delete it\n";
+    cout << "4. Search for a particular customer’s record and change it\n";
+    cout << "5. Display the contents of the entire file\n";
+    cout << "6. Quit\n";
 }
