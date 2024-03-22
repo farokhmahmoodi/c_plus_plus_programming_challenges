@@ -13,6 +13,14 @@ The total quantity of all items in the inventory*/
 #include <iomanip>
 using namespace std;
 
+struct Inventory {
+    string itemDescription;
+    int quantityOnHand = 0;
+    double wholeSaleCost = 0.0,
+        retailCost = 0.0;
+    string dateAddedToInventory;
+};
+
 int main()
 {
     
