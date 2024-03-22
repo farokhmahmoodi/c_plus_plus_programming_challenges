@@ -23,7 +23,31 @@ struct Inventory {
 
 int main()
 {
-    
+    double wholeSaleTotal = 0.0, retailTotal = 0.0;
+    int quantityTotal = 0;
+    Inventory a;
+    fstream file("13-16.dat", ios::in | ios::binary);
+
+    if (!file)
+    {
+        cout << "Error opening file." << endl;
+        return 0;
+    }
+    file.read(reinterpret_cast<char*>(&a), sizeof(a));
+    while (!file.eof())
+    {
+        wholeSaleTotal += a.wholeSaleCost * a.quantityOnHand;
+        retailTotal += a.retailCost * a.quantityOnHand;
+        quantityTotal += a.quantityOnHand;
+        file.read(reinterpret_cast<char*>(&a), sizeof(a));
+    }
+    cout << "The total wholesale value of the inventory: $"
+        << fixed << showpoint << setprecision(2) << wholeSaleTotal << endl;
+    cout << "The total retail value of the inventory: $"
+        << fixed << showpoint << setprecision(2) << retailTotal << endl;
+    cout << "The total quantity of all items in the inventory: "
+        << quantityTotal << endl;;
+    file.close();
 
     return 0;
 }
