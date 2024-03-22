@@ -35,7 +35,7 @@ struct Inventory {
 int main()
 {
     Inventory a;
-    fstream file("13-15.dat", ios::out | ios::binary);
+    fstream file("13-15.dat", ios::out | ios::app | ios::binary);
     int choice;
     long recNum;
 
