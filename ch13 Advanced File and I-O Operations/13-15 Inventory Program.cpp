@@ -46,12 +46,21 @@ int main()
     }
     do
     {
-        cout << "Select option from menu below." << endl;
-        cout << "1. Add new records to the file." << endl;
-        cout << "2. Display any record in the file." << endl;
-        cout << "3. Change any record in the file." << endl;
-        cout << "4. Quit" << endl;
-        cin >> choice;
+        do
+        {
+            while (cout << "Select option from menu below." << endl
+                << "1. Add new records to the file." << endl
+                << "2. Display any record in the file." << endl
+                << "3. Change any record in the file." << endl
+                << "4. Quit" << endl
+                && !(cin >> choice)) {
+                cin.clear(); //clear bad input flag
+                cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
+                cout << "Invalid input for choice." << endl;
+            }
+            if (choice < 1 || choice > 4)
+                cout << "Invalid input for choice." << endl;
+        } while (choice < 1 || choice > 4);
         cin.ignore();
         switch (choice)
         {
