@@ -46,12 +46,15 @@ struct Account {
     string name,
         address,
         city, state,
-        dateOfLastPayment;
-    int zip = 0;
+        dateOfLastPayment,
+        zip;
     double accountBalance = 0.0;
 };
 
 void displayMenu();
+void enterNewRecord(fstream&, Account&);
+bool validZip(string);
+bool validDate(string);
 
 int main()
 {
@@ -78,6 +81,12 @@ int main()
             if (choice < 1 || choice > 6)
                 cout << "Invalid input for choice.\n";
         } while (choice < 1 || choice > 6);
+        switch (choice)
+        {
+        case 1:
+            enterNewRecord(file, a);
+            break;
+        }
     } while (choice != 6);
     file.close();
 
@@ -92,4 +101,78 @@ void displayMenu()
     cout << "4. Search for a particular customer’s record and change it\n";
     cout << "5. Display the contents of the entire file\n";
     cout << "6. Quit\n";
+}
+
+bool validZip(string z)
+{
+    if (z.length() != 5)
+        return false;
+    for (int i = 0; i < z.length(); i++)
+    {
+        if (!isdigit(z[i]))
+            return false;
+    }
+    return true;
+}
+
+void enterNewRecord(fstream& file, Account& a)
+{
+    bool valid;
+
+    cout << "Enter information for new record below.\n";
+    cout << "Name:";
+    getline(cin, a.name);
+    cout << "Address:";
+    getline(cin, a.address);
+    cout << "City:";
+    getline(cin, a.city);
+    cout << "State:";
+    getline(cin, a.state);
+    do
+    {
+        cout << "ZIP code:";
+        getline(cin, a.zip);
+        valid = validZip(a.zip);
+        if (!valid)
+            cout << "Invalid zip code.\n";
+    } while (!valid);
+    do
+    {
+        cout << "Account balance:";
+        cin >> a.accountBalance;
+    } while (a.accountBalance < 0);
+    do
+    {
+        cout << "Date of last payment in format MM/DD/YYYY:";
+        getline(cin, a.dateOfLastPayment);
+        valid = validDate(a.dateOfLastPayment);
+        if (!valid)
+            cout << "Invalid date.\n";
+    } while (!valid);
+    file.close();
+    file.open("13-17.dat", ios::in | ios::out | ios::binary);
+    file.write(reinterpret_cast<char*>(&a), sizeof(a));
+}
+
+bool validDate(string date)
+{
+    if (date.length() != 10)
+    {
+        return false;
+    }
+    if (date[2] != '/' || date[5] != '/')
+    {
+        return false;
+    }
+    for (int i = 0; i < date.length(); i++)
+    {
+        if (i != 2 && i != 5)
+        {
+            if (!isdigit(date[i]))
+            {
+                return false;
+            }
+        }
+    }
+    return true;
 }
