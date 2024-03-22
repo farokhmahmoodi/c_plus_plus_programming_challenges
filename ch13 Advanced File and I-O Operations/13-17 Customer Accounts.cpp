@@ -198,8 +198,6 @@ void enterNewRecord(fstream& file, Account& a)
         if (!valid)
             cout << "Invalid date.\n";
     } while (!valid);
-    file.close();
-    file.open("13-17.dat", ios::in | ios::out | ios::binary);
     file.write(reinterpret_cast<char*>(&a), sizeof(a));
 }
 
