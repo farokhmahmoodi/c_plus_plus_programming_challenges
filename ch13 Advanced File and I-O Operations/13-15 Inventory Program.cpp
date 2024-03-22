@@ -51,9 +51,40 @@ int main()
         cout << "4. Quit" << endl;
         cin >> choice;
         cin.ignore();
-        
-    } while (choice != '4');
+        switch (choice)
+        {
+        case 1:
+            cout << "Enter item description of new record:";
+            getline(cin, a.itemDescription);
+            while (cout << "Enter quantity on hand for new record:"
+                && !(cin >> a.quantityOnHand)) {
+                cin.clear(); //clear bad input flag
+                cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
+                cout << "Invalid input for quantity on hand for new record." << endl;
+            }
+            while (cout << "Enter wholesale cost for new record:"
+                && !(cin >> a.wholeSaleCost)) {
+                cin.clear(); //clear bad input flag
+                cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
+                cout << "Invalid input for wholesale cost for new record." << endl;
+            }
+            while (cout << "Enter retail cost for new record:"
+                && !(cin >> a.retailCost)) {
+                cin.clear(); //clear bad input flag
+                cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
+                cout << "Invalid input for retail cost for new record." << endl;
+            }
+            cin.ignore();
+            
+            break;
+        case 2:
 
+            break;
+        case 3:
+
+            break;
+        }
+    } while (choice != '4');
     file.close();
 
     return 0;
