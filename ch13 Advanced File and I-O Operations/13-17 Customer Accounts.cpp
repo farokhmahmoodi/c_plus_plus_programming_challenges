@@ -53,6 +53,7 @@ struct Account {
 
 void displayMenu();
 void enterNewRecord(fstream&, Account&);
+bool validInput(string);
 bool validZip(string);
 bool validDate(string);
 
@@ -81,6 +82,7 @@ int main()
             if (choice < 1 || choice > 6)
                 cout << "Invalid input for choice.\n";
         } while (choice < 1 || choice > 6);
+        cin.ignore();
         switch (choice)
         {
         case 1:
@@ -103,6 +105,22 @@ void displayMenu()
     cout << "6. Quit\n";
 }
 
+bool validInput(string in)
+{
+    int invalidCount = 0;
+    for (int i = 0; i < in.length(); i++)
+    {
+        if (!isalnum(in[i]))
+        {
+            invalidCount++;
+        }
+    }
+    if (invalidCount == in.length())
+        return false;
+    else
+        return true;
+}
+
 bool validZip(string z)
 {
     if (z.length() != 5)
@@ -120,14 +138,38 @@ void enterNewRecord(fstream& file, Account& a)
     bool valid;
 
     cout << "Enter information for new record below.\n";
-    cout << "Name:";
-    getline(cin, a.name);
-    cout << "Address:";
-    getline(cin, a.address);
-    cout << "City:";
-    getline(cin, a.city);
-    cout << "State:";
-    getline(cin, a.state);
+    do
+    {
+        cout << "Name:";
+        getline(cin, a.name);
+        valid = validInput(a.name);
+        if (!valid)
+            cout << "Invalid input for name.\n";
+    } while (!valid);
+    do
+    {
+        cout << "Address:";
+        getline(cin, a.address);
+        valid = validInput(a.address);
+        if (!valid)
+            cout << "Invalid input for Address.\n";
+    } while (!valid);
+    do
+    {
+        cout << "City:";
+        getline(cin, a.city);
+        valid = validInput(a.city);
+        if (!valid)
+            cout << "Invalid input for city.\n";
+    } while (!valid);
+    do
+    {
+        cout << "State:";
+        getline(cin, a.state);
+        valid = validInput(a.state);
+        if (!valid)
+            cout << "Invalid input for state.\n";
+    } while (!valid);
     do
     {
         cout << "ZIP code:";
@@ -138,9 +180,16 @@ void enterNewRecord(fstream& file, Account& a)
     } while (!valid);
     do
     {
-        cout << "Account balance:";
-        cin >> a.accountBalance;
+        while (cout << "Account balance:" &&
+            !(cin >> a.accountBalance)) {
+            cin.clear(); //clear bad input flag
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
+            cout << "Invalid input for account balance." << endl;
+        }
+        if (a.accountBalance < 0)
+            cout << "Invalid input for account balance.\n";
     } while (a.accountBalance < 0);
+    cin.ignore();
     do
     {
         cout << "Date of last payment in format MM/DD/YYYY:";
