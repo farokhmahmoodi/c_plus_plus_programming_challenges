@@ -32,12 +32,15 @@ struct Inventory {
     string dateAddedToInventory;
 };
 
+bool validDate(string);
+
 int main()
 {
     Inventory a;
     fstream file("13-15.dat", ios::out | ios::app | ios::binary);
     int choice;
     long recNum;
+    bool valid;
 
     if (!file)
     {
@@ -86,8 +89,16 @@ int main()
                 cout << "Invalid input for retail cost for new record." << endl;
             }
             cin.ignore();
-            cout << "Enter date new record is added to inventory:";
-            getline(cin, a.dateAddedToInventory);
+            do
+            {
+                cout << "Enter date new record is added to inventory in format MM/DD/YYYY:";
+                getline(cin, a.dateAddedToInventory);
+                valid = validDate(a.dateAddedToInventory);
+                if (!valid)
+                {
+                    cout << "Date entered is invalid." << endl;
+                }
+            } while (!valid);
             file.write(reinterpret_cast<char*>(&a), sizeof(a));
             break;
         case 2:
@@ -142,8 +153,16 @@ int main()
                 cout << "Invalid input for retail cost." << endl;
             }
             cin.ignore();
-            cout << "Date added to inventory:";
-            getline(cin, a.dateAddedToInventory);
+            do
+            {
+                cout << "Date added to inventory in format MM/DD/YYYY:";
+                getline(cin, a.dateAddedToInventory);
+                valid = validDate(a.dateAddedToInventory);
+                if (!valid)
+                {
+                    cout << "Date entered is invalid." << endl;
+                }
+            } while (!valid);
             file.seekp(recNum * sizeof(a), ios::beg);
             file.write(reinterpret_cast<char*>(&a), sizeof(a));
             break;
@@ -152,4 +171,27 @@ int main()
     file.close();
 
     return 0;
+}
+
+bool validDate(string date)
+{
+    if (date.length() != 10)
+    {
+        return false;
+    }
+    if (date[2] != '/' || date[5] != '/')
+    {
+        return false;
+    }
+    for (int i = 0; i < date.length(); i++)
+    {
+        if (i != 2 && i != 5)
+        {
+            if (!isdigit(date[i]))
+            {
+                return false;
+            }
+        }
+    }
+    return true;
 }
