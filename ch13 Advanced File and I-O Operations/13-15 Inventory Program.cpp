@@ -35,7 +35,7 @@ struct Inventory {
 int main()
 {
     Inventory a;
-    fstream file("13-15.dat", ios::in | ios::out | ios::binary);
+    fstream file("13-15.dat", ios::out | ios::binary);
     int choice;
     long recNum;
 
@@ -91,12 +91,15 @@ int main()
             file.write(reinterpret_cast<char*>(&a), sizeof(a));
             break;
         case 2:
+            file.close();
+            file.open("13-15.dat", ios::in | ios::out | ios::binary);
             while (cout << "Which record would you like to display?"
                 && !(cin >> recNum)) {
                 cin.clear(); //clear bad input flag
                 cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
                 cout << "Invalid input for record to display." << endl;
             }
+            cin.ignore();
             file.seekg(recNum * sizeof(a), ios::beg);
             file.read(reinterpret_cast<char*>(&a), sizeof(a));
             cout << "Item Description:" << a.itemDescription << endl;
@@ -108,12 +111,15 @@ int main()
             cout << "Date added to inventory:" << a.dateAddedToInventory << endl;
             break;
         case 3:
+            file.close();
+            file.open("13-15.dat", ios::in | ios::out | ios::binary);
             while (cout << "Which record would you like to edit?"
                 && !(cin >> recNum)) {
                 cin.clear(); //clear bad input flag
                 cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
                 cout << "Invalid input for record to edit." << endl;
             }
+            cin.ignore();
             cout << "Enter new data below\n";
             cout << "Item description : ";
             getline(cin, a.itemDescription);
@@ -142,7 +148,7 @@ int main()
             file.write(reinterpret_cast<char*>(&a), sizeof(a));
             break;
         }
-    } while (choice != '4');
+    } while (choice != 4);
     file.close();
 
     return 0;
