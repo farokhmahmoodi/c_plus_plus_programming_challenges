@@ -1,6 +1,6 @@
 /*This program should be designed and written by a team of students. Here are some suggestions:
 
-One student should design function main, which will call other program functions or class member functions. 
+One student should design function main, which will call other program functions or class member functions.
 The remainder of the functions will be designed by other members of the team.
 
 The requirements of the program should be analyzed so each student is given about the same workload.
@@ -20,20 +20,20 @@ Account balance
 Date of last payment
 
 
-The structure should be used to store customer account records in a file. The program should have a menu that lets the 
+The structure should be used to store customer account records in a file. The program should have a menu that lets the
 user perform the following operations:
 
 Enter new records into the file
 
-Search for a particular customerâ€™s record and display it
+Search for a particular customer’s record and display it
 
-Search for a particular customerâ€™s record and delete it
+Search for a particular customer’s record and delete it
 
-Search for a particular customerâ€™s record and change it
+Search for a particular customer’s record and change it
 
 Display the contents of the entire file
 
-Input Validation: When the information for a new account is entered, be sure the user enters data for all the fields. 
+Input Validation: When the information for a new account is entered, be sure the user enters data for all the fields.
 No negative account balances should be entered.*/
 
 #include <iostream>
@@ -53,7 +53,8 @@ struct Account {
 
 void displayMenu();
 void enterNewRecord(fstream&, Account&);
-bool validInput(string);
+bool validName(string);
+bool validAddress(string);
 bool validZip(string);
 bool validDate(string);
 
@@ -99,13 +100,29 @@ void displayMenu()
 {
     cout << "1. Enter new records into the file\n";
     cout << "2. Search for a particular customer's record and display it.\n";
-    cout << "3. Search for a particular customerâ€™s record and delete it\n";
-    cout << "4. Search for a particular customerâ€™s record and change it\n";
+    cout << "3. Search for a particular customer’s record and delete it\n";
+    cout << "4. Search for a particular customer’s record and change it\n";
     cout << "5. Display the contents of the entire file\n";
     cout << "6. Quit\n";
 }
 
-bool validInput(string in)
+bool validName(string in)
+{
+    int invalidCount = 0;
+    for (int i = 0; i < in.length(); i++)
+    {
+        if (!isalpha(in[i]))
+        {
+            invalidCount++;
+        }
+    }
+    if (invalidCount == in.length())
+        return false;
+    else
+        return true;
+}
+
+bool validAddress(string in)
 {
     int invalidCount = 0;
     for (int i = 0; i < in.length(); i++)
@@ -142,7 +159,7 @@ void enterNewRecord(fstream& file, Account& a)
     {
         cout << "Name:";
         getline(cin, a.name);
-        valid = validInput(a.name);
+        valid = validName(a.name);
         if (!valid)
             cout << "Invalid input for name.\n";
     } while (!valid);
@@ -150,7 +167,7 @@ void enterNewRecord(fstream& file, Account& a)
     {
         cout << "Address:";
         getline(cin, a.address);
-        valid = validInput(a.address);
+        valid = validAddress(a.address);
         if (!valid)
             cout << "Invalid input for Address.\n";
     } while (!valid);
@@ -158,7 +175,7 @@ void enterNewRecord(fstream& file, Account& a)
     {
         cout << "City:";
         getline(cin, a.city);
-        valid = validInput(a.city);
+        valid = validName(a.city);
         if (!valid)
             cout << "Invalid input for city.\n";
     } while (!valid);
@@ -166,7 +183,7 @@ void enterNewRecord(fstream& file, Account& a)
     {
         cout << "State:";
         getline(cin, a.state);
-        valid = validInput(a.state);
+        valid = validName(a.state);
         if (!valid)
             cout << "Invalid input for state.\n";
     } while (!valid);
