@@ -47,7 +47,7 @@ struct Account {
         address,
         city, state,
         dateOfLastPayment,
-        zip;
+        zip, telephone;
     double accountBalance = 0.0;
 };
 
@@ -57,6 +57,7 @@ bool validName(string);
 bool validAddress(string);
 bool validZip(string);
 bool validDate(string);
+void displayRecord(fstream&, Account&);
 
 int main()
 {
@@ -84,11 +85,17 @@ int main()
                 cout << "Invalid input for choice.\n";
         } while (choice < 1 || choice > 6);
         cin.ignore();
-        switch (choice)
+        if (choice != 6)
         {
-        case 1:
-            enterNewRecord(file, a);
-            break;
+            switch (choice)
+            {
+            case 1:
+                enterNewRecord(file, a);
+                break;
+            case 2:
+                displayRecord(file, a);
+                break;
+            }
         }
     } while (choice != 6);
     file.close();
@@ -150,6 +157,25 @@ bool validZip(string z)
     return true;
 }
 
+bool validTelephone(string t)
+{
+    if (t.length() != 12)
+        return false;
+    for (int i = 0; i < t.length(); i++)
+    {
+        if (i == 3 || i == 7)
+        {
+            if (t[i] != '-')
+                return false;
+        }
+        else
+        {
+            if (!isdigit(t[i]))
+                return false;
+        }
+    }
+}
+
 void enterNewRecord(fstream& file, Account& a)
 {
     bool valid;
@@ -197,6 +223,12 @@ void enterNewRecord(fstream& file, Account& a)
     } while (!valid);
     do
     {
+        cout << "Telephone number:";
+        getline(cin, a.telephone);
+        valid = validTelephone(a.telephone);
+    } while (!valid);
+    do
+    {
         while (cout << "Account balance:" &&
             !(cin >> a.accountBalance)) {
             cin.clear(); //clear bad input flag
@@ -239,4 +271,43 @@ bool validDate(string date)
         }
     }
     return true;
+}
+
+void displayRecord(fstream& file, Account& a)
+{
+    file.close();
+    file.open("13-17.dat", ios::in | ios::out | ios::binary);
+    if (!file)
+    {
+        cout << "File open error.\n";
+        exit(0);
+    }
+    bool found = false;
+    string input;
+
+    cout << "Enter the name of the customer whose record you would "
+        << "like to display:";
+    getline(cin, input);
+    file.read(reinterpret_cast<char*>(&a), sizeof(a));
+    while (!file.eof())
+    {
+        if (a.name == input)
+        {
+            cout << "Customer Record found and displayed below.\n";
+            cout << "Name:" << a.name << endl;
+            cout << "Address:" << a.address << endl;
+            cout << "City, State, and ZIP:" << a.city << ", "
+                << a.state << ", " << a.zip << endl;
+            cout << "Telephone number:" << a.telephone << endl;
+            cout << "Account balance:$" << fixed << showpoint
+                << setprecision(2) << a.accountBalance << endl;
+            cout << "Date of last payment:" << a.dateOfLastPayment << endl;
+            found = true;
+            break;
+        }
+        else
+            file.read(reinterpret_cast<char*>(&a), sizeof(a));
+    }
+    if(!found)
+        cout << "Record not found with name entered.\n";
 }
