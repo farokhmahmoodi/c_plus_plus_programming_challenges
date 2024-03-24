@@ -58,6 +58,7 @@ bool validAddress(string);
 bool validZip(string);
 bool validDate(string);
 void displayRecord(fstream&, Account&);
+void deleteRecord(fstream&, Account&);
 
 int main()
 {
@@ -94,6 +95,9 @@ int main()
                 break;
             case 2:
                 displayRecord(file, a);
+                break;
+            case 3:
+                deleteRecord(file, a);
                 break;
             }
         }
@@ -276,7 +280,7 @@ bool validDate(string date)
 void displayRecord(fstream& file, Account& a)
 {
     file.close();
-    file.open("13-17.dat", ios::in | ios::out | ios::binary);
+    file.open("13-17.dat", ios::in | ios::out | ios::app | ios::binary);
     if (!file)
     {
         cout << "File open error.\n";
@@ -309,5 +313,43 @@ void displayRecord(fstream& file, Account& a)
             file.read(reinterpret_cast<char*>(&a), sizeof(a));
     }
     if(!found)
+        cout << "Record not found with name entered.\n";
+}
+
+void deleteRecord(fstream& file, Account& a)
+{
+    file.close();
+    file.open("13-17.dat", ios::in | ios::out | ios::app | ios::binary);
+    if (!file)
+    {
+        cout << "File open error.\n";
+        exit(0);
+    }
+    bool found = false;
+    string input;
+    long pos = -1;
+
+    cout << "Enter the name of the customer whose record you would "
+        << "like to delete:";
+    getline(cin, input);
+    file.read(reinterpret_cast<char*>(&a), sizeof(a));
+    while (!file.eof())
+    {
+        ++pos;
+        if (a.name == input)
+        {
+            a.name = a.address = a.city
+                = a.state = a.zip = a.telephone
+                = a.dateOfLastPayment = " ";
+            a.accountBalance = 0.0;
+            file.seekp(pos, ios::beg);
+            file.write(reinterpret_cast<char*>(&a), sizeof(a));
+            found = true;
+            break;
+        }
+        else
+            file.read(reinterpret_cast<char*>(&a), sizeof(a));
+    }
+    if (!found)
         cout << "Record not found with name entered.\n";
 }
