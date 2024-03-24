@@ -64,7 +64,7 @@ int main()
 {
     Account a;
     int choice;
-    fstream file("13-17.dat", ios::out | ios::app | ios::binary);
+    fstream file("13-17.dat", ios::in | ios::out | ios::binary);
 
     if (!file)
     {
@@ -279,13 +279,6 @@ void enterNewRecord(fstream& file, Account& a)
 
 void displayRecord(fstream& file, Account& a)
 {
-    file.close();
-    file.open("13-17.dat", ios::in | ios::out | ios::app | ios::binary);
-    if (!file)
-    {
-        cout << "File open error.\n";
-        exit(0);
-    }
     bool found = false;
     string input;
 
@@ -318,8 +311,6 @@ void displayRecord(fstream& file, Account& a)
 
 void deleteRecord(fstream& file, Account& a)
 {
-    file.close();
-    file.open("13-17.dat", ios::in | ios::out | ios::app | ios::binary);
     if (!file)
     {
         cout << "File open error.\n";
