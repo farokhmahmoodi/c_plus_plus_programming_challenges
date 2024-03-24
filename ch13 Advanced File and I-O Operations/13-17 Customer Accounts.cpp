@@ -309,6 +309,8 @@ void displayRecord(fstream& file, Account& a)
     }
     if(!found)
         cout << "Record not found with name entered.\n";
+    file.close();
+    file.open("13-17.dat", ios::in | ios::out | ios::binary);
 }
 
 void deleteRecord(fstream& file, Account& a)
@@ -339,4 +341,6 @@ void deleteRecord(fstream& file, Account& a)
     }
     if (!found)
         cout << "Record not found with name entered.\n";
+    file.close();
+    file.open("13-17.dat", ios::in | ios::out | ios::binary);
 }
