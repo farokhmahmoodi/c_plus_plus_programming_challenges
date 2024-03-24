@@ -274,7 +274,10 @@ void enterNewRecord(fstream& file, Account& a)
         if (!valid)
             cout << "Invalid date.\n";
     } while (!valid);
+    file.seekp(0L, ios::end);
     file.write(reinterpret_cast<char*>(&a), sizeof(a));
+    file.close();
+    file.open("13-17.dat", ios::in | ios::out | ios::binary);
 }
 
 void displayRecord(fstream& file, Account& a)
@@ -285,9 +288,10 @@ void displayRecord(fstream& file, Account& a)
     cout << "Enter the name of the customer whose record you would "
         << "like to display:";
     getline(cin, input);
-    file.read(reinterpret_cast<char*>(&a), sizeof(a));
+    file.seekg(0L, ios::beg);
     while (!file.eof())
     {
+        file.read(reinterpret_cast<char*>(&a), sizeof(a));
         if (a.name == input)
         {
             cout << "Customer Record found and displayed below.\n";
@@ -302,8 +306,6 @@ void displayRecord(fstream& file, Account& a)
             found = true;
             break;
         }
-        else
-            file.read(reinterpret_cast<char*>(&a), sizeof(a));
     }
     if(!found)
         cout << "Record not found with name entered.\n";
@@ -311,11 +313,6 @@ void displayRecord(fstream& file, Account& a)
 
 void deleteRecord(fstream& file, Account& a)
 {
-    if (!file)
-    {
-        cout << "File open error.\n";
-        exit(0);
-    }
     bool found = false;
     string input;
     long pos = -1;
@@ -323,9 +320,10 @@ void deleteRecord(fstream& file, Account& a)
     cout << "Enter the name of the customer whose record you would "
         << "like to delete:";
     getline(cin, input);
-    file.read(reinterpret_cast<char*>(&a), sizeof(a));
+    file.seekg(0L, ios::beg);
     while (!file.eof())
     {
+        file.read(reinterpret_cast<char*>(&a), sizeof(a));
         ++pos;
         if (a.name == input)
         {
@@ -338,8 +336,6 @@ void deleteRecord(fstream& file, Account& a)
             found = true;
             break;
         }
-        else
-            file.read(reinterpret_cast<char*>(&a), sizeof(a));
     }
     if (!found)
         cout << "Record not found with name entered.\n";
