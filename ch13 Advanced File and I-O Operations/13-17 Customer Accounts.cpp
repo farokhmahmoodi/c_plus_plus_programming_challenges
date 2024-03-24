@@ -180,6 +180,29 @@ bool validTelephone(string t)
     }
 }
 
+bool validDate(string date)
+{
+    if (date.length() != 10)
+    {
+        return false;
+    }
+    if (date[2] != '/' || date[5] != '/')
+    {
+        return false;
+    }
+    for (int i = 0; i < date.length(); i++)
+    {
+        if (i != 2 && i != 5)
+        {
+            if (!isdigit(date[i]))
+            {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
 void enterNewRecord(fstream& file, Account& a)
 {
     bool valid;
@@ -252,29 +275,6 @@ void enterNewRecord(fstream& file, Account& a)
             cout << "Invalid date.\n";
     } while (!valid);
     file.write(reinterpret_cast<char*>(&a), sizeof(a));
-}
-
-bool validDate(string date)
-{
-    if (date.length() != 10)
-    {
-        return false;
-    }
-    if (date[2] != '/' || date[5] != '/')
-    {
-        return false;
-    }
-    for (int i = 0; i < date.length(); i++)
-    {
-        if (i != 2 && i != 5)
-        {
-            if (!isdigit(date[i]))
-            {
-                return false;
-            }
-        }
-    }
-    return true;
 }
 
 void displayRecord(fstream& file, Account& a)
