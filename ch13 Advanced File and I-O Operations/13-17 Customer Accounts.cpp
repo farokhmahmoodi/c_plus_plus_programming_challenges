@@ -42,7 +42,7 @@ No negative account balances should be entered.*/
 #include <string>
 using namespace std;
 
-const int NAME_SIZE = 50,DATE_SIZE = 10, 
+const int NAME_SIZE = 51,DATE_SIZE = 10, 
     ZIP_SIZE = 5, TELEPHONE_SIZE = 12;
 
 struct Account {
@@ -56,11 +56,11 @@ struct Account {
 
 void displayMenu();
 void enterNewRecord(fstream&, Account&);
-bool validName(char*, int);
+bool validName(char*);
 //bool validAddress(string);
 //bool validZip(string);
 //bool validDate(string);
-//void displayRecord(fstream&, Account&);
+void displayRecord(fstream&, Account&);
 //void deleteRecord(fstream&, Account&);
 
 int main()
@@ -97,7 +97,7 @@ int main()
                 enterNewRecord(file, a);
                 break;
             case 2:
-                //displayRecord(file, a);
+                displayRecord(file, a);
                 break;
             case 3:
                 //deleteRecord(file, a);
@@ -120,7 +120,7 @@ void displayMenu()
     cout << "6. Quit\n";
 }
 
-bool validName(char* in, int SIZE)
+bool validName(char* in)
 {
     int invalidCount = 0, total = 0;
     for (int i = 0; in[i] != '\0'; i++)
@@ -218,7 +218,7 @@ void enterNewRecord(fstream& file, Account& a)
     {
         cout << "Name:";
         cin.getline(a.name, NAME_SIZE);
-        valid = validName(a.name, NAME_SIZE);
+        valid = validName(a.name);
         if (!valid)
             cout << "Invalid input for name.\n";
     } while (!valid);
@@ -284,23 +284,23 @@ void enterNewRecord(fstream& file, Account& a)
     file.close();
 }
 
-//void displayRecord(fstream& file, Account& a)
-//{
-//    file.close();
-//    file.open("13-17.dat", ios::in | ios::out | ios::binary);
-//    bool found = false;
-//    string input;
-//
-//    cout << "Enter the name of the customer whose record you would "
-//        << "like to display:";
-//    getline(cin, input);
-//    while (!file.eof())
-//    {
-//        file.read(reinterpret_cast<char*>(&a), sizeof(a));
-//        if (a.name == input)
-//        {
-//            cout << "Customer Record found and displayed below.\n";
-//            cout << "Name:" << a.name << endl;
+void displayRecord(fstream& file, Account& a)
+{
+    file.close();
+    file.open("13-17.dat", ios::in | ios::out | ios::binary);
+    bool found = false;
+    char input[NAME_SIZE];
+
+    cout << "Enter the name of the customer whose record you would "
+        << "like to display:";
+    cin.getline(input, NAME_SIZE);
+    while (!file.eof())
+    {
+        file.read(reinterpret_cast<char*>(&a), sizeof(a));
+        if (strcmp(a.name,input) == 0)
+        {
+            cout << "Customer Record found and displayed below.\n";
+            cout << "Name:" << a.name << endl;
 //            cout << "Address:" << a.address << endl;
 //            cout << "City, State, and ZIP:" << a.city << ", "
 //                << a.state << ", " << a.zip << endl;
@@ -308,14 +308,14 @@ void enterNewRecord(fstream& file, Account& a)
 //            cout << "Account balance:$" << fixed << showpoint
 //                << setprecision(2) << a.accountBalance << endl;
 //            cout << "Date of last payment:" << a.dateOfLastPayment << endl;
-//            found = true;
-//            break;
-//        }
-//    }
-//    if(!found)
-//        cout << "Record not found with name entered.\n";
-//    file.close();
-//}
+            found = true;
+            break;
+        }
+    }
+    if(!found)
+        cout << "Record not found with name entered.\n";
+    file.close();
+}
 //
 //void deleteRecord(fstream& file, Account& a)
 //{
