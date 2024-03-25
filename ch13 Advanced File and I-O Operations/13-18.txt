@@ -1,4 +1,14 @@
 Mary  45
 Anna   78
 Sophia  5
+billy 24
 Petros  12
+pat 43
+Cam 23
+cat 32
+Jack 32
+Brian 24
+Jim 24
+Zach 3
+adam 52
+bridgett 62
