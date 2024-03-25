@@ -462,10 +462,10 @@ void editRecord(fstream& file, Account& a)
 void displayWholeFile(fstream& file, Account& a)
 {
     file.close();
-    file.open("13-17.dat", ios::in | ios::out | ios::binary);
+    file.open("13-17.dat", ios::in | ios::binary);
+    file.read(reinterpret_cast<char*>(&a), sizeof(a));
     while (!file.eof())
     {
-        file.read(reinterpret_cast<char*>(&a), sizeof(a));
         cout << "Name:" << a.name << endl;
         cout << "Address:" << a.address << endl;
         cout << "City, State, and ZIP:" << a.city << ", "
@@ -474,6 +474,7 @@ void displayWholeFile(fstream& file, Account& a)
         cout << "Account balance:$" << fixed << showpoint
                 << setprecision(2) << a.accountBalance << endl;
         cout << "Date of last payment:" << a.dateOfLastPayment << endl;
+        file.read(reinterpret_cast<char*>(&a), sizeof(a));
     }
     file.close();
 }
