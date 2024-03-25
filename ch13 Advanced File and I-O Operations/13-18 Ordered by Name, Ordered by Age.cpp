@@ -14,6 +14,7 @@ The file may have any number of lines of such data. The output should be printed
 using namespace std;
 
 void selectionSortByName(string*, int*, int);
+void selectionSortByAge(string*, int*, int);
 void nameSwap(string&, string&);
 void ageSwap(int&, int&);
 
@@ -44,7 +45,21 @@ int main()
         index++;
     }
     infile.close();
-
+    selectionSortByName(names, ages, lineCount);
+    cout << "Data sorted by names in alphabetical order below.\n";
+    for (int i = 0; i < lineCount; i++)
+    {
+        cout << names[i] << " " << ages[i] << endl;
+        outfile << names[i] << " " << ages[i] << endl;
+    }
+    outfile << endl;
+    selectionSortByAge(names, ages, lineCount);
+    cout << "Data sorted by ages in ascending order below.\n";
+    for (int i = 0; i < lineCount; i++)
+    {
+        cout << names[i] << " " << ages[i] << endl;
+        outfile << names[i] << " " << ages[i] << endl;
+    }
     outfile.close();
 
     return 0;
@@ -62,14 +77,35 @@ void selectionSortByName(string* names, int* ages, int size)
         minAgeValue = ages[start];
         for (int index = start + 1; index < size; index++)
         {
-            //if (*(a + index) < minValue)
-            //{
-            //    minValue = *(a + index);
-            //    minIndex = index;
-            //}
             if (names[index] < minNameValue)
             {
+                minNameValue = names[index];
+                minAgeValue = ages[index];
+                minIndex = index;
+            }
+        }
+        nameSwap(names[minIndex], names[start]);
+        ageSwap(ages[minIndex], ages[start]);
+    }
+}
 
+void selectionSortByAge(string* names, int* ages, int size)
+{
+    int minIndex;
+    string minNameValue;
+    int minAgeValue;
+    for (int start = 0; start < (size - 1); start++)
+    {
+        minIndex = start;
+        minNameValue = names[start];
+        minAgeValue = ages[start];
+        for (int index = start + 1; index < size; index++)
+        {
+            if (ages[index] < minAgeValue)
+            {
+                minNameValue = names[index];
+                minAgeValue = ages[index];
+                minIndex = index;
             }
         }
         nameSwap(names[minIndex], names[start]);
