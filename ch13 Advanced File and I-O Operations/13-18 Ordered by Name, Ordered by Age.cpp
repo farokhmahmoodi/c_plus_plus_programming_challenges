@@ -16,7 +16,7 @@ using namespace std;
 
 int main()
 {
-    fstream infile("13-18.txt", ios::in | ios::out),
+    fstream infile("13-18.txt", ios::in),
         outfile("out.txt", ios::out);
 
     if (!infile || !outfile)
