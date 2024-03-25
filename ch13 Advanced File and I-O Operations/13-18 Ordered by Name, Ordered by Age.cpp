@@ -10,10 +10,23 @@ The file may have any number of lines of such data. The output should be printed
 
 #include <iostream>
 #include <fstream>
+#include <string>
+#include <sstream>
 using namespace std;
 
 int main()
 {
+    fstream infile("13-18.txt", ios::in | ios::out),
+        outfile("out.txt", ios::out);
+
+    if (!infile || !outfile)
+    {
+        cout << "File open error.\n";
+        return 0;
+    }
     
+    infile.close();
+    outfile.close();
+
     return 0;
 }
