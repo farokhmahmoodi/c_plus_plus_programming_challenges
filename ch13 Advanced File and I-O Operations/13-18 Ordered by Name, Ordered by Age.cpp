@@ -11,21 +11,38 @@ The file may have any number of lines of such data. The output should be printed
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <sstream>
 using namespace std;
+
+
 
 int main()
 {
     fstream infile("13-18.txt", ios::in),
         outfile("out.txt", ios::out);
+    string* names = nullptr, in; 
+    int* ages = nullptr, lineCount = 0;
 
     if (!infile || !outfile)
     {
         cout << "File open error.\n";
         return 0;
     }
-    
+    while (getline(infile,in))
+    {
+        lineCount++;
+    }
+    names = new string[lineCount];
+    ages = new int[lineCount];
     infile.close();
+    infile.open("13-18.txt", ios::in);
+    int index = 0;
+    while (!infile.eof() && index < lineCount)
+    {
+        infile >> names[index] >> ages[index];
+        index++;
+    }
+    infile.close();
+
     outfile.close();
 
     return 0;
