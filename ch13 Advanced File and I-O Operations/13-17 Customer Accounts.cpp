@@ -42,24 +42,23 @@ No negative account balances should be entered.*/
 #include <string>
 using namespace std;
 
-const int NAME_SIZE = 51,DATE_SIZE = 10, 
-    ZIP_SIZE = 5, TELEPHONE_SIZE = 12;
+const int NAME_SIZE = 31;
 
 struct Account {
     char name[NAME_SIZE],
         address[NAME_SIZE],
-        city[NAME_SIZE], state[NAME_SIZE],
-        dateOfLastPayment[DATE_SIZE],
-        zip[ZIP_SIZE], telephone[TELEPHONE_SIZE];
+        city[NAME_SIZE], state[NAME_SIZE];
+     string dateOfLastPayment,
+        zip, telephone;
     double accountBalance;
 };
 
 void displayMenu();
 void enterNewRecord(fstream&, Account&);
 bool validName(char*);
-//bool validAddress(string);
-//bool validZip(string);
-//bool validDate(string);
+bool validAddress(char*);
+bool validZip(string);
+bool validDate(string);
 void displayRecord(fstream&, Account&);
 //void deleteRecord(fstream&, Account&);
 
@@ -137,75 +136,82 @@ bool validName(char* in)
         return true;
 }
 
-//bool validAddress(string in)
-//{
-//    int invalidCount = 0;
-//    for (int i = 0; i < in.length(); i++)
-//    {
-//        if (!isalnum(in[i]))
-//        {
-//            invalidCount++;
-//        }
-//    }
-//    if (invalidCount == in.length())
-//        return false;
-//    else
-//        return true;
-//}
-//
-//bool validZip(string z)
-//{
-//    if (z.length() != 5)
-//        return false;
-//    for (int i = 0; i < z.length(); i++)
-//    {
-//        if (!isdigit(z[i]))
-//            return false;
-//    }
-//    return true;
-//}
-//
-//bool validTelephone(string t)
-//{
-//    if (t.length() != 12)
-//        return false;
-//    for (int i = 0; i < t.length(); i++)
-//    {
-//        if (i == 3 || i == 7)
-//        {
-//            if (t[i] != '-')
-//                return false;
-//        }
-//        else
-//        {
-//            if (!isdigit(t[i]))
-//                return false;
-//        }
-//    }
-//}
-//
-//bool validDate(string date)
-//{
-//    if (date.length() != 10)
-//    {
-//        return false;
-//    }
-//    if (date[2] != '/' || date[5] != '/')
-//    {
-//        return false;
-//    }
-//    for (int i = 0; i < date.length(); i++)
-//    {
-//        if (i != 2 && i != 5)
-//        {
-//            if (!isdigit(date[i]))
-//            {
-//                return false;
-//            }
-//        }
-//    }
-//    return true;
-//}
+bool validAddress(char* in)
+{
+    int invalidCount = 0, total = 0,
+        alphCount = 0, numCount = 0;
+    for (int i = 0; in[i] != '\0'; i++)
+    {
+        total++;
+        if (!isalnum(in[i]))
+        {
+            invalidCount++;
+        }
+        else if (isalpha(in[i]))
+            alphCount++;
+        else if (isdigit(in[i]))
+            numCount++;
+    }
+    if (invalidCount == total || alphCount == 0 || numCount == 0)
+        return false;
+    else
+        return true;
+}
+
+bool validZip(string z)
+{
+    if (z.length() != 5)
+        return false;
+    for (int i = 0; i < z.length(); i++)
+    {
+        if (!isdigit(z[i]))
+            return false;
+    }
+    return true;
+}
+
+bool validTelephone(string t)
+{
+    if (t.length() != 12)
+        return false;
+    for (int i = 0; i < t.length(); i++)
+    {
+        if (i == 3 || i == 7)
+        {
+            if (t[i] != '-')
+                return false;
+        }
+        else
+        {
+            if (!isdigit(t[i]))
+                return false;
+        }
+    }
+    return true;
+}
+
+bool validDate(string date)
+{
+    if (date.length() != 10)
+    {
+        return false;
+    }
+    if (date[2] != '/' || date[5] != '/')
+    {
+        return false;
+    }
+    for (int i = 0; i < date.length(); i++)
+    {
+        if (i != 2 && i != 5)
+        {
+            if (!isdigit(date[i]))
+            {
+                return false;
+            }
+        }
+    }
+    return true;
+}
 
 void enterNewRecord(fstream& file, Account& a)
 {
@@ -222,64 +228,66 @@ void enterNewRecord(fstream& file, Account& a)
         if (!valid)
             cout << "Invalid input for name.\n";
     } while (!valid);
-    //do
-    //{
-    //    cout << "Address:";
-    //    getline(cin, a.address);
-    //    valid = validAddress(a.address);
-    //    if (!valid)
-    //        cout << "Invalid input for Address.\n";
-    //} while (!valid);
-    //do
-    //{
-    //    cout << "City:";
-    //    getline(cin, a.city);
-    //    valid = validName(a.city);
-    //    if (!valid)
-    //        cout << "Invalid input for city.\n";
-    //} while (!valid);
-    //do
-    //{
-    //    cout << "State:";
-    //    getline(cin, a.state);
-    //    valid = validName(a.state);
-    //    if (!valid)
-    //        cout << "Invalid input for state.\n";
-    //} while (!valid);
-    //do
-    //{
-    //    cout << "ZIP code:";
-    //    getline(cin, a.zip);
-    //    valid = validZip(a.zip);
-    //    if (!valid)
-    //        cout << "Invalid zip code.\n";
-    //} while (!valid);
-    //do
-    //{
-    //    cout << "Telephone number:";
-    //    getline(cin, a.telephone);
-    //    valid = validTelephone(a.telephone);
-    //} while (!valid);
-    //do
-    //{
-    //    while (cout << "Account balance:" &&
-    //        !(cin >> a.accountBalance)) {
-    //        cin.clear(); //clear bad input flag
-    //        cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
-    //        cout << "Invalid input for account balance." << endl;
-    //    }
-    //    if (a.accountBalance < 0)
-    //        cout << "Invalid input for account balance.\n";
-    //} while (a.accountBalance < 0);
-    //cin.ignore();
-    //do
-    //{
-    //    cout << "Date of last payment in format MM/DD/YYYY:";
-    //    getline(cin, a.dateOfLastPayment);
-    //    valid = validDate(a.dateOfLastPayment);
-    //    if (!valid)
-    //        cout << "Invalid date.\n";
-    //} while (!valid);
+    do
+    {
+        cout << "Address:";
+        cin.getline(a.address, NAME_SIZE);
+        valid = validAddress(a.address);
+        if (!valid)
+            cout << "Invalid input for Address.\n";
+    } while (!valid);
+    do
+    {
+        cout << "City:";
+        cin.getline(a.city,NAME_SIZE);
+        valid = validName(a.city);
+        if (!valid)
+            cout << "Invalid input for city.\n";
+    } while (!valid);
+    do
+    {
+        cout << "State:";
+        cin.getline(a.state, NAME_SIZE);
+        valid = validName(a.state);
+        if (!valid)
+            cout << "Invalid input for state.\n";
+    } while (!valid);
+    do
+    {
+        cout << "ZIP code(no greater than 5 digits):";
+        getline(cin,a.zip);
+        valid = validZip(a.zip);
+        if (!valid)
+            cout << "Invalid zip code.\n";
+    } while (!valid);
+    do
+    {
+        cout << "Telephone number in the format XXX-XXX-XXXX:";
+        getline(cin, a.telephone);
+        valid = validTelephone(a.telephone);
+        if (!valid)
+            cout << "Invalid telephone number.\n";
+    } while (!valid);
+    do
+    {
+        while (cout << "Account balance:" &&
+            !(cin >> a.accountBalance)) {
+            cin.clear(); //clear bad input flag
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
+            cout << "Invalid input for account balance." << endl;
+        }
+        if (a.accountBalance < 0)
+            cout << "Invalid input for account balance.\n";
+    } while (a.accountBalance < 0);
+    cin.ignore();
+    do
+    {
+        cout << "Date of last payment in the format MM/DD/YYYY:";
+        getline(cin, a.dateOfLastPayment);
+        valid = validDate(a.dateOfLastPayment);
+        if (!valid)
+            cout << "Invalid date.\n";
+    } while (!valid);
     file.write(reinterpret_cast<char*>(&a), sizeof(a));
     file.close();
 }
@@ -301,13 +309,13 @@ void displayRecord(fstream& file, Account& a)
         {
             cout << "Customer Record found and displayed below.\n";
             cout << "Name:" << a.name << endl;
-//            cout << "Address:" << a.address << endl;
-//            cout << "City, State, and ZIP:" << a.city << ", "
-//                << a.state << ", " << a.zip << endl;
-//            cout << "Telephone number:" << a.telephone << endl;
-//            cout << "Account balance:$" << fixed << showpoint
-//                << setprecision(2) << a.accountBalance << endl;
-//            cout << "Date of last payment:" << a.dateOfLastPayment << endl;
+            cout << "Address:" << a.address << endl;
+            cout << "City, State, and ZIP:" << a.city << ", "
+                << a.state << ", " << a.zip << endl;
+            cout << "Telephone number:" << a.telephone << endl;
+            cout << "Account balance:$" << fixed << showpoint
+                << setprecision(2) << a.accountBalance << endl;
+            cout << "Date of last payment:" << a.dateOfLastPayment << endl;
             found = true;
             break;
         }
@@ -316,7 +324,7 @@ void displayRecord(fstream& file, Account& a)
         cout << "Record not found with name entered.\n";
     file.close();
 }
-//
+
 //void deleteRecord(fstream& file, Account& a)
 //{
 //    file.close();
