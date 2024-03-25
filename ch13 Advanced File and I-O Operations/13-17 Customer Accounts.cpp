@@ -60,7 +60,7 @@ bool validAddress(char*);
 bool validZip(string);
 bool validDate(string);
 void displayRecord(fstream&, Account&);
-//void deleteRecord(fstream&, Account&);
+void deleteRecord(fstream&, Account&);
 
 int main()
 {
@@ -99,7 +99,7 @@ int main()
                 displayRecord(file, a);
                 break;
             case 3:
-                //deleteRecord(file, a);
+                deleteRecord(file, a);
                 break;
             }
         }
@@ -325,34 +325,31 @@ void displayRecord(fstream& file, Account& a)
     file.close();
 }
 
-//void deleteRecord(fstream& file, Account& a)
-//{
-//    file.close();
-//    file.open("13-17.dat", ios::in | ios::out | ios::binary);   
-//    bool found = false;
-//    string input;
-//    long pos = -1;
-//
-//    cout << "Enter the name of the customer whose record you would "
-//        << "like to delete:";
-//    getline(cin, input);
-//    while (!file.eof())
-//    {
-//        file.read(reinterpret_cast<char*>(&a), sizeof(a));
-//        ++pos;
-//        if (a.name == input)
-//        {
-//            a.name = a.address = a.city
-//                = a.state = a.zip = a.telephone
-//                = a.dateOfLastPayment = " ";
-//            a.accountBalance = 0.0;
-//            file.seekp(pos, ios::beg);
-//            file.write(reinterpret_cast<char*>(&a), sizeof(a));
-//            found = true;
-//            break;
-//        }
-//    }
-//    if (!found)
-//        cout << "Record not found with name entered.\n";
-//    file.close();
-//}
+void deleteRecord(fstream& file, Account& a)
+{
+    file.close();
+    file.open("13-17.dat", ios::in | ios::out | ios::binary);   
+    bool found = false;
+    char input[NAME_SIZE];
+    long recNum = 0;
+
+    cout << "Enter the name of the customer whose record you would "
+        << "like to delete:";
+    cin.getline(input,NAME_SIZE);
+    while (!file.eof())
+    {
+        file.read(reinterpret_cast<char*>(&a), sizeof(a));
+        if (strcmp(a.name, input) == 0)
+        {
+            Account b;
+            file.seekp(recNum * sizeof(a), ios::beg);
+            file.write(reinterpret_cast<char*>(&b), sizeof(b));
+            found = true;
+            break;
+        }
+        recNum++;
+    }
+    if (!found)
+        cout << "Record not found with name entered.\n";
+    file.close();
+}
