@@ -13,7 +13,9 @@ The file may have any number of lines of such data. The output should be printed
 #include <string>
 using namespace std;
 
-
+void selectionSortByName(string*, int*, int);
+void nameSwap(string&, string&);
+void ageSwap(int&, int&);
 
 int main()
 {
@@ -46,4 +48,45 @@ int main()
     outfile.close();
 
     return 0;
+}
+
+void selectionSortByName(string* names, int* ages, int size)
+{
+    int minIndex;
+    string minNameValue;
+    int minAgeValue;
+    for (int start = 0; start < (size - 1); start++)
+    {
+        minIndex = start;
+        minNameValue = names[start];
+        minAgeValue = ages[start];
+        for (int index = start + 1; index < size; index++)
+        {
+            //if (*(a + index) < minValue)
+            //{
+            //    minValue = *(a + index);
+            //    minIndex = index;
+            //}
+            if (names[index] < minNameValue)
+            {
+
+            }
+        }
+        nameSwap(names[minIndex], names[start]);
+        ageSwap(ages[minIndex], ages[start]);
+    }
+}
+
+void ageSwap(int& a, int& b)
+{
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+void nameSwap(string& a, string& b)
+{
+    string temp = a;
+    a = b;
+    b = temp;
 }
