@@ -17,6 +17,7 @@ void selectionSortByName(string*, int*, int);
 void selectionSortByAge(string*, int*, int);
 void nameSwap(string&, string&);
 void ageSwap(int&, int&);
+string convertlower(string); //convert string to lowercase
 
 int main()
 {
@@ -68,18 +69,19 @@ int main()
 void selectionSortByName(string* names, int* ages, int size)
 {
     int minIndex;
-    string minNameValue;
+    string minNameValue, currentValue;
     int minAgeValue;
     for (int start = 0; start < (size - 1); start++)
     {
         minIndex = start;
-        minNameValue = names[start];
+        minNameValue = convertlower(names[start]);
         minAgeValue = ages[start];
         for (int index = start + 1; index < size; index++)
         {
-            if (names[index] < minNameValue)
+            currentValue = convertlower(names[index]);
+            if (strcmp(currentValue.c_str(), minNameValue.c_str()) < 0)
             {
-                minNameValue = names[index];
+                minNameValue = convertlower(names[index]);
                 minAgeValue = ages[index];
                 minIndex = index;
             }
@@ -125,4 +127,13 @@ void nameSwap(string& a, string& b)
     string temp = a;
     a = b;
     b = temp;
+}
+
+string convertlower(string a) 
+{
+    for (int i = 0; i < a.length(); i++)
+    {
+        a[i] = tolower(a[i]);
+    }
+    return a;
 }
