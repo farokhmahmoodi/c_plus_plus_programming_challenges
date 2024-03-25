@@ -339,7 +339,7 @@ void deleteRecord(fstream& file, Account& a)
     file.open("13-17.dat", ios::in | ios::out | ios::binary);   
     bool found = false;
     char input[NAME_SIZE];
-    long recNum = 0;
+    long pos = 0;
 
     cout << "Enter the name of the customer whose record you would "
         << "like to delete:";
@@ -350,12 +350,12 @@ void deleteRecord(fstream& file, Account& a)
         if (strcmp(a.name, input) == 0)
         {
             Account b;
-            file.seekp(recNum * sizeof(a), ios::beg);
-            file.write(reinterpret_cast<char*>(&b), sizeof(b));
+            file.seekp(pos * sizeof(a), ios::beg);
+            file.write(reinterpret_cast<char *>(&b), sizeof(b));
             found = true;
             break;
         }
-        recNum++;
+        pos++;
     }
     if (!found)
         cout << "Record not found with name entered.\n";
@@ -368,7 +368,7 @@ void editRecord(fstream& file, Account& a)
     file.open("13-17.dat", ios::in | ios::out | ios::binary);
     bool found = false, valid;
     char input[NAME_SIZE];
-    long recNum = 0;
+    long pos = 0;
 
     cout << "Enter the name of the customer whose record you would "
         << "like to edit:";
@@ -378,7 +378,7 @@ void editRecord(fstream& file, Account& a)
         file.read(reinterpret_cast<char*>(&a), sizeof(a));
         if (strcmp(a.name, input) == 0)
         {
-            file.seekp(recNum * sizeof(a), ios::beg);
+            file.seekp(pos * sizeof(a), ios::beg);
             cout << "Enter information for record change below.\n";
             do
             {
@@ -452,7 +452,7 @@ void editRecord(fstream& file, Account& a)
             found = true;
             break;
         }
-        recNum++;
+        pos++;
     }
     if (!found)
         cout << "Record not found with name entered.\n";
@@ -466,15 +466,18 @@ void displayWholeFile(fstream& file, Account& a)
     file.read(reinterpret_cast<char*>(&a), sizeof(a));
     while (!file.eof())
     {
-        cout << "Name:" << a.name << endl;
-        cout << "Address:" << a.address << endl;
-        cout << "City, State, and ZIP:" << a.city << ", "
-             << a.state << ", " << a.zip << endl;
-        cout << "Telephone number:" << a.telephone << endl;
-        cout << "Account balance:$" << fixed << showpoint
+        if (a.accountBalance >= 0)
+        {
+            cout << "Name:" << a.name << endl;
+            cout << "Address:" << a.address << endl;
+            cout << "City, State, and ZIP:" << a.city << ", "
+                << a.state << ", " << a.zip << endl;
+            cout << "Telephone number:" << a.telephone << endl;
+            cout << "Account balance:$" << fixed << showpoint
                 << setprecision(2) << a.accountBalance << endl;
-        cout << "Date of last payment:" << a.dateOfLastPayment << endl;
-        file.read(reinterpret_cast<char*>(&a), sizeof(a));
+            cout << "Date of last payment:" << a.dateOfLastPayment << endl;
+        }
+       file.read(reinterpret_cast<char*>(&a), sizeof(a));
     }
     file.close();
 }
