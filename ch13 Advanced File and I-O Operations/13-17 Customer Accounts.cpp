@@ -42,29 +42,32 @@ No negative account balances should be entered.*/
 #include <string>
 using namespace std;
 
+const int NAME_SIZE = 50,DATE_SIZE = 10, 
+    ZIP_SIZE = 5, TELEPHONE_SIZE = 12;
+
 struct Account {
-    string name,
-        address,
-        city, state,
-        dateOfLastPayment,
-        zip, telephone;
-    double accountBalance = 0.0;
+    char name[NAME_SIZE],
+        address[NAME_SIZE],
+        city[NAME_SIZE], state[NAME_SIZE],
+        dateOfLastPayment[DATE_SIZE],
+        zip[ZIP_SIZE], telephone[TELEPHONE_SIZE];
+    double accountBalance;
 };
 
 void displayMenu();
 void enterNewRecord(fstream&, Account&);
-bool validName(string);
-bool validAddress(string);
-bool validZip(string);
-bool validDate(string);
-void displayRecord(fstream&, Account&);
-void deleteRecord(fstream&, Account&);
+bool validName(char*, int);
+//bool validAddress(string);
+//bool validZip(string);
+//bool validDate(string);
+//void displayRecord(fstream&, Account&);
+//void deleteRecord(fstream&, Account&);
 
 int main()
 {
     Account a;
     int choice;
-    fstream file("13-17.dat", ios::in | ios::out | ios::binary);
+    fstream file("13-17.dat", ios::out | ios::app | ios::binary);
 
     if (!file)
     {
@@ -94,10 +97,10 @@ int main()
                 enterNewRecord(file, a);
                 break;
             case 2:
-                displayRecord(file, a);
+                //displayRecord(file, a);
                 break;
             case 3:
-                deleteRecord(file, a);
+                //deleteRecord(file, a);
                 break;
             }
         }
@@ -117,230 +120,231 @@ void displayMenu()
     cout << "6. Quit\n";
 }
 
-bool validName(string in)
+bool validName(char* in, int SIZE)
 {
-    int invalidCount = 0;
-    for (int i = 0; i < in.length(); i++)
+    int invalidCount = 0, total = 0;
+    for (int i = 0; in[i] != '\0'; i++)
     {
+        total++;
         if (!isalpha(in[i]))
         {
             invalidCount++;
         }
     }
-    if (invalidCount == in.length())
+    if (invalidCount == total)
         return false;
     else
         return true;
 }
 
-bool validAddress(string in)
-{
-    int invalidCount = 0;
-    for (int i = 0; i < in.length(); i++)
-    {
-        if (!isalnum(in[i]))
-        {
-            invalidCount++;
-        }
-    }
-    if (invalidCount == in.length())
-        return false;
-    else
-        return true;
-}
-
-bool validZip(string z)
-{
-    if (z.length() != 5)
-        return false;
-    for (int i = 0; i < z.length(); i++)
-    {
-        if (!isdigit(z[i]))
-            return false;
-    }
-    return true;
-}
-
-bool validTelephone(string t)
-{
-    if (t.length() != 12)
-        return false;
-    for (int i = 0; i < t.length(); i++)
-    {
-        if (i == 3 || i == 7)
-        {
-            if (t[i] != '-')
-                return false;
-        }
-        else
-        {
-            if (!isdigit(t[i]))
-                return false;
-        }
-    }
-}
-
-bool validDate(string date)
-{
-    if (date.length() != 10)
-    {
-        return false;
-    }
-    if (date[2] != '/' || date[5] != '/')
-    {
-        return false;
-    }
-    for (int i = 0; i < date.length(); i++)
-    {
-        if (i != 2 && i != 5)
-        {
-            if (!isdigit(date[i]))
-            {
-                return false;
-            }
-        }
-    }
-    return true;
-}
+//bool validAddress(string in)
+//{
+//    int invalidCount = 0;
+//    for (int i = 0; i < in.length(); i++)
+//    {
+//        if (!isalnum(in[i]))
+//        {
+//            invalidCount++;
+//        }
+//    }
+//    if (invalidCount == in.length())
+//        return false;
+//    else
+//        return true;
+//}
+//
+//bool validZip(string z)
+//{
+//    if (z.length() != 5)
+//        return false;
+//    for (int i = 0; i < z.length(); i++)
+//    {
+//        if (!isdigit(z[i]))
+//            return false;
+//    }
+//    return true;
+//}
+//
+//bool validTelephone(string t)
+//{
+//    if (t.length() != 12)
+//        return false;
+//    for (int i = 0; i < t.length(); i++)
+//    {
+//        if (i == 3 || i == 7)
+//        {
+//            if (t[i] != '-')
+//                return false;
+//        }
+//        else
+//        {
+//            if (!isdigit(t[i]))
+//                return false;
+//        }
+//    }
+//}
+//
+//bool validDate(string date)
+//{
+//    if (date.length() != 10)
+//    {
+//        return false;
+//    }
+//    if (date[2] != '/' || date[5] != '/')
+//    {
+//        return false;
+//    }
+//    for (int i = 0; i < date.length(); i++)
+//    {
+//        if (i != 2 && i != 5)
+//        {
+//            if (!isdigit(date[i]))
+//            {
+//                return false;
+//            }
+//        }
+//    }
+//    return true;
+//}
 
 void enterNewRecord(fstream& file, Account& a)
 {
+    file.close();
+    file.open("13-17.dat", ios::out | ios::app | ios::binary);
     bool valid;
 
     cout << "Enter information for new record below.\n";
     do
     {
         cout << "Name:";
-        getline(cin, a.name);
-        valid = validName(a.name);
+        cin.getline(a.name, NAME_SIZE);
+        valid = validName(a.name, NAME_SIZE);
         if (!valid)
             cout << "Invalid input for name.\n";
     } while (!valid);
-    do
-    {
-        cout << "Address:";
-        getline(cin, a.address);
-        valid = validAddress(a.address);
-        if (!valid)
-            cout << "Invalid input for Address.\n";
-    } while (!valid);
-    do
-    {
-        cout << "City:";
-        getline(cin, a.city);
-        valid = validName(a.city);
-        if (!valid)
-            cout << "Invalid input for city.\n";
-    } while (!valid);
-    do
-    {
-        cout << "State:";
-        getline(cin, a.state);
-        valid = validName(a.state);
-        if (!valid)
-            cout << "Invalid input for state.\n";
-    } while (!valid);
-    do
-    {
-        cout << "ZIP code:";
-        getline(cin, a.zip);
-        valid = validZip(a.zip);
-        if (!valid)
-            cout << "Invalid zip code.\n";
-    } while (!valid);
-    do
-    {
-        cout << "Telephone number:";
-        getline(cin, a.telephone);
-        valid = validTelephone(a.telephone);
-    } while (!valid);
-    do
-    {
-        while (cout << "Account balance:" &&
-            !(cin >> a.accountBalance)) {
-            cin.clear(); //clear bad input flag
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
-            cout << "Invalid input for account balance." << endl;
-        }
-        if (a.accountBalance < 0)
-            cout << "Invalid input for account balance.\n";
-    } while (a.accountBalance < 0);
-    cin.ignore();
-    do
-    {
-        cout << "Date of last payment in format MM/DD/YYYY:";
-        getline(cin, a.dateOfLastPayment);
-        valid = validDate(a.dateOfLastPayment);
-        if (!valid)
-            cout << "Invalid date.\n";
-    } while (!valid);
-    file.seekp(0L, ios::end);
+    //do
+    //{
+    //    cout << "Address:";
+    //    getline(cin, a.address);
+    //    valid = validAddress(a.address);
+    //    if (!valid)
+    //        cout << "Invalid input for Address.\n";
+    //} while (!valid);
+    //do
+    //{
+    //    cout << "City:";
+    //    getline(cin, a.city);
+    //    valid = validName(a.city);
+    //    if (!valid)
+    //        cout << "Invalid input for city.\n";
+    //} while (!valid);
+    //do
+    //{
+    //    cout << "State:";
+    //    getline(cin, a.state);
+    //    valid = validName(a.state);
+    //    if (!valid)
+    //        cout << "Invalid input for state.\n";
+    //} while (!valid);
+    //do
+    //{
+    //    cout << "ZIP code:";
+    //    getline(cin, a.zip);
+    //    valid = validZip(a.zip);
+    //    if (!valid)
+    //        cout << "Invalid zip code.\n";
+    //} while (!valid);
+    //do
+    //{
+    //    cout << "Telephone number:";
+    //    getline(cin, a.telephone);
+    //    valid = validTelephone(a.telephone);
+    //} while (!valid);
+    //do
+    //{
+    //    while (cout << "Account balance:" &&
+    //        !(cin >> a.accountBalance)) {
+    //        cin.clear(); //clear bad input flag
+    //        cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
+    //        cout << "Invalid input for account balance." << endl;
+    //    }
+    //    if (a.accountBalance < 0)
+    //        cout << "Invalid input for account balance.\n";
+    //} while (a.accountBalance < 0);
+    //cin.ignore();
+    //do
+    //{
+    //    cout << "Date of last payment in format MM/DD/YYYY:";
+    //    getline(cin, a.dateOfLastPayment);
+    //    valid = validDate(a.dateOfLastPayment);
+    //    if (!valid)
+    //        cout << "Invalid date.\n";
+    //} while (!valid);
     file.write(reinterpret_cast<char*>(&a), sizeof(a));
     file.close();
-    file.open("13-17.dat", ios::in | ios::out | ios::binary);
 }
 
-void displayRecord(fstream& file, Account& a)
-{
-    bool found = false;
-    string input;
-
-    cout << "Enter the name of the customer whose record you would "
-        << "like to display:";
-    getline(cin, input);
-    file.seekg(0L, ios::beg);
-    while (!file.eof())
-    {
-        file.read(reinterpret_cast<char*>(&a), sizeof(a));
-        if (a.name == input)
-        {
-            cout << "Customer Record found and displayed below.\n";
-            cout << "Name:" << a.name << endl;
-            cout << "Address:" << a.address << endl;
-            cout << "City, State, and ZIP:" << a.city << ", "
-                << a.state << ", " << a.zip << endl;
-            cout << "Telephone number:" << a.telephone << endl;
-            cout << "Account balance:$" << fixed << showpoint
-                << setprecision(2) << a.accountBalance << endl;
-            cout << "Date of last payment:" << a.dateOfLastPayment << endl;
-            found = true;
-            break;
-        }
-    }
-    if(!found)
-        cout << "Record not found with name entered.\n";
-    file.close();
-    file.open("13-17.dat", ios::in | ios::out | ios::binary);
-}
-
-void deleteRecord(fstream& file, Account& a)
-{
-    bool found = false;
-    string input;
-    long pos = -1;
-
-    cout << "Enter the name of the customer whose record you would "
-        << "like to delete:";
-    getline(cin, input);
-    file.seekg(0L, ios::beg);
-    while (!file.eof())
-    {
-        file.read(reinterpret_cast<char*>(&a), sizeof(a));
-        ++pos;
-        if (a.name == input)
-        {
-            a.name = a.address = a.city
-                = a.state = a.zip = a.telephone
-                = a.dateOfLastPayment = " ";
-            a.accountBalance = 0.0;
-            file.seekp(pos, ios::beg);
-            file.write(reinterpret_cast<char*>(&a), sizeof(a));
-            found = true;
-            break;
-        }
-    }
-    if (!found)
-        cout << "Record not found with name entered.\n";
-    file.close();
-    file.open("13-17.dat", ios::in | ios::out | ios::binary);
-}
+//void displayRecord(fstream& file, Account& a)
+//{
+//    file.close();
+//    file.open("13-17.dat", ios::in | ios::out | ios::binary);
+//    bool found = false;
+//    string input;
+//
+//    cout << "Enter the name of the customer whose record you would "
+//        << "like to display:";
+//    getline(cin, input);
+//    while (!file.eof())
+//    {
+//        file.read(reinterpret_cast<char*>(&a), sizeof(a));
+//        if (a.name == input)
+//        {
+//            cout << "Customer Record found and displayed below.\n";
+//            cout << "Name:" << a.name << endl;
+//            cout << "Address:" << a.address << endl;
+//            cout << "City, State, and ZIP:" << a.city << ", "
+//                << a.state << ", " << a.zip << endl;
+//            cout << "Telephone number:" << a.telephone << endl;
+//            cout << "Account balance:$" << fixed << showpoint
+//                << setprecision(2) << a.accountBalance << endl;
+//            cout << "Date of last payment:" << a.dateOfLastPayment << endl;
+//            found = true;
+//            break;
+//        }
+//    }
+//    if(!found)
+//        cout << "Record not found with name entered.\n";
+//    file.close();
+//}
+//
+//void deleteRecord(fstream& file, Account& a)
+//{
+//    file.close();
+//    file.open("13-17.dat", ios::in | ios::out | ios::binary);   
+//    bool found = false;
+//    string input;
+//    long pos = -1;
+//
+//    cout << "Enter the name of the customer whose record you would "
+//        << "like to delete:";
+//    getline(cin, input);
+//    while (!file.eof())
+//    {
+//        file.read(reinterpret_cast<char*>(&a), sizeof(a));
+//        ++pos;
+//        if (a.name == input)
+//        {
+//            a.name = a.address = a.city
+//                = a.state = a.zip = a.telephone
+//                = a.dateOfLastPayment = " ";
+//            a.accountBalance = 0.0;
+//            file.seekp(pos, ios::beg);
+//            file.write(reinterpret_cast<char*>(&a), sizeof(a));
+//            found = true;
+//            break;
+//        }
+//    }
+//    if (!found)
+//        cout << "Record not found with name entered.\n";
+//    file.close();
+//}
