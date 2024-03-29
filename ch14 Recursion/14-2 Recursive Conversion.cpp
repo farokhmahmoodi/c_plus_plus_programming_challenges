@@ -34,18 +34,9 @@ int main()
 
 void sign(int n)
 {
-    cout << "No Parking";
-    while (n > 0)
+    if (n > 0)
     {
         sign(--n);
+        cout << "No Parking";
     }
 }
-
-//void sign(int n)
-//{
-//    while (n > 0)
-//    {
-//        cout << "No Parking";
-//        n--;
-//    }
-//}
