@@ -1,7 +1,11 @@
-/*Create a template version of the quickSort algorithm that will work with any data type that overloads the comparison 
+/*Create a template version of the quickSort algorithm that will work with any data type that overloads the comparison
 operators. Demonstrate the template with a driver function.*/
 
 #include <iostream>
+#include <algorithm> //needed for swap function
+#include <string>
+#include <sstream>
+#include <cstring>
 using namespace std;
 
 // Function prototypes
@@ -10,7 +14,23 @@ int partition(int[], int, int);
 
 int main()
 {
-    
+    // Array to be sorted
+    const int SIZE = 10;
+    int array[SIZE] = { 17, 53, 9, 2, 30, 1, 82, 64, 26, 5 };
+
+    // Echo the array to be sorted
+    for (int k = 0; k < SIZE; k++)
+        cout << array[k] << " ";
+    cout << endl;
+
+    // Sort the array using Quicksort
+    quickSort(array, 0, SIZE - 1);
+
+    // Print the sorted array
+    for (int k = 0; k < SIZE; k++)
+        cout << array[k] << " ";
+    cout << endl;
+
     return 0;
 }
 
@@ -44,13 +64,18 @@ int partition(int arr[], int start, int end)
     // The pivot element is taken to be the element at
     // the start of the subrange to be partitioned
     int pivotValue = arr[start];
+    ostringstream ostr;
+    ostr << pivotValue;
     int pivotPosition = start;
 
     // Rearrange the rest of the array elements to 
     // partition the subrange from start to end
     for (int pos = start + 1; pos <= end; pos++)
     {
-        if (arr[pos] < pivotValue)
+        ostringstream ostr2;
+        ostr2 << arr[pos];
+        cout << ostr2.str() << endl;
+        if (ostr2.str() < ostr.str())
         {
             // arr[scan] is the "current" item.
             // Swap the current item with the item to the
