@@ -5,18 +5,17 @@ operators. Demonstrate the template with a driver function.*/
 #include <algorithm> //needed for swap function
 #include <string>
 #include <sstream>
-#include <cstring>
 using namespace std;
 
 // Function prototypes
-void quickSort(int[], int, int);
-int partition(int[], int, int);
+void quickSort(string[], int, int);
+int partition(string[], int, int);
 
 int main()
 {
     // Array to be sorted
     const int SIZE = 10;
-    int array[SIZE] = { 17, 53, 9, 2, 30, 1, 82, 64, 26, 5 };
+    string array[SIZE] = { "17", "53", "9", "2", "30", "1", "82", "64", "26", "5" };
 
     // Echo the array to be sorted
     for (int k = 0; k < SIZE; k++)
@@ -38,7 +37,7 @@ int main()
 // quickSort uses the QuickSort algorithm to     *
 // sort arr from arr[start] through arr[end].    *
 //************************************************
-void quickSort(int arr[], int start, int end)
+void quickSort(string arr[], int start, int end)
 {
     if (start < end)
     {
@@ -59,23 +58,27 @@ void quickSort(int arr[], int start, int end)
 // pivot are on the right of the pivot and all values less  *
 // than are on the left of the pivot.                       *
 //***********************************************************
-int partition(int arr[], int start, int end)
+int partition(string arr[], int start, int end)
 {
     // The pivot element is taken to be the element at
     // the start of the subrange to be partitioned
-    int pivotValue = arr[start];
+    double pivotValue;
     ostringstream ostr;
-    ostr << pivotValue;
+    ostr << arr[start];
+    istringstream istr(ostr.str());
+    istr >> pivotValue;
     int pivotPosition = start;
 
     // Rearrange the rest of the array elements to 
     // partition the subrange from start to end
     for (int pos = start + 1; pos <= end; pos++)
     {
+        double currentValue;
         ostringstream ostr2;
         ostr2 << arr[pos];
-        cout << ostr2.str() << endl;
-        if (ostr2.str() < ostr.str())
+        istringstream istr(ostr2.str());
+        istr >> currentValue;
+        if (currentValue < pivotValue)
         {
             // arr[scan] is the "current" item.
             // Swap the current item with the item to the
