@@ -17,8 +17,12 @@ int main()
                         417, 429, 447, 521, 536, 600 };
     int  empID; // What to search for
 
-    cout << "Enter the Employee ID you wish to search for: ";
-    cin >> empID;
+    while (cout << "Enter the Employee ID you wish to search for: "
+        && !(cin >> empID)) {
+        cin.clear(); //clear bad input flag
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
+        cout << "Invalid input for employee ID." << endl;
+    }
     if (!isMember(tests, SIZE, empID))
         cout << "That number does not exist in the array.\n";
     else
