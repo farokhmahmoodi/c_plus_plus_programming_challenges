@@ -5,7 +5,7 @@ in a program that asks the user to enter an array of numbers and prints its sum.
 #include <iostream>
 using namespace std;
 
-int recursiveArraySum(int *, int);
+int recursiveArraySum(const int *, int);
 
 int main()
 {
@@ -39,8 +39,12 @@ int main()
     return 0;
 }
 
-int recursiveArraySum(int* arr, int size)
+int recursiveArraySum(const int* arr, int size)
 {
+    int sum = 0;
 
-    return 1;
+    if (size > 0)
+        sum = arr[size - 1] + recursiveArraySum(arr, size - 1);
+
+    return sum;
 }
