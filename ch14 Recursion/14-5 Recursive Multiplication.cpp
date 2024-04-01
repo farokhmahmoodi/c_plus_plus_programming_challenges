@@ -24,7 +24,8 @@ int main()
         cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
         cout << "Invalid input for integer y." << endl;
     }
-    cout << "The product of integers x and y is " << recursiveMultiply(x, y) << endl;
+    cout << "The product of integers " << x << " and " 
+        << y << " is " << recursiveMultiply(x, y) << endl;
 
     return 0;
 }
