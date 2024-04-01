@@ -34,6 +34,7 @@ int main()
             cout << "Invalid input for number " << i + 1 << "." << endl;
         }
     }
+    cout << "The sum of all integers in the array is " << recursiveArraySum(a, size) << endl;
 
     return 0;
 }
