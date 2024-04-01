@@ -34,13 +34,13 @@ int recursiveMultiply(int x, int y)
     int product;
 
     if (x == 0 || y == 0)
-    {
         return 0;
-    }
-    else if (abs(y) > 0)
+    else if (y < 0)
     {
-        product = x + recursiveMultiply(x, --y);
+        product = -x + recursiveMultiply(x, ++y);
     }
+    else
+        product = x + recursiveMultiply(x, --y);
     
     return product;
 }
