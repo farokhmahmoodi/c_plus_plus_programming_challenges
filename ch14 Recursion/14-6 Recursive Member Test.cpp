@@ -17,7 +17,7 @@ int main()
                         417, 429, 447, -256, 536, 600 };
     int  num; // What to search for
 
-    while (cout << "Enter an integer you wish to search for: "
+    while (cout << "Enter an integer you wish to search for in the array: "
         && !(cin >> num)) {
         cin.clear(); //clear bad input flag
         cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
