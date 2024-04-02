@@ -6,7 +6,7 @@ that asks the user to enter an array of numbers and a value to be searched for.*
 #include <iostream>
 using namespace std;
 
-bool isMember(const int*, int, int);
+bool isMember(const int[], int, int);
 
 const int SIZE = 20;
 
@@ -23,25 +23,23 @@ int main()
         cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
         cout << "Invalid input for employee ID." << endl;
     }
-    if (!isMember(tests, SIZE, empID))
-        cout << "That number does not exist in the array.\n";
+    if (isMember(tests, SIZE, empID))
+        cout << "That number exists in the array.\n";
     else
-        cout << "The number exists in the array.\n";
+        cout << "The number does not exist in the array.\n";
 
     return 0;
 }
 
-bool isMember(const int* array, int size, int value)
+bool isMember(const int array[], int size, int value)
 {
-    int middle, first = 0, last = size - 1;	       	// Mid point of search
-
-    if (first > last)    // Base case
-        return false;
-    middle = (first + last) / 2;
-    if (array[middle] == value)
-        return true;
-    if (array[middle] < value)
-        isMember(array, middle + 1,  value);
+    if (size > 0)
+    {
+        if (array[size - 1] == value)
+            return true;
+        else
+            isMember(array, size - 1, value);
+    }
     else
-        isMember(array, middle - 1, value);
+        return false;
 }
