@@ -36,5 +36,10 @@ int main()
 
 bool isPalindrome(string str, int lower, int upper)
 {
-	return true;
+	if (str[lower] == str[upper])
+	{
+		return true;
+	}
+	else
+		return false;
 }
