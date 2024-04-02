@@ -13,17 +13,17 @@ const int SIZE = 20;
 int main()
 {
     int tests[SIZE] = { 101, 142, 147, 189, 199, 207, 222,
-                        234, 289, 296, 310, 319, 388, 394,
-                        417, 429, 447, 521, 536, 600 };
-    int  empID; // What to search for
+                        234, -52, 296, 310, 319, 10454, 394,
+                        417, 429, 447, -256, 536, 600 };
+    int  num; // What to search for
 
-    while (cout << "Enter the Employee ID you wish to search for: "
-        && !(cin >> empID)) {
+    while (cout << "Enter an integer you wish to search for: "
+        && !(cin >> num)) {
         cin.clear(); //clear bad input flag
         cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
-        cout << "Invalid input for employee ID." << endl;
+        cout << "Invalid input for integer." << endl;
     }
-    if (isMember(tests, SIZE, empID))
+    if (isMember(tests, SIZE, num))
         cout << "That number exists in the array.\n";
     else
         cout << "The number does not exist in the array.\n";
