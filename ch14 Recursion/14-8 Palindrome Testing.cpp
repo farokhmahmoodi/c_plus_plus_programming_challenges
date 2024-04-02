@@ -12,9 +12,29 @@ without typing any characters before it.*/
 #include <string>
 using namespace std;
 
+bool isPalindrome(string, int, int);
+
 int main()
 {
-   
+	string s;
+	
+	do
+	{
+		cout << "Enter a string:";
+		getline(cin, s);
+		if (s.length() != 0)
+		{
+			if (isPalindrome(s, 0, s.length()))
+				cout << "String entered is a palindrome.\n";
+			else
+				cout << "String entered is not a palindrome.\n";
+		}
+	} while (s.length() > 0);
 
 	return 0;
+}
+
+bool isPalindrome(string str, int lower, int upper)
+{
+	return true;
 }
