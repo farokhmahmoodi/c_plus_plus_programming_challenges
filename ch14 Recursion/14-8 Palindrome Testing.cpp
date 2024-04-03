@@ -24,7 +24,7 @@ int main()
 		getline(cin, s);
 		if (s.length() != 0)
 		{
-			if (isPalindrome(s, 0, s.length()))
+			if (isPalindrome(s, 0, s.length() - 1))
 				cout << "String entered is a palindrome.\n";
 			else
 				cout << "String entered is not a palindrome.\n";
@@ -36,10 +36,16 @@ int main()
 
 bool isPalindrome(string str, int lower, int upper)
 {
+	int middle = lower + upper / 2;
+
+	if (str.length() == 1) //base case
+		return true;
 	if (str[lower] == str[upper])
 	{
-		return true;
+		if (str[lower] != str[middle] || str[upper] != str[middle])
+			isPalindrome(str, ++lower, --upper);
 	}
 	else
 		return false;
+	return true;
 }
