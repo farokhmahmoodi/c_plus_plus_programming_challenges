@@ -8,6 +8,7 @@ entered.*/
 using namespace std;
 
 void prefixToPostFix(istringstream&);
+void prefixToPostFix(string);
 
 int main()
 {
@@ -34,16 +35,26 @@ void prefixToPostFix(istringstream& in)
 {
     ostringstream post;
     char ch = in.peek();
-    while (!isdigit(ch))
-    {
-        ch = in.get();
-        ch = in.peek();
-    }
-    while(isdigit(ch))
+    if (isdigit(ch))
     {
         post << ch;
-        ch = in.get();
-        ch = in.peek();
+        cout << post.str();
+        //ch = in.get();
+        //prefixToPostFix(in);
+    }
+}
+
+void prefixToPostFix(string in)
+{
+    for (int i = 0; i < in.length(); i++)
+    {
+        if (isdigit(in[i]) || isspace(in[i]))
+            cout << in[i];
+    }
+    for (int i = 0; i < in.length(); i++)
+    {
+        if (in[i] == '+')
+            cout << in[i];
     }
 }
 
