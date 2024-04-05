@@ -8,7 +8,7 @@ entered.*/
 using namespace std;
 
 void prefixToPostFix(istringstream&);
-void prefixToPostFix(string);
+void prefixToPostFix(string, int);
 
 int main()
 {
@@ -21,8 +21,9 @@ int main()
     getline(cin, input);
     while (input.size() != 0)
     {
-        istringstream istr(input);
-        prefixToPostFix(istr);
+        //istringstream istr(input);
+        //prefixToPostFix(istr);
+        prefixToPostFix(input, 0);
         // Get next line of input
         cout << "Enter a prefix expression to convert to postfix: ";
         getline(cin, input);
@@ -44,18 +45,27 @@ void prefixToPostFix(istringstream& in)
     }
 }
 
-void prefixToPostFix(string in)
+void prefixToPostFix(string in, int index)
 {
-    for (int i = 0; i < in.length(); i++)
-    {
-        if (isdigit(in[i]) || isspace(in[i]))
-            cout << in[i];
-    }
-    for (int i = 0; i < in.length(); i++)
-    {
-        if (in[i] == '+')
-            cout << in[i];
-    }
+    //for (int i = 0; i < in.length(); i++)
+    //{
+    //    if (isdigit(in[i]) || isspace(in[i]))
+    //        cout << in[i];
+    //}
+    //for (int i = 0; i < in.length(); i++)
+    //{
+    //    if (in[i] == '+' || in[i] == '-'
+    //        || in[i] == '*' || in[i] == '/')
+    //        cout << " " << in[i];
+    //}
+    //cout << endl;
+
+    if (isdigit(in[index]) || isspace(in[index]))
+        cout << in[index];
+    if (index < in.length())
+        prefixToPostFix(in, ++index);
+    else
+        cout << endl;
 }
 
 //int prefixExpr(istream& exprStream)
