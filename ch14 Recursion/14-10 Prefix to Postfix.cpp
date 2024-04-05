@@ -32,30 +32,25 @@ int main()
 string prefixToPostfix(string input)
 {
     istringstream istr(input);
-    ostringstream ostr;
+    char ch = istr.peek();
+    int index = 0;
 
-    for (int i = 0; i < istr.str().length(); i++)
+    while (isspace(ch))
     {
-        if (isalnum(istr.str()[i]))
-        {
-            if (isspace(istr.str()[i + 1]))
-                ostr << istr.str()[i] << " ";
-            else
-                ostr << istr.str()[i];
-        }
+        ch = istr.get();
+        index++;
+        ch = istr.peek();
     }
-    ostr << " ";
-    for (int i = 0; i < istr.str().length(); i++)
+    if (isalnum(ch)) //base case
+        return input;
+    else
     {
-        if (istr.str()[i] == '+' || istr.str()[i] == '-'
-            || istr.str()[i] == '*' || istr.str()[i] == '/')
+        while (ch == '+' || ch == '-' || ch == '*' || ch == '/' || isspace(ch) || !isalnum(ch))
         {
-            if (isspace(istr.str()[i + 1]))
-                ostr << istr.str()[i] << " ";
-            else
-                ostr << istr.str()[i];
+            ch = istr.get();
+            index++;
+            ch = istr.peek();
         }
+        return istr.str()[index] + prefixToPostfix(istr.str().substr(index,istr.str().length() - index));
     }
-    
-    return ostr.str();
 }
