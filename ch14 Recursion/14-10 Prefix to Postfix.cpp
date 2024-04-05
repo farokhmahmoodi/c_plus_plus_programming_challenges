@@ -7,8 +7,7 @@ entered.*/
 #include <sstream>
 using namespace std;
 
-void prefixToPostFixDigits(string, int);
-void prefixToPostFixOperators(string, int);
+
 
 int main()
 {
@@ -21,30 +20,12 @@ int main()
     getline(cin, input);
     while (input.size() != 0)
     {
-        prefixToPostFixDigits(input, 0);
-        prefixToPostFixOperators(input, 0);
+        
+
         // Get next line of input
         cout << "Enter a prefix expression to convert to postfix: ";
         getline(cin, input);
     }
 
     return 0;
-}
-
-void prefixToPostFixDigits(string in, int index)
-{
-    if (isalnum(tolower(in[index])) || isspace(in[index]))
-        cout << in[index];
-    if (index < in.length())
-        prefixToPostFixDigits(in, ++index);
-}
-
-void prefixToPostFixOperators(string in, int index)
-{
-    if (ispunct(in[index]))
-        cout << " " << in[index];
-    if (index < in.length())
-        prefixToPostFixOperators(in, ++index);
-    else
-        cout << endl;
 }
