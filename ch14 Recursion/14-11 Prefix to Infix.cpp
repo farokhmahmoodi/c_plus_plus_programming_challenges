@@ -63,13 +63,10 @@ string prefixToInfix(istream& exprStream)
 
         // Read the operator
         ch = exprStream.get();
-        cout << "ch:" << ch << endl;
 
         // Recursively evaluate the two subexpressions
         string value1 = prefixToInfix(exprStream);
-        cout << "value1:" << value1 << endl;
         string value2 = prefixToInfix(exprStream);
-        cout << "value2:" << value2 << endl;
 
         // Apply the operator
         switch (ch)
