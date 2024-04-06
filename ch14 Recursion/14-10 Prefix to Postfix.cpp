@@ -75,8 +75,7 @@ string prefixToPostFix(istream& exprStream)
         case '-': return value1 + " " + value2 + " -";
         case '*': return value1 + " " + value2 + " *";
         case '/': return value1 + " " + value2 + " /";
-        default:  cout << "Bad input expression";
-            exit(1);
+        default:  return "Bad input expression";
         }
     }
 }
