@@ -64,6 +64,7 @@ int main()
             if (i < 0 || i > 12)
                 cout << "Index must be between 0 and 12." << endl;
         } while (i < 0 || i > 12);
+        cout << people[i];
         ancestors(i);
         cout << endl;
         do
@@ -84,21 +85,13 @@ int main()
 
 void ancestors(int index)
 {
-    cout << people[index];
     if (mom[index] != -1 && pop[index] != -1)
     {
          cout << ", " << people[mom[index]] << ", "
             << people[pop[index]];
          if (mom[mom[index]] != -1)
-         {
-             cout << ", ";
              ancestors(mom[index]);
-         }
-
          if (pop[pop[index]] != -1)
-         {
-             cout << ", ";
              ancestors(pop[index]);
-         }
     }
 }
