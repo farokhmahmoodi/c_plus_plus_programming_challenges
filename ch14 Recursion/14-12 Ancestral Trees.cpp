@@ -85,13 +85,22 @@ int main()
 
 void ancestors(int index)
 {
-    if (mom[index] != -1 && pop[index] != -1)
+    if (index <= 6 && index != 5)
     {
-         cout << ", " << people[mom[index]] << ", "
-            << people[pop[index]];
-         if (mom[mom[index]] != -1)
-             ancestors(mom[index]);
-         if (pop[pop[index]] != -1)
-             ancestors(pop[index]);
+        cout << ", " << mother[index]
+            << ", " << father[index];
+        if (mom[mom[index]] != -1)
+            ancestors(mom[index]);
+        if (pop[pop[index]] != -1)
+            ancestors(pop[index]);
+    }
+    else if (mom[index] != -1 && pop[index] != -1)
+    {
+        cout << ", " << people[mom[index]] <<
+            ", " << people[pop[index]];
+        if (mom[mom[index]] != -1)
+            ancestors(mom[index]);
+        if (pop[pop[index]] != -1)
+            ancestors(pop[index]);
     }
 }
