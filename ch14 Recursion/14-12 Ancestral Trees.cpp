@@ -32,11 +32,64 @@ the given index.*/
 #include <iostream>
 using namespace std;
 
+const string people[] = { "Al", "Beth", "Bob", "Carol", "Chuck",
+                         "Candy", "Cain", "Debbie", "Doug",
+                         "Diane", "Dwayne", "Delores", "Dwight"
+};
+const string mother[] = { "Beth", "Carol", "Charity", "Debbie",
+                         "Diane", "", "Delores"
+};
+const string father[] = { "Bob", "Charley", "Cain", "Douglas",
+                         "Dwayne", "", "Dwight"
+};
+const int mom[] = { 1, 3, 5, 7, 9, -1, 11, -1, -1, -1, -1, -1, -1 };
+const int pop[] = { 2, 4, 6, 8, 10, -1, 12, -1, -1, -1, -1, -1, -1 };
 
+void ancestors(int);
 
 int main()
 {
-    
+    int i,choice;
+
+    do
+    {
+        do
+        {
+            while (cout << "Enter an integer between 0 and 12 for index of person you want to"
+                << " print ancestral lineage of:" && !(cin >> i)) {
+                cin.clear(); //clear bad input flag
+                cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
+                cout << "Invalid input for index." << endl;
+            }
+            if (i < 0 || i > 12)
+                cout << "Index must be between 0 and 12." << endl;
+        } while (i < 0 || i > 12);
+        ancestors(i);
+        cout << endl;
+        do
+        {
+            while (cout << "Would you like to run the program again? (1 for yes/2 for no)"
+                && !(cin >> choice)) {
+                cin.clear(); //clear bad input flag
+                cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
+                cout << "Invalid input for choice." << endl;
+            }
+            if (choice != 1 && choice != 2)
+                cout << "Choice must be 1 or 2." << endl;
+        } while (choice != 1 && choice != 2);
+    } while (choice != 2);
 
     return 0;
+}
+
+void ancestors(int index)
+{
+    cout << people[index] << ", ";
+    if (mom[index] != -1 && pop[index] != -1)
+    {
+         cout << people[mom[index]] << ", "
+            << people[pop[index]] << ", ";
+        ancestors(mom[index]);
+        ancestors(pop[index]);
+    }
 }
