@@ -84,12 +84,21 @@ int main()
 
 void ancestors(int index)
 {
-    cout << people[index] << ", ";
+    cout << people[index];
     if (mom[index] != -1 && pop[index] != -1)
     {
-         cout << people[mom[index]] << ", "
-            << people[pop[index]] << ", ";
-        ancestors(mom[index]);
-        ancestors(pop[index]);
+         cout << ", " << people[mom[index]] << ", "
+            << people[pop[index]];
+         if (mom[mom[index]] != -1)
+         {
+             cout << ", ";
+             ancestors(mom[index]);
+         }
+
+         if (pop[pop[index]] != -1)
+         {
+             cout << ", ";
+             ancestors(pop[index]);
+         }
     }
 }
