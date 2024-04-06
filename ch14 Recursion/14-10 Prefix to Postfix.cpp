@@ -1,5 +1,5 @@
-/*Write a program that reads prefix expressions and converts them to postfix. Each prefix expression should be entered on a 
-separate line. The program should keep reading prefix expressions and converting them to postfix until a blank line is 
+/*Write a program that reads prefix expressions and converts them to postfix. Each prefix expression should be entered on a
+separate line. The program should keep reading prefix expressions and converting them to postfix until a blank line is
 entered.*/
 
 #include <iostream>
@@ -7,7 +7,7 @@ entered.*/
 #include <sstream>
 using namespace std;
 
-string prefixToPostfix(string);
+string prefixToPostFix(istream&);
 
 int main()
 {
@@ -20,7 +20,8 @@ int main()
     getline(cin, input);
     while (input.size() != 0)
     {
-        cout << prefixToPostfix(input) << endl;
+        istringstream istr(input);
+        cout << prefixToPostFix(istr) << endl;
         // Get next line of input
         cout << "Enter a prefix expression to convert to postfix: ";
         getline(cin, input);
@@ -29,28 +30,53 @@ int main()
     return 0;
 }
 
-string prefixToPostfix(string input)
+string prefixToPostFix(istream& exprStream)
 {
-    istringstream istr(input);
-    char ch = istr.peek();
-    int index = 0;
+    // Peek at first non-space character in prefix expression
+    char ch = exprStream.peek();
 
     while (isspace(ch))
     {
-        ch = istr.get();
-        index++;
-        ch = istr.peek();
+        ch = exprStream.get();   // Read the space character
+        ch = exprStream.peek();  // Peek again
     }
-    if (isalnum(ch)) //base case
-        return input;
+    if (isalpha(ch))
+    {
+        // The prefix expression is a single variable
+        string var;
+        exprStream >> var;
+        return var;
+    }
+    if (isdigit(ch))
+    {
+        // The prefix expression is a single number
+        int num;
+        exprStream >> num;
+        ostringstream ostr;
+        ostr << num;
+        return ostr.str();
+    }
     else
     {
-        while (ch == '+' || ch == '-' || ch == '*' || ch == '/' || isspace(ch) || !isalnum(ch))
+        // The prefix expression is an operator followed
+        // by two prefix expressions:
+
+        // Read the operator
+        ch = exprStream.get();
+
+        // Recursively evaluate the two subexpressions
+        string value1 = prefixToPostFix(exprStream);
+        string value2 = prefixToPostFix(exprStream);
+
+        // Apply the operator
+        switch (ch)
         {
-            ch = istr.get();
-            index++;
-            ch = istr.peek();
+        case '+': return value1 + " " + value2 + " +";
+        case '-': return value1 + " " + value2 + " -";
+        case '*': return value1 + " " + value2 + " *";
+        case '/': return value1 + " " + value2 + " /";
+        default:  cout << "Bad input expression";
+            exit(1);
         }
-        return istr.str()[index] + prefixToPostfix(istr.str().substr(index,istr.str().length() - index));
     }
 }
