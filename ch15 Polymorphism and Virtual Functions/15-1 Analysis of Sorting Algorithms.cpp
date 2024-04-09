@@ -31,6 +31,10 @@ public:
         else
             return false;
     }
+    int getNumOfComparisons()
+    {
+        return num;
+    }
     virtual void sort(int arr[], int size) = 0;
 };
 
@@ -56,10 +60,6 @@ public:
             }
             swap(arr[minIndex], arr[start]);
         }
-    }
-    int getNumOfComparisons()
-    {
-        return num;
     }
 };
 
