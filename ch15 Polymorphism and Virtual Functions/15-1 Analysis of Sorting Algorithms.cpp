@@ -8,27 +8,18 @@ numbers. Create a subclass of AbstractSort that uses a simple sorting algorithm 
 should have a member function that can be called after the sorting is done to retrieve the number of comparisons performed.*/
 
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 const int SIZE = 10;
 
 class AbstractSort {
 protected:
-    int num, arr[SIZE];
+    int num;
 public:
     AbstractSort()
     {
         num = 0;
-        for (int i = 0; i < SIZE; i++)
-            arr[i] = 0;
-    }
-    AbstractSort(int a[], int size)
-    {
-        num = 0;
-        for (int i = 0; i < SIZE; i++)
-        {
-            arr[i] = a[i];
-        }
     }
     bool compare(int& x, int& y)
     {
@@ -43,17 +34,9 @@ public:
     virtual void sort(int arr[], int size) = 0;
 };
 
-class SimpleAbstractSort : public AbstractSort
+class SelectionSort : public AbstractSort
 {
 public:   
-    SimpleAbstractSort() : AbstractSort()
-    {
-
-    }
-    SimpleAbstractSort(int a[], int size) : AbstractSort(a, size)
-    {
-
-    }
     virtual void sort(int arr[], int size) 
     {
         int minIndex;
@@ -74,12 +57,6 @@ public:
             swap(arr[minIndex], arr[start]);
         }
     }
-    void swap(int& x, int& y)
-    {
-        int temp = x;
-        x = y;
-        y = temp;
-    }
     int getNumOfComparisons()
     {
         return num;
@@ -88,9 +65,18 @@ public:
 
 int main()
 {
-    int arr[SIZE] = { 5, 0, 37, 125, 300, 7, 10, 12, 19, 200 };
+    int arr[SIZE];
 
-    SimpleAbstractSort test(arr, SIZE);
+    for (int i = 0; i < SIZE; i++)
+    {
+        while (cout << "Enter number " << i + 1 << ":" && 
+            !(cin >> arr[i])) {
+            cin.clear(); //clear bad input flag
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
+            cout << "Invalid input for number." << endl;
+        }
+    }
+    SelectionSort test;
     test.sort(arr, SIZE);
     cout << "Sorted array below.\n";
     for (int i = 0; i < SIZE; i++)
