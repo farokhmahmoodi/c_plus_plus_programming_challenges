@@ -30,14 +30,54 @@ public:
         return num;
     }
     virtual void sort(int arr[], int size) = 0;
+    virtual void sort(int arr[], int start, int end) = 0;
 };
 
-class QuickSort : public AbstractSort
-{
+class QuickSort : public AbstractSort {
 public:
     virtual void sort(int arr[], int size)
     {
-        
+
+    }
+    virtual void sort(int arr[], int start, int end)
+    {
+        if (compare(start, end))
+        {
+            // Partition the array and get the pivot point
+            int p = partition(arr, start, end);
+
+            // Sort the portion before the pivot point
+            sort(arr, start, p - 1);
+
+            // Sort the portion after the pivot point
+            sort(arr, p + 1, end);
+        }
+    }
+    int partition(int arr[], int start, int end)
+    {
+        // The pivot element is taken to be the element at
+        // the start of the subrange to be partitioned
+        int pivotValue = arr[start];
+        int pivotPosition = start;
+
+        // Rearrange the rest of the array elements to 
+        // partition the subrange from start to end
+        for (int pos = start + 1; pos <= end; pos++)
+        {
+            if (compare(arr[pos],pivotValue))
+            {
+                // arr[scan] is the "current" item.
+                // Swap the current item with the item to the
+                // right of the pivot element
+                swap(arr[pivotPosition + 1], arr[pos]);
+                // Swap the current item with the pivot element
+                swap(arr[pivotPosition], arr[pivotPosition + 1]);
+                // Adjust the pivot position so it stays with the
+                // pivot element
+                pivotPosition++;
+            }
+        }
+        return pivotPosition;
     }
 };
 
@@ -55,12 +95,12 @@ int main()
         }
     }
     QuickSort test;
-    test.sort(arr, SIZE);
+    test.sort(arr, 0, SIZE - 1);
     cout << "Sorted array below.\n";
     for (int i = 0; i < SIZE; i++)
         cout << arr[i] << " ";
     cout << endl;
-    cout << "Number of comparions made sorting this array is:"
+    cout << "Number of comparions made using quick sort to sort this array is:"
         << test.getNumOfComparisons() << endl;
 
     return 0;
