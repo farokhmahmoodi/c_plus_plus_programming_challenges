@@ -22,12 +22,19 @@ public:
         for (int i = 0; i < SIZE; i++)
             arr[i] = 0;
     }
+    AbstractSort(int a[], int size)
+    {
+        num = 0;
+        for (int i = 0; i < SIZE; i++)
+        {
+            arr[i] = a[i];
+        }
+    }
     bool compare(int& x, int& y)
     {
         if (x < y)
         {
             num++;
-            swap(x, y);
             return true;
         }
         else
@@ -40,6 +47,10 @@ class SimpleAbstractSort : public AbstractSort
 {
 public:   
     SimpleAbstractSort() : AbstractSort()
+    {
+
+    }
+    SimpleAbstractSort(int a[], int size) : AbstractSort(a, size)
     {
 
     }
@@ -63,7 +74,13 @@ public:
             swap(arr[minIndex], arr[start]);
         }
     }
-    virtual int getNumOfComparisons()
+    void swap(int& x, int& y)
+    {
+        int temp = x;
+        x = y;
+        y = temp;
+    }
+    int getNumOfComparisons()
     {
         return num;
     }
@@ -71,7 +88,15 @@ public:
 
 int main()
 {
-    
+    int arr[SIZE] = { 5, 0, 37, 125, 300, 7, 10, 12, 19, 200 };
+
+    SimpleAbstractSort test(arr, SIZE);
+    test.sort(arr, SIZE);
+    for (int i = 0; i < SIZE; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+    cout << "Number of comparions made sorting this array is:" 
+        << test.getNumOfComparisons() << endl;
 
     return 0;
 }
