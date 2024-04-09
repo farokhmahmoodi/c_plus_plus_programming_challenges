@@ -32,9 +32,9 @@ public:
     }
     bool compare(int& x, int& y)
     {
+        num++;
         if (x < y)
         {
-            num++;
             return true;
         }
         else
@@ -92,6 +92,7 @@ int main()
 
     SimpleAbstractSort test(arr, SIZE);
     test.sort(arr, SIZE);
+    cout << "Sorted array below.\n";
     for (int i = 0; i < SIZE; i++)
         cout << arr[i] << " ";
     cout << endl;
