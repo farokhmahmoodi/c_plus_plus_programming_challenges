@@ -82,7 +82,7 @@ int main()
     for (int i = 0; i < SIZE; i++)
         cout << arr[i] << " ";
     cout << endl;
-    cout << "Number of comparions made sorting this array is:"
+    cout << "Number of comparions made using selection sort to sort this array is:"
         << test.getNumOfComparisons() << endl;
 
     return 0;
