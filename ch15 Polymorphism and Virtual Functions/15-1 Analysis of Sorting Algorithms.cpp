@@ -10,6 +10,65 @@ should have a member function that can be called after the sorting is done to re
 #include <iostream>
 using namespace std;
 
+const int SIZE = 10;
+
+class AbstractSort {
+protected:
+    int num, arr[SIZE];
+public:
+    AbstractSort()
+    {
+        num = 0;
+        for (int i = 0; i < SIZE; i++)
+            arr[i] = 0;
+    }
+    bool compare(int& x, int& y)
+    {
+        if (x < y)
+        {
+            num++;
+            swap(x, y);
+            return true;
+        }
+        else
+            return false;
+    }
+    virtual void sort(int arr[], int size) = 0;
+};
+
+class SimpleAbstractSort : public AbstractSort
+{
+public:   
+    SimpleAbstractSort() : AbstractSort()
+    {
+
+    }
+    virtual void sort(int arr[], int size) 
+    {
+        int minIndex;
+        int minValue;
+
+        for (int start = 0; start < (size - 1); start++)
+        {
+            minIndex = start;
+            minValue = arr[start];
+            for (int index = start + 1; index < size; index++)
+            {
+                if (compare(arr[index],minValue))
+                {
+                    minValue = arr[index];
+                    minIndex = index;
+                }
+            }
+            swap(arr[minIndex], arr[start]);
+        }
+    }
+    virtual int getNumOfComparisons()
+    {
+        return num;
+    }
+};
+
 int main()
 {
     
