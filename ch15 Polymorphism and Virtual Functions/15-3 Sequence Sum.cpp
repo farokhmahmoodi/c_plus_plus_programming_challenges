@@ -71,10 +71,24 @@ public:
     }
 };
 
+class Fibonacci : public AbstractSeq {
+public:
+    virtual int fun(int k)
+    {
+        if (k <= 0)       // base case
+            return 0;
+        else if (k == 1)  // base case
+            return 1;
+        else
+            return fun(k - 1) + fun(k - 2);
+    }
+};
+
 int main()
 {
     OddSeq a;
     EvenSeq b;
+    Fibonacci c;
     int k, m, choice;
 
     do
@@ -110,6 +124,10 @@ int main()
             k << " to " << m << " below.\n";
         b.printSeq(k, m);
         cout << "Sum:" << b.sumSeq(k, m) << endl;
+        cout << "Sequence and sum of fibonacci numbers from integer " <<
+            k << " to " << m << " below.\n";
+        c.printSeq(k, m);
+        cout << "Sum:" << c.sumSeq(k, m) << endl;
         do
         {
             while (cout << "Would you like to run program again?"
