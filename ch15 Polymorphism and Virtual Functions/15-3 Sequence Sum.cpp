@@ -109,16 +109,19 @@ int main()
         cout << "Sequence and sum of odd numbers from integer " <<
             k << " to " << m << " below.\n";
         b.printSeq(k, m);
-        cout << "Sum:" << b.sumSeq(k, m) << endl;       
-        while (cout << "Would you like to run program again?" 
-            << "(1 for yes/ 2 for no):" &&
-            !(cin >> choice)) {
-            cin.clear(); //clear bad input flag
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
-            cout << "Invalid input for choice." << endl;
-        }
-        if (choice != 1 && choice != 2)
-            cout << "Choice must be 1 or 2.\n";
+        cout << "Sum:" << b.sumSeq(k, m) << endl;
+        do
+        {
+            while (cout << "Would you like to run program again?"
+                << "(1 for yes/ 2 for no):" &&
+                !(cin >> choice)) {
+                cin.clear(); //clear bad input flag
+                cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
+                cout << "Invalid input for choice." << endl;
+            }
+            if (choice != 1 && choice != 2)
+                cout << "Choice must be 1 or 2.\n";
+        } while (choice != 1 && choice != 2);       
     } while (choice != 2);
 
     return 0;
