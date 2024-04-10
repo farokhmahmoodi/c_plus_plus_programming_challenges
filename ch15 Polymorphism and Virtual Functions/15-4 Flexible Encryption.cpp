@@ -89,16 +89,29 @@ public:
     }
 };
 
+class SimpleDecryption : public Encryption
+{
+public:
+    char transform(char ch, int key) const override
+    {
+        return ch - key;
+    }
+    SimpleDecryption(const string& inFileName, const string& outFileName, int k)
+        : Encryption(inFileName, outFileName, k)
+    {
+    }
+};
+
 int main()
 {
-    string inFileName, outFileName;
+    string inFileName, outFileName, outFileName2;
     int k;
 
     cout << "Enter name of file to encrypt: ";
-    cin >> inFileName;
+    getline(cin, inFileName);
     cout << "Enter name of file to receive "
         << "the encrypted text: ";
-    cin >> outFileName;
+    getline(cin, outFileName);
     while (cout << "Enter an integer for encryption key:" &&
         !(cin >> k)) {
         cin.clear(); //clear bad input flag
