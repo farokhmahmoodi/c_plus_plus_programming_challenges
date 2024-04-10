@@ -32,7 +32,7 @@ public:
         }
         else
         {
-            for (int i = k; k < m; i++, k += 2)
+            for (int i = k; k < m; i++, k++)
             {
                 cout << fun(i) << " ";
             }
@@ -42,14 +42,11 @@ public:
     int sumSeq(int k, int m)
     {
         if (k > m)
-        {
-            cout << "Error. Integer k is greater than integer m.\n";
             return 0;
-        }
         else
         {
             int sum = 0;
-            for (int i = k; k < m; i++, k += 2)
+            for (int i = k; k < m; i++, k++)
             {
                 sum += fun(i);
             }
