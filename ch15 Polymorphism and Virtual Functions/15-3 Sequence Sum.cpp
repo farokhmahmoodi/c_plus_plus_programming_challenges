@@ -21,9 +21,108 @@ best shows off the operation of these classes, and write a program that produces
 #include <iostream>
 using namespace std;
 
+class AbstractSeq {
+public:
+    virtual int fun(int k) = 0;
+    void printSeq(int k, int m)
+    {
+        if (k > m)
+        {
+            cout << "Error. Integer k is greater than integer m.\n";
+        }
+        else
+        {
+            for (int i = k; k < m; i++, k += 2)
+            {
+                cout << fun(i) << " ";
+            }
+            cout << endl;
+        }
+    }
+    int sumSeq(int k, int m)
+    {
+        if (k > m)
+        {
+            cout << "Error. Integer k is greater than integer m.\n";
+            return 0;
+        }
+        else
+        {
+            int sum = 0;
+            for (int i = k; k < m; i++, k += 2)
+            {
+                sum += fun(i);
+            }
+            return sum;
+        }
+    }
+};
+
+class OddSeq : public AbstractSeq {
+public:
+    virtual int fun(int k)
+    {
+        return 2 * k + 1;
+    }
+};
+
+class EvenSeq : public AbstractSeq {
+public:
+    virtual int fun(int k)
+    {
+        return 2 * k + 2;
+    }
+};
+
 int main()
 {
-    
+    OddSeq a;
+    EvenSeq b;
+    int k, m, choice;
+
+    do
+    {
+        do
+        {
+            while (cout << "Enter a nonnegative integer k:" &&
+                !(cin >> k)) {
+                cin.clear(); //clear bad input flag
+                cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
+                cout << "Invalid input for integer." << endl;
+            }
+            if (k < 0)
+                cout << "Integer must be nonnegative." << endl;
+        } while (k < 0);
+        do
+        {
+            while (cout << "Enter a nonnegative integer m that is greater"
+                << " than integer k:" &&
+                !(cin >> m)) {
+                cin.clear(); //clear bad input flag
+                cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
+                cout << "Invalid input for integer." << endl;
+            }
+            if (m < 0)
+                cout << "Integer must be nonnegative." << endl;
+        } while (m < 0);
+        cout << "Sequence and sum of odd numbers from integer " <<
+            k << " to " << m << " below.\n";
+        a.printSeq(k, m);
+        cout << "Sum:" << a.sumSeq(k, m) << endl;
+        cout << "Sequence and sum of odd numbers from integer " <<
+            k << " to " << m << " below.\n";
+        b.printSeq(k, m);
+        cout << "Sum:" << b.sumSeq(k, m) << endl;       
+        while (cout << "Would you like to run program again?" 
+            << "(1 for yes/ 2 for no):" &&
+            !(cin >> choice)) {
+            cin.clear(); //clear bad input flag
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
+            cout << "Invalid input for choice." << endl;
+        }
+        if (choice != 1 && choice != 2)
+            cout << "Choice must be 1 or 2.\n";
+    } while (choice != 2);
 
     return 0;
 }
