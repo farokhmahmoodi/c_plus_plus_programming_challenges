@@ -21,101 +21,69 @@ using namespace std;
 
 class FileFilter
 {
-protected:
-    ifstream inFile;
-    ofstream outFile;
 public:
-    FileFilter(ifstream&,ofstream&);
-    virtual  ~FileFilter();
+    FileFilter()
+    {
+    }
     // Pure virtual function
     virtual char transform(char ch) const = 0;
     void doFilter(ifstream& in, ofstream& out);
 };
 
-//**************************************************
-// Constructor opens the input and output file.    *
-//**************************************************
-//FileFilter::FileFilter(ifstream& in, ofstream& out)
-//{
-//    inFile.open(inFileName);
-//    outFile.open(outFileName);
-//    if (!inFile)
-//    {
-//        cout << "The file " << inFileName
-//            << " cannot be opened.";
-//        exit(1);
-//    }
-//    if (!outFile)
-//    {
-//        cout << "The file " << outFileName
-//            << " cannot be opened.";
-//        exit(1);
-//    }
-//}
-
-//**************************************************
-//Destructor closes files.                         *
-//**************************************************
-FileFilter::~FileFilter()
-{
-    inFile.close();
-    outFile.close();
-}
-
 void FileFilter::doFilter(ifstream& in, ofstream& out)
 {
     char ch;
     char transCh;
-    inFile.get(ch);
-    while (!inFile.fail())
+    in.get(ch);
+    while (!in.fail())
     {
         transCh = transform(ch);
-        outFile.put(transCh);
-        inFile.get(ch);
+        out.put(transCh);
+        in.get(ch);
     }
 }
 
-//class Encryption : public FileFilter
-//{
-//protected:
-//    int key;
-//public:
-//    char transform(char ch) const override
-//    {
-//        return ch + key;
-//    }
-//    Encryption(const string& inFileName, const string& outFileName, int k)
-//        : FileFilter(inFileName, outFileName)
-//    {
-//        key = k;
-//    }
-//};
-//
-//class UpperCase : public FileFilter
-//{
-//public:
-//    char transform(char ch) const override
-//    {
-//        return toupper(ch);
-//    }
-//    UpperCase(const string& inFileName, const string& outFileName)
-//        : FileFilter(inFileName, outFileName)
-//    {
-//    }
-//};
-//
-//class Unchanged : public FileFilter
-//{
-//public:
-//    char transform(char ch) const override
-//    {
-//        return ch;
-//    }
-//    Unchanged(const string& inFileName, const string& outFileName)
-//        : FileFilter(inFileName, outFileName)
-//    {
-//    }
-//};
+class Encryption : public FileFilter
+{
+protected:
+    int key;
+public:
+    char transform(char ch) const override
+    {
+        return ch + key;
+    }
+    Encryption(int k)
+        : FileFilter()
+    {
+        key = k;
+    }
+};
+
+class UpperCase : public FileFilter
+{
+public:
+    char transform(char ch) const override
+    {
+        return toupper(ch);
+    }
+    UpperCase()
+        : FileFilter()
+    {
+    }
+};
+
+class Unchanged : public FileFilter
+{
+public:
+    char transform(char ch) const override
+    {
+        return ch;
+    }
+    Unchanged()
+        : FileFilter()
+    {
+    }
+};
 
 int main()
 {
@@ -147,8 +115,8 @@ int main()
         cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
         cout << "Invalid input for integer." << endl;
     }
-    //Encryption obfuscate(inFileName, outFileName,k);
-    //obfuscate.doFilter(inFile,outFile);
+    Encryption obfuscate(k);
+    obfuscate.doFilter(in,out);
 
     return 0;
 }
