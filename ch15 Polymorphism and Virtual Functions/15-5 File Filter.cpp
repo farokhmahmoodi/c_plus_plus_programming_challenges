@@ -85,6 +85,22 @@ public:
     }
 };
 
+class Decryption : public FileFilter
+{
+protected:
+    int key;
+public:
+    char transform(char ch) const override
+    {
+        return ch - key;
+    }
+    Decryption(int k)
+        : FileFilter()
+    {
+        key = k;
+    }
+};
+
 int main()
 {
     ifstream in;
@@ -116,6 +132,9 @@ int main()
         cout << "Invalid input for integer." << endl;
     }
     Encryption obfuscate(k);
+    //UpperCase obfuscate;
+    //Unchanged obfuscate;
+    //Decryption obfuscate(k);
     obfuscate.doFilter(in,out);
 
     return 0;
