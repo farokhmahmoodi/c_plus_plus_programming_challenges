@@ -1,6 +1,6 @@
-/*Write a modification of the encryption program of Section 15.5 whose transform function uses an integer key to transform 
-the character passed to it. The function transforms the character by adding the key to it. The key should be represented as a 
-member of the Encryption class, and the class should be modified so that it has a member function that sets the encryption 
+/*Write a modification of the encryption program of Section 15.5 whose transform function uses an integer key to transform
+the character passed to it. The function transforms the character by adding the key to it. The key should be represented as a
+member of the Encryption class, and the class should be modified so that it has a member function that sets the encryption
 key. When the program runs, the main function should ask the user for the input file, the output file, and an encryption key.
 
 Show that with these modifications, the same program can be used for both encryption and decryption.*/
@@ -18,18 +18,19 @@ protected:
     ofstream outFile;
     int key;
 public:
-    Encryption(const string& inFileName, const string& outFileName,int k);
+    Encryption(const string& inFileName, const string& outFileName);
     virtual  ~Encryption();
     // Pure virtual function
     virtual char transform(char ch, int key) const = 0;
     // Do the actual work.
     virtual void encrypt() final;
+    virtual void setKey(int) final;
 };
 
 //**************************************************
 // Constructor opens the input and output file.    *
 //**************************************************
-Encryption::Encryption(const string& inFileName, const string& outFileName, int k)
+Encryption::Encryption(const string& inFileName, const string& outFileName)
 {
     inFile.open(inFileName);
     outFile.open(outFileName);
@@ -45,7 +46,7 @@ Encryption::Encryption(const string& inFileName, const string& outFileName, int 
             << " cannot be opened.";
         exit(1);
     }
-    key = k;
+    key = 0;
 }
 
 //**************************************************
@@ -68,10 +69,15 @@ void Encryption::encrypt()
     inFile.get(ch);
     while (!inFile.fail())
     {
-        transCh = transform(ch,key);
+        transCh = transform(ch, key);
         outFile.put(transCh);
         inFile.get(ch);
     }
+}
+
+void Encryption::setKey(int k)
+{
+    key = k;
 }
 
 // The subclass simply overides the virtual
@@ -83,8 +89,8 @@ public:
     {
         return ch + key;
     }
-    SimpleEncryption(const string& inFileName, const string& outFileName,int k)
-        : Encryption(inFileName, outFileName,k)
+    SimpleEncryption(const string& inFileName, const string& outFileName)
+        : Encryption(inFileName, outFileName)
     {
     }
 };
@@ -96,8 +102,8 @@ public:
     {
         return ch - key;
     }
-    SimpleDecryption(const string& inFileName, const string& outFileName, int k)
-        : Encryption(inFileName, outFileName, k)
+    SimpleDecryption(const string& inFileName, const string& outFileName)
+        : Encryption(inFileName, outFileName)
     {
     }
 };
@@ -118,7 +124,8 @@ int main()
         cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
         cout << "Invalid input for integer." << endl;
     }
-    SimpleEncryption obfuscate(inFileName, outFileName,k);
+    SimpleEncryption obfuscate(inFileName, outFileName);
+    obfuscate.setKey(k);
     obfuscate.encrypt();
 
     return 0;
