@@ -29,55 +29,53 @@ public:
     virtual  ~FileFilter();
     // Pure virtual function
     virtual char transform(char ch) const = 0;
-    //virtual void encrypt() final;
+    void doFilter(ifstream& in, ofstream& out);
 };
 
 //**************************************************
 // Constructor opens the input and output file.    *
 //**************************************************
-//Encryption::Encryption(const string& inFileName, const string& outFileName)
-//{
-//    inFile.open(inFileName);
-//    outFile.open(outFileName);
-//    if (!inFile)
-//    {
-//        cout << "The file " << inFileName
-//            << " cannot be opened.";
-//        exit(1);
-//    }
-//    if (!outFile)
-//    {
-//        cout << "The file " << outFileName
-//            << " cannot be opened.";
-//        exit(1);
-//    }
-//}
+FileFilter::FileFilter(const string& inFileName, const string& outFileName)
+{
+    inFile.open(inFileName);
+    outFile.open(outFileName);
+    if (!inFile)
+    {
+        cout << "The file " << inFileName
+            << " cannot be opened.";
+        exit(1);
+    }
+    if (!outFile)
+    {
+        cout << "The file " << outFileName
+            << " cannot be opened.";
+        exit(1);
+    }
+}
 
 //**************************************************
 //Destructor closes files.                         *
 //**************************************************
-//Encryption::~Encryption()
-//{
-//    inFile.close();
-//    outFile.close();
-//}
+FileFilter::~FileFilter()
+{
+    inFile.close();
+    outFile.close();
+}
 
-//*****************************************************
-//Encrypt function uses the virtual transform         *
-//member function to transform individual characters. *
-//***************************************************** 
-//void Encryption::encrypt()
-//{
-//    char ch;
-//    char transCh;
-//    inFile.get(ch);
-//    while (!inFile.fail())
-//    {
-//        transCh = transform(ch);
-//        outFile.put(transCh);
-//        inFile.get(ch);
-//    }
-//}
+void FileFilter::doFilter(ifstream& in, ofstream& out)
+{
+    char ch;
+    char transCh;
+    inFile.get(ch);
+    while (!inFile.fail())
+    {
+        transCh = transform(ch);
+        outFile.put(transCh);
+        inFile.get(ch);
+    }
+}
+
+
 
 int main()
 {
