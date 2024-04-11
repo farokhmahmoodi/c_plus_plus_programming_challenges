@@ -25,7 +25,7 @@ protected:
     ifstream inFile;
     ofstream outFile;
 public:
-    FileFilter(const string& inFileName, const string& outFileName);
+    FileFilter(ifstream&,ofstream&);
     virtual  ~FileFilter();
     // Pure virtual function
     virtual char transform(char ch) const = 0;
@@ -35,23 +35,23 @@ public:
 //**************************************************
 // Constructor opens the input and output file.    *
 //**************************************************
-FileFilter::FileFilter(const string& inFileName, const string& outFileName)
-{
-    inFile.open(inFileName);
-    outFile.open(outFileName);
-    if (!inFile)
-    {
-        cout << "The file " << inFileName
-            << " cannot be opened.";
-        exit(1);
-    }
-    if (!outFile)
-    {
-        cout << "The file " << outFileName
-            << " cannot be opened.";
-        exit(1);
-    }
-}
+//FileFilter::FileFilter(ifstream& in, ofstream& out)
+//{
+//    inFile.open(inFileName);
+//    outFile.open(outFileName);
+//    if (!inFile)
+//    {
+//        cout << "The file " << inFileName
+//            << " cannot be opened.";
+//        exit(1);
+//    }
+//    if (!outFile)
+//    {
+//        cout << "The file " << outFileName
+//            << " cannot be opened.";
+//        exit(1);
+//    }
+//}
 
 //**************************************************
 //Destructor closes files.                         *
@@ -75,11 +75,80 @@ void FileFilter::doFilter(ifstream& in, ofstream& out)
     }
 }
 
-
+//class Encryption : public FileFilter
+//{
+//protected:
+//    int key;
+//public:
+//    char transform(char ch) const override
+//    {
+//        return ch + key;
+//    }
+//    Encryption(const string& inFileName, const string& outFileName, int k)
+//        : FileFilter(inFileName, outFileName)
+//    {
+//        key = k;
+//    }
+//};
+//
+//class UpperCase : public FileFilter
+//{
+//public:
+//    char transform(char ch) const override
+//    {
+//        return toupper(ch);
+//    }
+//    UpperCase(const string& inFileName, const string& outFileName)
+//        : FileFilter(inFileName, outFileName)
+//    {
+//    }
+//};
+//
+//class Unchanged : public FileFilter
+//{
+//public:
+//    char transform(char ch) const override
+//    {
+//        return ch;
+//    }
+//    Unchanged(const string& inFileName, const string& outFileName)
+//        : FileFilter(inFileName, outFileName)
+//    {
+//    }
+//};
 
 int main()
 {
+    ifstream in;
+    ofstream out;
+    string inFileName, outFileName;
+    int k;
 
+    cout << "Enter name of file whose text will be transformed: ";
+    getline(cin,inFileName);
+    in.open(inFileName);
+    if (!in)
+    {
+        cout << "Error opening input file.\n";
+        return 0;
+    }
+    cout << "Enter name of file to receive "
+        << "the transformed text: ";
+    getline(cin, outFileName);
+    out.open(outFileName);
+    if (!out)
+    {
+        cout << "Error opening output file.\n";
+        return 0;
+    }
+    while (cout << "Enter an integer for encryption key:" &&
+        !(cin >> k)) {
+        cin.clear(); //clear bad input flag
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
+        cout << "Invalid input for integer." << endl;
+    }
+    //Encryption obfuscate(inFileName, outFileName,k);
+    //obfuscate.doFilter(inFile,outFile);
 
     return 0;
 }
