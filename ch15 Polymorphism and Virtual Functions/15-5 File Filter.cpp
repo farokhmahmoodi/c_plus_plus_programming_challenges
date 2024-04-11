@@ -55,7 +55,7 @@ public:
     Encryption(int k)
         : FileFilter()
     {
-        key = k;
+        this->key = k;
     }
 };
 
@@ -97,7 +97,7 @@ public:
     Decryption(int k)
         : FileFilter()
     {
-        key = k;
+        this->key = k;
     }
 };
 
