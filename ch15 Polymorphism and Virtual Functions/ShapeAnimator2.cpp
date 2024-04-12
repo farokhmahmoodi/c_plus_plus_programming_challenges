@@ -107,6 +107,22 @@ Tent::Tent(int baseRowPos, int baseColPos, int length)
     draw();
 }
 
+void Wedge::draw() const
+{
+    int rowPos, colPos;
+    COORD pos;
+    int currentLength = length;
+    // Set the color attribute
+    SetConsoleTextAttribute(outHandle, getColor());
+    getPosition(rowPos, colPos);
+    pos.Y = rowPos; pos.X = colPos;
+
+    // Draw the lines that form the wedge
+
+    // Restore normal attribute
+    SetConsoleTextAttribute(outHandle, 7);
+}
+
 //*******************************************************
 // Constructor builds complex shape by assembling a     *
 // vector of constituent shapes                         *
