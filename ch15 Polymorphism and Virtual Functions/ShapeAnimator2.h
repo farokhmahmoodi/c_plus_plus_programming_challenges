@@ -17,7 +17,7 @@ public:
     {
         dRow = drow; dCol = dcol;
     }
-    void getDirection(int &drow, int &dcol) const
+    void getDirection(int& drow, int& dcol) const
     {
         drow = dRow; dcol = dCol;
     }
@@ -31,7 +31,7 @@ class SimpleShape : public Shape
 {
 public:
     virtual void draw() const = 0;
-    void getPosition(int &row, int &col) const
+    void getPosition(int& row, int& col) const
     {
         row = rowPos; col = colPos;
     }
@@ -57,6 +57,18 @@ private:
     int width, height;
 };
 
+// A Tent is an isosceles triangle whose horizontal base has a 
+// given length and whose height is half the length of the base.
+// The position of the triangle is the left endpoint of the base
+class Tent : public SimpleShape
+{
+public:
+    virtual void draw() const override;
+    Tent(int baseRowPos, int baseColPos, int length);
+private:
+    int length;
+};
+
 // A ComplexShape is made up of simpler shapes. It is represented
 // as a vector of pointers to the simpler shapes that make it up
 class ComplexShape : public Shape
@@ -67,3 +79,4 @@ public:
 private:
     vector<shared_ptr<Shape>>shapes;
 };
+
