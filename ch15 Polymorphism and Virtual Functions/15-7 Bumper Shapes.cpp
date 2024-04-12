@@ -7,46 +7,55 @@ The program terminates when the shapes meet each other in the middle for the ten
 
 int main()
 {
-    // Create a box
-    shared_ptr<Box> box = make_shared<Box>(5, 10, 4, 7);
+    // Create two rectangles
+    shared_ptr<Box> box = make_shared<Box>(0, 0, 10, 4),
+        box2 = make_shared<Box>(0, 50, 10, 4);
+    int count = 0;
 
-    // Draw the box
-    box->draw();
-    // Set direction of motion for the two shapes
-    box->setDirection(0, 1);    // Box moves horizontally to the right
-
-    // Simultaneously move the tent and the box
-    for (int k = 0; k < 12; k++)
-    {
-        Sleep(75);
-
-        box->move();
-    }
-    box->move();
-
-    // Move the box farther to the right
-    for (int k = 0; k < 48; k++)
-    {
-        Sleep(75);
-        box->move();
-    }
-    // Create a complex shape composed of the box
-    vector<shared_ptr<Shape>> myShapes{ box, box };
+    // Create a complex shape composed of the rectangles
+    vector<shared_ptr<Shape>> myShapes{ box, box2 };
     shared_ptr<ComplexShape> cS = make_shared<ComplexShape>(myShapes);
 
-    // Set directions for the two shapes
-    box->setDirection(0, -1);
-    // Move the complex shape: this moves both the tent and the box
-    for (int k = 0; k < 12; k++)
+    // Draw the rectangles
+    box->draw();
+    box2->draw();
+    while (count < 10)
     {
-        Sleep(75);
-        cS->move();
-    }
-    // Continue moving the box by itself
-    for (int k = 0; k < 36; k++)
-    {
-        Sleep(75);
-        box->move();
+        if (count == 9)
+        {
+            // Set directions for the two shapes
+            box->setDirection(0, 1);
+            box2->setDirection(0, -1);
+            // Move the complex shape: this moves both rectangles
+            for (int k = 0; k < 20; k++)
+            {
+                Sleep(75);
+                cS->move();
+            }
+            count++;
+            cout << "Count:" << count << endl;
+        }
+        else
+        {
+            // Set directions for the two shapes
+            box->setDirection(0, 1);
+            box2->setDirection(0, -1);
+            // Move the complex shape: this moves both rectangles
+            for (int k = 0; k < 20; k++)
+            {
+                Sleep(75);
+                cS->move();
+            }
+            count++;
+            cout << "Count:" << count << endl;
+            box->setDirection(0, -1);
+            box2->setDirection(0, 1);
+            for (int k = 0; k < 20; k++)
+            {
+                Sleep(75);
+                cS->move();
+            }
+        }
     }
 
     return 0;
