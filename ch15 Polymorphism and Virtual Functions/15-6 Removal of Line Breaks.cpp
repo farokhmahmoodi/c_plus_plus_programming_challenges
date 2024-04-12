@@ -1,4 +1,4 @@
-/*Create a subclass of the abstract filter class of Programming Challenge 5 that replaces every line break in a 
+/*Create a subclass of the abstract filter class of Programming Challenge 5 that replaces every line break in a
 file with a single space.*/
 
 #include <iostream>
@@ -32,7 +32,17 @@ void FileFilter::doFilter(ifstream& in, ofstream& out)
 
 class RemovalOfLineBreaks : public FileFilter
 {
-
+public:
+    char transform(char ch) const override
+    {
+        if (ch == '\n')
+            return ' ';
+        else
+            return ch;
+    }
+    RemovalOfLineBreaks() : FileFilter()
+    {
+    }
 };
 
 int main()
@@ -59,14 +69,8 @@ int main()
         cout << "Error opening output file.\n";
         return 0;
     }
-    while (cout << "Enter an integer for encryption key:" &&
-        !(cin >> k)) {
-        cin.clear(); //clear bad input flag
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
-        cout << "Invalid input for integer." << endl;
-    }
-    //RemovalOfLineBreaks obfuscate();
-    //obfuscate.doFilter(in, out);
+    RemovalOfLineBreaks a;
+    a.doFilter(in, out);
 
     return 0;
 }
