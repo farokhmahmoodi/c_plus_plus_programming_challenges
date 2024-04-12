@@ -21,37 +21,6 @@ void SimpleShape::move()
    draw();
 }
 
-//***********************************
-// Draws a tent at its position     *
-//***********************************
-void Tent::draw() const
-{
-   int rowPos, colPos;
-   COORD pos;
-   int currentLength = length;
-   // Set the color attribute
-   SetConsoleTextAttribute(outHandle, getColor());
-   getPosition(rowPos, colPos);
-   pos.Y = rowPos; pos.X = colPos;
-
-   // Draw the lines that form the tent beginning with
-   // the base and moving up toward the point
-   for (int r = 0; r < (length + 1) / 2; r++)
-   {
-      SetConsoleCursorPosition(outHandle, pos);
-      for (int k = 0; k < currentLength; k++)
-      {
-         cout << "*";
-      }
-      cout << endl;
-      pos.Y--;
-      pos.X++;
-      currentLength -= 2;
-   }
-   // Restore normal attribute
-   SetConsoleTextAttribute(outHandle, 7);
-}
-
 //**********************************
 // Draws a box shape               *
 //**********************************
@@ -91,19 +60,6 @@ Box::Box(int rowPos, int colPos, int width, int height)
    setPosition(rowPos, colPos);
    this->width = width;
    this->height = height;
-   draw();
-}
-//***********************************************
-// Constructor sets the color for a Tent shape, *
-// sets the position of the tent as well as the *
-// length of its base and draws it at its       *
-// initial position                             *
-//***********************************************
-Tent::Tent(int baseRowPos, int baseColPos, int length)
-{
-   setColor(2);
-   setPosition(baseRowPos, baseColPos);
-   this->length = length;
    draw();
 }
 
