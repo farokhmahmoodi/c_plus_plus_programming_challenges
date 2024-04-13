@@ -104,7 +104,6 @@ Tent::Tent(int baseRowPos, int baseColPos, int length)
     setColor(2);
     setPosition(baseRowPos, baseColPos);
     this->length = length;
-    draw();
 }
 
 void Wedge::draw() const
@@ -118,7 +117,7 @@ void Wedge::draw() const
     pos.Y = rowPos; pos.X = colPos;
 
     // Draw the lines that form the wedge
-
+    
     // Restore normal attribute
     SetConsoleTextAttribute(outHandle, 7);
 }

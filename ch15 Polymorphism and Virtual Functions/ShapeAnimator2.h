@@ -76,10 +76,7 @@ public:
     Wedge(int baseRowPos, int baseColPos, int length) :
         Tent(baseRowPos, baseColPos, length)
     {
-        setColor(2);
-        setPosition(baseRowPos, baseColPos);
         this->length = length;
-        draw();
     }
 private:
     int length;
