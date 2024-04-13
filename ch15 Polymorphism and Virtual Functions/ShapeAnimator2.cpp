@@ -147,7 +147,16 @@ void ReverseWedge::draw() const
     // Draw the lines that form the reverse wedge
     for (int r = 0; r < (length + 1) / 2; r++)
     {
-        
+        SetConsoleCursorPosition(outHandle, pos);
+        for (int k = 0; k < currentLength; k++)
+        {
+            cout << "*";
+            pos.Y++;
+            SetConsoleCursorPosition(outHandle, pos);
+        }
+        pos.Y = rowPos + (r + 1);
+        pos.X--;
+        currentLength -= 2;
     }
     // Restore normal attribute
     SetConsoleTextAttribute(outHandle, 7);
