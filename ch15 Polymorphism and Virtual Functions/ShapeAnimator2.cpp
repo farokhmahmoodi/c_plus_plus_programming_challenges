@@ -117,7 +117,47 @@ void Wedge::draw() const
     pos.Y = rowPos; pos.X = colPos;
 
     // Draw the lines that form the wedge
-    
+    for (int r = 0; r < (length + 1) / 2; r++)
+    {
+        SetConsoleCursorPosition(outHandle, pos);
+        for (int k = 0; k < currentLength; k++)
+        {
+            cout << "*";
+            pos.Y++;
+            SetConsoleCursorPosition(outHandle, pos);
+        }
+        pos.Y = rowPos + (r + 1);
+        pos.X++;
+        currentLength -= 2;
+    }
+    // Restore normal attribute
+    SetConsoleTextAttribute(outHandle, 7);
+}
+
+void ReverseWedge::draw() const
+{
+    int rowPos, colPos;
+    COORD pos;
+    int currentLength = length;
+    // Set the color attribute
+    SetConsoleTextAttribute(outHandle, getColor());
+    getPosition(rowPos, colPos);
+    pos.Y = length; pos.X = (length + 1) / 2;
+
+    // Draw the lines that form the reverse wedge
+    for (int r = 0; r < (length + 1) / 2; r++)
+    {
+        SetConsoleCursorPosition(outHandle, pos);
+        for (int k = 0; k < currentLength; k++)
+        {
+            cout << "*";
+            pos.Y--;
+            SetConsoleCursorPosition(outHandle, pos);
+        }
+        pos.Y = length - (r + 1);
+        pos.X--;
+        currentLength -= 2;
+    }
     // Restore normal attribute
     SetConsoleTextAttribute(outHandle, 7);
 }

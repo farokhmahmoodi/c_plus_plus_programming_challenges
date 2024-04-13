@@ -82,6 +82,19 @@ private:
     int length;
 };
 
+class ReverseWedge : public Tent
+{
+public:
+    virtual void draw() const override;
+    ReverseWedge(int baseRowPos, int baseColPos, int length) :
+        Tent(baseRowPos, baseColPos, length)
+    {
+        this->length = length;
+    }
+private:
+    int length;
+};
+
 // A ComplexShape is made up of simpler shapes. It is represented
 // as a vector of pointers to the simpler shapes that make it up
 class ComplexShape : public Shape
