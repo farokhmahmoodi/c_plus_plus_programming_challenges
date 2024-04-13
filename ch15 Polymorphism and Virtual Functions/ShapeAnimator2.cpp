@@ -106,6 +106,7 @@ Tent::Tent(int baseRowPos, int baseColPos, int length)
     this->length = length;
 }
 
+//Draws a wedge
 void Wedge::draw() const
 {
     int rowPos, colPos;
@@ -134,6 +135,7 @@ void Wedge::draw() const
     SetConsoleTextAttribute(outHandle, 7);
 }
 
+//Draws a reverse wedge
 void ReverseWedge::draw() const
 {
     int rowPos, colPos;

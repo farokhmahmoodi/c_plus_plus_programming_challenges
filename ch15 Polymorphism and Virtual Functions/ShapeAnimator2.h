@@ -69,6 +69,7 @@ private:
     int length;
 };
 
+//A Wedge is a tent rotated 90 degrees clockwise
 class Wedge : public Tent
 {
 public:
@@ -82,6 +83,7 @@ private:
     int length;
 };
 
+//A Reverse Wedge is a tent rotated 90 degrees counter-clockwise
 class ReverseWedge : public Tent
 {
 public:
