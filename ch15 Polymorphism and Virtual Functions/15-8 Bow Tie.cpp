@@ -7,29 +7,14 @@ other until they meet in the middle. The two shapes should form a bow tie when t
 
 int main()
 {
-    // Create a tent and a box
+    // Create a wedge and reverse wedge
     //shared_ptr<Tent> tent = make_shared<Tent>(10, 0, 13);
     shared_ptr<Wedge> wedge = make_shared<Wedge>(0, 0, 3);
-    shared_ptr<ReverseWedge> reverseWedge = make_shared<ReverseWedge>(0, 0, 5);
+    shared_ptr<ReverseWedge> reverseWedge = make_shared<ReverseWedge>(0, 0, 3);
 
     //tent->draw();
     //wedge->draw();
     reverseWedge->draw();
-    // Set direction of motion for the two shapes
-    //wedge->setDirection(0, 1);
-
-    // Create a complex shape composed of the tent
-    //vector<shared_ptr<Shape>> myShapes{ tent, tent };
-    //shared_ptr<ComplexShape> cS = make_shared<ComplexShape>(myShapes);
-
-    //// Set directions for the two shapes
-    //tent->setDirection(1, 0);
-    //// Move the complex shape: this moves both the tent
-    //for (int k = 0; k < 12; k++)
-    //{
-    //    Sleep(75);
-    //    cS->move();
-    //}
 
     return 0;
 }
