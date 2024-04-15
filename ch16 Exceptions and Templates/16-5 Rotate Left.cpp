@@ -22,7 +22,22 @@ output similar to the above. Verify that the program works with vectors whose el
 and string.*/
 
 #include <iostream>
+#include <vector>
 using namespace std;
+
+template<class T>
+void rotateLeft(vector <T>& v)
+{
+
+}
+
+template<class T>
+void output(vector <T> v)
+{
+    for (int i = 0; i < v.size(); i++)
+        cout << v[i] << " ";
+    cout << endl;
+}
 
 int main()
 {
