@@ -3,6 +3,7 @@ throw an exception if it is passed an integer that is not a perfect square. Demo
 suitable driver program.*/
 
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 int square(int a)
