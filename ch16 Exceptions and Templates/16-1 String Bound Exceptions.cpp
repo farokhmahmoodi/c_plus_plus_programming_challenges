@@ -15,12 +15,59 @@ object.*/
 #include <string>
 using namespace std;
 
-
+class BCheckString : public string
+{
+string str;
+public:
+	BCheckString(string s) : string(s)
+	{
+		str = s;
+	}
+	class BoundsException
+	{
+	public:
+		int i;
+		BoundsException(int a)
+		{
+			i = a;
+		}
+	};
+	char operator[](int k)
+	{
+		if (k < 0 || k >= str.length())
+		{
+			throw BoundsException(k);
+		}
+		return str[k];
+	}
+};
 
 
 int main()
 {
-	
+	string in;
+	int i;
+
+	cout << "Enter a string:";
+	getline(cin, in);
+	BCheckString a(in);
+	try
+	{
+		while (cout << "Enter an integer for index:" &&
+			!(cin >> i)) {
+			cin.clear(); //clear bad input flag
+			cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
+			cout << "Invalid input for integer." << endl;
+		}
+		cout << a[i] << " is at index " << i
+			<< " of the string." << endl;
+	}
+	catch(BCheckString::BoundsException ex)
+	{
+		cout << "The index " << ex.i
+			<< " is out of range.\n";
+	}
+	cout << "End of program.\n";
 
 	return 0;
 }
