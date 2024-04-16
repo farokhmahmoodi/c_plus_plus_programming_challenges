@@ -23,12 +23,17 @@ and string.*/
 
 #include <iostream>
 #include <vector>
+#include <string>
+#include <algorithm>
 using namespace std;
 
 template<class T>
 void rotateLeft(vector <T>& v)
 {
-
+    for (int i = 0; i < v.size() - 1; i++)
+    {
+        swap(v[i], v[i + 1]);
+    }
 }
 
 template<class T>
@@ -41,7 +46,21 @@ void output(vector <T> v)
 
 int main()
 {
-    
+    vector<int> v1 = { 1,3,5,7 };
+    vector<string> v2 = { "a","b","c","d","e"};
 
+    output(v1);
+    for (int i = 0; i < v1.size() - 1; i++)
+    {
+        rotateLeft(v1);
+        output(v1);
+    }
+    output(v2);
+    for (int i = 0; i < v2.size() - 1; i++)
+    {
+        rotateLeft(v2);
+        output(v2);
+    }
+ 
     return 0;
 }
