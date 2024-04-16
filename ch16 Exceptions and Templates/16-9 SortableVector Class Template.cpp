@@ -5,6 +5,7 @@ algorithm of your choice.) Test the template in a driver program.*/
 #include <iostream>
 #include <cstdlib>
 #include <memory>
+#include <algorithm>
 using namespace std;
 
 // Exception for index out of range
@@ -88,6 +89,7 @@ public:
     // Additional constructor. 
     SortableVector(const SimpleVector<T>& obj) :
         SimpleVector<T>(obj) { }
+    void sort(); //sort array function
 };
 
 //******************************************
@@ -100,6 +102,29 @@ SortableVector(const SortableVector& obj) :
 {
 }
 
+//Sort array in ascending order
+template <class T>
+void SortableVector<T>::sort()
+{
+    int minIndex;
+    T minValue;
+
+    for (int start = 0; start < (this->size() - 1); start++)
+    {
+        minIndex = start;
+        minValue = this->operator[](start);
+        for (int index = start + 1; index < this->size(); index++)
+        {
+            if (this->operator[](index) < minValue)
+            {
+                minValue = this->operator[](index);
+                minIndex = index;
+            }
+        }
+        swap(this->operator[](minIndex), this->operator[](start));
+    }
+}
+
 int main()
 {
     const int SIZE = 10;
@@ -108,14 +133,23 @@ int main()
     // Store values in the vectors
     for (int x = 0; x < SIZE; x++)
     {
-        intTable[x] = (x * 2);
+        while (cout << "Enter an integer to put into the array:" &&
+            !(cin >> intTable[x])) {
+            cin.clear(); //clear bad input flag
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
+            cout << "Invalid input for integer." << endl;
+        }
     }
     // Display the values in the vectors
     cout << "These values are in intTable:\n";
     for (int x = 0; x < SIZE; x++)
         cout << intTable[x] << " ";
     cout << endl;
-
+    intTable.sort();
+    cout << "Sorted array below.\n";
+    for (int x = 0; x < SIZE; x++)
+        cout << intTable[x] << " ";
+    cout << endl;
 
     return 0;
 }
