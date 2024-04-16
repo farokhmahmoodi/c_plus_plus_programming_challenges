@@ -16,6 +16,15 @@ struct IndexOutOfRangeException
     IndexOutOfRangeException(int ix) : index(ix) {}
 };
 
+struct ArrayFull //exception for full array
+{
+    const string state = "The array is full.\n";
+    ArrayFull()
+    {
+        cout << state;
+    }
+};
+
 template <class T>
 class SimpleVector
 {
@@ -29,7 +38,7 @@ public:
     T& operator[](int);                  // Overloaded [] operator
     void print() const;                  // outputs the array elements
     void pop_back();               //removes last element in the array
-    void push_back(int);              //adds an element at end of array   
+    void push_back(T);              //adds an element at end of array   
 };
 
 //*******************************************************
@@ -55,8 +64,6 @@ SimpleVector<T>::SimpleVector(const SimpleVector& obj)
     for (int count = 0; count < arraySize; count++)
         aptr[count] = obj[count];
 }
-
-
 //*******************************************************
 // Overloaded [] operator. The argument is a subscript. *
 // This function returns a reference to the element     *
@@ -81,9 +88,12 @@ void SimpleVector<T>::print() const
 }
 
 template <class T>
-void SimpleVector<T>::push_back(int i)
+void SimpleVector<T>::push_back(T b)
 {
-
+    if (aptr[arraySize - 1] != T())
+        throw ArrayFull();
+    else
+        aptr[arraySize - 1] = b;
 }
 
 template <class T>
@@ -94,7 +104,24 @@ void SimpleVector<T>::pop_back()
 
 int main()
 {
-    
+    const int SIZE = 10;
+
+    SimpleVector<int> intTable(SIZE);
+    SimpleVector<double> doubleTable(SIZE);
+
+    // Store values in the arrays
+    for (int x = 0; x < SIZE - 2; x++)
+    {
+        intTable[x] = (x * 2);
+        //doubleTable[x] = (x * 2.14);
+    }
+    intTable.print();
+    cout << "Testing the push_back function by adding integer 12 "
+        << " at the end of integer array." << endl;
+    intTable.push_back(12);
+    intTable.print();
+
+
 
     return 0;
 }
