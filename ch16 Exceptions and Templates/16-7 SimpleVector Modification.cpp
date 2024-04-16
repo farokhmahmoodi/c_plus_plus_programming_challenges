@@ -28,6 +28,8 @@ public:
     int size() const { return arraySize; }
     T& operator[](int);                  // Overloaded [] operator
     void print() const;                  // outputs the array elements
+    void pop_back();               //removes last element in the array
+    void push_back(int);              //adds an element at end of array   
 };
 
 //*******************************************************
@@ -76,6 +78,18 @@ void SimpleVector<T>::print() const
     for (int k = 0; k < arraySize; k++)
         cout << aptr[k] << "  ";
     cout << endl;
+}
+
+template <class T>
+void SimpleVector<T>::push_back(int i)
+{
+
+}
+
+template <class T>
+void SimpleVector<T>::pop_back()
+{
+
 }
 
 int main()
