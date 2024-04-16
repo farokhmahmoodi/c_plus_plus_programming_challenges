@@ -31,9 +31,7 @@ template<class T>
 void rotateLeft(vector <T>& v)
 {
     for (int i = 0; i < v.size() - 1; i++)
-    {
         swap(v[i], v[i + 1]);
-    }
 }
 
 template<class T>
