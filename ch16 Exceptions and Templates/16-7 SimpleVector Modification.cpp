@@ -108,20 +108,35 @@ int main()
 
     SimpleVector<int> intTable(SIZE);
     SimpleVector<double> doubleTable(SIZE);
+    int x;
+    double y;
 
     // Store values in the arrays
-    for (int x = 0; x < SIZE - 2; x++)
+    for (int x = 0; x < SIZE - 1; x++)
     {
         intTable[x] = (x * 2);
-        //doubleTable[x] = (x * 2.14);
+        doubleTable[x] = (x * 2.14);
     }
+    cout << "Here is contents of integer array.\n";
     intTable.print();
-    cout << "Testing the push_back function by adding integer 12 "
-        << " at the end of integer array." << endl;
-    intTable.push_back(12);
+    cout << "Here is contents of double array.\n";
+    doubleTable.print();
+    while (cout << "Enter an integer to put into last element in the integer array:" &&
+        !(cin >> x)) {
+        cin.clear(); //clear bad input flag
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
+        cout << "Invalid input for integer." << endl;
+    }
+    intTable.push_back(x);
     intTable.print();
-
-
+    while (cout << "Enter a decimal number to put into last element in the double array:" &&
+        !(cin >> y)) {
+        cin.clear(); //clear bad input flag
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
+        cout << "Invalid input for integer." << endl;
+    }
+    doubleTable.push_back(y);
+    doubleTable.print();
 
     return 0;
 }
