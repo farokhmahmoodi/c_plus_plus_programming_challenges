@@ -16,6 +16,17 @@ void rotateLeft(vector <T>& v)
 }
 
 template<class T>
+void reverse(vector <T>& v)
+{
+    int last = v.size() - 1;
+    for (int i = 0; i < last; i++)
+    {
+        swap(v[i], v[last]);
+        last--;
+    }
+}
+
+template<class T>
 void output(vector <T> v)
 {
     for (int i = 0; i < v.size(); i++)
@@ -31,29 +42,17 @@ int main()
     vector<char> v4 = { '%',')', '4', '!', '{' };
 
     output(v1);
-    for (int i = 0; i < v1.size() - 1; i++)
-    {
-        
-        output(v1);
-    }
+    reverse(v1);
+    output(v1);
     output(v2);
-    for (int i = 0; i < v2.size() - 1; i++)
-    {
-
-        output(v2);
-    }
+    reverse(v2);
+    output(v2);
     output(v3);
-    for (int i = 0; i < v3.size() - 1; i++)
-    {
-        
-        output(v3);
-    }
+    reverse(v3);
+    output(v3);
     output(v4);
-    for (int i = 0; i < v4.size() - 1; i++)
-    {
-
-        output(v4);
-    }
+    reverse(v4);
+    output(v4);
 
     return 0;
 }
