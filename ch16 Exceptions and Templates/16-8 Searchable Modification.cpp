@@ -117,7 +117,29 @@ int SearchableVector<T>::findItem(T item)
 
 int main()
 {
-    
+    const int SIZE = 10;
+    SearchableVector<int> intTable(SIZE);
+
+    // Store values in the vectors
+    for (int x = 0; x < SIZE; x++)
+    {
+        intTable[x] = (x * 2);
+    }
+    // Display the values in the vectors
+    cout << "These values are in intTable:\n";
+    for (int x = 0; x < SIZE; x++)
+        cout << intTable[x] << " ";
+    cout << endl;
+
+    // Now search for values in the vectors 
+    int result;
+    cout << "Searching for 6 in intTable.\n";
+    result = intTable.findItem(6);
+    if (result == -1)
+        cout << "6 was not found in intTable.\n";
+    else
+        cout << "6 was found at subscript "
+        << result << endl;
 
     return 0;
 }
