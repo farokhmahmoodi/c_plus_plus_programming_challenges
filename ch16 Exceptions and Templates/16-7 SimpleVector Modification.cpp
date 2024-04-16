@@ -16,15 +16,6 @@ struct IndexOutOfRangeException
     IndexOutOfRangeException(int ix) : index(ix) {}
 };
 
-struct ArrayFull //exception for full array
-{
-    const string state = "The array is full.\n";
-    ArrayFull()
-    {
-        cout << state;
-    }
-};
-
 template <class T>
 class SimpleVector
 {
@@ -35,8 +26,9 @@ public:
     SimpleVector(const SimpleVector&);  // Copy constructor
 
     int size() const { return arraySize; }
-    T& operator[](int);                  // Overloaded [] operator
-    void print() const;                  // outputs the array elements
+    class ArrayFull {};             //Exception class for full array
+    T& operator[](int);             // Overloaded [] operator
+    void print() const;            // outputs the array elements
     void pop_back();               //removes last element in the array
     void push_back(T);              //adds an element at end of array   
 };
@@ -110,7 +102,7 @@ int main()
     int x;
 
     // Store values in the arrays
-    for (int x = 0; x < SIZE - 1; x++)
+    for (int x = 0; x < SIZE; x++)
         intTable[x] = (x * 2);
     cout << "Here is contents of integer array.\n";
     intTable.print();
@@ -120,8 +112,15 @@ int main()
         cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
         cout << "Invalid input for integer." << endl;
     }
-    intTable.push_back(x);
-    intTable.print();
+    try
+    {
+        intTable.push_back(x);
+        intTable.print();
+    }
+    catch(SimpleVector<int>::ArrayFull)
+    {
+        cout << "Error. Array is full.\n";
+    }
     cout << "Removing last element in the array.\n";
     intTable.pop_back();
     intTable.print();
