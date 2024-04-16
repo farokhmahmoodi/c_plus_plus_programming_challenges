@@ -102,7 +102,20 @@ SortableVector(const SortableVector& obj) :
 
 int main()
 {
-    
+    const int SIZE = 10;
+    SortableVector<int> intTable(SIZE);
+
+    // Store values in the vectors
+    for (int x = 0; x < SIZE; x++)
+    {
+        intTable[x] = (x * 2);
+    }
+    // Display the values in the vectors
+    cout << "These values are in intTable:\n";
+    for (int x = 0; x < SIZE; x++)
+        cout << intTable[x] << " ";
+    cout << endl;
+
 
     return 0;
 }
