@@ -16,6 +16,7 @@ struct IndexOutOfRangeException
 template <class T>
 class SimpleVector
 {
+protected:
     unique_ptr<T[]> aptr;
     int arraySize;
 public:
@@ -107,12 +108,26 @@ SearchableVector(const SearchableVector& obj) :
 template <class T>
 int SearchableVector<T>::findItem(T item)
 {
-    for (int count = 0; count < this->size(); count++)
+    int first = 0,
+        last = SimpleVector<T>::arraySize - 1,
+        middle,
+        position = -1;
+    bool found = false;
+
+    while (!found && first <= last)
     {
-        if (this->operator[](count) == item)
-            return count;
+        middle = (first + last) / 2;
+        if (SimpleVector<T>::aptr[middle] == item)
+        {
+            found = true;
+            position = middle;
+        }
+        else if (SimpleVector<T>::aptr[middle] > item)
+            last = middle - 1;
+        else
+            first = middle + 1;
     }
-    return -1;
+    return position;
 }
 
 int main()
