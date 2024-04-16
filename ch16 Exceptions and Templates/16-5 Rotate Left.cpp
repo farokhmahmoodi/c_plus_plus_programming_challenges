@@ -48,7 +48,9 @@ int main()
 {
     vector<int> v1 = { 1,3,5,7 };
     vector<string> v2 = { "a","b","c","d","e"};
-
+    vector<double> v3 = { 52.35,-34.56,8604.453, 235.7654 };
+    vector<char> v4 = { '%',')', '4', '!', '{' };
+ 
     output(v1);
     for (int i = 0; i < v1.size() - 1; i++)
     {
@@ -60,6 +62,18 @@ int main()
     {
         rotateLeft(v2);
         output(v2);
+    }
+    output(v3);
+    for (int i = 0; i < v3.size() - 1; i++)
+    {
+        rotateLeft(v3);
+        output(v3);
+    }
+    output(v4);
+    for (int i = 0; i < v4.size() - 1; i++)
+    {
+        rotateLeft(v4);
+        output(v4);
     }
  
     return 0;
