@@ -99,7 +99,7 @@ void SimpleVector<T>::push_back(T b)
 template <class T>
 void SimpleVector<T>::pop_back()
 {
-
+    aptr[arraySize - 1] = T();
 }
 
 int main()
@@ -107,7 +107,6 @@ int main()
     const int SIZE = 10;
 
     SimpleVector<int> intTable(SIZE);
-    SimpleVector<double> doubleTable(SIZE);
     int x;
 
     // Store values in the arrays
@@ -122,6 +121,9 @@ int main()
         cout << "Invalid input for integer." << endl;
     }
     intTable.push_back(x);
+    intTable.print();
+    cout << "Removing last element in the array.\n";
+    intTable.pop_back();
     intTable.print();
 
     return 0;
