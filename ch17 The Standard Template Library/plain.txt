@@ -1,0 +1,4 @@
+in cryptography plaintext is usually ordinary readable text before it is encrypted into ciphertext or readable text after it is decrypted
+data input to or output from encryption algorithms is not always plaintext 
+for example when data is superencrypted or encrypted more 
+than once using different encryption algorithms only the input to the first encryption method is considered plaintext
