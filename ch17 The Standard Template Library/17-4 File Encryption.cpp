@@ -6,18 +6,34 @@ output should be echoed to the screen and simultaneously written to a file “ci
 
 #include <iostream>
 #include <fstream>
+#include <map>
 using namespace std;
 
 int main()
 {
-    fstream key("keyfile.txt", ios::in), plain("plain.txt", ios::in),
-        cipher("cipher.txt", ios::in | ios::out);
-    if (!key || !plain || !cipher)
+    fstream keyfile("keyfile.txt", ios::in), plain("plain.txt", ios::in),
+        cipher("cipher.txt", ios::out);
+    map<char, char> key;
+    char key2, value;
+    long valuePos = 0, keyPos = 0;
+
+    if (!keyfile || !plain || !cipher)
     {
         cout << "File failed to open.\n";
         return 0;
     }
-    
+    for (int i = 0; i < 28; i++)
+    {
+        key2 = keyfile.get();
+        valuePos += 28;
+        keyfile.seekg(valuePos, ios::cur);
+        value = keyfile.get();
+        cout << key2 << " " << value << endl;
+        //key.emplace(key2, value);
+        keyPos++;
+        valuePos = 0;
+        keyfile.seekg(keyPos, ios::beg);
+    }
 
     return 0;
 }
