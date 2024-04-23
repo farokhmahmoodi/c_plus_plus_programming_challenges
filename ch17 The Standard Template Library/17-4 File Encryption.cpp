@@ -5,10 +5,19 @@ each character in the original sequence with the character at the same position 
 output should be echoed to the screen and simultaneously written to a file “cipher.txt.”*/
 
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 int main()
 {
+    fstream key("keyfile.txt", ios::in), plain("plain.txt", ios::in),
+        cipher("cipher.txt", ios::in, ios::out);
+    if (!key || !plain || !cipher)
+    {
+        cout << "File failed to open.\n";
+        return 0;
+    }
     
+
     return 0;
 }
