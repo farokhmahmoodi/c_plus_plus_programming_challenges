@@ -3,7 +3,7 @@ encrypted/decrypted will use only lower case letters, the blank space character,
 encryption key, which will also double as the decryption key, will be a pair of sequences of characters 'a', .. ,
 'z', the blank character, and new line character. The first sequence will list all the characters in some order,
 and the second will be a random permutation of the first. The program should store both the original and the
-scrambled sequence in a file called ìkeyfile.txtî and close the file. The program should then open the file for
+scrambled sequence in a file called ‚Äúkeyfile.txt‚Äù and close the file. The program should then open the file for
 reading and echo its contents to the screen. Here is a possible output of the program.
 
 abcdefghijklmnopqrstuvwxyz
@@ -29,7 +29,7 @@ int main()
     srand(seed);
     vector<char> decryption;
     vector<char> encryption;
-    fstream key("keyfile.txt");
+    fstream key("keyfile.txt", ios::in | ios::out);
     char ch;
 
     if (!key)
