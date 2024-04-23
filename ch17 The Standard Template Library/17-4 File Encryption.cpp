@@ -11,7 +11,7 @@ using namespace std;
 int main()
 {
     fstream key("keyfile.txt", ios::in), plain("plain.txt", ios::in),
-        cipher("cipher.txt", ios::in, ios::out);
+        cipher("cipher.txt", ios::in | ios::out);
     if (!key || !plain || !cipher)
     {
         cout << "File failed to open.\n";
