@@ -15,7 +15,6 @@ int main()
         cipher("cipher.txt", ios::out);
     map<char, char> key;
     char key2, value;
-    long valuePos = 0;
 
     if (!keyfile || !plain || !cipher)
     {
@@ -26,11 +25,9 @@ int main()
     {
         keyfile.seekg(keyPos, ios::beg);
         key2 = keyfile.get();
-        valuePos = keyPos + 28;
-        keyfile.seekg(valuePos, ios::beg);
+        keyfile.seekg(keyPos + 28, ios::beg);
         value = keyfile.get();
         key.emplace(key2, value);
-        valuePos = 0;
     }
     keyfile.close();
     key2 = plain.get();
