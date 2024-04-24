@@ -14,14 +14,6 @@ delimited by white space.*/
 #include <iomanip>
 using namespace std;
 
-bool isPunct(string s)
-{
-    for(int i = 0; i < s.size(); i++)
-        if(ispunct(s[i]))
-            return true;
-    return false;
-}
-
 int main()
 {
     fstream in("sample.txt", ios::in), out("list.txt", ios::out);
@@ -30,6 +22,11 @@ int main()
     set<string> uniqueWords;
     string word;
 
+    if (!in || !out)
+    {
+        cout << "File open failure.\n";
+        return 0;
+    }    
     while (in >> word)
     {
         allWords.emplace(word);
