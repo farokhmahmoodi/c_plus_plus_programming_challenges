@@ -14,32 +14,42 @@ int main()
         , plain("plain.txt", ios::out);
     map<char, char> key;
     char key2, value;
-    long valuePos = 0;
+    long keyPos = 0;
+    bool newlineKeyAssigned = false;
 
     if (!keyfile || !plain || !cipher)
     {
         cout << "File failed to open.\n";
         return 0;
     }
-    for (long keyPos = 0; keyPos < 28; keyPos++)
+    for (long valuePos = 0; valuePos < 27; valuePos++)
     {
-        if (keyPos == 26) //blank character exception
+        if (newlineKeyAssigned == false)
         {
-            keyfile.seekg(-2L, ios::end);
+            keyfile.seekg(valuePos, ios::beg);
+            value = keyfile.get();
+            keyPos += 28;
+            keyfile.seekg(keyPos, ios::cur);
             key2 = keyfile.get();
-            key.emplace(key2, 32);
+            if (key2 == '\n')
+                newlineKeyAssigned = true;
+            key.emplace(key2, value);
+            keyPos = 0;
         }
         else
         {
-            keyfile.seekg(keyPos, ios::beg);
+            keyfile.seekg(valuePos, ios::beg);
             value = keyfile.get();
-            valuePos += 28;
-            keyfile.seekg(valuePos, ios::cur);
+            keyPos += 29;
+            keyfile.seekg(keyPos, ios::cur);
             key2 = keyfile.get();
             key.emplace(key2, value);
-            valuePos = 0;
+            keyPos = 0;
         }
     }
+    keyfile.seekg(-1L, ios::end); //adding key with newline character assigned as value
+    key2 = keyfile.get();
+    key.emplace(key2, 10);
     keyfile.close();
     key2 = cipher.get();
     while (key2 != EOF)
