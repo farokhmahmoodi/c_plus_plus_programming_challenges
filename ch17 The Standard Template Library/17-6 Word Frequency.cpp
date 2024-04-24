@@ -18,12 +18,24 @@ int main()
     fstream in("sample.txt", ios::in), out("list.txt", ios::out);
     unordered_map<string, int> freq;
     multiset<string> allWords;
+    set<string> uniqueWords;
     string word;
 
     while (in >> word)
+    {
         allWords.emplace(word);
+        uniqueWords.emplace(word);
+    }
     in.close();
-    
+    for (auto it = uniqueWords.cbegin(); it != uniqueWords.cend(); it++)
+    {
+        freq.emplace(*it, allWords.count(*it));
+    }
+    for (auto elem : freq)
+    {
+        cout << elem.first << " " << elem.second << endl;
+        out << elem.first << " " << elem.second << endl;
+    }
 
     return 0;
 }
