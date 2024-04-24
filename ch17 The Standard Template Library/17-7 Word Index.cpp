@@ -35,7 +35,7 @@ int main()
         cout << "File open failure.\n";
         return 0;
     }
-    while (in >> input)
+    while (in >> input) //add unique words to first set of strings
     {
         words.emplace(input);
     }
@@ -46,10 +46,10 @@ int main()
         cout << "File open failure.\n";
         return 0;
     }
-    for (auto it = words.cbegin(); it != words.cend(); it++)
+    for (auto it = words.cbegin(); it != words.cend(); it++) //add line numbers in file where word is found
     {
         set<int> lineNums;
-        while (getline(in, input))
+        while (getline(in, input)) //examining each line in the file
         {
             istringstream istr(input);
             while (istr >> word)
@@ -72,7 +72,7 @@ int main()
         lineCount = 1;
         wordIndex.emplace(*it, lineNums);
     }
-    for (auto elem : wordIndex)
+    for (auto elem : wordIndex) //outputting word index list to screen and writing to output file
     {
         cout << elem.first << ": ";
         for (auto it = elem.second.cbegin(); it != elem.second.cend(); it++)
