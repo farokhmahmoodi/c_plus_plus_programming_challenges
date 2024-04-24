@@ -62,6 +62,14 @@ int main()
             }
             lineCount++;
         }
+        in.close();
+        in.open("sample.txt");
+        if (!in)
+        {
+            cout << "File open failure.\n";
+            return 0;
+        }
+        lineCount = 1;
         wordIndex.emplace(*it, lineNums);
     }
     for (auto elem : wordIndex)
@@ -72,7 +80,15 @@ int main()
             cout << *it << " ";
         }
         cout << endl;
+        out << elem.first << ": ";
+        for (auto it = elem.second.cbegin(); it != elem.second.cend(); it++)
+        {
+            out << *it << " ";
+        }
+        out << endl;
     }
+    in.close();
+    out.close();
 
     return 0;
 }
