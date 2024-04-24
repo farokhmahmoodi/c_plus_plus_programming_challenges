@@ -39,8 +39,8 @@ int main()
     }
     for (int i = 97; i < 123; i++)
         decryption.emplace_back(i);
-    decryption.emplace_back(' ');
-    decryption.emplace_back('\n');
+    decryption.emplace_back(32); //backspace character
+    decryption.emplace_back(10); //newline character
     for (auto it = decryption.begin(); it != decryption.end(); it++)
         encryption.emplace_back(*it);
     random_shuffle(encryption.begin(), encryption.end());
