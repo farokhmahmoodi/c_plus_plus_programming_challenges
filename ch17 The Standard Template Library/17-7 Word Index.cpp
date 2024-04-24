@@ -1,17 +1,17 @@
-/*Write a program that reads the contents of a text file. The program should create a map in which the 
+/*Write a program that reads the contents of a text file. The program should create a map in which the
 key-value pairs are described as follows:
 
-Key‚Äîthe keys are the individual words found in the file
+Keyóthe keys are the individual words found in the file
 
-Values‚Äîeach value is a set that contains the line numbers in the file where the word (the key) is found.
+Valuesóeach value is a set that contains the line numbers in the file where the word (the key) is found.
 
-For example, suppose the word "robot" is found in lines 7, 18, 94, and 138. The map would contain an element 
+For example, suppose the word "robot" is found in lines 7, 18, 94, and 138. The map would contain an element
 in which the key was the string "robot", and the value was a set containing the numbers 7, 18, 94, and 138.
 
-Once the map is built, the program should create another text file, known as a word index, listing the 
-contents of the map. The word index file should contain an alphabetical listing of the words that are 
-stored as keys in the map, along with the line numbers where the words appears in the original file. 
-Figure 17-9 shows an example of an original text file (‚ÄúKennedy.txt‚Äù) and its index file (‚Äúindex.txt‚Äù). 
+Once the map is built, the program should create another text file, known as a word index, listing the
+contents of the map. The word index file should contain an alphabetical listing of the words that are
+stored as keys in the map, along with the line numbers where the words appears in the original file.
+Figure 17-9 shows an example of an original text file (ìKennedy.txtî) and its index file (ìindex.txtî).
 Consider a word to any run of characters delimited by white space.*/
 
 #include <iostream>
@@ -39,13 +39,8 @@ int main()
     {
         words.emplace(input);
     }
-    in.close();
-    in.open("sample.txt");
-    if (!in)
-    {
-        cout << "File open failure.\n";
-        return 0;
-    }
+    in.clear();
+    in.seekg(0L, ios::beg);
     for (auto it = words.cbegin(); it != words.cend(); it++) //add line numbers in file where word is found
     {
         set<int> lineNums;
@@ -62,13 +57,8 @@ int main()
             }
             lineCount++;
         }
-        in.close();
-        in.open("sample.txt");
-        if (!in)
-        {
-            cout << "File open failure.\n";
-            return 0;
-        }
+        in.clear();
+        in.seekg(0L, ios::beg);
         lineCount = 1;
         wordIndex.emplace(*it, lineNums);
     }
