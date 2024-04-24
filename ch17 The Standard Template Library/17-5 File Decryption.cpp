@@ -14,6 +14,7 @@ int main()
         , plain("plain.txt", ios::out);
     map<char, char> key;
     char key2, value;
+    long valuePos = 0;
 
     if (!keyfile || !plain || !cipher)
     {
@@ -22,11 +23,22 @@ int main()
     }
     for (long keyPos = 0; keyPos < 28; keyPos++)
     {
-        keyfile.seekg(keyPos, ios::beg);
-        value = keyfile.get();
-        keyfile.seekg(keyPos + 28, ios::beg);
-        key2 = keyfile.get();
-        key.emplace(key2, value);
+        if (keyPos == 26) //blank character exception
+        {
+            keyfile.seekg(-2L, ios::end);
+            key2 = keyfile.get();
+            key.emplace(key2, 32);
+        }
+        else
+        {
+            keyfile.seekg(keyPos, ios::beg);
+            value = keyfile.get();
+            valuePos += 28;
+            keyfile.seekg(valuePos, ios::cur);
+            key2 = keyfile.get();
+            key.emplace(key2, value);
+            valuePos = 0;
+        }
     }
     keyfile.close();
     key2 = cipher.get();
