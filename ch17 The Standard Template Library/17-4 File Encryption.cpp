@@ -1,8 +1,8 @@
-/*Write an encryption program that reads two text files: the ‚Äúkeyfile.txt‚Äù created in the preceding problem, 
-and a second file ‚Äúplain.txt‚Äù containing a message to be encrypted using the key in the ‚Äúkeyfile.txt‚Äù file. The 
-message will consist only of lowercase characters, spaces and new lines. The message is encrypted by replacing 
-each character in the original sequence with the character at the same position in the scrambled sequence. The 
-output should be echoed to the screen and simultaneously written to a file ‚Äúcipher.txt.‚Äù*/
+/*Write an encryption program that reads two text files: the ìkeyfile.txtî created in the preceding problem,
+and a second file ìplain.txtî containing a message to be encrypted using the key in the ìkeyfile.txtî file. The
+message will consist only of lowercase characters, spaces and new lines. The message is encrypted by replacing
+each character in the original sequence with the character at the same position in the scrambled sequence. The
+output should be echoed to the screen and simultaneously written to a file ìcipher.txt.î*/
 
 #include <iostream>
 #include <fstream>
@@ -26,13 +26,22 @@ int main()
     {
         keyfile.seekg(keyPos, ios::beg);
         key2 = keyfile.get();
-        valuePos += 28;
-        keyfile.seekg(valuePos, ios::cur);
+        valuePos = keyPos + 28;
+        keyfile.seekg(valuePos, ios::beg);
         value = keyfile.get();
-        cout << key2 << value << endl;
-        //key.emplace(key2, value);
+        key.emplace(key2, value);
         valuePos = 0;
     }
+    keyfile.close();
+    key2 = plain.get();
+    while (key2 != EOF)
+    {
+        cout << key.at(key2);
+        cipher << key.at(key2);
+        key2 = plain.get();
+    }
+    plain.close();
+    cipher.close();
 
     return 0;
 }
