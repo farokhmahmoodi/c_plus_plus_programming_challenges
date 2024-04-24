@@ -10,21 +10,19 @@ delimited by white space.*/
 #include <fstream>
 #include <string>
 #include <algorithm>
+#include <set>
 using namespace std;
 
 int main()
 {
     fstream in("sample.txt", ios::in), out("list.txt", ios::out);
     unordered_map<string, int> freq;
-    vector<string> allWords;
+    multiset<string> allWords;
     string word;
 
     while (in >> word)
-    {
-        allWords.emplace_back(word);
-    }
+        allWords.emplace(word);
     in.close();
-    sort(allWords.begin(), allWords.end());
     
 
     return 0;
