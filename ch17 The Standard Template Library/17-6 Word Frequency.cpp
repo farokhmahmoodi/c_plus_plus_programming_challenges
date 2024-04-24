@@ -11,7 +11,16 @@ delimited by white space.*/
 #include <string>
 #include <algorithm>
 #include <set>
+#include <iomanip>
 using namespace std;
+
+bool isPunct(string s)
+{
+    for(int i = 0; i < s.size(); i++)
+        if(ispunct(s[i]))
+            return true;
+    return false;
+}
 
 int main()
 {
@@ -31,10 +40,12 @@ int main()
     {
         freq.emplace(*it, allWords.count(*it));
     }
+    cout << setw(5) << "Word" << setw(20) << "Frequency" << endl;
+    out << setw(5) << "Word" << setw(20) << "Frequency" << endl;
     for (auto elem : freq)
     {
-        cout << elem.first << " " << elem.second << endl;
-        out << elem.first << " " << elem.second << endl;
+        cout << elem.first << setw(20) << elem.second << endl;
+        out << elem.first << setw(20) << elem.second << endl;
     }
 
     return 0;
