@@ -38,7 +38,7 @@ using namespace std;
 
 int main()
 {
-    fstream in("GasPrices.txt", ios::in);
+    ifstream in("GasPrices.txt", ios::in);
 
     if (!in)
     {
