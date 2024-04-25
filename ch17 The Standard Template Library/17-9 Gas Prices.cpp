@@ -44,7 +44,7 @@ using namespace std;
 int main()
 {
     ifstream in("GasPrices.txt", ios::in);
-    int month,day,year,count = 1;
+    int month,day,year;
     double price;
     string line;
     char dash1, dash2, colon;
