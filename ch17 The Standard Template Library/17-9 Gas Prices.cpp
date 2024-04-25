@@ -38,6 +38,7 @@ GasPrices.txt file, and extract its data into one or more STL containers appropr
 #include <string>
 #include <map>
 #include <set>
+#include <vector>
 using namespace std;
 
 int main()
@@ -47,7 +48,7 @@ int main()
     double price;
     string line;
     char dash1, dash2, colon;
-    map<int, double> avgPricePerYear;
+    map<int, vector<double>> avgPricePerYear;
 
     if (!in)
     {
