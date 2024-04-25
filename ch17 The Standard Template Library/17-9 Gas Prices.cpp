@@ -34,18 +34,32 @@ GasPrices.txt file, and extract its data into one or more STL containers appropr
 
 #include <iostream>
 #include <fstream>
+#include <sstream>
+#include <string>
+#include <map>
+#include <set>
 using namespace std;
 
 int main()
 {
     ifstream in("GasPrices.txt", ios::in);
+    int month,day,year,count = 1;
+    double price;
+    string line;
+    char dash1, dash2, colon;
+    map<int, double> avgPricePerYear;
 
     if (!in)
     {
         cout << "File failed to open.\n";
         return 0;
     }
-
+    while (getline(in, line))
+    {
+        getline(in, line);
+        istringstream istr(line);
+        istr >> month >> dash1 >> day >> dash2 >> year >> colon >> price;
+    }
     in.close();
 
     return 0;
