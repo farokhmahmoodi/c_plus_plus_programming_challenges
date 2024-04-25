@@ -33,11 +33,20 @@ for each calculation. Regardless of the approach that you take, you should read 
 GasPrices.txt file, and extract its data into one or more STL containers appropriate for your algorithm.*/
 
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 int main()
 {
-    
+    fstream in("GasPrices.txt", ios::in);
+
+    if (!in)
+    {
+        cout << "File failed to open.\n";
+        return 0;
+    }
+
+    in.close();
 
     return 0;
 }
