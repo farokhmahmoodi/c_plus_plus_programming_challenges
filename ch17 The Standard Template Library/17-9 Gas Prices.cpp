@@ -39,6 +39,7 @@ GasPrices.txt file, and extract its data into one or more STL containers appropr
 #include <map>
 #include <set>
 #include <vector>
+#include <iomanip>
 using namespace std;
 
 void calcAvgPricePerYear(ifstream&, string&);
@@ -87,24 +88,39 @@ void calcAvgPricePerYear(ifstream& in, string& line)
         }
         else //if year is not found in set
         {
-            years.emplace(year); //add new year to set
-            cout << year << endl;
-            if (prices.size() > 0)
+            if (years.size() == 0)
             {
+                years.emplace(year); 
+                prices.emplace_back(price);
+            }
+            else
+            {
+                years.emplace(year); //add new year to set
                 for (int i = 0; i < prices.size(); i++)
                 {
                     avg += prices[i];
                 }
                 avg /= prices.size();
-                if (years.size() > 1)
-                    --it;
+                it--;
+                it--;
                 avgPricePerYear.emplace(*it, avg);
                 prices.clear();
                 avg = 0;
+                prices.emplace_back(price);
             }
-            prices.emplace_back(price);
         }
     }
+    auto it = years.find(year); // add last year and average to map
+    for (int i = 0; i < prices.size(); i++)
+    {
+        avg += prices[i];
+    }
+    avg /= prices.size();
+    avgPricePerYear.emplace(*it, avg);
+    cout << setw(35) << "Average Gas Price per Year\n";
+    cout << "---------------------------------------------\n";
+    cout << setw(10) << "Year" << setw(30) << "Average Price\n";
     for (auto elem : avgPricePerYear)
-        cout << elem.first << " " << elem.second << endl;
+        cout << setw(10) << elem.first << setw(20) 
+        << "$" << fixed << showpoint << setprecision(3) << elem.second << endl;
 }
