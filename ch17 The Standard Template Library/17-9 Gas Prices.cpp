@@ -123,4 +123,5 @@ void calcAvgPricePerYear(ifstream& in, string& line)
     for (auto elem : avgPricePerYear)
         cout << setw(10) << elem.first << setw(20) 
         << "$" << fixed << showpoint << setprecision(3) << elem.second << endl;
+    in.clear();
 }
