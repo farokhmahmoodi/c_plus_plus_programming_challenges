@@ -43,6 +43,7 @@ GasPrices.txt file, and extract its data into one or more STL containers appropr
 using namespace std;
 
 void calcAvgPricePerYear(ifstream&, string&);
+void calcAvgPricePerMonth(ifstream&, string&);
 
 int main()
 {
@@ -55,7 +56,7 @@ int main()
     string line;
 
     calcAvgPricePerYear(in, line);
-
+    calcAvgPricePerMonth(in, line);
     in.close();
 
     return 0;
@@ -69,6 +70,8 @@ void calcAvgPricePerYear(ifstream& in, string& line)
     int month, day, year;
     double price, avg = 0;
 
+    in.clear();
+    in.seekg(0L, ios::beg);
     while (getline(in, line))
     {
         for (int i = 0; i < line.size(); i++)
@@ -95,7 +98,7 @@ void calcAvgPricePerYear(ifstream& in, string& line)
             }
             else
             {
-                years.emplace(year); //add new year to set
+                years.emplace(year); 
                 for (int i = 0; i < prices.size(); i++)
                 {
                     avg += prices[i];
@@ -124,4 +127,32 @@ void calcAvgPricePerYear(ifstream& in, string& line)
         cout << setw(10) << elem.first << setw(20) 
         << "$" << fixed << showpoint << setprecision(3) << elem.second << endl;
     in.clear();
+    in.seekg(0L, ios::beg);
+}
+
+void calcAvgPricePerMonth(ifstream& in, string& line)
+{
+    set<string> monthAndYear;
+    vector<double> prices;
+    map<string, double> avgPricePerMonth;
+    string month, day, year;
+    double price, avg = 0;
+    
+    in.clear();
+    in.seekg(0L, ios::beg);
+    while (getline(in, line))
+    {
+        for (int i = 0; i < line.size(); i++)
+        {
+            if (ispunct(line[i]))
+            {
+                if (line[i] != '.')
+                    line.replace(i, 1, " ");
+            }
+        }
+        istringstream istr(line);
+        istr >> month >> day >> year >> price;
+    }
+    in.clear();
+    in.seekg(0L, ios::beg);
 }
