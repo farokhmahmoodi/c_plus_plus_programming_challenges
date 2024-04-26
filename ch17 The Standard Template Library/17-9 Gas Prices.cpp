@@ -46,25 +46,35 @@ void calcAvgPricePerYear(ifstream&, string&);
 int main()
 {
     ifstream in("GasPrices.txt", ios::in);
-    int month, day, year;
-    double price, avg = 0;
-    string line;
-    set<int> years, months;
-    vector<double> prices;
-    map<int, double> avgPricePerYear;
-
     if (!in)
     {
         cout << "File failed to open.\n";
         return 0;
     }
+    string line;
+
+    calcAvgPricePerYear(in, line);
+
+    in.close();
+
+    return 0;
+}
+
+void calcAvgPricePerYear(ifstream& in, string& line)
+{
+    set<int> years;
+    vector<double> prices;
+    map<int, double> avgPricePerYear;
+    int month, day, year;
+    double price, avg = 0;
+
     while (getline(in, line))
     {
         for (int i = 0; i < line.size(); i++)
         {
             if (ispunct(line[i]))
             {
-                if(line[i] != '.')
+                if (line[i] != '.')
                     line.replace(i, 1, " ");
             }
         }
@@ -91,16 +101,10 @@ int main()
                 avgPricePerYear.emplace(*it, avg);
                 prices.clear();
                 avg = 0;
-            } 
+            }
             prices.emplace_back(price);
         }
     }
-    in.close();
-
-    return 0;
-}
-
-void calcAvgPricePerYear(ifstream& in, string& line)
-{
-
+    for (auto elem : avgPricePerYear)
+        cout << elem.first << " " << elem.second << endl;
 }
