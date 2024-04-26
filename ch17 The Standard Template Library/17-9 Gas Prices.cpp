@@ -135,7 +135,7 @@ void calcAvgPricePerMonth(ifstream& in, string& line)
     set<string> monthAndYear;
     vector<double> prices;
     map<string, double> avgPricePerMonth;
-    string month, day, year;
+    string month, day, year, monthAndYear;
     double price, avg = 0;
     
     in.clear();
@@ -152,6 +152,7 @@ void calcAvgPricePerMonth(ifstream& in, string& line)
         }
         istringstream istr(line);
         istr >> month >> day >> year >> price;
+
     }
     in.clear();
     in.seekg(0L, ios::beg);
