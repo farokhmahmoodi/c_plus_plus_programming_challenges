@@ -153,8 +153,48 @@ void calcAvgPricePerMonth(ifstream& in, string& line)
         istringstream istr(line);
         istr >> month >> day >> year >> price;
         monthYear = month + " " + year;
-        cout << monthYear << endl;
+        auto it = monthAndYear.find(monthYear);
+        if (it != monthAndYear.end())
+        {
+            prices.emplace_back(price);
+        }
+        else
+        {
+            if (monthAndYear.size() == 0)
+            {
+                monthAndYear.emplace(monthYear);
+                prices.emplace_back(price);
+            }
+            else
+            {
+                monthAndYear.emplace(monthYear);
+                for(int i = 0; i < prices.size(); i++)
+                {
+                    avg += prices[i];
+                }
+                avg /= prices.size();
+                it--;
+                it--;
+                avgPricePerMonth.emplace(*it, avg);
+                prices.clear();
+                avg = 0;
+                prices.emplace_back(price);
+            }
+        }
     }
+    auto it = monthAndYear.find(monthYear); // add last month and average to map
+    for (int i = 0; i < prices.size(); i++)
+    {
+        avg += prices[i];
+    }
+    avg /= prices.size();
+    avgPricePerMonth.emplace(*it, avg);
+    cout << setw(35) << "Average Gas Price per Month\n";
+    cout << "---------------------------------------------\n";
+    cout << setw(10) << "Month and Year" << setw(30) << "Average Price\n";
+    for (auto elem : avgPricePerMonth)
+        cout << setw(10) << elem.first << setw(20)
+        << "$" << fixed << showpoint << setprecision(3) << elem.second << endl;
     in.clear();
     in.seekg(0L, ios::beg);
 }
