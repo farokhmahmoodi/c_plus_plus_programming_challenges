@@ -64,7 +64,8 @@ int main()
     //calcAvgPricePerMonth(in, line);
     //cout << endl;
     //highestAndLowestPricePerYear(in, line);
-    lowestToHighestPrices(in, line);
+    //lowestToHighestPrices(in, line);
+    highestToLowestPrices(in, line);
     in.close();
 
     return 0;
@@ -319,12 +320,26 @@ void lowestToHighestPrices(ifstream& in, string& line)
 
 void highestToLowestPrices(ifstream& in, string& line)
 {
-   
+    string date;
+    double price;
+    map<double, string> dateAndPrices;
+    ofstream out("HighestToLowest.txt", ios::out);
     in.clear();
     in.seekg(0L, ios::beg);
 
-
-
+    while (getline(in, line))
+    {
+        line.erase(10, 1);
+        line.insert(10, ": ");
+        istringstream istr(line);
+        istr >> date >> price;
+        dateAndPrices.emplace(price, date);
+    }
+    for (auto it = dateAndPrices.rbegin(); it != dateAndPrices.rend(); it++)
+    {
+        out << it->second << it->first << endl;
+    }
     in.clear();
     in.seekg(0L, ios::beg);
+    out.close();
 }
