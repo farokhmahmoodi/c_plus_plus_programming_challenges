@@ -127,6 +127,7 @@ void calcAvgPricePerYear(ifstream& in, string& line)
     }
     avg /= prices.size();
     avgPricePerYear.emplace(*it, avg);
+    prices.clear();
     cout << setw(35) << "Average Gas Price per Year\n";
     cout << "---------------------------------------------\n";
     cout << setw(10) << "Year" << setw(30) << "Average Price\n";
@@ -194,6 +195,7 @@ void calcAvgPricePerMonth(ifstream& in, string& line)
     }
     avg /= prices.size();
     avgPrices.emplace_back(avg);
+    prices.clear();
     cout << setw(35) << "Average Gas Price per Month\n";
     cout << "---------------------------------------------\n";
     cout << setw(17) << "Month and Year" << setw(23) << "Average Price\n";
@@ -270,5 +272,19 @@ void highestAndLowestPricePerYear(ifstream& in, string& line)
     auto it2 = years.end();
     it2--;
     highLowPerYear.emplace(*it2, prices);
-    
+    prices.clear();
+    cout << setw(55) << "Highest and Lowest Gas Price per Year\n";
+    cout << "----------------------------------------------------------------------\n";
+    cout << setw(10) << "Year" << setw(30) << "Highest Price" << setw(25) << "Lowest Price\n";
+    for (auto elem : highLowPerYear)
+    {
+        cout << setw(10) << elem.first << setw(20);
+        for (auto price : elem.second)
+        {
+            cout << "$" << fixed << showpoint << setprecision(3) << price << setw(20);
+        }
+        cout << endl;
+    }
+    in.clear();
+    in.seekg(0L, ios::beg);
 }
