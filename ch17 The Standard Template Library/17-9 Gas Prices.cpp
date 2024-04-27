@@ -40,12 +40,12 @@ GasPrices.txt file, and extract its data into one or more STL containers appropr
 #include <set>
 #include <vector>
 #include <iomanip>
-#include <unordered_set>
-#include <unordered_map>
+#include <algorithm>
 using namespace std;
 
 void calcAvgPricePerYear(ifstream&, string&);
 void calcAvgPricePerMonth(ifstream&, string&);
+void highestAndLowestPricePerYear(ifstream&, string&);
 
 int main()
 {
@@ -60,6 +60,9 @@ int main()
     calcAvgPricePerYear(in, line);
     cout << endl;
     calcAvgPricePerMonth(in, line);
+    cout << endl;
+    highestAndLowestPricePerYear(in, line);
+
     in.close();
 
     return 0;
@@ -70,7 +73,7 @@ void calcAvgPricePerYear(ifstream& in, string& line)
     set<int> years;
     vector<double> prices;
     map<int, double> avgPricePerYear;
-    int month, day, year;
+    int month, year;
     double price, avg = 0;
 
     in.clear();
@@ -201,4 +204,71 @@ void calcAvgPricePerMonth(ifstream& in, string& line)
     }
     in.clear();
     in.seekg(0L, ios::beg);
+}
+
+void highestAndLowestPricePerYear(ifstream& in, string& line)
+{
+    set<int> years;
+    vector<double> prices;
+    map<int, vector<double>> highLowPerYear;
+    int year;
+    double price, highest, lowest;
+
+    in.clear();
+    in.seekg(0L, ios::beg);
+    while (getline(in, line))
+    {
+        for (int i = 0; i < line.size(); i++)
+        {
+            if (ispunct(line[i]))
+            {
+                if (line[i] != '.')
+                    line.replace(i, 1, " ");
+            }
+        }
+        line.erase(0, 6);
+        istringstream istr(line);
+        istr >> year >> price;
+        auto it = years.find(year);
+        if (it != years.end())
+        {
+            prices.emplace_back(price);
+        }
+        else
+        {
+            if (years.size() == 0)
+            {
+                years.emplace(year);
+                prices.emplace_back(price);
+            }
+            else
+            {
+                years.emplace(year);
+                auto it2 = max_element(prices.begin(), prices.end());
+                highest = *it2;
+                it2 = min_element(prices.begin(), prices.end());
+                lowest = *it2;
+                prices.clear();
+                prices.emplace_back(highest);
+                prices.emplace_back(lowest);
+                it--;
+                it--;
+                highLowPerYear.emplace(*it, prices);
+                prices.clear();
+                prices.emplace_back(price);
+            }
+        }
+    }
+    years.emplace(year);
+    auto it = max_element(prices.begin(), prices.end());
+    highest = *it;
+    it = min_element(prices.begin(), prices.end());
+    lowest = *it;
+    prices.clear();
+    prices.emplace_back(highest);
+    prices.emplace_back(lowest);
+    auto it2 = years.end();
+    it2--;
+    highLowPerYear.emplace(*it2, prices);
+    
 }
