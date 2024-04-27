@@ -59,7 +59,7 @@ int main()
 
     calcAvgPricePerYear(in, line);
     cout << endl;
-    //calcAvgPricePerMonth(in, line);
+    calcAvgPricePerMonth(in, line);
     in.close();
 
     return 0;
@@ -135,11 +135,10 @@ void calcAvgPricePerYear(ifstream& in, string& line)
 }
 
 void calcAvgPricePerMonth(ifstream& in, string& line)
-{
-    set<string> monthAndYear;
-    vector<double> prices;
-    map<string, double> avgPricePerMonth;
-    string month, day, year, monthYear;
+{   
+    vector<string> months;
+    vector<double> prices, avgPrices;
+    string month,year, monthYear, hold;
     double price, avg = 0;
 
     in.clear();
@@ -154,18 +153,52 @@ void calcAvgPricePerMonth(ifstream& in, string& line)
                     line.replace(i, 1, " ");
             }
         }
+        line.erase(3, 3);
         istringstream istr(line);
-        istr >> month >> day >> year >> price;
+        istr >> month >> year >> price;
         monthYear = month + " " + year;
-            
+        auto it = find(months.begin(), months.end(), monthYear);
+        if (it != months.end())
+        {
+            prices.emplace_back(price);
+        }
+        else
+        {
+            if (months.size() == 0)
+            {
+                months.emplace_back(monthYear);
+                prices.emplace_back(price);
+            }
+            else
+            {
+                months.emplace_back(monthYear);
+                for (int i = 0; i < prices.size(); i++)
+                {
+                    avg += prices[i];
+                }
+                avg /= prices.size();
+                avgPrices.emplace_back(avg);
+                prices.clear();
+                avg = 0;
+                prices.emplace_back(price);
+            }
+        }
     }
-    
+    auto it = find(months.begin(), months.end(), monthYear); //add last month into average price vector
+    for (int i = 0; i < prices.size(); i++)
+    {
+        avg += prices[i];
+    }
+    avg /= prices.size();
+    avgPrices.emplace_back(avg);
     cout << setw(35) << "Average Gas Price per Month\n";
     cout << "---------------------------------------------\n";
-    cout << setw(10) << "Month and Year" << setw(30) << "Average Price\n";
-    for (auto elem : avgPricePerMonth)
-        cout << setw(10) << elem.first << setw(20)
-        << "$" << fixed << showpoint << setprecision(3) << elem.second << endl;
+    cout << setw(17) << "Month and Year" << setw(23) << "Average Price\n";
+    for (int i = 0; i < months.size(); i++)
+    {
+        cout << setw(13) << months[i] << setw(17)
+            << "$" << fixed << showpoint << setprecision(3) << avgPrices[i] << endl;
+    }
     in.clear();
     in.seekg(0L, ios::beg);
 }
