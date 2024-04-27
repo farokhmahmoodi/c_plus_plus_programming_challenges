@@ -1,35 +1,35 @@
-/*In the student sample program files for this chapter, you will find a text file named GasPrices.txt. 
+/*In the student sample program files for this chapter, you will find a text file named GasPrices.txt.
 The file contains the weekly average prices for a gallon of gas in the United States, beginning on April 5, 1993,
 and ending on August 26, 2013. Figure 17-10 shows an example of the first few lines of the file's contents:
 
 Figure 17-10 Contents of the GasPrices.txt File
 
-Each line in the file contains the average price for a gallon of gas on a specific date. Each line is formatted 
+Each line in the file contains the average price for a gallon of gas on a specific date. Each line is formatted
 in the following way:
 
 MM-DD-YYYY:Price
-MM is the two-digit month, DD is the two-digit day, and YYYY is the four-digit year. Price is the average price 
+MM is the two-digit month, DD is the two-digit day, and YYYY is the four-digit year. Price is the average price
 per gallon of gas on the specified date.
 
-For this assignment you are to write one or more programs that read the contents of the file and perform the 
+For this assignment you are to write one or more programs that read the contents of the file and perform the
 following calculations:
 
-AVERAGE PRICE PER YEAR: Calculate the average price of gas per year, for each year in the file. (The file's 
+AVERAGE PRICE PER YEAR: Calculate the average price of gas per year, for each year in the file. (The file's
 data starts in April 1993, and it ends in August 2013. Use the data that is present for the years 1993 and 2013.)
 
 AVERAGE PRICE PER MONTH: Calculate the average price for each month in the file.
 
-HIGHEST AND LOWEST PRICES PER YEAR: For each year in the file, determine the date and amount for the lowest 
+HIGHEST AND LOWEST PRICES PER YEAR: For each year in the file, determine the date and amount for the lowest
 price, and the highest price.
 
-LIST OF PRICES, LOWEST TO HIGHEST: Generate a text file that lists the dates and prices, sorted from the 
+LIST OF PRICES, LOWEST TO HIGHEST: Generate a text file that lists the dates and prices, sorted from the
 lowest price to the highest.
 
-LIST OF PRICES, HIGHEST TO LOWEST: Generate a text file that lists the dates and prices, sorted from the 
+LIST OF PRICES, HIGHEST TO LOWEST: Generate a text file that lists the dates and prices, sorted from the
 highest price to the lowest.
 
-You can write one program to perform all of these calculations, or you can write different programs, one 
-for each calculation. Regardless of the approach that you take, you should read the contents of the 
+You can write one program to perform all of these calculations, or you can write different programs, one
+for each calculation. Regardless of the approach that you take, you should read the contents of the
 GasPrices.txt file, and extract its data into one or more STL containers appropriate for your algorithm.*/
 
 #include <iostream>
@@ -40,6 +40,8 @@ GasPrices.txt file, and extract its data into one or more STL containers appropr
 #include <set>
 #include <vector>
 #include <iomanip>
+#include <unordered_set>
+#include <unordered_map>
 using namespace std;
 
 void calcAvgPricePerYear(ifstream&, string&);
@@ -56,7 +58,8 @@ int main()
     string line;
 
     calcAvgPricePerYear(in, line);
-    calcAvgPricePerMonth(in, line);
+    cout << endl;
+    //calcAvgPricePerMonth(in, line);
     in.close();
 
     return 0;
@@ -82,8 +85,9 @@ void calcAvgPricePerYear(ifstream& in, string& line)
                     line.replace(i, 1, " ");
             }
         }
+        line.erase(0, 6);
         istringstream istr(line);
-        istr >> month >> day >> year >> price;
+        istr >> year >> price;
         auto it = years.find(year); //find if year is in set
         if (it != years.end()) //if year is found in set
         {
@@ -93,12 +97,12 @@ void calcAvgPricePerYear(ifstream& in, string& line)
         {
             if (years.size() == 0)
             {
-                years.emplace(year); 
+                years.emplace(year);
                 prices.emplace_back(price);
             }
             else
             {
-                years.emplace(year); 
+                years.emplace(year);
                 for (int i = 0; i < prices.size(); i++)
                 {
                     avg += prices[i];
@@ -124,7 +128,7 @@ void calcAvgPricePerYear(ifstream& in, string& line)
     cout << "---------------------------------------------\n";
     cout << setw(10) << "Year" << setw(30) << "Average Price\n";
     for (auto elem : avgPricePerYear)
-        cout << setw(10) << elem.first << setw(20) 
+        cout << setw(10) << elem.first << setw(20)
         << "$" << fixed << showpoint << setprecision(3) << elem.second << endl;
     in.clear();
     in.seekg(0L, ios::beg);
@@ -137,7 +141,7 @@ void calcAvgPricePerMonth(ifstream& in, string& line)
     map<string, double> avgPricePerMonth;
     string month, day, year, monthYear;
     double price, avg = 0;
-    
+
     in.clear();
     in.seekg(0L, ios::beg);
     while (getline(in, line))
@@ -153,42 +157,9 @@ void calcAvgPricePerMonth(ifstream& in, string& line)
         istringstream istr(line);
         istr >> month >> day >> year >> price;
         monthYear = month + " " + year;
-        auto it = monthAndYear.find(monthYear);
-        if (it != monthAndYear.end())
-        {
-            prices.emplace_back(price);
-        }
-        else
-        {
-            if (monthAndYear.size() == 0)
-            {
-                monthAndYear.emplace(monthYear);
-                prices.emplace_back(price);
-            }
-            else
-            {
-                monthAndYear.emplace(monthYear);
-                for(int i = 0; i < prices.size(); i++)
-                {
-                    avg += prices[i];
-                }
-                avg /= prices.size();
-                it--;
-                it--;
-                avgPricePerMonth.emplace(*it, avg);
-                prices.clear();
-                avg = 0;
-                prices.emplace_back(price);
-            }
-        }
+            
     }
-    auto it = monthAndYear.find(monthYear); // add last month and average to map
-    for (int i = 0; i < prices.size(); i++)
-    {
-        avg += prices[i];
-    }
-    avg /= prices.size();
-    avgPricePerMonth.emplace(*it, avg);
+    
     cout << setw(35) << "Average Gas Price per Month\n";
     cout << "---------------------------------------------\n";
     cout << setw(10) << "Month and Year" << setw(30) << "Average Price\n";
