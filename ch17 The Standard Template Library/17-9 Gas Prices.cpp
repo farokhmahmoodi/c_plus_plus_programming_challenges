@@ -46,6 +46,8 @@ using namespace std;
 void calcAvgPricePerYear(ifstream&, string&);
 void calcAvgPricePerMonth(ifstream&, string&);
 void highestAndLowestPricePerYear(ifstream&, string&);
+void lowestToHighestPrices(ifstream&, string&);
+void highestToLowestPrices(ifstream&, string&);
 
 int main()
 {
@@ -57,12 +59,12 @@ int main()
     }
     string line;
 
-    calcAvgPricePerYear(in, line);
-    cout << endl;
-    calcAvgPricePerMonth(in, line);
-    cout << endl;
-    highestAndLowestPricePerYear(in, line);
-
+    //calcAvgPricePerYear(in, line);
+    //cout << endl;
+    //calcAvgPricePerMonth(in, line);
+    //cout << endl;
+    //highestAndLowestPricePerYear(in, line);
+    lowestToHighestPrices(in, line);
     in.close();
 
     return 0;
@@ -285,6 +287,44 @@ void highestAndLowestPricePerYear(ifstream& in, string& line)
         }
         cout << endl;
     }
+    in.clear();
+    in.seekg(0L, ios::beg);
+}
+
+void lowestToHighestPrices(ifstream& in, string& line)
+{
+    string date;
+    double price;
+    map<double, string> lowToHigh;
+    ofstream out("lowestToHighest.txt", ios::out);
+    in.clear();
+    in.seekg(0L, ios::beg);
+
+    while (getline(in, line))
+    {
+        line.erase(10, 1);
+        line.insert(10, ": ");
+        istringstream istr(line);
+        istr >> date >> price;
+        lowToHigh.emplace(price, date);
+    }
+    for (auto elem : lowToHigh)
+    {
+        out << elem.second << elem.first << endl;
+    }
+    in.clear();
+    in.seekg(0L, ios::beg);
+    out.close();
+}
+
+void highestToLowestPrices(ifstream& in, string& line)
+{
+   
+    in.clear();
+    in.seekg(0L, ios::beg);
+
+
+
     in.clear();
     in.seekg(0L, ios::beg);
 }
