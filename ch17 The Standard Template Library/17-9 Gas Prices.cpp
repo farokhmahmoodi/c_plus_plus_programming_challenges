@@ -59,12 +59,12 @@ int main()
     }
     string line;
 
-    //calcAvgPricePerYear(in, line);
-    //cout << endl;
-    //calcAvgPricePerMonth(in, line);
-    //cout << endl;
-    //highestAndLowestPricePerYear(in, line);
-    //lowestToHighestPrices(in, line);
+    calcAvgPricePerYear(in, line);
+    cout << endl;
+    calcAvgPricePerMonth(in, line);
+    cout << endl;
+    highestAndLowestPricePerYear(in, line);
+    lowestToHighestPrices(in, line);
     highestToLowestPrices(in, line);
     in.close();
 
@@ -191,7 +191,7 @@ void calcAvgPricePerMonth(ifstream& in, string& line)
             }
         }
     }
-    auto it = find(months.begin(), months.end(), monthYear); //add last month into average price vector
+    auto it = find(months.cbegin(), months.cend(), monthYear); //add last month into average price vector
     for (int i = 0; i < prices.size(); i++)
     {
         avg += prices[i];
@@ -249,9 +249,9 @@ void highestAndLowestPricePerYear(ifstream& in, string& line)
             else
             {
                 years.emplace(year);
-                auto it2 = max_element(prices.begin(), prices.end());
+                auto it2 = max_element(prices.cbegin(), prices.cend());
                 highest = *it2;
-                it2 = min_element(prices.begin(), prices.end());
+                it2 = min_element(prices.cbegin(), prices.cend());
                 lowest = *it2;
                 prices.clear();
                 prices.emplace_back(highest);
@@ -265,9 +265,9 @@ void highestAndLowestPricePerYear(ifstream& in, string& line)
         }
     }
     years.emplace(year);
-    auto it = max_element(prices.begin(), prices.end());
+    auto it = max_element(prices.cbegin(), prices.cend());
     highest = *it;
-    it = min_element(prices.begin(), prices.end());
+    it = min_element(prices.cbegin(), prices.cend());
     lowest = *it;
     prices.clear();
     prices.emplace_back(highest);
@@ -335,7 +335,7 @@ void highestToLowestPrices(ifstream& in, string& line)
         istr >> date >> price;
         dateAndPrices.emplace(price, date);
     }
-    for (auto it = dateAndPrices.rbegin(); it != dateAndPrices.rend(); it++)
+    for (auto it = dateAndPrices.crbegin(); it != dateAndPrices.crend(); it++)
     {
         out << it->second << it->first << endl;
     }
