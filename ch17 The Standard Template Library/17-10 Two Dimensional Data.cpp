@@ -27,11 +27,61 @@ allows users to type in the name of a person whose list of favorite destinations
 program prints an error message if the person is not in the database.*/
 
 #include <iostream>
+#include <fstream>
+#include <vector>
+#include <string>
 using namespace std;
 
 int main()
 {
-    
+    ifstream in("2DData.txt", ios::in);
+    if (!in)
+    {
+        cout << "File failed to open.\n";
+        return 0;
+    }
+    int numOfPeople, index, numOfPlaces, choice;
+    string nameOfPlace, input;
+    vector<vector<string>> places;
+    vector<string> namesOfPlaces;
+
+    in >> numOfPeople;
+    vector<string> names(numOfPeople);
+    for (int i = 0; i < names.size(); i++)
+    {
+        in >> index;
+        in >> names[i];
+    }
+    for (int i = 0; i < names.size(); i++)
+    {
+        in >> index;
+        in >> numOfPlaces;
+        for (int x = 0; x < numOfPlaces; x++)
+        {
+            in >> nameOfPlace;
+            namesOfPlaces.emplace_back(nameOfPlace);
+        }
+        places.emplace_back(namesOfPlaces);
+        namesOfPlaces.clear();
+    }    
+    in.close();
+    do
+    {
+        cout << "Enter the name of a person to list their favorite destinations:";
+        getline(cin, input);
+        do
+        {
+            while (cout << "Would you like to enter another person? (1 for yes/2 for no)" &&
+                !(cin >> choice)) {
+                cin.clear(); //clear bad input flag
+                cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
+                cout << "Invalid input for choice." << endl;
+            }
+            if (choice != 1 && choice != 2)
+                cout << "Invalid input for choice. It must be 1 or 2.\n";
+        } while (choice != 1 && choice != 2);
+        cin.ignore();
+    } while (choice != 2);
 
     return 0;
 }
