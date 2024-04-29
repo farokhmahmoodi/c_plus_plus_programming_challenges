@@ -69,6 +69,25 @@ int main()
     {
         cout << "Enter the name of a person to list their favorite destinations:";
         getline(cin, input);
+        auto it = find(names.cbegin(), names.cend(), input);
+        if (it == names.cend()) 
+        {
+            cout << "Error. Person is not found in database.\n";
+        }
+        else
+        {
+            if (places[distance(names.cbegin(), it)].size() == 0)
+            {
+                cout << *it << " has no favorite destinations.\n";
+            }
+            else
+            {
+                cout << *it << "'s favorite destinations are ";
+                for (int i = 0; i < places[distance(names.cbegin(), it)].size(); i++)
+                    cout << places[distance(names.cbegin(), it)][i] << " ";
+                cout << endl;
+            }
+        }
         do
         {
             while (cout << "Would you like to enter another person? (1 for yes/2 for no)" &&
