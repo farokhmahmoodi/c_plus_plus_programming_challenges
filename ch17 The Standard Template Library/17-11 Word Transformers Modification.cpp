@@ -1,4 +1,4 @@
-/*Modify Program 17-38 so that it keeps lists of intermediate words during the two sorts 
+/*Modify Program 17-38 so that it keeps lists of intermediate words during the two sorts
 instead of keeping lists of swap indices.*/
 
 #include <iostream>  
@@ -8,40 +8,34 @@ instead of keeping lists of swap indices.*/
 using namespace std;
 
 // Prototype
-void sort(char str[], int size, vector<int>& transpositions);
+void sort(string, vector<string>& transpositions);
 
 int main()
 {
-    // The two words and a copy of the first word
-    char str1[] = "spot";
-    char str1Copy[] = "spot";
-    char str2[] = "stop";
+    // The two words
+    string str1 = "tops";
+    string str2 = "spot";
 
-    // These vectors hold the list of transpositions
-    vector<int> transpose;
-    vector<int> reverse_transpose;
+    // These vectors hold the list of intermediate words during the two sorts
+    vector<string> transpose;
+    vector<string> reverse_transpose;
 
     // Sort the two words
     cout << "The first word is " << str1 << endl
         << "The second word is " << str2 << endl;
-    sort(str1, 4, transpose);
-    sort(str2, 4, reverse_transpose);
+    sort(str1, transpose);
+    sort(str2, reverse_transpose);
 
-    // Apply the first list of transpositions
+    //Print out first list of intermediate words
     cout << "The transformation steps are: " << endl;
-    cout << str1Copy << " ";
     for (int k = 0; k < transpose.size(); k++)
     {
-        int index = transpose[k];
-        swap(str1Copy[index], str1Copy[index + 1]);
-        cout << str1Copy << " ";
+        cout << transpose[k] << " ";
     }
-    // Apply the second list of transpositions in reverse order
-    for (int k = reverse_transpose.size() - 1; k >= 0; k--)
+    //Print out second list of intermediate words in reverse order
+    for (int k = reverse_transpose.size() - 2; k >= 0; k--)
     {
-        int index = reverse_transpose[k];
-        swap(str1Copy[index], str1Copy[index + 1]);
-        cout << str1Copy << " ";
+        cout << reverse_transpose[k] << " ";
     }
     cout << endl;
     return 0;
@@ -49,12 +43,13 @@ int main()
 
 //*************************************************************
 // This is a version of Bubblesort that saves a list of all   *
-// transpositions that are needed to sort the list            *
+// intermediate words during the sort*
 //*************************************************************
-void sort(char str[], int size, vector<int>& transpositions)
+void sort(string str, vector<string>& transpositions)
 {
     // Last index of portion yet to be sorted
-    int upperBound = size - 1;
+    int upperBound = str.size() - 1;
+    transpositions.emplace_back(str);
 
     while (upperBound > 0)
     {
@@ -62,12 +57,10 @@ void sort(char str[], int size, vector<int>& transpositions)
         {
             if (str[k] > str[k + 1])
             {
-                // Save the swap index
-                transpositions.push_back(k);
                 swap(str[k], str[k + 1]);
+                transpositions.emplace_back(str);
             }
         }
         upperBound--;
     }
 }
-
