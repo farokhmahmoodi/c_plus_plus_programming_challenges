@@ -51,7 +51,10 @@ int main()
     } while (n < 1);
     for (int i = 0; i < n; i++)
     {
-        row = pascalTriangleNextRow(row);
+        row.resize(i + 1);
+        for (auto elem : row)
+            cout << elem << " ";
+        cout << endl;
     }
 
     return 0;
@@ -59,6 +62,10 @@ int main()
 
 vector<int> pascalTriangleNextRow(vector<int> row)
 {
-    
+    for (int i = 0; i < row.size(); i++)
+    {
+
+    }
+
     return row;
 }
