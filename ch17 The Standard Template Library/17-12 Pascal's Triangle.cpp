@@ -55,6 +55,7 @@ int main()
         for (auto elem : row)
             cout << elem << " ";
         cout << endl;
+        row.clear();
     }
 
     return 0;
@@ -62,10 +63,8 @@ int main()
 
 vector<int> pascalTriangleNextRow(vector<int> row)
 {
-    for (int i = 0; i < row.size(); i++)
-    {
-
-    }
+    
+    
 
     return row;
 }
