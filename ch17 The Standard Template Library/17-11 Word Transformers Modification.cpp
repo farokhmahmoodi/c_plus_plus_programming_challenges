@@ -44,7 +44,7 @@ int main()
 
 //*************************************************************
 // This is a version of Bubblesort that saves a list of all   *
-// intermediate words during the sort*
+// intermediate words during the sort                         *
 //*************************************************************
 void sort(string str, vector<string>& transpositions)
 {
