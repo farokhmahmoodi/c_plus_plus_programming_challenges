@@ -13,8 +13,8 @@ void sort(string, vector<string>& transpositions);
 int main()
 {
     // The two words
-    string str1 = "tops";
-    string str2 = "spot";
+    string str1 = "spot";
+    string str2 = "stop";
 
     // These vectors hold the list of intermediate words during the two sorts
     vector<string> transpose;
@@ -25,6 +25,7 @@ int main()
         << "The second word is " << str2 << endl;
     sort(str1, transpose);
     sort(str2, reverse_transpose);
+    reverse_transpose.pop_back(); //remove duplicate intermediate word
 
     //Print out first list of intermediate words
     cout << "The transformation steps are: " << endl;
@@ -33,7 +34,7 @@ int main()
         cout << transpose[k] << " ";
     }
     //Print out second list of intermediate words in reverse order
-    for (int k = reverse_transpose.size() - 2; k >= 0; k--)
+    for (int k = reverse_transpose.size() - 1; k >= 0; k--)
     {
         cout << reverse_transpose[k] << " ";
     }
