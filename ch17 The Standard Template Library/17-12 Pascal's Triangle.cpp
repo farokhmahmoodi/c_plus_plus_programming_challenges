@@ -36,6 +36,7 @@ vector<int> pascalTriangleNextRow(vector<int>);
 int main()
 {
     int n;
+    vector<int> row;
 
     do
     {
@@ -48,12 +49,16 @@ int main()
         if (n < 1)
             cout << "Invalid input. Integer must be greater than or equal to 1.\n";
     } while (n < 1);
-
+    for (int i = 0; i < n; i++)
+    {
+        row = pascalTriangleNextRow(row);
+    }
 
     return 0;
 }
 
 vector<int> pascalTriangleNextRow(vector<int> row)
 {
+    
     return row;
 }
