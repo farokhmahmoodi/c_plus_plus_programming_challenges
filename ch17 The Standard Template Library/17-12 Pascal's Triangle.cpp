@@ -31,9 +31,29 @@ first N rows of Pascal’s triangle by repeatedly calling the above function.*/
 #include <vector>
 using namespace std;
 
+vector<int> pascalTriangleNextRow(vector<int>);
+
 int main()
 {
-    
+    int n;
+
+    do
+    {
+        while (cout << "Enter an integer N greater than or equal to 1:" &&
+            !(cin >> n)) {
+            cin.clear(); //clear bad input flag
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
+            cout << "Invalid input for integer n." << endl;
+        }
+        if (n < 1)
+            cout << "Invalid input. Integer must be greater than or equal to 1.\n";
+    } while (n < 1);
+
 
     return 0;
+}
+
+vector<int> pascalTriangleNextRow(vector<int> row)
+{
+    return row;
 }
