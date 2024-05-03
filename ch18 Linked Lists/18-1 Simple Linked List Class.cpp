@@ -37,8 +37,7 @@ public:
         }
         else //if list is not empty
         {
-            ListNode* tail = head;
-            head = new ListNode(x,tail);
+            head = new ListNode(x,head);
         }
     }
     bool isMember(double x)
@@ -74,6 +73,16 @@ public:
             nodePtr = nodePtr->next;
         }
         cout << endl;
+    }
+    ~LinkedList()
+    {
+        ListNode* ptr = head;
+        while (ptr != nullptr)
+        {
+            ListNode* garbage = ptr;
+            ptr = ptr->next;
+            delete garbage;
+        }
     }
 };
 
