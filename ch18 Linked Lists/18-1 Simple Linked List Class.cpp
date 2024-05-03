@@ -31,11 +31,11 @@ protected:
 public:
     void add(double x)
     {
-        if (head == nullptr)
+        if (head == nullptr) //if list is empty
         {
             head = new ListNode(x);
         }
-        else
+        else //if list is not empty
         {
             ListNode* tail = head;
             head = new ListNode(x,tail);
@@ -43,17 +43,22 @@ public:
     }
     bool isMember(double x)
     {
-        if (head->value == x)
+        if (head == nullptr) //if list is empty
+            return false;
+        else if (head->value == x) //if value is first node in list
             return true;
         else
         {
             ListNode* nodePtr = head;
-            while (nodePtr != nullptr && nodePtr->value != x)
+            while (nodePtr != nullptr && nodePtr->value != x) //traverse list looking for value
                 nodePtr = nodePtr->next;
-            if (nodePtr->value == x)
-                return true;
-            else
-                return false;
+            if (nodePtr)
+            {
+                if (nodePtr->value == x) //if value found 
+                    return true;
+                else //if value not found
+                    return false;
+            }
         }
     }
     LinkedList()
@@ -79,11 +84,12 @@ int main()
     a.add(5.6);
     a.add(82.3);
     a.add(65.3);
+    a.add(-764.32);
     a.displayList();
-    if (a.isMember(65.3))
-        cout << "65.3 is a member\n";
-    if (!a.isMember(89.3))
-        cout << "45.2 is not a member\n";
+    if (a.isMember(82.3))
+        cout << "82.3 is a member of the list\n";
+    if (!a.isMember(1652.34))
+        cout << "1652.34 is not a member of the list\n";
 
     return 0;
 }
