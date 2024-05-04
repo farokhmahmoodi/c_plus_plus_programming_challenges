@@ -31,18 +31,10 @@ public:
             head = new ListNode(x, head);
         }
     }
-    bool isMember(ListNode *aList, double x)
+    bool isMember(double x)
     {
-        if (aList == nullptr) //if list is empty
-            return false;
-        else if (aList->value == x)
-            return true;
-        else
-        {
-            return isMember(aList->next,x);
-        }
+        return isMember(head, x);
     }
-    ListNode* getList() { return head; }
     LinkedList()
     {
         head = nullptr;
@@ -63,6 +55,17 @@ public:
     }
 private:
     static ListNode* copyList(ListNode* aList);
+    bool isMember(ListNode* aList, double x)
+    {
+        if (aList == nullptr) //if list is empty
+            return false;
+        else if (aList->value == x)
+            return true;
+        else
+        {
+            return isMember(aList->next, x);
+        }
+    }
 };
 
 LinkedList::ListNode* LinkedList::copyList(ListNode* aList)
@@ -100,7 +103,7 @@ int main()
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
             cout << "Invalid input for integer x." << endl;
         }
-        if (a.isMember(a.getList(),x))
+        if (a.isMember(x))
             cout << x << " is a member of linked list a.\n";
         else
             cout << x << " is not a member of linked list a.\n";
