@@ -74,16 +74,6 @@ public:
         }
         cout << endl;
     }
-    ~LinkedList()
-    {
-        ListNode* ptr = head;
-        while (ptr != nullptr)
-        {
-            ListNode* garbage = ptr;
-            ptr = ptr->next;
-            delete garbage;
-        }
-    }
 };
 
 int main()

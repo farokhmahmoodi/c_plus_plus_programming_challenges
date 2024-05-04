@@ -57,12 +57,7 @@ public:
     }
     LinkedList(const LinkedList& original)
     {
-        if (original.head == nullptr)
-            head == nullptr;
-        else
-        {
-            head = new ListNode(original.head->value, original.head->next);
-        }
+        head = copyList(original.head);
     }
     void displayList() const
     {
@@ -74,7 +69,22 @@ public:
         }
         cout << endl;
     }
+private:
+    static ListNode* copyList(ListNode* aList);
 };
+
+LinkedList::ListNode* LinkedList::copyList(ListNode* aList)
+{
+    if (aList == nullptr)
+        return nullptr;
+    else
+    {
+        // First copy the tail
+        ListNode* tailCopy = copyList(aList->next);
+        // Return copy of head attached to copy of tail
+        return new ListNode(aList->value, tailCopy);
+    }
+}
 
 int main()
 {
