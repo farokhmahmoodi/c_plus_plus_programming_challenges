@@ -96,10 +96,7 @@ private:
     }
     ListNode* reverse(ListNode* aList)
     {
-        ListNode* ptr = aList;
-        while (ptr != nullptr) //point to last node in list
-            ptr = ptr->next;
-
+        
         return aList;
     }
     bool isMember(ListNode* aList, double x)
