@@ -64,7 +64,20 @@ public:
     }
     void reverse()
     {
-        head = reverse(head);
+        ListNode* current = head, *previous = nullptr, *next = nullptr;
+
+        if(head != NULL)
+        {
+            while (current->next != nullptr)
+            {
+                next = current->next;
+                current->next = previous;
+                previous = current;
+                current = next;
+            }
+            current->next = previous;
+            head = current;
+        }
     }
     ~LinkedList()
     {
@@ -93,11 +106,6 @@ private:
             aList->next = remove(aList->next, x);
             return aList;
         }
-    }
-    ListNode* reverse(ListNode* aList)
-    {
-        
-        return aList;
     }
     bool isMember(ListNode* aList, double x)
     {
@@ -133,6 +141,7 @@ int main()
     a.add(98.56);
     a.add(-12.34);
     a.add(14.24);
+    a.add(245.984);
     a.print();
     a.reverse();
     a.print();
