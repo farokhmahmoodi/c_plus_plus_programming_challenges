@@ -87,7 +87,17 @@ public:
     }
     void insert(double x, int pos)
     {
+        if (head == nullptr) //if list is empty
+            add(x);
+        else
+        {
+            ListNode* aList = head;
+            int listPos = 0;
+            if (listPos == pos)
+            {
 
+            }
+        }
     }
     void reverse()
     {
@@ -181,7 +191,7 @@ int main()
             cout << "Invalid input for integer x." << endl;
         }
         while (cout << "Enter position in linked list you want to insert the integer:" &&
-            !(cin >> x)) {
+            !(cin >> pos)) {
             cin.clear(); //clear bad input flag
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
             cout << "Invalid input for position." << endl;
