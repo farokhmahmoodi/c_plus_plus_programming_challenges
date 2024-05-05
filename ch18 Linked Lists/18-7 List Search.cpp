@@ -62,6 +62,10 @@ public:
     {
         head = remove(head, x);
     }
+    int search(double x)
+    {
+        return x;
+    }
     void reverse()
     {
         ListNode* current = head, * previous = nullptr, * next = nullptr;
@@ -136,6 +140,8 @@ LinkedList::ListNode* LinkedList::copyList(ListNode* aList)
 int main()
 {
     LinkedList a;
+    double x;
+    int choice;
 
     a.add(745.234);
     a.add(98.56);
@@ -143,6 +149,34 @@ int main()
     a.add(14.24);
     a.add(245.984);
     a.print();
+    do
+    {
+        while (cout << "Enter an integer to see if it is in linked list a:" &&
+            !(cin >> x)) {
+            cin.clear(); //clear bad input flag
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
+            cout << "Invalid input for integer x." << endl;
+        }
+        if (a.isMember(x))
+        {
+
+        }
+        else
+            cout << x << " is not a member of linked list a.\n";
+        do
+        {
+            while (cout << "Would you like to find position of another integer in the linked" <<
+                "list?(1 for yes/2 for no): " &&
+                !(cin >> choice)) {
+                cin.clear(); //clear bad input flag
+                cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
+                cout << "Invalid input for choice." << endl;
+            }
+            if (choice != 1 && choice != 2)
+                cout << "Error. Choice must be 1 or 2.\n";
+        } while (choice != 1 && choice != 2);
+        cin.ignore();
+    } while (choice != 2);
 
     return 0;
 }
