@@ -68,7 +68,7 @@ public:
         ListNode* ptr = head;
 
         if (ptr == nullptr) //if list is empty
-            return NULL;
+            return -1;
         else if (ptr->value == x)
             return pos;
         else
