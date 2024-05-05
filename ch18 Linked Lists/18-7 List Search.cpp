@@ -64,7 +64,25 @@ public:
     }
     int search(double x)
     {
-        return x;
+        int pos = 0;
+        ListNode* ptr = head;
+
+        if (ptr == nullptr) //if list is empty
+            return NULL;
+        else if (ptr->value == x)
+            return pos;
+        else
+        {
+            while (ptr->next != nullptr && ptr->value != x)
+            {
+                pos++;
+                ptr = ptr->next;
+            }
+            if (ptr->value != x)
+                return -1;
+            else
+                return pos;
+        }
     }
     void reverse()
     {
@@ -151,22 +169,22 @@ int main()
     a.print();
     do
     {
-        while (cout << "Enter an integer to see if it is in linked list a:" &&
+        while (cout << "Enter an integer to get position of it is in linked list:" &&
             !(cin >> x)) {
             cin.clear(); //clear bad input flag
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
             cout << "Invalid input for integer x." << endl;
         }
-        if (a.isMember(x))
+        if (a.search(x) != -1)
         {
-
+            cout << x << " is at position " << a.search(x) << " in the list.\n";
         }
         else
-            cout << x << " is not a member of linked list a.\n";
+            cout << x << " is not a member of the linked list.\n";
         do
         {
             while (cout << "Would you like to find position of another integer in the linked" <<
-                "list?(1 for yes/2 for no): " &&
+                " list? (1 for yes/2 for no): " &&
                 !(cin >> choice)) {
                 cin.clear(); //clear bad input flag
                 cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
