@@ -1,13 +1,14 @@
-﻿/*Modify the list class you created in the previous programming challenges by adding a 
+/*Modify the list class you created in the previous programming challenges by adding a
 member function for inserting a new item at a specified position:
 
 void insert(double x, int pos);
 
-A position of 0 means that x will become the first item on the list, a position of 1 means 
-that x will become the second item on the list, and so on. A position equal to, or greater 
+A position of 0 means that x will become the first item on the list, a position of 1 means
+that x will become the second item on the list, and so on. A position equal to, or greater
 than, the length of the list means that the x is placed at the end of the list.*/
 
 #include <iostream>
+#include <limits>
 using namespace std;
 
 class LinkedList
@@ -184,31 +185,31 @@ int main()
     a.print();
     do
     {
-        while (cout << "Enter an integer to insert in linked list:" &&
+        while (cout << "enter an integer to insert in linked list:" &&
             !(cin >> x)) {
             cin.clear(); //clear bad input flag
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
-            cout << "Invalid input for integer x." << endl;
+            cout << "invalid input for integer x." << endl;
         }
-        while (cout << "Enter position in linked list you want to insert the integer:" &&
+        while (cout << "enter position in linked list you want to insert the integer:" &&
             !(cin >> pos)) {
             cin.clear(); //clear bad input flag
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
-            cout << "Invalid input for position." << endl;
+            cout << "invalid input for position." << endl;
         }
         a.insert(x, pos);
         a.print();
         do
         {
-            while (cout << "Would you like to insert another integer in the linked" <<
+            while (cout << "would you like to insert another integer in the linked" <<
                 " list? (1 for yes/2 for no): " &&
                 !(cin >> choice)) {
                 cin.clear(); //clear bad input flag
                 cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
-                cout << "Invalid input for choice." << endl;
+                cout << "invalid input for choice." << endl;
             }
             if (choice != 1 && choice != 2)
-                cout << "Error. Choice must be 1 or 2.\n";
+                cout << "error. choice must be 1 or 2.\n";
         } while (choice != 1 && choice != 2);
         cin.ignore();
     } while (choice != 2);
