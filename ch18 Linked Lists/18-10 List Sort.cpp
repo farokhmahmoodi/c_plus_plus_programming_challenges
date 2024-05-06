@@ -141,7 +141,23 @@ public:
     }
     void sort()
     {
+        if(head != NULL)
+        {
+            ListNode* currentPtr, *nextPtr;
+            for(int i = 0; i < size(); i++)
+            {
+                currentPtr = head, nextPtr = head->next;
+                while(currentPtr != nullptr)
+                {
+                    if(currentPtr->value > nextPtr->value)
+                    {
 
+                    }
+                    currentPtr = nextPtr;
+                    nextPtr = nextPtr->next;
+                }
+            }
+        }
     }
     void reverse()
     {
@@ -159,6 +175,10 @@ public:
             current->next = previous;
             head = current;
         }
+    }
+    int size() const
+    {
+        return size(head);
     }
     ~LinkedList()
     {
@@ -198,6 +218,13 @@ private:
         {
             return isMember(aList->next, x);
         }
+    }
+    int size(ListNode *aList) const
+    {
+        if (aList == nullptr)
+            return 0;
+        else
+            return 1 + size(aList->next);
     }
 };
 
