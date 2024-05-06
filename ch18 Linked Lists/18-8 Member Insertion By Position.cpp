@@ -90,17 +90,13 @@ public:
     {
         if (head == nullptr) //if list is empty
             add(x);
+        else if(pos == 0)
+            add(x);
         else
         {
-            int listPos = 0;
-            if (listPos == pos)
-            {
-                add(x);
-            }
-            else
-            {
                 ListNode *previousNodePtr = head, *nodePtr = head->next;
-
+                int listPos = 0;
+                
                 while(nodePtr->next != nullptr)
                 {
                     listPos++;
@@ -114,7 +110,6 @@ public:
                 }
                 if(nodePtr->next == nullptr)
                     nodePtr->next = new ListNode(x);
-            }
         }
     }
     void reverse()
