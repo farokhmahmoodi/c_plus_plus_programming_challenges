@@ -88,38 +88,56 @@ public:
     {
         if (head == nullptr) //if list is empty
             add(x);
+        else if(pos == 0) //if inserting integer at first node in list
+            add(x);
         else
         {
+            ListNode *previousNodePtr = head, *nodePtr = head->next;
             int listPos = 0;
-            if (listPos == pos)
-            {
-                add(x);
-            }
-            else
-            {
-                ListNode *previousNodePtr = head, *nodePtr = head->next;
 
-                while(nodePtr->next != nullptr)
+            while(nodePtr->next != nullptr)
+            {
+                listPos++;
+                if(listPos == pos)
                 {
-                    listPos++;
-                    if(listPos == pos)
-                    {
-                        previousNodePtr->next = new ListNode(x,nodePtr);
-                        break;
-                    }
-                    previousNodePtr = nodePtr;
-                    nodePtr = nodePtr->next;
+                    previousNodePtr->next = new ListNode(x,nodePtr);
+                    break;
                 }
-                if(nodePtr->next == nullptr)
-                    nodePtr->next = new ListNode(x);
+                previousNodePtr = nodePtr;
+                nodePtr = nodePtr->next;
             }
+            if(nodePtr->next == nullptr)
+                nodePtr->next = new ListNode(x);
         }
     }
     void remove(int pos)
     {
-        if(head == nullptr)
+        if(head == nullptr) //if list is empty
             return;
+        else if(pos == 0) //if removing integer in first node in list
+        {
+            ListNode* tail = head->next;
+            delete head;
+            head = tail;
+        }
+        else
+        {
+            ListNode *previous = head, *current = head->next;
+            int listPos = 0;
 
+            while(current != nullptr)
+            {
+                listPos++;
+                if(listPos == pos)
+                {
+                    previous->next = current->next;
+                    delete current;
+                    break;
+                }
+                previous = current;
+                current = current->next;
+            }
+        }
     }
     void reverse()
     {
@@ -195,7 +213,6 @@ LinkedList::ListNode* LinkedList::copyList(ListNode* aList)
 int main()
 {
     LinkedList a;
-    double x;
     int choice, pos;
 
     a.add(745.234);
