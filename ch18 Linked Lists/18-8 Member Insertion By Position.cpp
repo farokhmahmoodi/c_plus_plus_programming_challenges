@@ -92,11 +92,28 @@ public:
             add(x);
         else
         {
-            ListNode* aList = head;
             int listPos = 0;
             if (listPos == pos)
             {
+                add(x);
+            }
+            else
+            {
+                ListNode *previousNodePtr = head, *nodePtr = head->next;
 
+                while(nodePtr->next != nullptr)
+                {
+                    listPos++;
+                    if(listPos == pos)
+                    {
+                        previousNodePtr->next = new ListNode(x,nodePtr);
+                        break;
+                    }
+                    previousNodePtr = nodePtr;
+                    nodePtr = nodePtr->next;
+                }
+                if(nodePtr->next == nullptr)
+                    nodePtr->next = new ListNode(x);
             }
         }
     }
@@ -191,12 +208,18 @@ int main()
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
             cout << "invalid input for integer x." << endl;
         }
-        while (cout << "enter position in linked list you want to insert the integer:" &&
+        do
+        {
+            while (cout << "enter position in linked list you want to insert the integer (>= 0):" &&
             !(cin >> pos)) {
             cin.clear(); //clear bad input flag
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
             cout << "invalid input for position." << endl;
         }
+            if(pos < 0)
+                cout << "Input error. Position must be >= 0.\n";
+        }while(pos < 0);
+
         a.insert(x, pos);
         a.print();
         do
@@ -209,7 +232,10 @@ int main()
                 cout << "invalid input for choice." << endl;
             }
             if (choice != 1 && choice != 2)
+            {
                 cout << "error. choice must be 1 or 2.\n";
+                cin.ignore();
+            }
         } while (choice != 1 && choice != 2);
         cin.ignore();
     } while (choice != 2);
