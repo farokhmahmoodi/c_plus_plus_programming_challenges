@@ -219,7 +219,6 @@ int main()
             if(pos < 0)
                 cout << "Input error. Position must be >= 0.\n";
         }while(pos < 0);
-
         a.insert(x, pos);
         a.print();
         do
