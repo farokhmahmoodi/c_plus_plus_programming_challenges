@@ -141,7 +141,15 @@ public:
     }
     void sort()
     {
-        
+          if(head != NULL && head->next != NULL)
+        {
+            ListNode *previous = head, *current = previous->next;
+
+            if(current->value < previous->value)
+            {
+
+            }
+        }      
     }
     void reverse()
     {
