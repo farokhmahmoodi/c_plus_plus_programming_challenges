@@ -143,19 +143,17 @@ public:
     {
         if(head != NULL)
         {
-            ListNode* currentPtr, *nextPtr;
+
             for(int i = 0; i < size(); i++)
             {
-                currentPtr = head, nextPtr = head->next;
-                while(currentPtr != nullptr)
-                {
-                    if(currentPtr->value > nextPtr->value)
-                    {
 
-                    }
-                    currentPtr = nextPtr;
-                    nextPtr = nextPtr->next;
+                for(int x = i + 1; x < size(); x++)
+                {
+
+
+
                 }
+
             }
         }
     }
