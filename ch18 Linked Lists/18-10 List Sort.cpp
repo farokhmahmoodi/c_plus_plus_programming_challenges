@@ -141,21 +141,7 @@ public:
     }
     void sort()
     {
-        if(head != NULL)
-        {
-
-            for(int i = 0; i < size(); i++)
-            {
-
-                for(int x = i + 1; x < size(); x++)
-                {
-
-
-
-                }
-
-            }
-        }
+        
     }
     void reverse()
     {
