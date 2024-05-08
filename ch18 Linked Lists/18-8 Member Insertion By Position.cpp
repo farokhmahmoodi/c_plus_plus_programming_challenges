@@ -116,18 +116,14 @@ public:
     {
         ListNode* current = head, * previous = nullptr, * next = nullptr;
 
-        if (head != NULL)
+        while (current != nullptr)
         {
-            while (current->next != nullptr)
-            {
-                next = current->next;
-                current->next = previous;
-                previous = current;
-                current = next;
-            }
+            next = current->next;
             current->next = previous;
-            head = current;
+            previous = current;
+            current = next;
         }
+        head = previous;
     }
     ~LinkedList()
     {
