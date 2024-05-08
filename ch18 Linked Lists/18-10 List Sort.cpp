@@ -141,15 +141,10 @@ public:
     }
     void sort()
     {
-          if(head != NULL && head->next != NULL)
+        if(head != NULL && head->next != NULL)
         {
-            ListNode *previous = head, *current = previous->next;
-
-            if(current->value < previous->value)
-            {
-
-            }
-        }      
+            head = sort(head);
+        }
     }
     void reverse()
     {
@@ -213,6 +208,21 @@ private:
             return 0;
         else
             return 1 + size(aList->next);
+    }
+    ListNode* sort(ListNode *aList)
+    {
+        for(ListNode *current = aList->next; current != nullptr; current = current->next)
+        {
+            if(current->value < aList->value)
+            {
+
+            }
+        }
+        cout << aList->value << aList->next->value << endl;
+        if(aList->next != nullptr)
+            aList->next = sort(aList->next);
+        else
+            return aList;
     }
 };
 
