@@ -218,7 +218,6 @@ private:
 
             }
         }
-        cout << aList->value << aList->next->value << endl;
         if(aList->next != nullptr)
             aList->next = sort(aList->next);
         else
