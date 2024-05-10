@@ -215,9 +215,9 @@ private:
         {
             if(current->value < aList->value)
             {
-                ListNode *temp = aList->next, *temp2 = current->next, *temp3 = aList;
+                ListNode *temp = aList, *temp2 = current->next;
                 aList = current;
-                current = temp3;
+                current = temp;
                 aList->next = current;
                 current->next = temp2;
             }
