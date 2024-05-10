@@ -141,7 +141,7 @@ public:
     }
     void sort()
     {
-        if(head != NULL && head->next != NULL)
+        if(head != nullptr && head->next != nullptr)
         {
             head = sort(head);
         }
@@ -215,7 +215,11 @@ private:
         {
             if(current->value < aList->value)
             {
-
+                ListNode *temp = aList->next, *temp2 = current->next, *temp3 = aList;
+                aList = current;
+                current = temp3;
+                aList->next = current;
+                current->next = temp2;
             }
         }
         if(aList->next != nullptr)
@@ -241,7 +245,6 @@ LinkedList::ListNode* LinkedList::copyList(ListNode* aList)
 int main()
 {
     LinkedList a;
-    int choice, pos;
 
     a.add(745.234);
     a.add(98.56);
