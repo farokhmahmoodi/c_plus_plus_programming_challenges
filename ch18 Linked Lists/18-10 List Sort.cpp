@@ -215,11 +215,7 @@ private:
         {
             if(current->value < aList->value)
             {
-                ListNode *temp = aList, *temp2 = current->next;
-                aList = current;
-                current = temp;
-                aList->next = current;
-                current->next = temp2;
+
             }
         }
         if(aList->next != nullptr)
