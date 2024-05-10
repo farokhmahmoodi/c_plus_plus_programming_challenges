@@ -143,7 +143,12 @@ public:
     {
         if(head != nullptr && head->next != nullptr)
         {
-            head = sort(head);
+            bool swap = false;
+            do
+            {
+
+
+            }while(swap);
         }
     }
     void reverse()
@@ -209,20 +214,6 @@ private:
         else
             return 1 + size(aList->next);
     }
-    ListNode* sort(ListNode *aList)
-    {
-        for(ListNode *current = aList->next; current != nullptr; current = current->next)
-        {
-            if(current->value < aList->value)
-            {
-
-            }
-        }
-        if(aList->next != nullptr)
-            aList->next = sort(aList->next);
-        else
-            return aList;
-    }
 };
 
 LinkedList::ListNode* LinkedList::copyList(ListNode* aList)
@@ -247,6 +238,7 @@ int main()
     a.add(-12.34);
     a.add(14.24);
     a.add(245.984);
+    a.add(75.45);
     cout << "List before sort below.\n";
     a.print();
     a.sort();
