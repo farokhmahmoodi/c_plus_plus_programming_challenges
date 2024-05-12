@@ -143,7 +143,7 @@ public:
     {
         if(head != nullptr && head->next != nullptr)
         {
-
+            head = sort(&head);
         }
     }
     void reverse()
@@ -202,12 +202,40 @@ private:
             return isMember(aList->next, x);
         }
     }
-    int size(ListNode *aList) const
+    int size(ListNode* aList) const
     {
         if (aList == nullptr)
             return 0;
         else
             return 1 + size(aList->next);
+    }
+    ListNode *sort(ListNode **aList)
+    {
+            ListNode **h = nullptr;
+            bool swap;
+            for(int i = 0; i < size(); i++)
+            {
+                h = aList;
+                swap = false;
+                for(int j = 0; j < size() - i - 1; j++)
+                {
+                    ListNode *p1 = *h;
+                    ListNode *p2 = p1->next;
+
+                    if(p1->value > p2->value)
+                    {
+                        ListNode *temp = p2->next;
+                        p2->next = p1;
+                        p1->next = temp;
+                        *h = p2;
+                        swap = true;
+                    }
+                    h = &(*h)->next;
+                }
+                if(swap = false)
+                    break;
+            }
+        return *aList;
     }
 };
 
@@ -232,8 +260,8 @@ int main()
     a.add(98.56);
     a.add(-12.34);
     a.add(14.24);
-    a.add(245.984);
     a.add(75.45);
+    a.add(245.984);
     cout << "List before sort below.\n";
     a.print();
     a.sort();
