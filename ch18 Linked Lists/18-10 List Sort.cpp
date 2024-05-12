@@ -143,12 +143,7 @@ public:
     {
         if(head != nullptr && head->next != nullptr)
         {
-            bool swap = false;
-            do
-            {
 
-
-            }while(swap);
         }
     }
     void reverse()
