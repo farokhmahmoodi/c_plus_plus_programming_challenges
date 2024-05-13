@@ -28,10 +28,9 @@ int main()
         }
         subset.clear();
     }
-    subset.shrink_to_fit();
     LkMinus1.emplace_back(v);
+    subset.shrink_to_fit();
     list<vector<int>> L;
-
     for (auto elem : L)
     {
         for(int i = 0; i < elem.size();i++)
