@@ -13,7 +13,7 @@ using namespace std;
 
 int main()
 {
-    list<vector<int>> L, Lk, LkMinus1;
+    list<vector<int>> LkMinus1;
     vector<int> v;
 
     for(int i = 0; i < 3; i++) //creating list 𝐿 𝑘 − 1
@@ -25,7 +25,15 @@ int main()
         LkMinus1.emplace_back(v);
         v.clear();
     }
-
+    list<vector<int>> L;
+    for(auto it = LkMinus1.begin(); it != LkMinus1.end(); it++) //creating empty list L and adding v + [k] to each vector
+    {
+        v = *it;
+        v.emplace_back(4);
+        L.emplace_back(v);
+        v.clear();
+    }
+    list<vector<int>> Lk(L); //creating list Lk by setting list L to it
 
     return 0;
 }
