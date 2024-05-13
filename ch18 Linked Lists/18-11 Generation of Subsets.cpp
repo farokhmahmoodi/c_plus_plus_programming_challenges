@@ -14,9 +14,19 @@ using namespace std;
 int main()
 {
     list<vector<int>> LkMinus1;
-    vector<int> v = {1, 2, 3};
+    vector<int> v = {1, 2, 3}, subset;
 
-
+    for(int i = 0; i < v.size(); i++)
+    {
+        subset.emplace_back(v[i]);
+        LkMinus1.emplace_back(subset);
+    }
+    for(auto elem : LkMinus1)
+    {
+        for(int i = 0; i < elem.size(); i++)
+            cout << elem[i] << " ";
+        cout << endl;
+    }
 
     return 0;
 }
