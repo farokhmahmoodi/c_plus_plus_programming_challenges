@@ -16,15 +16,19 @@ int main()
     list<vector<int>> L, Lk, LkMinus1;
     vector<int> v;
 
-    for(int i = 0; i < 3; i++)
+    for(int i = 0; i < 3; i++) //creating list 𝐿 𝑘 − 1
     {
-        for(int x = 0; x <= i; x++)
+        for(int x = 0; x < 3; x++)
         {
             v.emplace_back(x + 1);
         }
         LkMinus1.emplace_back(v);
         v.clear();
     }
+//    for(int i = 0; i < LkMinus1.size(); i++)
+//    {
+//        Lk.emplace_back(LkMinus1 + )
+//    }
 
 
     return 0;
