@@ -7,10 +7,24 @@ add both v and 𝑣 + [ 𝑘 ] to L. Finally, set 𝐿 𝑘 to L. (Here by 𝑣 
 the integer k to the vector v.) Test your program for all values of n ≤ 4*/
 
 #include <iostream>
+#include <vector>
+#include <list>
 using namespace std;
 
 int main()
 {
+    list<vector<int>> L, Lk, LkMinus1;
+    vector<int> v;
+
+    for(int i = 0; i < 3; i++)
+    {
+        for(int x = 0; x <= i; x++)
+        {
+            v.emplace_back(x + 1);
+        }
+        LkMinus1.emplace_back(v);
+        v.clear();
+    }
 
 
     return 0;
