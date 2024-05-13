@@ -35,6 +35,7 @@ int main()
     for(auto it = LkMinus1.begin(); it != LkMinus1.end(); it++) //creating list L by adding integer k to each vector in
     {                                                           //list Lk-1
         subset = *it;
+        L.emplace_back(subset);
         subset.emplace_back(4);
         L.emplace_back(subset);
         subset.clear();
