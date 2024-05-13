@@ -28,7 +28,8 @@ int main()
         }
         subset.clear();
     }
-    LkMinus1.emplace_back(v);
+    if(v.size() > 2)
+        LkMinus1.emplace_back(v);
     subset.shrink_to_fit();
     list<vector<int>> L;
     for(auto it = LkMinus1.begin(); it != LkMinus1.end(); it++)
