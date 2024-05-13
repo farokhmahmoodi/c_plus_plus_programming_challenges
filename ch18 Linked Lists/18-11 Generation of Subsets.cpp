@@ -40,6 +40,10 @@ int main()
         L.emplace_back(subset);
         subset.clear();
     }
+    subset.emplace_back(4);
+    L.emplace_back(subset);
+    subset.clear();
+    subset.shrink_to_fit();
     list<vector<int>> Lk(L); //creating list Lk by setting it to list L
     for (auto elem : Lk) //printing list of all subsets
     {
