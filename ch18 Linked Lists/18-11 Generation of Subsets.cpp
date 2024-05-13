@@ -25,10 +25,6 @@ int main()
         LkMinus1.emplace_back(v);
         v.clear();
     }
-//    for(int i = 0; i < LkMinus1.size(); i++)
-//    {
-//        Lk.emplace_back(LkMinus1 + )
-//    }
 
 
     return 0;
