@@ -16,7 +16,7 @@ int main()
     list<vector<int>> LkMinus1;
     vector<int> v = {1, 2, 3}, subset;
 
-    for(auto it = v.begin(); it != v.end(); it++)
+    for(auto it = v.begin(); it != v.end(); it++) //creating list 𝐿 𝑘 − 1 of all subsets of 1,2,..,k-1
     {
         subset.emplace_back(*it);
         LkMinus1.emplace_back(subset);
@@ -28,10 +28,13 @@ int main()
         }
         subset.clear();
     }
+    subset.shrink_to_fit();
     LkMinus1.emplace_back(v);
-    for(auto elem : LkMinus1)
+    list<vector<int>> L;
+
+    for (auto elem : L)
     {
-        for(int i = 0; i < elem.size(); i++)
+        for(int i = 0; i < elem.size();i++)
             cout << elem[i] << " ";
         cout << endl;
     }
