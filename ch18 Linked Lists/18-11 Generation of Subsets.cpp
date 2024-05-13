@@ -16,11 +16,19 @@ int main()
     list<vector<int>> LkMinus1;
     vector<int> v = {1, 2, 3}, subset;
 
-    for(int i = 0; i < v.size(); i++)
+    for(auto it = v.begin(); it != v.end(); it++)
     {
-        subset.emplace_back(v[i]);
+        subset.emplace_back(*it);
         LkMinus1.emplace_back(subset);
+        for(auto it2 = it + 1; it2 != v.end(); it2++)
+        {
+            subset.emplace_back(*it2);
+            LkMinus1.emplace_back(subset);
+            subset.pop_back();
+        }
+        subset.clear();
     }
+    LkMinus1.emplace_back(v);
     for(auto elem : LkMinus1)
     {
         for(int i = 0; i < elem.size(); i++)
