@@ -9,14 +9,16 @@ using namespace std;
 
 list<vector<int>> recursiveSubsets(int n)
 {
-    list<vector<int>> allsubsets;
+    list<vector<int>> allSubsets;
 
-    return allsubsets;
+
+
+    return allSubsets;
 }
 
 int main()
 {
-    list<vector<int>> subsets;
+    list<vector<int>> allSubsets;
     int n;
 
     do
@@ -31,8 +33,8 @@ int main()
         if(n < 1)
             cout << "Invalid input for integer n. Must be greater than or equal to 1.\n";
     }while(n < 1);
-    subsets = recursiveSubsets(n);
-    for(auto elem : subsets)
+    allSubsets = recursiveSubsets(n);
+    for(auto elem : allSubsets)
     {
         for(int i = 0; i < elem.size();i++)
             cout << elem[i] << " ";
