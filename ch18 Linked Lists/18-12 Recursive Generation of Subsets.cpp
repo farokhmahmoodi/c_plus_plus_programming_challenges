@@ -1,51 +1,38 @@
-/*Solve the problem of Programming Challenge 11 by using recursion. Do this by writing a recursive function that takes an integer parameter n and returns a 
+/*Solve the problem of Programming Challenge 11 by using recursion. Do this by writing a recursive function that takes an integer parameter n and returns a
 list of all subsets of the set 1, 2 . . . , n.*/
 
 #include <iostream>
 #include <vector>
 #include <list>
+#include <limits>
 using namespace std;
+
+list<vector<int>> recursiveSubsets(int n)
+{
+    list<vector<int>> allsubsets;
+
+    return allsubsets;
+}
 
 int main()
 {
-    list<vector<int>> LkMinus1;
-    vector<int> v = {1,2,3}, subset;
+    list<vector<int>> subsets;
+    int n;
 
-    //creating list Lk-1 of all subsets of 1,2,..,k-1
-    for(auto it = v.begin(); it != v.end(); it++)
+    do
     {
-        if(subset.size() == 0 && it == v.begin())
-            LkMinus1.emplace_back(subset);
-        subset.emplace_back(*it);
-        LkMinus1.emplace_back(subset);
-        for(auto it2 = it + 1; it2 != v.end(); it2++)
-        {
-            subset.emplace_back(*it2);
-            LkMinus1.emplace_back(subset);
-            subset.pop_back();
+        while (cout << "Enter an integer n to return a list of all subsets of the set "
+           << "1, 2 . . . , n:" &&
+        !(cin >> n)) {
+        cin.clear(); //clear bad input flag
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
+        cout << "Invalid input for integer n." << endl;
         }
-        subset.clear();
-    }
-    if(v.size() > 2)
-        LkMinus1.emplace_back(v);
-    subset.shrink_to_fit();
-    list<vector<int>> L;
-    //creating list L by adding integer k to each vector in list Lk-1
-    for(auto it = LkMinus1.begin(); it != LkMinus1.end(); it++)
-    {
-        subset = *it;
-        if(subset.size() != 0)
-            L.emplace_back(subset);
-        subset.emplace_back(4);
-        L.emplace_back(subset);
-        subset.clear();
-    }
-    subset.clear();
-    subset.shrink_to_fit();
-    /*creating list Lk by setting it to list L
-    printing list of all subsets*/
-    list<vector<int>> Lk(L);
-    for (auto elem : Lk)
+        if(n < 1)
+            cout << "Invalid input for integer n. Must be greater than or equal to 1.\n";
+    }while(n < 1);
+    subsets = recursiveSubsets(n);
+    for(auto elem : subsets)
     {
         for(int i = 0; i < elem.size();i++)
             cout << elem[i] << " ";
