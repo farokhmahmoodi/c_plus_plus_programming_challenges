@@ -209,6 +209,7 @@ private:
         else
             return 1 + size(aList->next);
     }
+    //bubble sort implementation
     ListNode *sort(ListNode **aList)
     {
             ListNode **h = nullptr;
@@ -224,6 +225,7 @@ private:
 
                     if(p1->value > p2->value)
                     {
+                        //swap nodes
                         ListNode *temp = p2->next;
                         p2->next = p1;
                         p1->next = temp;
