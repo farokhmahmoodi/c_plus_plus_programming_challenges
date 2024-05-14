@@ -9,9 +9,16 @@ using namespace std;
 
 list<vector<int>> recursiveSubsets(int n)
 {
-    list<vector<int>> allSubsets;
+    list<vector<int>> allSubsets, allSubsets2;
+    vector<int> v;
 
-
+    v.emplace_back(n);
+    allSubsets.emplace_back(v);
+    if(n > 1)
+        allSubsets2 = recursiveSubsets(n - 1);
+    allSubsets.sort();
+    allSubsets2.sort();
+    allSubsets.merge(allSubsets2);
 
     return allSubsets;
 }
