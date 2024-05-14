@@ -234,7 +234,7 @@ private:
                     }
                     h = &(*h)->next;
                 }
-                if(swap = false)
+                if(swap == false)
                     break;
             }
         return *aList;
