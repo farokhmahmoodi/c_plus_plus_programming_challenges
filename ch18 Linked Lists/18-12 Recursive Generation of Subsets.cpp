@@ -7,9 +7,36 @@ list of all subsets of the set 1, 2 . . . , n.*/
 #include <limits>
 using namespace std;
 
+void calcSubset(vector<int>& vect, list<vector<int>>& listOfSubsets,
+                vector<int>& subset, int index)
+{
+    // Add the current subset to the result list
+    listOfSubsets.emplace_back(subset);
+
+    // Generate subsets by recursively including and
+    // excluding elements
+    for (int i = index; i < vect.size(); i++) {
+        // Include the current element in the subset
+        subset.emplace_back(vect[i]);
+
+        // Recursively generate subsets with the current
+        // element included
+        calcSubset(vect, listOfSubsets, subset, i + 1);
+
+        // Exclude the current element from the subset
+        // (backtracking)
+        subset.pop_back();
+    }
+}
+
 list<vector<int>> recursiveSubsets(int n)
 {
     list<vector<int>> allSubsets;
+    vector<int> vect, subset;
+    for(int i = 1; i <= n; i++)
+        vect.emplace_back(i);
+    int index = 0;
+    calcSubset(vect,allSubsets,subset,index);
 
     return allSubsets;
 }
