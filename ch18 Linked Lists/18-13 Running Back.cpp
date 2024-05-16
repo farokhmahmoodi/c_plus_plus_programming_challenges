@@ -106,14 +106,15 @@ int main()
     // Set up the coordinates for the  various body parts
     // of the person in the running position
     short int p5lowerLeg1[] = { 11,11,10,10,9,9,-1, -1};
-    short int p5thigh1[] = {  -1, -1};
-    short int p5thigh2[] = { -1, -1};
-    short int p5lowerLeg2[] = { -1, -1};
-    short int p5torso[] = {  -1, -1};
-    short int p5upperArms[] = {-1, -1
+    short int p5thigh1[] = { 9,8,9,7,-1, -1};
+    short int p5thigh2[] = { 7,7,8,7,6,7,-1, -1};
+    short int p5lowerLeg2[] = {6,8,6,9, -1, -1};
+    short int p5torso[] = { 9,6,9,5,9,4,9,3,
+                            9,2,9,1,-1, -1}; //6 coords
+    short int p5upperArms[] = {8,3,7,3,10,3,11,3,-1, -1
                             };
-    short int p5foreArm1[] = {-1, -1};
-    short int p5foreArm2[] = {-1, -1};
+    short int p5foreArm1[] = {7,2,7,1,-1, -1};
+    short int p5foreArm2[] = {11,4,11,5,-1, -1};
     short int * figure5AllParts[] =
                   {
                    p5lowerLeg1, p5lowerLeg2, p5thigh1, p5thigh2, p5torso,
