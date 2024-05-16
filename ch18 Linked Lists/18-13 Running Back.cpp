@@ -78,26 +78,50 @@ int main()
     for (int k = 0; figure3AllParts[k] != 0; k++)
         figure3.add(figure3AllParts[k]);
 
+    ImageMap figure4;
+
+    // Set up the coordinates for the  various body parts
+    // of the person in the first running position
+    short int p4lowerLeg1[] = { 10, 10, 11, 10, 12, 10, -1, -1};
+    short int p4thigh1[] = { 6, 6, 7, 7, 8, 8, 9, 9, -1, -1};
+    short int p4thigh2[] = {  -1, -1};
+    short int p4lowerLeg2[] = { -1, -1};
+    short int p4torso[] = { -1, -1};
+    short int p4upperArms[] = { -1, -1
+                            };
+    short int p4foreArm1[] = { -1, -1};
+    short int p4foreArm2[] = {-1, -1};
+    short int * figure4AllParts[] =
+                  {
+                   p4lowerLeg1, p4lowerLeg2, p4thigh1, p4thigh2, p4torso,
+                   p4upperArms, p4foreArm1, p4foreArm2, 0
+                  };
+    // Add the coordinates that make up the various body
+    // parts to the image map for the fourth runnning position
+    for (int k = 0; figure4AllParts[k] != 0; k++)
+        figure4.add(figure4AllParts[k]);
+
     // Ask Microsoft Windows to clear the screen
     system("cls");
     // Form an array of all three figures
-    ImageMap *sequence[3] = {&figure1, &figure2, &figure3};
+    ImageMap *sequence[4] = {&figure1, &figure2, &figure3, &figure4};
 
     // Animate to create the appearance of
     // running across the screen
-    k = 0;
+//    k = 0;
     int pos = 0;
-    while (pos <= 60 )
-    {
+//    while (pos <= 60 )
+//    {
         // Show the current image at the current position
-        sequence[k]->displayAt(pos, 3);
-        Sleep(400);
+        sequence[3]->displayAt(pos, 3);
+//        Sleep(400);
         // Erase the current image
-        sequence[k]->eraseAt(pos, 3);
+//        sequence[3]->eraseAt(pos, 3);
         // Move to next image in the rotation and next position
-        k = (k+1) % 3;
-        pos = pos + 8;
-    }
-    sequence[k]->displayAt(pos, 3);
+//        k = (k+1) % 3;
+//        pos = pos + 8;
+//    }
+//    sequence[k]->displayAt(pos, 3);
+
     return 0;
 }
