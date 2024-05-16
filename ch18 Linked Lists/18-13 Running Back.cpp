@@ -81,39 +81,62 @@ int main()
     ImageMap figure4;
 
     // Set up the coordinates for the  various body parts
-    // of the person in the first running position
+    // of the person in the running position
     short int p4lowerLeg1[] = { 10, 10, 11, 10, 12, 10, -1, -1};
     short int p4thigh1[] = { 6, 6, 7, 7, 8, 8, 9, 9, -1, -1};
     short int p4thigh2[] = { 6,8,5,9, -1, -1};
     short int p4lowerLeg2[] = { 5,10,5,11,-1, -1};
     short int p4torso[] = { 5,5, 4,4,3,3,2,2, -1, -1};
-    short int p4upperArms[] = {3,5,2,6,5,3,6,2,-1, -1         //5 chars
+    short int p4upperArms[] = {3,5,2,6,5,3,6,2,-1, -1
                             };
-    short int p4foreArm1[] = {1,5,0,4,-1, -1};   //2 chars
-    short int p4foreArm2[] = {7,3,8,4,-1, -1};   //2 chars
+    short int p4foreArm1[] = {1,5,0,4,-1, -1};
+    short int p4foreArm2[] = {7,3,8,4,-1, -1};
     short int * figure4AllParts[] =
                   {
                    p4lowerLeg1, p4lowerLeg2, p4thigh1, p4thigh2, p4torso,
                    p4upperArms, p4foreArm1, p4foreArm2, 0
                   };
     // Add the coordinates that make up the various body
-    // parts to the image map for the fourth runnning position
+    // parts to the image map for the runnning position
     for (int k = 0; figure4AllParts[k] != 0; k++)
         figure4.add(figure4AllParts[k]);
+
+    ImageMap figure5;
+
+    // Set up the coordinates for the  various body parts
+    // of the person in the running position
+    short int p5lowerLeg1[] = { 11,11,10,10,9,9,-1, -1};
+    short int p5thigh1[] = {  -1, -1};
+    short int p5thigh2[] = { -1, -1};
+    short int p5lowerLeg2[] = { -1, -1};
+    short int p5torso[] = {  -1, -1};
+    short int p5upperArms[] = {-1, -1
+                            };
+    short int p5foreArm1[] = {-1, -1};
+    short int p5foreArm2[] = {-1, -1};
+    short int * figure5AllParts[] =
+                  {
+                   p5lowerLeg1, p5lowerLeg2, p5thigh1, p5thigh2, p5torso,
+                   p5upperArms, p5foreArm1, p5foreArm2, 0
+                  };
+    // Add the coordinates that make up the various body
+    // parts to the image map for the runnning position
+    for (int k = 0; figure5AllParts[k] != 0; k++)
+        figure5.add(figure5AllParts[k]);
 
     // Ask Microsoft Windows to clear the screen
     system("cls");
     // Form an array of all three figures
-    ImageMap *sequence[4] = {&figure1, &figure2, &figure3, &figure4};
+    ImageMap *sequence[5] = {&figure1, &figure2, &figure3, &figure4, &figure5};
 
     // Animate to create the appearance of
     // running across the screen
 //    k = 0;
-    int pos = 0;
+//    int pos = 0;
 //    while (pos <= 60 )
 //    {
         // Show the current image at the current position
-        sequence[3]->displayAt(60, 3);
+        sequence[4]->displayAt(60,3);
 //        Sleep(400);
         // Erase the current image
 //        sequence[3]->eraseAt(pos, 3);
