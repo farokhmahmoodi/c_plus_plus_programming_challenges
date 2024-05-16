@@ -87,10 +87,10 @@ int main()
     short int p4thigh2[] = { 6,8,5,9, -1, -1};
     short int p4lowerLeg2[] = { 5,10,5,11,-1, -1};
     short int p4torso[] = { 5,5, 4,4,3,3,2,2, -1, -1};
-    short int p4upperArms[] = { -1, -1         //5 chars
+    short int p4upperArms[] = {3,5,2,6,5,3,6,2,-1, -1         //5 chars
                             };
-    short int p4foreArm1[] = { -1, -1};   //2 chars
-    short int p4foreArm2[] = {-1, -1};   //2 chars
+    short int p4foreArm1[] = {1,5,0,4,-1, -1};   //2 chars
+    short int p4foreArm2[] = {7,3,8,4,-1, -1};   //2 chars
     short int * figure4AllParts[] =
                   {
                    p4lowerLeg1, p4lowerLeg2, p4thigh1, p4thigh2, p4torso,
