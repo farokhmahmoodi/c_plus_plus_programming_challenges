@@ -84,13 +84,13 @@ int main()
     // of the person in the first running position
     short int p4lowerLeg1[] = { 10, 10, 11, 10, 12, 10, -1, -1};
     short int p4thigh1[] = { 6, 6, 7, 7, 8, 8, 9, 9, -1, -1};
-    short int p4thigh2[] = {  -1, -1};
-    short int p4lowerLeg2[] = { -1, -1};
-    short int p4torso[] = { -1, -1};
-    short int p4upperArms[] = { -1, -1
+    short int p4thigh2[] = { 6,8,5,9, -1, -1};
+    short int p4lowerLeg2[] = { 5,10,5,11,-1, -1};
+    short int p4torso[] = { 5,5, 4,4,3,3,2,2, -1, -1};
+    short int p4upperArms[] = { -1, -1         //5 chars
                             };
-    short int p4foreArm1[] = { -1, -1};
-    short int p4foreArm2[] = {-1, -1};
+    short int p4foreArm1[] = { -1, -1};   //2 chars
+    short int p4foreArm2[] = {-1, -1};   //2 chars
     short int * figure4AllParts[] =
                   {
                    p4lowerLeg1, p4lowerLeg2, p4thigh1, p4thigh2, p4torso,
@@ -113,7 +113,7 @@ int main()
 //    while (pos <= 60 )
 //    {
         // Show the current image at the current position
-        sequence[3]->displayAt(pos, 3);
+        sequence[3]->displayAt(60, 3);
 //        Sleep(400);
         // Erase the current image
 //        sequence[3]->eraseAt(pos, 3);
