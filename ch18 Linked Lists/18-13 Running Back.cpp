@@ -154,12 +154,12 @@ int main()
     int pos = 0;
     while (pos <= 60 )
     {
-//      Show the current image at the current position
+      //Show the current image at the current position
         sequence[k]->displayAt(pos,3);
         Sleep(400);
-//      Erase the current image
+        //Erase the current image
         sequence[k]->eraseAt(pos, 3);
-//      Move to next image in the rotation and next position
+        //Move to next image in the rotation and next position
         k = (k+1) % 3;
         pos = pos + 8;
     }
@@ -167,12 +167,12 @@ int main()
     k = 0;
     while(pos >= 0)
     {
-//      Show the current image at the current position
+        //Show the current image at the current position
         sequence2[k]->displayAt(pos,3);
         Sleep(400);
-//      Erase the current image
+        //Erase the current image
         sequence2[k]->eraseAt(pos, 3);
-//      Move to next image in the rotation and next position
+        //Move to next image in the rotation and next position
         k = (k+1) % 3;
         pos = pos - 8;
     }
