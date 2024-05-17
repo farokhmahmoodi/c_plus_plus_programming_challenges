@@ -121,20 +121,22 @@ int main()
 
     ImageMap figure6;
 
-    short int p6lowerLeg1[] = { -1, -1};
-    short int p6thigh1[] = { -1, -1};
-    short int p6thigh2[] = { -1, -1};
-    short int p6lowerLeg2[] = { -1, -1};
-    short int p6torso[] = { -1, -1};
-    short int p6upperArms[] = {-1, -1
-                            };
-    short int p6foreArm1[] = {-1, -1};
-    short int p6foreArm2[] = {-1, -1};
+    short int p6torso[] = { -1, -1
+                          };
+    short int p6Thigh1[] = {-1, -1};
+    short int p6Thigh2[] = {-1, -1};
+    short int p6LowerLeg1[] = {-1, -1};
+    short int p6LowerLeg2[] = { -1, -1};
+    short int p6UpperArm1[] = { -1, -1};
+    short int p6UpperArm2[] = { -1, -1};
+    short int p6ForeArm1[] = { -1, -1};
+    short int p6ForeArm2[] = { -1, -1};
     short int * figure6AllParts[] =
-                  {
-                   p6lowerLeg1, p6lowerLeg2, p6thigh1, p6thigh2, p6torso,
-                   p6upperArms, p6foreArm1, p6foreArm2, 0
-                  };
+                {
+                  p6torso, p6Thigh1, p6Thigh2, p6LowerLeg1,
+                  p6LowerLeg2,p6UpperArm1, p6UpperArm2,
+                  p6ForeArm1, p6ForeArm2, 0
+               };
 
     for (int k = 0; figure6AllParts[k] != 0; k++)
         figure6.add(figure6AllParts[k]);
