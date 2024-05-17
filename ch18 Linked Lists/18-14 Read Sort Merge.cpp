@@ -13,6 +13,7 @@ The merge function should not make copies of nodes: Rather, it must remove nodes
 Test your functions by having the user enter two sequences of numbers, sorting each sequence, and then merging and printing the resulting list.*/
 
 #include <iostream>
+#include <limits>
 using namespace std;
 
 struct ListNode
@@ -27,19 +28,54 @@ struct ListNode
      }
   };
 
+  void add(double, ListNode&);
   ListNode *read();
   ListNode *sort(ListNode *list1);
   ListNode *merge(ListNode* list1, ListNode* list2);
 
 int main()
 {
+    ListNode *sequence1 = read();
+
 
    return 0;
+}
+
+ListNode *add(double num, ListNode& aList)
+{
+    if(aList == nullptr)
+    {
+        aList = new ListNode(num);
+        return aList;
+    }
+    else
+    {
+        aList = new ListNode(num,aList);
+        return aList;
+    }
 }
 
 ListNode *read()
 {
     ListNode *aList;
+    double x;
+
+    do
+    {
+        do
+        {
+            while (cout << "Enter a positive number to read into a linked list(or -1 to terminate): "
+            << &&
+            !(cin >> x)) {
+            cin.clear(); //clear bad input flag
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
+            cout << "Invalid input for integer x." << endl;
+        }
+        if(x < -1)
+            cout << "Invalid input for number. Input must be greater than or equal to -1.\n";
+        }while(x < -1);
+        aList = (x,&aList);
+    }while(x != -1);
 
     return aList;
 }
