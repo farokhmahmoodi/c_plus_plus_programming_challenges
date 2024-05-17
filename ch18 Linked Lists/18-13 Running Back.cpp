@@ -121,16 +121,17 @@ int main()
 
     ImageMap figure6;
 
-    short int p6torso[] = { -1, -1
+    short int p6torso[] = {4, 7, 4, 6, 4, 5, 4, 4,
+                           4, 3, 4, 2, 4,1,-1, -1
                           };
-    short int p6Thigh1[] = {-1, -1};
-    short int p6Thigh2[] = {-1, -1};
-    short int p6LowerLeg1[] = {-1, -1};
-    short int p6LowerLeg2[] = { -1, -1};
-    short int p6UpperArm1[] = { -1, -1};
-    short int p6UpperArm2[] = { -1, -1};
-    short int p6ForeArm1[] = { -1, -1};
-    short int p6ForeArm2[] = { -1, -1};
+    short int p6Thigh1[] = {5, 8, 6, 9,-1, -1}; //2 coords
+    short int p6Thigh2[] = {3,8,2,9,-1, -1}; // 2 coords
+    short int p6LowerLeg1[] = {7,8,8,7,-1, -1}; //2 coords
+    short int p6LowerLeg2[] = {3,10,4,11, -1, -1};  //2 coords
+    short int p6UpperArm1[] = { 3,4,2,5,-1, -1}; //2 coords
+    short int p6UpperArm2[] = { 5,4,6,5,-1, -1}; //2 coords
+    short int p6ForeArm1[] = { 1,4,0,3,-1, -1}; //2 coords
+    short int p6ForeArm2[] = { 5,6,-1, -1}; //2 coords
     short int * figure6AllParts[] =
                 {
                   p6torso, p6Thigh1, p6Thigh2, p6LowerLeg1,
