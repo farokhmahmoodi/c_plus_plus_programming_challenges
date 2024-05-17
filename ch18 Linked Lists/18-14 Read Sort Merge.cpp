@@ -27,8 +27,33 @@ struct ListNode
      }
   };
 
+  ListNode *read();
+  ListNode *sort(ListNode *list1);
+  ListNode *merge(ListNode* list1, ListNode* list2);
+
 int main()
 {
 
    return 0;
+}
+
+ListNode *read()
+{
+    ListNode *aList;
+
+    return aList;
+}
+
+ListNode *sort(ListNode *list1)
+{
+    ListNode *sortedList;
+
+    return sortedList;
+}
+
+ListNode *merge(ListNode* list1, ListNode* list2)
+{
+    ListNode *mergedList;
+
+    return mergedList;
 }
