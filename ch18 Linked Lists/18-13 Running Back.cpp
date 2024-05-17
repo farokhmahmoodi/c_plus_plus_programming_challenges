@@ -124,14 +124,14 @@ int main()
     short int p6torso[] = {4, 7, 4, 6, 4, 5, 4, 4,
                            4, 3, 4, 2, 4,1,-1, -1
                           };
-    short int p6Thigh1[] = {5, 8, 6, 9,-1, -1}; //2 coords
-    short int p6Thigh2[] = {3,8,2,9,-1, -1}; // 2 coords
-    short int p6LowerLeg1[] = {7,8,8,7,-1, -1}; //2 coords
-    short int p6LowerLeg2[] = {3,10,4,11, -1, -1};  //2 coords
-    short int p6UpperArm1[] = { 3,4,2,5,-1, -1}; //2 coords
-    short int p6UpperArm2[] = { 5,4,6,5,-1, -1}; //2 coords
-    short int p6ForeArm1[] = { 1,4,0,3,-1, -1}; //2 coords
-    short int p6ForeArm2[] = { 5,6,-1, -1}; //2 coords
+    short int p6Thigh1[] = {5, 8, 6, 9,-1, -1};
+    short int p6Thigh2[] = {3,8,2,9,-1, -1};
+    short int p6LowerLeg1[] = {7,8,8,7,-1, -1};
+    short int p6LowerLeg2[] = {3,10,4,11, -1, -1};
+    short int p6UpperArm1[] = { 3,4,2,5,-1, -1};
+    short int p6UpperArm2[] = { 5,4,6,5,-1, -1};
+    short int p6ForeArm1[] = { 1,4,0,3,-1, -1};
+    short int p6ForeArm2[] = { 5,6,-1, -1};
     short int * figure6AllParts[] =
                 {
                   p6torso, p6Thigh1, p6Thigh2, p6LowerLeg1,
@@ -144,25 +144,38 @@ int main()
 
     // Ask Microsoft Windows to clear the screen
     system("cls");
-    // Form an array of all three figures
-    ImageMap *sequence[6] = {&figure1, &figure2, &figure3, &figure4, &figure5, &figure6};
+    // Form two arrays of the 6 figures
+    ImageMap *sequence[3] = {&figure1, &figure2, &figure3};
+    ImageMap *sequence2[3] = {&figure4, &figure5, &figure6};
 
     // Animate to create the appearance of
-    // running across the screen
-//    k = 0;
-//    int pos = 0;
-//    while (pos <= 60 )
-//    {
-        // Show the current image at the current position
-        sequence[5]->displayAt(60,3);
-//        Sleep(400);
-        // Erase the current image
-//        sequence[3]->eraseAt(pos, 3);
-        // Move to next image in the rotation and next position
-//        k = (k+1) % 3;
-//        pos = pos + 8;
-//    }
-//    sequence[k]->displayAt(pos, 3);
+    // running across the screen from left to right
+    k = 0;
+    int pos = 0;
+    while (pos <= 60 )
+    {
+//      Show the current image at the current position
+        sequence[k]->displayAt(pos,3);
+        Sleep(400);
+//      Erase the current image
+        sequence[k]->eraseAt(pos, 3);
+//      Move to next image in the rotation and next position
+        k = (k+1) % 3;
+        pos = pos + 8;
+    }
+    //now animate running back from right to left
+    k = 0;
+    while(pos >= 0)
+    {
+//      Show the current image at the current position
+        sequence2[k]->displayAt(pos,3);
+        Sleep(400);
+//      Erase the current image
+        sequence2[k]->eraseAt(pos, 3);
+//      Move to next image in the rotation and next position
+        k = (k+1) % 3;
+        pos = pos - 8;
+    }
 
     return 0;
 }
