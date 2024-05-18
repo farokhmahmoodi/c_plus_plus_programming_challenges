@@ -28,20 +28,34 @@ struct ListNode
      }
   };
 
-  void add(double, ListNode&);
+  ListNode *add(double, ListNode*);
   ListNode *read();
   ListNode *sort(ListNode *list1);
+  ListNode *sort(ListNode **aList);
+  int size(ListNode *aList);
   ListNode *merge(ListNode* list1, ListNode* list2);
 
 int main()
 {
+    cout << "Enter numbers for sequence 1 below.\n";
     ListNode *sequence1 = read();
-
+    cout << "Enter numbers for sequence 2 below.\n";
+    ListNode *sequence2 = read();
+    sequence1 = sort(sequence1);
+    sequence2 = sort(sequence2);
+    ListNode *mergedList = merge(sequence1,sequence2);
+    ListNode *ptr = mergedList;
+    while(ptr != nullptr)
+    {
+        cout << ptr->value << " ";
+        ptr = ptr->next;
+    }
 
    return 0;
 }
 
-ListNode *add(double num, ListNode& aList)
+//adds a node to end of list
+ListNode *add(double num, ListNode* aList)
 {
     if(aList == nullptr)
     {
@@ -64,9 +78,8 @@ ListNode *read()
     {
         do
         {
-            while (cout << "Enter a positive number to read into a linked list(or -1 to terminate): "
-            << &&
-            !(cin >> x)) {
+            while (cout << "Enter a positive number(or -1 to terminate): "
+            && !(cin >> x)) {
             cin.clear(); //clear bad input flag
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
             cout << "Invalid input for integer x." << endl;
@@ -74,7 +87,8 @@ ListNode *read()
         if(x < -1)
             cout << "Invalid input for number. Input must be greater than or equal to -1.\n";
         }while(x < -1);
-        aList = (x,&aList);
+        if(x != -1)
+            aList = add(x,aList);
     }while(x != -1);
 
     return aList;
@@ -82,14 +96,67 @@ ListNode *read()
 
 ListNode *sort(ListNode *list1)
 {
-    ListNode *sortedList;
+    if(list1 != nullptr && list1->next != nullptr)
+        list1 = sort(&list1);
 
-    return sortedList;
+    return list1;
+}
+
+ListNode *sort(ListNode **aList)
+{
+    ListNode **h = nullptr;
+    bool swap;
+    for(int i = 0; i < size(*aList); i++)
+    {
+        h = aList;
+        swap = false;
+        for(int j = 0; j < size(*aList) - i - 1; j++)
+        {
+            ListNode *p1 = *h;
+            ListNode *p2 = p1->next;
+
+            if(p1->value > p2->value)
+            {
+                //swap nodes
+                ListNode *temp = p2->next;
+                p2->next = p1;
+                p1->next = temp;
+                *h = p2;
+                swap = true;
+            }
+            h = &(*h)->next;
+        }
+        if(swap == false)
+            break;
+    }
+    return *aList;
+}
+
+int size(ListNode* aList)
+{
+    if(aList == nullptr)
+        return 0;
+    else
+        return 1 + size(aList->next);
 }
 
 ListNode *merge(ListNode* list1, ListNode* list2)
 {
-    ListNode *mergedList;
+    //if either list is empty
+    if(!list1)
+        return list2;
+    if(!list2)
+        return list1;
 
-    return mergedList;
+    //start with linked list whose head data is the least
+    if(list1->value < list2->value)
+    {
+        list1->next = merge(list1->next, list2);
+        return list1;
+    }
+    else
+    {
+        list2->next = merge(list1, list2->next);
+        return list2;
+    }
 }
