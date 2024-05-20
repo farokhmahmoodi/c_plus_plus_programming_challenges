@@ -71,7 +71,7 @@ ListNode *add(double num, ListNode* aList)
 
 ListNode *read()
 {
-    ListNode *aList;
+    ListNode *aList = nullptr;
     double x;
 
     do
