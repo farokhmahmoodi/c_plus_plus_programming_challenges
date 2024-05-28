@@ -6,7 +6,7 @@ Demonstrate the class with a driver program.*/
 #include <memory>
 using namespace std;
 
-template <typename T> class AnyStack {
+template <class T> class AnyStack {
     unique_ptr<T[]>stackArray;
     int capacity;
     int top;
@@ -27,7 +27,7 @@ public:
 //************************************
 // Constructor                       *
 //************************************
-template <typename T>AnyStack<T>::AnyStack(int capacity)
+template <class T>AnyStack<T>::AnyStack(int capacity)
 {
     stackArray = make_unique<T[]>(capacity);
     this->capacity = capacity;
@@ -37,7 +37,7 @@ template <typename T>AnyStack<T>::AnyStack(int capacity)
 //***********************************
 // Adds a value to the stack        *
 //***********************************
-template <typename T> void AnyStack<T>::push(T value)
+template <class T> void AnyStack<T>::push(T value)
 {
     if (top == capacity) throw AnyStack::Overflow();
     stackArray[top] = value;
@@ -47,7 +47,7 @@ template <typename T> void AnyStack<T>::push(T value)
 //****************************************
 // Determines whether the stack is empty *
 //****************************************
-template <typename T> bool AnyStack<T>::isEmpty() const
+template <class T> bool AnyStack<T>::isEmpty() const
 {
     return top == 0;
 }
@@ -55,7 +55,7 @@ template <typename T> bool AnyStack<T>::isEmpty() const
 //************************************************
 // Removes a value from the stack and returns it *
 //************************************************
-template <typename T> void AnyStack<T>::pop(T& value)
+template <class T> void AnyStack<T>::pop(T& value)
 {
     if (isEmpty()) throw AnyStack::Underflow();
     top--;
