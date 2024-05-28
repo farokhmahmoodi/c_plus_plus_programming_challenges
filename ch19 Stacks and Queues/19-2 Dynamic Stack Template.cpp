@@ -6,14 +6,13 @@ Demonstrate the class with a driver program.*/
 #include <cstdlib>
 using namespace std;
 
-class DynIntStack
-{
+template <class T> class DynIntStack {
    struct StackNode
    {
-      int value;
+      T value;
       StackNode *next;
       // Constructor
-      StackNode(int value1, StackNode *next1 = NULL)
+      StackNode(T value1, StackNode *next1 = NULL)
       {
          value = value1;
          next = next1;
@@ -23,8 +22,8 @@ class DynIntStack
 public:
    DynIntStack() { top = nullptr; }
    ~DynIntStack();
-   void push(int);
-   void pop(int &);
+   void push(T);
+   void pop(T &);
    bool isEmpty() const;
 
    // Stack Exception
@@ -35,7 +34,7 @@ public:
 // Member function push pushes the argument onto   *
 // the stack.                                      *
 //**************************************************
-void DynIntStack::push(int num)
+template<class T> void DynIntStack<T>::push(T num)
 {
    top = new StackNode(num, top);
 }
@@ -45,7 +44,7 @@ void DynIntStack::push(int num)
 // of the stack and copies it into the variable       *
 // passed as an argument.                             *
 //*****************************************************
-void DynIntStack::pop(int &num)
+template<class T> void DynIntStack<T>::pop(T &num)
 {
    StackNode *temp;
 
@@ -64,7 +63,7 @@ void DynIntStack::pop(int &num)
 // Member function isEmpty returns true if the stack  *
 // is empty, or false otherwise.                      *
 //*****************************************************
-bool DynIntStack::isEmpty() const
+template<class T> bool DynIntStack<T>::isEmpty() const
 {
    return top == nullptr;
 }
@@ -72,7 +71,7 @@ bool DynIntStack::isEmpty() const
 //*****************************************************
 // Destructor.                                        *
 //*****************************************************
-DynIntStack::~DynIntStack()
+template<class T> DynIntStack<T>::~DynIntStack()
 {
    StackNode * garbage = top;
    while (garbage != nullptr)
@@ -87,11 +86,11 @@ DynIntStack::~DynIntStack()
 
 int main()
 {
-   DynIntStack stack;
-   int popped_value;
+   DynIntStack<double> stack;
+   double popped_value;
 
-   // Push values 5, 10, and 15 on the stack
-   for (int value = 5; value <= 15; value = value + 5)
+   // Push 3 values on the stack
+   for (double value = 5.01; value <= 20; value = value + 5.21)
    {
       cout << "Push: " << value << "\n";
       stack.push(value);
@@ -112,7 +111,7 @@ int main()
       cout << "\nAttempting to pop again... ";
       stack.pop(popped_value);
    }
-   catch (DynIntStack::Underflow)
+   catch (DynIntStack<double>::Underflow)
    {
       cout << "Underflow exception occured.\n";
    }
