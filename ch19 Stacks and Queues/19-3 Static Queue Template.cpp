@@ -3,12 +3,13 @@ Write a template that will create a static queue of any data type.
 Demonstrate the class with a driver program.*/
 
 #include <iostream>
+#include <memory>
 using namespace std;
 
-class IntQueue
+template<class T> class IntQueue
 {
 private:
-   unique_ptr<int []> queueArray;
+   unique_ptr<T[]> queueArray;
    int queueSize;
    int front;
    int rear;
@@ -16,8 +17,8 @@ private:
 public:
    IntQueue(int);
 
-   void enqueue(int);
-   void dequeue(int &);
+   void enqueue(T);
+   void dequeue(T &);
    bool isEmpty() const;
    bool isFull() const;
    void clear();
@@ -26,9 +27,9 @@ public:
 //*************************
 // Constructor.           *
 //*************************
-IntQueue::IntQueue(int s)
+template<class T> IntQueue<T>::IntQueue(int s)
 {
-   queueArray = make_unique<int []>(s);
+   queueArray = make_unique<T[]>(s);
    queueSize = s;
    front = -1;
    rear = -1;
@@ -40,7 +41,7 @@ IntQueue::IntQueue(int s)
 // Function enqueue inserts the value in num *
 // at the rear of the queue.                 *
 //********************************************
-void IntQueue::enqueue(int num)
+template<class T> void IntQueue<T>::enqueue(T num)
 {
    if (isFull())
    {
@@ -62,7 +63,7 @@ void IntQueue::enqueue(int num)
 // Function dequeue removes the value at the   *
 // front of the queue, and copies it into num. *
 //**********************************************
-void IntQueue::dequeue(int &num)
+template <class T> void IntQueue<T>::dequeue(T &num)
 {
    if (isEmpty())
    {
@@ -84,7 +85,7 @@ void IntQueue::dequeue(int &num)
 // Function isEmpty returns true if the queue *
 // is empty, and false otherwise.             *
 //*********************************************
-bool IntQueue::isEmpty() const
+template<class T> bool IntQueue<T>::isEmpty() const
 {
    return numItems == 0;
 }
@@ -93,7 +94,7 @@ bool IntQueue::isEmpty() const
 // Function isFull returns true if the queue *
 // is full, and false otherwise.             *
 //********************************************
-bool IntQueue::isFull() const
+template<class T> bool IntQueue<T>::isFull() const
 {
    return numItems == queueSize;
 }
@@ -102,7 +103,7 @@ bool IntQueue::isFull() const
 // Function clear resets the front and rear *
 // indices, and sets numItems to 0.         *
 //*******************************************
-void IntQueue::clear()
+template<class T> void IntQueue<T>::clear()
 {
    front = -1;
    rear = -1;
@@ -111,12 +112,12 @@ void IntQueue::clear()
 
 int main()
 {
-   IntQueue iQueue(5);
+   IntQueue<double> iQueue(5);
 
    cout << "Enqueuing 5 items...\n";
 
    // Enqueue 5 items
-   for (int k = 1; k <= 5; k++)
+   for (double k = 1.1; k <= 5.3; k++)
    {
       iQueue.enqueue(k*k);
    }
@@ -125,7 +126,7 @@ int main()
    cout << "The values in the queue were: ";
    while (!iQueue.isEmpty())
    {
-      int value;
+      double value;
       iQueue.dequeue(value);
       cout << value << "  ";
    }
