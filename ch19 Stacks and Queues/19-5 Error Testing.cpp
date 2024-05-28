@@ -9,7 +9,7 @@ If you have already done Programming Challenges 2 and 4, modify the templates yo
 #include <iostream>
 using namespace std;
 
-template <class T> class DynIntStack
+template <class T> class DynStack
 {
    struct StackNode
    {
@@ -24,8 +24,8 @@ template <class T> class DynIntStack
    };
    StackNode *top;
 public:
-   DynIntStack() { top = nullptr; }
-   ~DynIntStack();
+   DynStack() { top = nullptr; }
+   ~DynStack();
    void push(T);
    void pop(T &);
    bool isEmpty() const;
@@ -38,7 +38,7 @@ public:
 // Member function push pushes the argument onto   *
 // the stack.                                      *
 //**************************************************
-template<class T> void DynIntStack<T>::push(T num)
+template<class T> void DynStack<T>::push(T num)
 {
    top = new StackNode(num, top);
 }
@@ -48,11 +48,11 @@ template<class T> void DynIntStack<T>::push(T num)
 // of the stack and copies it into the variable       *
 // passed as an argument.                             *
 //*****************************************************
-template<class T> void DynIntStack<T>::pop(T &num)
+template<class T> void DynStack<T>::pop(T &num)
 {
    StackNode *temp;
 
-   if (isEmpty()) { throw DynIntStack::Underflow(); }
+   if (isEmpty()) { throw DynStack::Underflow(); }
    else
    {
       // Pop value off top of stack
@@ -67,7 +67,7 @@ template<class T> void DynIntStack<T>::pop(T &num)
 // Member function isEmpty returns true if the stack  *
 // is empty, or false otherwise.                      *
 //*****************************************************
-template<class T> bool DynIntStack<T>::isEmpty() const
+template<class T> bool DynStack<T>::isEmpty() const
 {
    return top == nullptr;
 }
@@ -75,7 +75,7 @@ template<class T> bool DynIntStack<T>::isEmpty() const
 //*****************************************************
 // Destructor.                                        *
 //*****************************************************
-template<class T> DynIntStack<T>::~DynIntStack()
+template<class T> DynStack<T>::~DynStack()
 {
    StackNode * garbage = top;
    while (garbage != nullptr)
@@ -204,7 +204,7 @@ template<class T> void DynQueue<T>::clear()
 
 int main()
 {
-   DynIntStack<double> stack;
+   DynStack<double> stack;
    double popped_value;
 
    // Push 3 values on the stack
@@ -229,7 +229,7 @@ int main()
       cout << "\nAttempting to pop again... ";
       stack.pop(popped_value);
    }
-   catch (DynIntStack<double>::Underflow)
+   catch (DynStack<double>::Underflow)
    {
       cout << "Underflow exception occured.\n\n";
    }
