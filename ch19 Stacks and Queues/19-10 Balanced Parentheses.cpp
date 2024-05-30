@@ -98,7 +98,8 @@ int main()
             stack.push(input[i]);
         if(input[i] == ')')
         {
-            stack.pop(ch);
+            if(!stack.isEmpty())
+                stack.pop(ch);
         }
     }
     if(stack.isEmpty())
