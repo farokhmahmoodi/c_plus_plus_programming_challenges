@@ -7,6 +7,7 @@ Note
 If you have already done Programming Challenges 2 and 4, modify the templates you created.*/
 
 #include <iostream>
+#include <new>
 using namespace std;
 
 template <class T> class DynStack
@@ -40,7 +41,15 @@ public:
 //**************************************************
 template<class T> void DynStack<T>::push(T num)
 {
-   top = new StackNode(num, top);
+   try
+   {
+      top = new StackNode(num, top);
+   }
+   catch (bad_alloc& ba)
+   {
+      cout << "bad_alloc caught: " << ba.what() << endl;
+      exit(1);
+   }
 }
 
 //*****************************************************
@@ -147,13 +156,29 @@ template<class T> void DynQueue<T>::enqueue(T num)
 {
    if (isEmpty())
    {
-      front = new QueueNode(num);
-      rear = front;
+         try
+         {
+            front = new QueueNode(num);
+         }
+         catch(bad_alloc)
+         {
+            cout << "bad allocation caught\n";
+            exit(1);
+         }
+         rear = front;
    }
    else
    {
-      rear->next = new QueueNode(num);
-      rear = rear->next;
+         try
+         {
+            rear->next = new QueueNode(num);
+         }
+         catch(bad_alloc)
+         {
+            cout << "bad allocation caught\n";
+            exit(1);
+         }
+         rear = rear->next;
    }
 }
 
@@ -250,6 +275,6 @@ int main()
       dQueue.dequeue(value);
       cout << value << "  ";
    }
-
-    return 0;
+   
+   return 0;
 }
