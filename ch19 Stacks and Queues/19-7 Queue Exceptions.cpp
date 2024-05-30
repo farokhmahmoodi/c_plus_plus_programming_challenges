@@ -18,14 +18,17 @@ private:
    int front;
    int rear;
    int numItems;
+   bool isFull() const;
 public:
    IntQueue(int);
-
    void enqueue(int);
    void dequeue(int &);
    bool isEmpty() const;
-   bool isFull() const;
    void clear();
+
+   //Queue exceptions
+   class Overflow {};
+   class Underflow {};
 };
 
 //*************************
@@ -47,11 +50,7 @@ IntQueue::IntQueue(int s)
 //********************************************
 void IntQueue::enqueue(int num)
 {
-   if (isFull())
-   {
-      cout << "The queue is full.\n";
-      exit(1);
-   }
+   if (isFull()) { throw IntQueue::Overflow(); }
    else
    {
       // Calculate the new rear position
@@ -69,11 +68,7 @@ void IntQueue::enqueue(int num)
 //**********************************************
 void IntQueue::dequeue(int &num)
 {
-   if (isEmpty())
-   {
-      cout << "The queue is empty.\n";
-      exit(1);
-   }
+   if (isEmpty()) { throw IntQueue::Underflow(); }
    else
    {
       // Move front
@@ -117,6 +112,7 @@ void IntQueue::clear()
 int main()
 {
     IntQueue iQueue(5);
+    int value;
 
     cout << "Enqueuing 5 items...\n";
 
@@ -125,12 +121,19 @@ int main()
     {
         iQueue.enqueue(k*k);
     }
-
+    try
+    {
+        iQueue.enqueue(6*6);
+    }
+    catch(IntQueue::Overflow)
+    {
+        cout << "Overflow exception occurred.\n";
+        exit(1);
+    }
     // Deqeue and retrieve all items in the queue
     cout << "The values in the queue were: ";
     while (!iQueue.isEmpty())
     {
-        int value;
         iQueue.dequeue(value);
         cout << value << "  ";
     }
