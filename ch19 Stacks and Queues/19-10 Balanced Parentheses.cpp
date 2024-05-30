@@ -85,15 +85,26 @@ template<class T> DynStack<T>::~DynStack()
 
 int main()
 {
-
+    DynStack<char> stack;
     string input;
+    char ch;
 
     cout << "Enter a string and the program will "
     << "determine if it has balanced parentheses:";
     getline(cin,input);
-
-
-
+    for(int i = 0; i < input.size(); i++)
+    {
+        if(input[i] == '(')
+            stack.push(input[i]);
+        if(input[i] == ')')
+        {
+            stack.pop(ch);
+        }
+    }
+    if(stack.isEmpty())
+        cout << "The string has balanced parentheses.\n";
+    else
+        cout << "The string does not have balanced parentheses.\n";
 
     return 0;
 }
