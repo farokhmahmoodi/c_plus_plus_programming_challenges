@@ -22,11 +22,23 @@ class DynIntStack
    StackNode *top;
 public:
    DynIntStack() { top = nullptr; }
+   DynIntStack(DynIntStack& a) //copy constructor
+   {
+       top = a.top;
+   }
+   DynIntStack& operator=(const DynIntStack& a) //copy assignment operator
+   {
+       if(this != &a)
+       {
+           top = a.top;
+       }
+       return *this;
+   }
    ~DynIntStack();
    void push(int);
    void pop(int &);
    bool isEmpty() const;
-
+   void print();
    // Stack Exception
    class Underflow {};
 };
@@ -84,17 +96,37 @@ DynIntStack::~DynIntStack()
    }
 }
 
+void DynIntStack::print()
+{
+    StackNode* ptr = top;
+    while(ptr != nullptr)
+    {
+        cout << ptr->value << " ";
+        ptr = ptr->next;
+    }
+    cout << endl;
+}
+
 int main()
 {
-    DynIntStack stack;
-    int popped_value;
+    DynIntStack stack1;
+
     // Push values 5, 10, and 15 on the stack
     for (int value = 5; value <= 15; value = value + 5)
     {
        cout << "Push: " << value << "\n";
-       stack.push(value);
+       stack1.push(value);
     }
     cout << "\n";
+    cout << "Values in stack 1 below.\n";
+    stack1.print();
+    DynIntStack stack2(stack1);
+    cout << "Values in stack 2 below using copy constructor.\n";
+    stack2.print();
+    DynIntStack stack3;
+    stack3 = stack1;
+    cout << "Values in stack 3 below using copy assignment operator.\n";
+    stack3.print();
 
     return 0;
 }
