@@ -36,7 +36,15 @@ public:
 //**************************************************
 template<class T> void DynStack<T>::push(T num)
 {
-   top = new StackNode(num, top);
+   try
+   {
+      top = new StackNode(num, top);
+   }
+   catch (bad_alloc& ba)
+   {
+      cout << "Memory allocation error: " << ba.what() << endl;
+      exit(1);
+   }
 }
 
 //*****************************************************
@@ -99,7 +107,12 @@ int main()
         if(input[i] == ')')
         {
             if(!stack.isEmpty())
-                stack.pop(ch);
+               stack.pop(ch);
+            else
+            {
+                stack.push(input[i]);
+                break;
+            }
         }
     }
     if(stack.isEmpty())
