@@ -29,47 +29,64 @@ public:
    bool isEmpty() const;
    char topValue() const
    {
-       return top->value;
+    if(isEmpty())
+        return ' ';
+    else
+        return top->value;
    }
-   void balanced(string input, DynStack& stack)
-   {
-        char ch;
-
-        for(int i = 0; i < input.size(); i++)
-        {
-            if(input[i] == '(' || input[i] == '[' || input[i] == '{')
-                stack.push(input[i]);
-            else if(input[i] == ')')
-            {
-                if(stack.topValue() == '(')
-                    stack.pop(ch);
-                else
-                    break;
-            }
-            else if(input[i] == ']')
-            {
-                if(stack.topValue() == '[')
-                    stack.pop(ch);
-                else
-                    break;
-            }
-            else if(input[i] == '}')
-            {
-                if(stack.topValue() == '{')
-                    stack.pop(ch);
-                else
-                    break;
-            }
-        }
-        if(stack.isEmpty())
-            cout << "The string has balanced delimiters.\n";
-        else
-            cout << "The string does not have balanced delimiters.\n";
-   }
-
+   void balanced(string input);
    // Stack Exception
    class Underflow {};
 };
+
+void DynStack::balanced(string input)
+{
+    char ch;
+
+    for(int i = 0; i < input.size(); i++)
+    {
+        if(input[i] == '(' || input[i] == '[' || input[i] == '{')
+            push(input[i]);
+        else if(input[i] == ')')
+        {
+            if(topValue() == '(')
+                pop(ch);
+            else
+            {
+                push(input[i]);
+                break;
+            }
+        }
+        else if(input[i] == ']')
+        {
+            if(topValue() == '[')
+                pop(ch);
+            else
+            {
+                push(input[i]);
+                break;
+            }
+        }
+        else if(input[i] == '}')
+        {
+            if(topValue() == '{')
+                pop(ch);
+            else
+            {
+                push(input[i]);
+                break;
+            }
+        }
+    }
+        if(isEmpty())
+            cout << "The string has balanced delimiters.\n";
+        else
+        {
+            cout << "The string does not have balanced delimiters.\n";
+            while(!isEmpty())
+                pop(ch);
+        }
+}
 
 //**************************************************
 // Member function push pushes the argument onto   *
@@ -97,8 +114,7 @@ void DynStack::pop(char &num)
 {
    StackNode *temp;
 
-   if (isEmpty()) { cout << "The string does not have balanced delimiters.\n";
-        throw DynStack::Underflow(); }
+   if (isEmpty()) { throw DynStack::Underflow(); }
    else
    {
       // Pop value off top of stack
@@ -141,7 +157,7 @@ int main()
     cout << "Enter a string and the program will "
     << "determine if it has balanced delimiters:";
     getline(cin,input);
-    stack.balanced(input,stack);
+    stack.balanced(input);
 
     return 0;
 }
