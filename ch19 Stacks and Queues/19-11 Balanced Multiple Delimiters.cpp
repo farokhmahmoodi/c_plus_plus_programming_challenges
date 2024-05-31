@@ -8,13 +8,13 @@ Write a program that uses a single stack to check whether a string containing br
 #include <string>
 using namespace std;
 
-template <class T> class DynStack {
+class DynStack {
    struct StackNode
    {
-      T value;
+      char value;
       StackNode *next;
       // Constructor
-      StackNode(T value1, StackNode *next1 = NULL)
+      StackNode(char value1, StackNode *next1 = NULL)
       {
          value = value1;
          next = next1;
@@ -24,12 +24,47 @@ template <class T> class DynStack {
 public:
    DynStack() { top = nullptr; }
    ~DynStack();
-   void push(T);
-   void pop(T &);
+   void push(char);
+   void pop(char &);
    bool isEmpty() const;
-   T topValue() const
+   char topValue() const
    {
        return top->value;
+   }
+   void balanced(string input, DynStack& stack)
+   {
+        char ch;
+
+        for(int i = 0; i < input.size(); i++)
+        {
+            if(input[i] == '(' || input[i] == '[' || input[i] == '{')
+                stack.push(input[i]);
+            else if(input[i] == ')')
+            {
+                if(stack.topValue() == '(')
+                    stack.pop(ch);
+                else
+                    break;
+            }
+            else if(input[i] == ']')
+            {
+                if(stack.topValue() == '[')
+                    stack.pop(ch);
+                else
+                    break;
+            }
+            else if(input[i] == '}')
+            {
+                if(stack.topValue() == '{')
+                    stack.pop(ch);
+                else
+                    break;
+            }
+        }
+        if(stack.isEmpty())
+            cout << "The string has balanced delimiters.\n";
+        else
+            cout << "The string does not have balanced delimiters.\n";
    }
 
    // Stack Exception
@@ -40,7 +75,7 @@ public:
 // Member function push pushes the argument onto   *
 // the stack.                                      *
 //**************************************************
-template<class T> void DynStack<T>::push(T num)
+void DynStack::push(char num)
 {
    try
    {
@@ -58,11 +93,12 @@ template<class T> void DynStack<T>::push(T num)
 // of the stack and copies it into the variable       *
 // passed as an argument.                             *
 //*****************************************************
-template<class T> void DynStack<T>::pop(T &num)
+void DynStack::pop(char &num)
 {
    StackNode *temp;
 
-   if (isEmpty()) { throw DynStack::Underflow(); }
+   if (isEmpty()) { cout << "The string does not have balanced delimiters.\n";
+        throw DynStack::Underflow(); }
    else
    {
       // Pop value off top of stack
@@ -77,7 +113,7 @@ template<class T> void DynStack<T>::pop(T &num)
 // Member function isEmpty returns true if the stack  *
 // is empty, or false otherwise.                      *
 //*****************************************************
-template<class T> bool DynStack<T>::isEmpty() const
+bool DynStack::isEmpty() const
 {
    return top == nullptr;
 }
@@ -85,7 +121,7 @@ template<class T> bool DynStack<T>::isEmpty() const
 //*****************************************************
 // Destructor.                                        *
 //*****************************************************
-template<class T> DynStack<T>::~DynStack()
+DynStack::~DynStack()
 {
    StackNode * garbage = top;
    while (garbage != nullptr)
@@ -99,23 +135,13 @@ template<class T> DynStack<T>::~DynStack()
 
 int main()
 {
-    DynStack<char> stack;
+    DynStack stack;
     string input;
-    char ch;
 
     cout << "Enter a string and the program will "
-    << "determine if it has balanced parentheses:";
+    << "determine if it has balanced delimiters:";
     getline(cin,input);
-    for(int i = 0; i < input.size(); i++)
-    {
-        if(input[i] == '(' || input[i] == '[' || input[i] == '{')
-            stack.push(input[i]);
-
-    }
-    if(stack.isEmpty())
-        cout << "The string has balanced parentheses.\n";
-    else
-        cout << "The string does not have balanced parentheses.\n";
+    stack.balanced(input,stack);
 
     return 0;
 }
