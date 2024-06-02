@@ -31,7 +31,6 @@ public:
     }
 };
 
-
 int main()
 {
     ifstream inputFile;
