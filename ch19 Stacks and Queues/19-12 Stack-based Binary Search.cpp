@@ -8,13 +8,19 @@ using namespace std;
 
 const int MAX = 100;
 
+// Function prototypes
+void qSort(int a[], int size);
+void outputArray(const int a[], int size);
+int partition(int a[], int, int);
+int binarySearch(const int array[], int first, int last, int value);
+
 // Range is used to indicate a segment
 // of an array that is still to be sorted
 class Range
 {
     // Make qSort a friend
     friend void qSort(int a[], int);
-    friend int binarySearch(const int array[], int first, int last, int value, stack<Range>);
+    friend int binarySearch(const int array[], int first, int last, int value);
     int start;
     int end;
 public:
@@ -25,11 +31,6 @@ public:
     }
 };
 
-// Function prototypes
-void qSort(int a[], int size);
-void outputArray(const int a[], int size);
-int partition(int a[], int, int);
-int binarySearch(const int array[], int first, int last, int value, stack<Range>);
 
 int main()
 {
@@ -70,9 +71,9 @@ int main()
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
             cout << "Invalid input for integer." << endl;
         }
-        if (binarySearch(array, 0, size - 1, value, bStack) != -1)
+        if (binarySearch(array, 0, size - 1, value) != -1)
             cout << "The number " << value << " was found at index "
-            << binarySearch(array, 0, size - 1, value, bStack) << " in the array.\n";
+            << binarySearch(array, 0, size - 1, value) << " in the array.\n";
         else
             cout << "The number " << value << " was not found in the array.\n";
         do
@@ -88,13 +89,15 @@ int main()
                 cout << "Invalid input for choice. Must be 1 or 2.\n";
         } while (choice != 1 && choice != 2);
     } while (choice != 2);
+    cout << bStack.empty() << endl;
 
     return 0;
 }
 
 //binary search algorithm
-int binarySearch(const int array[], int first, int last, int value, stack<Range> bStack)
+int binarySearch(const int array[], int first, int last, int value)
 {
+    stack<Range> bStack;
     int middle;         // mid point of search
     bStack.push(Range(first, last));
     while (!bStack.empty())
