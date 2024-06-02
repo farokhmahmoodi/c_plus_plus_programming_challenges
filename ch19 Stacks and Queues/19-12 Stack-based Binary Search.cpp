@@ -14,7 +14,7 @@ class Range
 {
     // Make qSort a friend
     friend void qSort(int a[], int);
-    friend int binarySearch(const int array[], int first, int last, int value, stack<Range> bStack);
+    friend int binarySearch(const int array[], int first, int last, int value, stack<Range>);
     int start;
     int end;
 public:
@@ -29,7 +29,7 @@ public:
 void qSort(int a[], int size);
 void outputArray(const int a[], int size);
 int partition(int a[], int, int);
-int binarySearch(const int array[], int first, int last, int value, stack<Range> bStack);
+int binarySearch(const int array[], int first, int last, int value, stack<Range>);
 
 int main()
 {
