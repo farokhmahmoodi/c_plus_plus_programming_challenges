@@ -8,11 +8,52 @@ Here are sample input–output pairs:
 */
 
 #include <iostream>
+#include <sstream>
+#include <string>
+#include <stack>
 using namespace std;
+
+string postFixValue(istream&);
 
 int main()
 {
+    string input;
 
+    cout << "Enter postfix expressions to evaluate.\n"
+        << "Press enter after each expression,\n"
+        << "and press enter on a blank line to quit.\n\n";
+    cout << "Enter a postfix expression to evaluate: ";
+    getline(cin, input);
+    while (input.size() != 0)
+    {
+        istringstream istr(input);
+        cout << postFixValue(istr) << endl;
+        // Get next line of input
+        cout << "Enter a postfix expression to evaluate: ";
+        getline(cin, input);
+    }
 
     return 0;
+}
+
+string postFixValue(istream& exprStream)
+{
+    // Peek at first non-space character in postfix expression
+    char ch = exprStream.peek();
+
+    while (isspace(ch))
+    {
+        ch = exprStream.get();   // Read the space character
+        ch = exprStream.peek();  // Peek again
+    }
+    if (isdigit(ch))
+    {
+        int num;
+        exprStream >> num;
+
+    }
+    else
+    {
+
+    }
 }
