@@ -13,7 +13,7 @@ Here are sample input–output pairs:
 #include <stack>
 using namespace std;
 
-string postFixValue(istream&);
+string postFixValue(string);
 
 int main()
 {
@@ -26,8 +26,7 @@ int main()
     getline(cin, input);
     while (input.size() != 0)
     {
-        istringstream istr(input);
-        cout << postFixValue(istr) << endl;
+        cout << postFixValue(input) << endl;
         // Get next line of input
         cout << "Enter a postfix expression to evaluate: ";
         getline(cin, input);
@@ -36,10 +35,10 @@ int main()
     return 0;
 }
 
-string postFixValue(istream& exprStream)
+string postFixValue(string input)
 {
     stack<string> pStack;
 
 
-    return " ";
+    return input;
 }
