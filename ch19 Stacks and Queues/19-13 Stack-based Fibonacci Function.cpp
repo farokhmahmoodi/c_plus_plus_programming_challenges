@@ -26,6 +26,26 @@ int fib(int n)
         return 0;
     else if (n == 1)   //base case
         return 1;
-    else
-        return fib(n - 1) + fib(n - 2);
+    else    //if n >= 2
+    {
+        int value = 0, current = 0;
+        stack<int> fStack;
+        fStack.push(n);
+        while(!fStack.empty())
+        {
+            current = fStack.top();
+            fStack.pop();
+            if(current <= 1)
+            {
+                if(current == 1)
+                    value += 1;
+            }
+            else
+            {
+                fStack.push(current - 1);
+                fStack.push(current - 2);
+            }
+        }
+        return value;
+    }
 }
