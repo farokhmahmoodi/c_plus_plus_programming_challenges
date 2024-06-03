@@ -38,22 +38,8 @@ int main()
 
 string postFixValue(istream& exprStream)
 {
-    // Peek at first non-space character in postfix expression
-    char ch = exprStream.peek();
+    stack<string> pStack;
 
-    while (isspace(ch))
-    {
-        ch = exprStream.get();   // Read the space character
-        ch = exprStream.peek();  // Peek again
-    }
-    if (isdigit(ch))
-    {
-        int num;
-        exprStream >> num;
 
-    }
-    else
-    {
-
-    }
+    return " ";
 }
