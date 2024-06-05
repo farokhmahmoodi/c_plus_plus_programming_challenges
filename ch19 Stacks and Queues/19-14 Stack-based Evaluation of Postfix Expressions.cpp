@@ -69,6 +69,29 @@ string postFixValue(istream &exprStream)
                 pStack.push(ostr.str());
                 ch = exprStream.peek();
             }
+            else
+            {
+                if(pStack.empty())
+                    return "Bad input expression.";
+                else
+                {
+                    istringstream istr2(pStack.top());
+                    istr2 >> num2;
+                    pStack.pop();
+                }
+                if(pStack.empty())
+                    return "Bad input expression.";
+                else
+                {
+                    istringstream istr(pStack.top());
+                    istr >> num;
+                    pStack.pop();
+                }
+                ostringstream ostr;
+                ostr << num - num2;
+                pStack.push(ostr.str());
+                ch = exprStream.peek();
+            }
         }
         else
         {
@@ -172,5 +195,8 @@ string postFixValue(istream &exprStream)
             ch = exprStream.peek();
         }
     }
-    return pStack.top();
+    if(pStack.size() == 1)
+        return pStack.top();
+    else
+        return "Bad input expression.";
 }
