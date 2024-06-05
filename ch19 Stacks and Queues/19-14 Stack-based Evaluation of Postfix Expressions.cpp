@@ -58,36 +58,117 @@ string postFixValue(istream &exprStream)
             pStack.push(ostr.str());
             ch = exprStream.peek();
         }
+        else if(ch == '-') //negative number case
+        {
+            ch = exprStream.get();
+            if(isdigit(exprStream.peek()))
+            {
+                exprStream >> num;
+                ostringstream ostr;
+                ostr << -num;
+                pStack.push(ostr.str());
+                ch = exprStream.peek();
+            }
+        }
         else
         {
             ch = exprStream.get();
-
             switch(ch)
             {
                 case '+':
                     {
-                        istringstream istr2(pStack.top());
-                        istr2 >> num2;
-                        pStack.pop();
-                        istringstream istr(pStack.top());
-                        istr >> num;
-                        pStack.pop();
+                        if(pStack.empty())
+                            return "Bad input expression.";
+                        else
+                        {
+                            istringstream istr2(pStack.top());
+                            istr2 >> num2;
+                            pStack.pop();
+                        }
+                        if(pStack.empty())
+                            return "Bad input expression.";
+                        else
+                        {
+                            istringstream istr(pStack.top());
+                            istr >> num;
+                            pStack.pop();
+                        }
                         ostringstream ostr;
                         ostr << num + num2;
                         pStack.push(ostr.str());
                     }
                     break;
                 case '-':
-
+                    {
+                        if(pStack.empty())
+                            return "Bad input expression.";
+                        else
+                        {
+                            istringstream istr2(pStack.top());
+                            istr2 >> num2;
+                            pStack.pop();
+                        }
+                        if(pStack.empty())
+                            return "Bad input expression.";
+                        else
+                        {
+                            istringstream istr(pStack.top());
+                            istr >> num;
+                            pStack.pop();
+                        }
+                        ostringstream ostr;
+                        ostr << num - num2;
+                        pStack.push(ostr.str());
+                    }
                     break;
                 case '*':
+                    {
+                        if(pStack.empty())
+                            return "Bad input expression.";
+                        else
+                        {
+                            istringstream istr2(pStack.top());
+                            istr2 >> num2;
+                            pStack.pop();
+                        }
+                        if(pStack.empty())
+                            return "Bad input expression.";
+                        else
+                        {
+                            istringstream istr(pStack.top());
+                            istr >> num;
+                            pStack.pop();
+                        }
+                        ostringstream ostr;
+                        ostr << num * num2;
+                        pStack.push(ostr.str());
+                    }
                     break;
                 case '/':
+                    {
+                        if(pStack.empty())
+                            return "Bad input expression.";
+                        else
+                        {
+                            istringstream istr2(pStack.top());
+                            istr2 >> num2;
+                            pStack.pop();
+                        }
+                        if(pStack.empty())
+                            return "Bad input expression.";
+                        else
+                        {
+                            istringstream istr(pStack.top());
+                            istr >> num;
+                            pStack.pop();
+                        }
+                        ostringstream ostr;
+                        ostr << num / num2;
+                        pStack.push(ostr.str());
+                    }
                     break;
-                default:  cout << "Bad input expression";
-                        exit(1);
+                default:  return "Bad input expression.";
             }
-
             ch = exprStream.peek();
         }
     }
