@@ -13,7 +13,7 @@ Here are sample input–output pairs:
 #include <stack>
 using namespace std;
 
-string postFixValue(string);
+string postFixValue(istream&);
 
 int main()
 {
@@ -26,7 +26,9 @@ int main()
     getline(cin, input);
     while (input.size() != 0)
     {
-        cout << postFixValue(input) << endl;
+        // Convert string to exprStreamingstream
+        istringstream exprStream(input);
+        cout << postFixValue(exprStream) << endl;
         // Get next line of input
         cout << "Enter a postfix expression to evaluate: ";
         getline(cin, input);
@@ -35,10 +37,59 @@ int main()
     return 0;
 }
 
-string postFixValue(string input)
+string postFixValue(istream &exprStream)
 {
     stack<string> pStack;
+    int num, num2;
+    char ch = exprStream.peek();
 
+    while(ch != EOF)
+    {
+        while (isspace(ch))
+        {
+            ch = exprStream.get();   // Read the space character
+            ch = exprStream.peek();  // Peek again
+        }
+        if (isdigit(ch))
+        {
+            exprStream >> num;
+            ostringstream ostr;
+            ostr << num;
+            pStack.push(ostr.str());
+            ch = exprStream.peek();
+        }
+        else
+        {
+            ch = exprStream.get();
 
-    return input;
+            switch(ch)
+            {
+                case '+':
+                    {
+                        istringstream istr2(pStack.top());
+                        istr2 >> num2;
+                        pStack.pop();
+                        istringstream istr(pStack.top());
+                        istr >> num;
+                        pStack.pop();
+                        ostringstream ostr;
+                        ostr << num + num2;
+                        pStack.push(ostr.str());
+                    }
+                    break;
+                case '-':
+
+                    break;
+                case '*':
+                    break;
+                case '/':
+                    break;
+                default:  cout << "Bad input expression";
+                        exit(1);
+            }
+
+            ch = exprStream.peek();
+        }
+    }
+    return pStack.top();
 }
