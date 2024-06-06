@@ -35,9 +35,27 @@ You might consider using a vector as a stack to make it easier to get at the thr
 #include <string>
 #include <stack>
 #include <sstream>
+#include <stdlib.h>
 using namespace std;
 
-string preFixValue(istream&);
+struct StackElement
+{
+   bool is_value;
+   int value;
+   char op;
+   StackElement(int number)
+   {
+      is_value = true;
+      value = number;
+   }
+   StackElement(char ch)
+   {
+      is_value = false;
+      op = ch;
+   }
+};
+
+int prefixExpr(istream &exprStream); //Prototype
 
 int main()
 {
@@ -52,7 +70,7 @@ int main()
     {
         // Convert string to exprStreamingstream
         istringstream exprStream(input);
-        cout << preFixValue(exprStream) << endl;
+        cout << prefixExpr(exprStream) << endl;
         // Get next line of input
         cout << "Enter a prefix expression to evaluate: ";
         getline(cin, input);
@@ -61,8 +79,50 @@ int main()
     return 0;
 }
 
-string preFixValue(istream& exprStream)
+//***************************************************************
+// Takes an istream that contains a single prefix expression p  *
+// and returns the integer value of p                           *
+//***************************************************************
+int prefixExpr(istream &exprStream)
 {
 
-    return "_";
+   // Peek at first non-space character in prefix expression
+   char ch = exprStream.peek();
+   while (isspace(ch))
+   {
+       ch = exprStream.get();   // Read the space character
+       ch = exprStream.peek();  // Peek again
+   }
+
+   if (isdigit(ch))
+   {
+       // The prefix expression is a single number
+       int number;
+       exprStream >> number;
+       return number;
+   }
+   else
+   {
+       // The prefix expression is an operator followed
+       // by two prefix expressions: Compute values of
+       //the prefix expressions
+
+       // Read the operator
+       ch = exprStream.get();
+
+       // Recursively evaluate the two subexpressions
+       int value1 = prefixExpr(exprStream);
+       int value2 = prefixExpr(exprStream);
+
+       // Apply the operator
+       switch(ch)
+       {
+           case '+': return value1 + value2;
+           case '-': return value1 - value2;
+           case '*': return value1 * value2;
+           case '/': return value1 / value2;
+           default:  cout << "Bad input expression";
+                     exit(1);
+       }
+   }
 }
