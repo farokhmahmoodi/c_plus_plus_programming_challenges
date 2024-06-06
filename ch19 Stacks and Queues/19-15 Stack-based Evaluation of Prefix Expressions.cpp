@@ -69,7 +69,7 @@ int main()
     getline(cin, input);
     while (input.size() != 0)
     {
-        // Convert string to exprStreamingstream
+        // Convert string to istringstream
         istringstream exprStream(input);
         cout << prefixExpr(exprStream) << endl;
         // Get next line of input
