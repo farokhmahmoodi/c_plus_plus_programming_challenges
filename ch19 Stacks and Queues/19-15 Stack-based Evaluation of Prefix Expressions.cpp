@@ -88,12 +88,12 @@ int prefixExpr(istream &exprStream)
 {
    // Peek at first non-space character in prefix expression
    char ch = exprStream.peek();
+
    while (isspace(ch))
    {
        ch = exprStream.get();   // Read the space character
        ch = exprStream.peek();  // Peek again
    }
-
    if (isdigit(ch))
    {
        // The prefix expression is a single number
@@ -117,19 +117,25 @@ int prefixExpr(istream &exprStream)
             return number;
        }
 
-       // Recursively evaluate the two subexpressions
-       int value1 = prefixExpr(exprStream);
-       int value2 = prefixExpr(exprStream);
-
-       // Apply the operator
-       switch(ch)
+       stack<StackElement> pStack;
+       while(ch != EOF)
        {
-           case '+': return value1 + value2;
-           case '-': return value1 - value2;
-           case '*': return value1 * value2;
-           case '/': return value1 / value2;
-           default:  cout << "Bad input expression";
-                     exit(1);
+
        }
+       // Recursively evaluate the two subexpressions
+//       int value1 = prefixExpr(exprStream);
+//       int value2 = prefixExpr(exprStream);
+//
+//
+//       // Apply the operator
+//       switch(ch)
+//       {
+//           case '+': return value1 + value2;
+//           case '-': return value1 - value2;
+//           case '*': return value1 * value2;
+//           case '/': return value1 / value2;
+//           default:  cout << "Bad input expression";
+//                     exit(1);
+//       }
    }
 }
