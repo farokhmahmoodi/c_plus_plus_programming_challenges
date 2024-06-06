@@ -36,6 +36,7 @@ You might consider using a vector as a stack to make it easier to get at the thr
 #include <stack>
 #include <sstream>
 #include <stdlib.h>
+#include <vector>
 using namespace std;
 
 struct StackElement
@@ -85,7 +86,6 @@ int main()
 //***************************************************************
 int prefixExpr(istream &exprStream)
 {
-
    // Peek at first non-space character in prefix expression
    char ch = exprStream.peek();
    while (isspace(ch))
@@ -109,6 +109,13 @@ int prefixExpr(istream &exprStream)
 
        // Read the operator
        ch = exprStream.get();
+       if(isdigit(exprStream.peek())) //if prefix expression is a single negative number
+       {
+            int number;
+            exprStream >> number;
+            number = number * -1;
+            return number;
+       }
 
        // Recursively evaluate the two subexpressions
        int value1 = prefixExpr(exprStream);
