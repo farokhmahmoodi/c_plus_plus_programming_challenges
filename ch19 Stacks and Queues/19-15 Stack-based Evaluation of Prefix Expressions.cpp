@@ -111,7 +111,9 @@ int prefixExpr(istream &exprStream)
             number = number * -1;
             return number;
        }
+
        vector<StackElement> pStack;
+       int value;
        while(ch != EOF)
        {
             while (isspace(ch))
@@ -134,12 +136,27 @@ int prefixExpr(istream &exprStream)
                                 switch(pStack.at(0).op)
                                 {
                                     case '+':
+                                        {
+                                            value = pStack.at(1).value + pStack.at(2).value;
+                                            cout << value << endl;
+                                            pStack.clear();
+                                            pStack.emplace_back(StackElement(value));
+                                        }
                                         break;
                                     case '-':
+                                        value = pStack.at(1).value - pStack.at(2).value;
+                                        pStack.clear();
+                                        pStack.emplace_back(StackElement(value));
                                         break;
                                     case '*':
+                                        value = pStack.at(1).value * pStack.at(2).value;
+                                        pStack.clear();
+                                        pStack.emplace_back(StackElement(value));
                                         break;
                                     case '/':
+                                        value = pStack.at(1).value / pStack.at(2).value;
+                                        pStack.clear();
+                                        pStack.emplace_back(StackElement(value));
                                         break;
                                     default:  cout << "Bad input expression";
                                           exit(1);
@@ -164,6 +181,7 @@ int prefixExpr(istream &exprStream)
             {
                 exprStream >> number;
                 pStack.emplace_back(StackElement(number));
+                ch = exprStream.get();
             }
             else
             {
@@ -171,5 +189,6 @@ int prefixExpr(istream &exprStream)
                 return -1;
             }
        }
+       return pStack[0].value;
    }
 }
