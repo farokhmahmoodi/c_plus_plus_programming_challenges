@@ -116,12 +116,9 @@ int prefixExpr(istream &exprStream)
        int value;
        while(ch != EOF)
        {
-            while (isspace(ch))
-            {
-                ch = exprStream.get();   // Read the space character
-                ch = exprStream.peek();  // Peek again
-            }
-            if(ch == '+' || ch == '-' || ch == '*' || ch == '/')
+            if(isspace(ch))
+                ch = exprStream.get();
+            else if(ch == '+' || ch == '-' || ch == '*' || ch == '/')
             {
                 if(ch == '-' && isdigit(exprStream.peek()))
                 {
@@ -189,6 +186,7 @@ int prefixExpr(istream &exprStream)
                 return -1;
             }
        }
+       cout << pStack[0].op << " " << pStack[1].value << " " << pStack[2].value << endl;
        return pStack[0].value;
    }
 }
