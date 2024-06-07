@@ -103,39 +103,73 @@ int prefixExpr(istream &exprStream)
    }
    else
    {
-       // The prefix expression is an operator followed
-       // by two prefix expressions: Compute values of
-       //the prefix expressions
-
-       // Read the operator
+       int number;
        ch = exprStream.get();
        if(isdigit(exprStream.peek())) //if prefix expression is a single negative number
        {
-            int number;
             exprStream >> number;
             number = number * -1;
             return number;
        }
-
-       stack<StackElement> pStack;
+       vector<StackElement> pStack;
        while(ch != EOF)
        {
-
+            while (isspace(ch))
+            {
+                ch = exprStream.get();   // Read the space character
+                ch = exprStream.peek();  // Peek again
+            }
+            if(ch == '+' || ch == '-' || ch == '*' || ch == '/')
+            {
+                if(ch == '-' && isdigit(exprStream.peek()))
+                {
+                    if(!pStack.empty())
+                    {
+                        if(pStack.size() == 2)
+                        {
+                            exprStream >> number;
+                            pStack.emplace_back(StackElement(number * -1));
+                            if(!pStack.at(0).is_value)
+                            {
+                                switch(pStack.at(0).op)
+                                {
+                                    case '+':
+                                        break;
+                                    case '-':
+                                        break;
+                                    case '*':
+                                        break;
+                                    case '/':
+                                        break;
+                                    default:  cout << "Bad input expression";
+                                          exit(1);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            exprStream >> number;
+                            pStack.emplace_back(StackElement(number * -1));
+                        }
+                    }
+                    ch = exprStream.get();
+                }
+                else
+                {
+                    pStack.emplace_back(StackElement(ch));
+                    ch = exprStream.get();
+                }
+            }
+            else if (isdigit(ch))
+            {
+                exprStream >> number;
+                pStack.emplace_back(StackElement(number));
+            }
+            else
+            {
+                cout << "Bad input expression.\n";
+                return -1;
+            }
        }
-       // Recursively evaluate the two subexpressions
-//       int value1 = prefixExpr(exprStream);
-//       int value2 = prefixExpr(exprStream);
-//
-//
-//       // Apply the operator
-//       switch(ch)
-//       {
-//           case '+': return value1 + value2;
-//           case '-': return value1 - value2;
-//           case '*': return value1 * value2;
-//           case '/': return value1 / value2;
-//           default:  cout << "Bad input expression";
-//                     exit(1);
-//       }
    }
 }
