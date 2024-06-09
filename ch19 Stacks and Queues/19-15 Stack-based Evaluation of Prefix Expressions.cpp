@@ -1,7 +1,7 @@
 /*Write a program that reads prefix expressions and prints their values. Each input expression should
 be entered on its own line, and the program should terminate when the user enters a blank line.
 Assume that there are only binary operators and that the expressions contain no variables.
-Your program should use a stack. Here are sample inputâ€“output pairs:
+Your program should use a stack. Here are sample input–output pairs:
 
 78                  78
 + 78 6              84
@@ -41,22 +41,22 @@ using namespace std;
 
 struct StackElement
 {
-   bool is_value;
-   int value;
-   char op;
-   StackElement(int number)
-   {
-      is_value = true;
-      value = number;
-   }
-   StackElement(char ch)
-   {
-      is_value = false;
-      op = ch;
-   }
+    bool is_value;
+    int value;
+    char op;
+    StackElement(int number)
+    {
+        is_value = true;
+        value = number;
+    }
+    StackElement(char ch)
+    {
+        is_value = false;
+        op = ch;
+    }
 };
 
-int prefixExpr(istream &exprStream); //Prototype
+int prefixExpr(istream& exprStream); //Prototype
 
 int main()
 {
@@ -84,109 +84,104 @@ int main()
 // Takes an istream that contains a single prefix expression p  *
 // and returns the integer value of p                           *
 //***************************************************************
-int prefixExpr(istream &exprStream)
+int prefixExpr(istream& exprStream)
 {
-   // Peek at first non-space character in prefix expression
-   char ch = exprStream.peek();
+    int number;
+    char ch = exprStream.peek();
 
-   while (isspace(ch))
-   {
-       ch = exprStream.get();   // Read the space character
-       ch = exprStream.peek();  // Peek again
-   }
-   if (isdigit(ch))
-   {
-       // The prefix expression is a single number
-       int number;
-       exprStream >> number;
-       return number;
-   }
-   else
-   {
-       int number;
-       ch = exprStream.get();
-       if(isdigit(exprStream.peek())) //if prefix expression is a single negative number
-       {
+    while (isspace(ch))
+    {
+        ch = exprStream.get(); 
+        ch = exprStream.peek();  
+    }
+    if (isdigit(ch))
+    {
+        // The prefix expression is a single number
+        exprStream >> number;
+        return number;
+    }
+    else
+    {
+        ch = exprStream.get();
+        if (ch == '-' && isdigit(exprStream.peek()))
+        {
+            // The prefix expression is a single negative number
             exprStream >> number;
-            number = number * -1;
-            return number;
-       }
-
-       vector<StackElement> pStack;
-       int value;
-       while(ch != EOF)
-       {
-            if(isspace(ch))
-                ch = exprStream.get();
-            else if(ch == '+' || ch == '-' || ch == '*' || ch == '/')
+            return number * -1;
+        }
+        vector<StackElement> stack;
+        int value;
+        while (exprStream)
+        {
+            if (ch == '+' || ch == '-' || ch == '*' || ch == '/')
             {
-                if(ch == '-' && isdigit(exprStream.peek()))
+                if (ch == '-' && isdigit(exprStream.peek()))
                 {
-                    if(!pStack.empty())
-                    {
-                        if(pStack.size() == 2)
-                        {
-                            exprStream >> number;
-                            pStack.emplace_back(StackElement(number * -1));
-                            if(!pStack.at(0).is_value)
-                            {
-                                switch(pStack.at(0).op)
-                                {
-                                    case '+':
-                                        {
-                                            value = pStack.at(1).value + pStack.at(2).value;
-                                            cout << value << endl;
-                                            pStack.clear();
-                                            pStack.emplace_back(StackElement(value));
-                                        }
-                                        break;
-                                    case '-':
-                                        value = pStack.at(1).value - pStack.at(2).value;
-                                        pStack.clear();
-                                        pStack.emplace_back(StackElement(value));
-                                        break;
-                                    case '*':
-                                        value = pStack.at(1).value * pStack.at(2).value;
-                                        pStack.clear();
-                                        pStack.emplace_back(StackElement(value));
-                                        break;
-                                    case '/':
-                                        value = pStack.at(1).value / pStack.at(2).value;
-                                        pStack.clear();
-                                        pStack.emplace_back(StackElement(value));
-                                        break;
-                                    default:  cout << "Bad input expression";
-                                          exit(1);
-                                }
-                            }
-                        }
-                        else
-                        {
-                            exprStream >> number;
-                            pStack.emplace_back(StackElement(number * -1));
-                        }
-                    }
-                    ch = exprStream.get();
+                    exprStream >> number;
+                    stack.emplace_back(StackElement(number * -1));
                 }
                 else
                 {
-                    pStack.emplace_back(StackElement(ch));
-                    ch = exprStream.get();
+                    stack.emplace_back(StackElement(ch));
                 }
             }
-            else if (isdigit(ch))
+            if (isdigit(ch))
             {
+                exprStream.unget();
                 exprStream >> number;
-                pStack.emplace_back(StackElement(number));
-                ch = exprStream.get();
+                stack.emplace_back(StackElement(number));
             }
-            else
+            if (stack.size() == 3)
             {
-                cout << "Bad input expression.\n";
-                return -1;
+                if (!stack[0].is_value && stack[1].is_value
+                    && stack[2].is_value)
+                {
+                    switch (stack[0].op)
+                    {
+                        case '+':
+                        {
+                            value = stack[1].value + stack[2].value;
+                            stack.clear();
+                            stack.emplace_back(value);
+                            break;
+                        }
+                        case '-':
+                        {
+                            value = stack[1].value - stack[2].value;
+                            stack.clear();
+                            stack.emplace_back(value);
+                            break;
+                        }
+                        case '*':
+                        {
+                            value = stack[1].value * stack[2].value;
+                            stack.clear();
+                            stack.emplace_back(value);
+                            break;
+                        }
+                        case '/':
+                        {
+                            value = stack[1].value / stack[2].value;
+                            stack.clear();
+                            stack.emplace_back(value);
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    cout << "Bad input expression 1\n";
+                    return -1;
+                }
             }
-       }
-       cout << pStack[0].op << " " << pStack[1].value << " " << pStack[2].value << endl;
-       return pStack[0].value;
-   }
+            ch = exprStream.get();
+        }
+        if(!stack.empty() && stack[0].is_value)
+            return stack[0].value;
+        else
+        {
+            cout << "Bad input expression 2\n";
+            return -1;
+        }
+    }
 }
