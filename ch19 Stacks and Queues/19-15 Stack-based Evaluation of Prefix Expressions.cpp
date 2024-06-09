@@ -115,19 +115,22 @@ int prefixExpr(istream& exprStream)
         {
             if (ch == '+' || ch == '-' || ch == '*' || ch == '/')
             {
-                if (ch == '-' && isdigit(exprStream.peek()))
+                if (ch == '-' && isdigit(exprStream.peek())) 
                 {
+                    //if operand is a negative number push to stack
                     exprStream >> number;
                     stack.emplace_back(StackElement(number * -1));
                     valueCount++;
                 }
                 else
                 {
+                    //if binary operator push to stack
                     stack.emplace_back(StackElement(ch));
                 }
             }
             if (isdigit(ch))
             {
+                //if positive number push to stack
                 exprStream.unget();
                 exprStream >> number;
                 stack.emplace_back(StackElement(number));
@@ -135,6 +138,7 @@ int prefixExpr(istream& exprStream)
             }
             if (valueCount == 2)
             {
+                //if two operands are in the stack 
                 for (int i = 0; i < stack.size(); i++)
                 {
                     if (stack[i].is_value && i != stack.size() - 1 && i != 0)
@@ -145,37 +149,49 @@ int prefixExpr(istream& exprStream)
                             {
                                 case '+':
                                 {
+                                    //apply operator to two operands
                                     value = stack[i].value + stack[i + 1].value;
+                                    //pop the operator and two operands from stack
                                     stack.pop_back();
                                     stack.pop_back();
                                     stack.pop_back();
+                                    //push the result to the stack
                                     stack.emplace_back(value);
                                     break;
                                 }
                                 case '-':
                                 {
+                                    //apply operator to two operands
                                     value = stack[i].value - stack[i + 1].value;
+                                    //pop the operator and two operands from stack
                                     stack.pop_back();
                                     stack.pop_back();
                                     stack.pop_back();
+                                    //push the result to the stack
                                     stack.emplace_back(value);
                                     break;
                                 }
                             case '*':
                                 {
+                                    //apply operator to two operands
                                     value = stack[i].value * stack[i + 1].value;
+                                    //pop the operator and two operands from stack
                                     stack.pop_back();
                                     stack.pop_back();
                                     stack.pop_back();
+                                    //push the result to the stack
                                     stack.emplace_back(value);
                                     break;
                                 }
                             case '/':
                                 {
+                                    //apply operator to two operands    
                                     value = stack[i].value / stack[i + 1].value;
+                                    //pop the operator and two operands from stack
                                     stack.pop_back();
                                     stack.pop_back();
                                     stack.pop_back();
+                                    //push the result to the stack
                                     stack.emplace_back(value);
                                     break;
                                 }
@@ -192,6 +208,9 @@ int prefixExpr(istream& exprStream)
         }
         if (stack.size() != 1 && stack.size() == 3)
         {
+            //if there is one operator and two operands left in the stack
+            //apply operator to operands, clear all contents from stack and 
+            //push the final result to stack
             if (!stack[0].is_value && stack[1].is_value && stack[2].is_value)
             {
                 switch (stack[0].op)
