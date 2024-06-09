@@ -136,9 +136,9 @@ int prefixExpr(istream& exprStream)
             {
                 for (int i = 0; i < stack.size(); i++)
                 {
-                    if (stack[i].is_value && i != stack.size() - 1)
+                    if (stack[i].is_value && i != stack.size() - 1 && i != 0)
                     {
-                        if (stack[i + 1].is_value)
+                        if (stack[i + 1].is_value && !stack[i - 1].is_value)
                         {
                             switch (stack[i - 1].op)
                             {
@@ -178,7 +178,7 @@ int prefixExpr(istream& exprStream)
                                     stack.emplace_back(value);
                                     break;
                                 }
-                            default: cout << "Bad input expression 1\n";
+                            default: cout << "Bad input expression\n";
                                 exit(1);
                             }
                             break;
@@ -223,13 +223,13 @@ int prefixExpr(istream& exprStream)
                         stack.emplace_back(value);
                         break;
                     }
-                default: cout << "Bad input expression 2\n";
+                default: cout << "Bad input expression\n";
                     exit(1);
                 }
             }
             else
             {
-                cout << "Bad input expression 3\n";
+                cout << "Bad input expression\n";
                 exit(1);
             }
         }
@@ -237,7 +237,7 @@ int prefixExpr(istream& exprStream)
             return stack[0].value;
         else
         {
-            cout << "Bad input expression 4\n";
+            cout << "Bad input expression\n";
             exit(1);
         }
     }
