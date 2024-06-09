@@ -61,8 +61,8 @@ int main()
 {
     string input;
 
-    cout << "Enter prefix expressions to evaluate.\n"
-        << "Press enter after each expression,\n"
+    cout << "Enter prefix expressions with operators and operands seperated\n"
+        << " by spaces. Press enter after each expression,\n"
         << "and press enter on a blank line to quit.\n\n";
     cout << "Enter a prefix expression to evaluate: ";
     getline(cin, input);
@@ -81,7 +81,8 @@ int main()
 
 //***************************************************************
 // Takes an istream that contains a single prefix expression p  *
-// and returns the integer value of p                           *
+// whose operands and operators are seperated by spaces         *
+// and returns the integer value of p                           *                                  
 //***************************************************************
 int prefixExpr(istream& exprStream)
 {
