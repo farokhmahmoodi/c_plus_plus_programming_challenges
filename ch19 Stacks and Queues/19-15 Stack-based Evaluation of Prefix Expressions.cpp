@@ -33,7 +33,6 @@ You might consider using a vector as a stack to make it easier to get at the thr
 
 #include <iostream>
 #include <string>
-#include <stack>
 #include <sstream>
 #include <stdlib.h>
 #include <vector>
@@ -137,46 +136,56 @@ int prefixExpr(istream& exprStream)
             {
                 for (int i = 0; i < stack.size(); i++)
                 {
-                    if (stack[i].is_value)
+                    if (stack[i].is_value && i != stack.size() - 1)
                     {
-                        if (stack[i + 1].is_value && !stack[i - 1].is_value)
+                        if (stack[i + 1].is_value)
                         {
                             switch (stack[i - 1].op)
                             {
                                 case '+':
                                 {
                                     value = stack[i].value + stack[i + 1].value;
-                                    stack.erase(stack.begin()+(i-1),stack.begin()+(i+2));
+                                    stack.pop_back();
+                                    stack.pop_back();
+                                    stack.pop_back();
                                     stack.emplace_back(value);
                                     break;
                                 }
                                 case '-':
                                 {
                                     value = stack[i].value - stack[i + 1].value;
-                                    stack.erase(stack.begin() + (i - 1), stack.begin() + (i + 2));
+                                    stack.pop_back();
+                                    stack.pop_back();
+                                    stack.pop_back();
                                     stack.emplace_back(value);
                                     break;
                                 }
                             case '*':
                                 {
                                     value = stack[i].value * stack[i + 1].value;
-                                    stack.erase(stack.begin() + (i - 1), stack.begin() + (i + 2));
+                                    stack.pop_back();
+                                    stack.pop_back();
+                                    stack.pop_back();
                                     stack.emplace_back(value);
                                     break;
                                 }
                             case '/':
                                 {
                                     value = stack[i].value / stack[i + 1].value;
-                                    stack.erase(stack.begin() + (i - 1), stack.begin() + (i + 2));
+                                    stack.pop_back();
+                                    stack.pop_back();
+                                    stack.pop_back();
                                     stack.emplace_back(value);
                                     break;
                                 }
+                            default: cout << "Bad input expression 1\n";
+                                exit(1);
                             }
                             break;
                         }
                     }
                 }
-                valueCount = 0;
+                valueCount = 1;
             }
             ch = exprStream.get();
         }
@@ -214,20 +223,22 @@ int prefixExpr(istream& exprStream)
                         stack.emplace_back(value);
                         break;
                     }
+                default: cout << "Bad input expression 2\n";
+                    exit(1);
                 }
             }
             else
             {
-                cout << "Bad input expression \n";
-                return -1;
+                cout << "Bad input expression 3\n";
+                exit(1);
             }
         }
         if(stack.size() == 1 && stack[0].is_value)
             return stack[0].value;
         else
         {
-            cout << "Bad input expression \n";
-            return -1;
+            cout << "Bad input expression 4\n";
+            exit(1);
         }
     }
 }
