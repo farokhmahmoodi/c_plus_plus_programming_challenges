@@ -110,7 +110,7 @@ int prefixExpr(istream& exprStream)
             return number * -1;
         }
         vector<StackElement> stack;
-        int value;
+        int value, valueCount = 0;
         while (exprStream)
         {
             if (ch == '+' || ch == '-' || ch == '*' || ch == '/')
@@ -119,6 +119,7 @@ int prefixExpr(istream& exprStream)
                 {
                     exprStream >> number;
                     stack.emplace_back(StackElement(number * -1));
+                    valueCount++;
                 }
                 else
                 {
@@ -130,57 +131,112 @@ int prefixExpr(istream& exprStream)
                 exprStream.unget();
                 exprStream >> number;
                 stack.emplace_back(StackElement(number));
+                valueCount++;
             }
-            if (stack.size() == 3)
+            if (valueCount == 2)
             {
-                if (!stack[0].is_value && stack[1].is_value
-                    && stack[2].is_value)
+                for (int i = 0; i < stack.size(); i++)
                 {
-                    switch (stack[0].op)
+                    if (stack[i].is_value)
                     {
-                        case '+':
+                        if (stack[i + 1].is_value)
                         {
-                            value = stack[1].value + stack[2].value;
-                            stack.clear();
-                            stack.emplace_back(value);
+                            switch (stack[i - 1].op)
+                            {
+                                case '+':
+                                {
+                                    value = stack[i].value + stack[i + 1].value;
+                                    stack.erase(stack.begin()+(i-1),stack.begin()+(i+2));
+                                    stack.emplace_back(value);
+                                    break;
+                                }
+                                case '-':
+                                {
+                                    value = stack[i].value - stack[i + 1].value;
+                                    stack.erase(stack.begin() + (i - 1), stack.begin() + (i + 2));
+                                    stack.emplace_back(value);
+                                    break;
+                                }
+                            case '*':
+                                {
+                                    value = stack[i].value * stack[i + 1].value;
+                                    stack.erase(stack.begin() + (i - 1), stack.begin() + (i + 2));
+                                    stack.emplace_back(value);
+                                    break;
+                                }
+                            case '/':
+                                {
+                                    value = stack[i].value / stack[i + 1].value;
+                                    stack.erase(stack.begin() + (i - 1), stack.begin() + (i + 2));
+                                    stack.emplace_back(value);
+                                    break;
+                                }
+                            }
                             break;
                         }
-                        case '-':
-                        {
-                            value = stack[1].value - stack[2].value;
-                            stack.clear();
-                            stack.emplace_back(value);
-                            break;
-                        }
-                        case '*':
-                        {
-                            value = stack[1].value * stack[2].value;
-                            stack.clear();
-                            stack.emplace_back(value);
-                            break;
-                        }
-                        case '/':
-                        {
-                            value = stack[1].value / stack[2].value;
-                            stack.clear();
-                            stack.emplace_back(value);
-                            break;
-                        }
+                        //if(!stack[i + 2].is_value)
+                        //{
+                        //    cout << "Bad input expression 1\n";
+                        //    return -1;
+                        //}
                     }
                 }
-                else
-                {
-                    cout << "Bad input expression 1\n";
-                    return -1;
-                }
+                valueCount = 0;
             }
             ch = exprStream.get();
+        }
+        if (stack.size() != 1 && stack.size() == 3)
+        {
+            if (!stack[0].is_value && stack[1].is_value && stack[2].is_value)
+            {
+                switch (stack[0].op)
+                {
+                    case '+':
+                    {
+                        value = stack[1].value + stack[2].value;
+                        stack.clear();
+                        stack.emplace_back(value);
+                        break;
+                    }
+                    case '-':
+                    {
+                        value = stack[1].value - stack[2].value;
+                        stack.clear();
+                        stack.emplace_back(value);
+                        break;
+                    }
+                case '*':
+                    {
+                        value = stack[1].value * stack[2].value;
+                        stack.clear();
+                        stack.emplace_back(value);
+                        break;
+                    }
+                case '/':
+                    {
+                        value = stack[1].value / stack[2].value;
+                        stack.clear();
+                        stack.emplace_back(value);
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                cout << "Bad input expression 2\n";
+                return -1;
+            }
+        }
+        else
+        {
+            cout << "Bad input expression 3\n";
+            return -1;
         }
         if(!stack.empty() && stack[0].is_value)
             return stack[0].value;
         else
         {
-            cout << "Bad input expression 2\n";
+            cout << "Bad input expression 4\n";
             return -1;
         }
     }
