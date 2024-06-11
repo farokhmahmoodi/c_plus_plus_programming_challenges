@@ -19,36 +19,36 @@ using namespace std;
 class BinaryTree
 {
 private:
-   // The TreeNode struct is used to build the tree.
-   struct TreeNode
-   {
-      double value;
-      TreeNode *left;
-      TreeNode *right;
-      TreeNode(double value1,
-              TreeNode *left1 = nullptr,
-              TreeNode *right1 = nullptr)
-      {
-         value = value1;
-         left = left1;
-         right = right1;
-      }
-   };
-   TreeNode *root;     // Pointer to the root of the tree
-   bool search(double x, TreeNode *t);
+    // The BtreeNode struct is used to build the tree.
+    struct BtreeNode
+    {
+        double value;
+        BtreeNode* left;
+        BtreeNode* right;
+        BtreeNode(double value1,
+            BtreeNode* left1 = nullptr,
+            BtreeNode* right1 = nullptr)
+        {
+            value = value1;
+            left = left1;
+            right = right1;
+        }
+    };
+    BtreeNode* root;     // Pointer to the root of the tree
+    bool search(double x, BtreeNode* t);
 public:
-   // These member functions are the public interface.
-   BinaryTree()		// Constructor
-   {
-      root = nullptr;
-   }
-   ~BinaryTree()		// Destructor
-   {
+    // These member functions are the public interface.
+    BinaryTree()		// Constructor
+    {
+        root = nullptr;
+    }
+    ~BinaryTree()		// Destructor
+    {
 
-   }
-   void insert(double x);
-   bool search(double);
-   void inorder(vector<double>&);
+    }
+    void insert(double x);
+    bool search(double);
+    void inorder(vector<double>&);
 };
 
 //**************************************************
@@ -57,8 +57,8 @@ public:
 //**************************************************
 void BinaryTree::insert(double x)
 {
-   // If the tree is empty, make a new node and make it
-   // the root of the tree.
+    // If the tree is empty, make a new node and make it
+    // the root of the tree.
 
 }
 
@@ -76,12 +76,12 @@ bool BinaryTree::search(double x)
 // This function displays the values  stored in a tree    *
 // in inorder.                                            *
 //*********************************************************
-void BinaryTree::inorder(vector <double> & v)
+void BinaryTree::inorder(vector <double>& v)
 {
 
 }
 
-bool BinaryTree::search(double x, TreeNode *t)
+bool BinaryTree::search(double x, BtreeNode *t)
 {
 
 }
