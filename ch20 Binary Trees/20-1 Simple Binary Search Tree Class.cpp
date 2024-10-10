@@ -42,11 +42,7 @@ public:
     {
         root = nullptr;
     }
-    ~BinaryTree()		// Destructor
-    {
-
-    }
-    void insert(double x);
+    void insert(double);
     bool search(double);
     void inorder(vector<double>&);
 };
@@ -59,6 +55,29 @@ void BinaryTree::insert(double x)
 {
     // If the tree is empty, make a new node and make it
     // the root of the tree.
+    if (!root)
+    {
+        root = new BtreeNode(x);
+        return;
+    }
+
+    BtreeNode* temp = root;
+    while (temp)
+    {
+        // If num is already in tree: return.
+        if (root->value == x)
+            return;      
+        // The tree is not empty: insert the new node into the
+        // left or right subtree.
+        if (x < root->value)
+        {
+            root = root->left;
+        }
+        else
+        {
+            root = root->right;
+        }
+    }
 
 }
 
@@ -69,7 +88,7 @@ void BinaryTree::insert(double x)
 //***************************************************
 bool BinaryTree::search(double x)
 {
-
+    search(x, root);
 }
 
 //*********************************************************
@@ -78,17 +97,37 @@ bool BinaryTree::search(double x)
 //*********************************************************
 void BinaryTree::inorder(vector <double>& v)
 {
-
+    
 }
 
 bool BinaryTree::search(double x, BtreeNode *t)
 {
-
+    while (t)
+    {
+        if (t->value == x)
+            return true;
+        else if (x < t->value)
+            t = t->left;
+        else
+            t = t->right;
+    }
+    return false;
 }
 
 int main()
 {
+    BinaryTree tree;
+    vector <double> v;
 
+    cout << "Inserting numbers. ";
+    tree.insert(5.2);
+    tree.insert(8.4);
+    tree.insert(3.2);
+    tree.insert(12.3);
+    tree.insert(9.1);
+    cout << "Done.\n";
+    cout << "Inorder traversal:  ";
+    tree.inorder(v);
 
     return 0;
 }
