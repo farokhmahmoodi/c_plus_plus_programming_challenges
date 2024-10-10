@@ -61,34 +61,59 @@ void BinaryTree::insert(double x)
         return;
     }
 
-    BtreeNode* temp = root;
-    while (temp)
+    BtreeNode* currentNode = root;
+    while (currentNode)
     {
-        // If num is already in tree: return.
-        if (root->value == x)
-            return;      
-        // The tree is not empty: insert the new node into the
-        // left or right subtree.
-        if (x < root->value)
+        // If num is already in tree: return.        
+        if (currentNode->value == x)
+            break;
+        else if (x < currentNode->value)
         {
-            root = root->left;
+            if (!currentNode->left)
+            {
+                currentNode->left = new BtreeNode(x);
+                break;
+            }
+            else if (x > currentNode->left->value)
+            {
+                BtreeNode* leftNode = currentNode->left;
+                currentNode->left = new BtreeNode(x);
+                currentNode->left->left = leftNode;
+            }
+            else
+            {
+                currentNode = currentNode->left;
+            }
         }
         else
         {
-            root = root->right;
+            if (!currentNode->right)
+            {
+                currentNode->right = new BtreeNode(x);
+                break;
+            }
+            else if (x < currentNode->right->value)
+            {
+                BtreeNode* rightNode = currentNode->right;
+                currentNode->right = new BtreeNode(x);
+                currentNode->right->right = rightNode;
+            }
+            else
+            {
+                currentNode = currentNode->right;
+            }
         }
     }
-
 }
 
 //***************************************************
-// searchNode determines if a value is present in   *
+// search determines if a value is present in       *
 // the tree. If so, the function returns true.      *
 // Otherwise, it returns false.                     *
 //***************************************************
 bool BinaryTree::search(double x)
 {
-    search(x, root);
+    return search(x, root);
 }
 
 //*********************************************************
@@ -97,7 +122,9 @@ bool BinaryTree::search(double x)
 //*********************************************************
 void BinaryTree::inorder(vector <double>& v)
 {
+    BtreeNode* currentNode = root;
     
+
 }
 
 bool BinaryTree::search(double x, BtreeNode *t)
