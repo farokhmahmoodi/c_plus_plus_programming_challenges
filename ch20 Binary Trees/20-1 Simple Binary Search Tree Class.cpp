@@ -14,7 +14,6 @@ Demonstrate the operation of the class using a suitable driver program.*/
 
 #include <iostream>
 #include<vector>
-#include<queue>
 using namespace std;
 
 class BinaryTree
