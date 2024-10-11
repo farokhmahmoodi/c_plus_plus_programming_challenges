@@ -122,18 +122,20 @@ bool BinaryTree::search(double x)
 //*********************************************************
 void BinaryTree::inorder(vector <double>& v)
 {
-    BtreeNode* leftSubTree = root->left;
+    BtreeNode* leftSubTree = root;
     BtreeNode* rightSubTree = root->right;
 
-    v.emplace_back(root->value);
+    while (leftSubTree)
+    {
+        v.emplace(v.begin(), leftSubTree->value);
+        leftSubTree = leftSubTree->left;
+    }
     while (rightSubTree)
     {
         v.emplace_back(rightSubTree->value);
         rightSubTree = rightSubTree->right;
     }
 
-    for (int i = 0; i < v.size(); i++)
-        cout << v[i] << " ";
 }
 
 bool BinaryTree::search(double x, BtreeNode *t)
@@ -154,6 +156,8 @@ int main()
 {
     BinaryTree tree;
     vector <double> v;
+    double value;
+    int choice;
 
     cout << "Inserting numbers. ";
     tree.insert(5.2);
@@ -163,8 +167,36 @@ int main()
     tree.insert(9.1);
     tree.insert(4.7);
     cout << "Done.\n";
-    cout << "Inorder traversal:  ";
     tree.inorder(v);
+    do
+    {
+        cout << "Inorder traversal:  ";
+        for (int i = 0; i < v.size(); i++)
+            cout << v[i] << " ";
+        cout << endl;
+        while (cout << "Enter a number to search for in the array:" &&
+            !(cin >> value)) {
+            cin.clear(); //clear bad input flag
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
+            cout << "Invalid input for number." << endl;
+        }
+        if (tree.search(value))
+            cout << "The number " << value << " was found in the binary tree.\n";
+        else
+            cout << "The number " << value << " was not found in the binary tree.\n";
+        do
+        {
+            while (cout << "Would you like to enter another integer to find?"
+                << "(1 for yes/2 for no):" &&
+                !(cin >> choice)) {
+                cin.clear(); //clear bad input flag
+                cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
+                cout << "Invalid input for choice." << endl;
+            }
+            if (choice != 1 && choice != 2)
+                cout << "Invalid input for choice. Must be 1 or 2.\n";
+        } while (choice != 1 && choice != 2);
+    } while (choice != 2);
 
     return 0;
 }
