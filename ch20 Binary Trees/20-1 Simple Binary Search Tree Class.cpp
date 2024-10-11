@@ -36,8 +36,9 @@ private:
     };
     BtreeNode* root;     // Pointer to the root of the tree
     void destroySubtree(BtreeNode*);
-    bool search(double x, BtreeNode* t) const;
-    void inorder(vector<double>&, BtreeNode* t) const;
+    void insert(BtreeNode*, double);
+    bool search(double, BtreeNode*) const;
+    void inorder(vector<double>&, BtreeNode*) const;
 public:
     // These member functions are the public interface.
     BinaryTree()		// Constructor
@@ -48,16 +49,31 @@ public:
     {
         destroySubtree(root);
     }
-    void insert(double);
-    bool search(double);
-    void inorder(vector<double>&);
+    void insert(double x)
+    {
+        insert(root, x);
+    }
+    bool search(double x)
+    {
+        if (root)
+            search(x, root);
+        else
+            return false;
+    }
+    void inorder(vector<double>& v)
+    {
+        if (root)
+            inorder(v, root);
+        else
+            return;
+    }
 };
 
 //**************************************************
 // This version of insert inserts a number into    *
 // a given subtree of the main binary search tree. *
 //**************************************************
-void BinaryTree::insert(double x)
+void BinaryTree::insert(BtreeNode* t, double x)
 {
     // If the tree is empty, make a new node and make it
     // the root of the tree.
@@ -115,26 +131,7 @@ void BinaryTree::insert(double x)
 // the tree. If so, the function returns true.      *
 // Otherwise, it returns false.                     *
 //***************************************************
-bool BinaryTree::search(double x)
-{
-    return search(x, root);
-}
-
-//*********************************************************
-// This function displays the values  stored in a tree    *
-// in inorder.                                            *
-//*********************************************************
-void BinaryTree::inorder(vector <double>& v)
-{
-    inorder(v, root);
-}
-
-void BinaryTree::inorder(vector <double>& v, BtreeNode* t) const
-{
-    
-}
-
-bool BinaryTree::search(double x, BtreeNode *t) const
+bool BinaryTree::search(double x, BtreeNode* t) const
 {
     while (t)
     {
@@ -146,6 +143,20 @@ bool BinaryTree::search(double x, BtreeNode *t) const
             t = t->right;
     }
     return false;
+}
+
+//*********************************************************
+// This function displays the values  stored in a tree    *
+// in inorder.                                            *
+//*********************************************************
+void BinaryTree::inorder(vector <double>& v, BtreeNode* t) const
+{
+    if (t)
+    {
+        inorder(v, t->left);
+        cout << t->value << " ";
+        inorder(v, t->right);
+    }
 }
 
 //***************************************************
@@ -183,7 +194,7 @@ int main()
         for (int i = 0; i < v.size(); i++)
             cout << v[i] << " ";
         cout << endl;
-        while (cout << "Enter a number to search for in the array:" &&
+        while (cout << "Enter a number to search for in the binary tree:" &&
             !(cin >> value)) {
             cin.clear(); //clear bad input flag
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); //discard input
