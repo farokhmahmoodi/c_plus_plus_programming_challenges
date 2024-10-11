@@ -14,6 +14,7 @@ Demonstrate the operation of the class using a suitable driver program.*/
 
 #include <iostream>
 #include<vector>
+#include<queue>
 using namespace std;
 
 class BinaryTree
@@ -55,10 +56,7 @@ public:
     }
     bool search(double x)
     {
-        if (root)
-            search(x, root);
-        else
-            return false;
+        return search(x, root);
     }
     void inorder(vector<double>& v)
     {
@@ -84,46 +82,22 @@ void BinaryTree::insert(BtreeNode* t, double x)
     }
 
     BtreeNode* currentNode = root;
-    while (currentNode)
+    BtreeNode* parent = nullptr;
+
+    while (currentNode) 
     {
-        // If num is already in tree: return.        
-        if (currentNode->value == x)
-            break;
-        else if (x < currentNode->value)
-        {
-            if (!currentNode->left)
-            {
-                currentNode->left = new BtreeNode(x);
-                break;
-            }
-            else if (x > currentNode->left->value)
-            {
-                currentNode->right = new BtreeNode(x);
-                break;
-            }
-            else
-            {
-                currentNode = currentNode->left;
-            }
-        }
-        else
-        {
-            if (!currentNode->right)
-            {
-                currentNode->right = new BtreeNode(x);
-                break;
-            }
-            else if (x < currentNode->right->value)
-            {
-                currentNode->left = new BtreeNode(x);
-                break;
-            }
-            else
-            {
-                currentNode = currentNode->right;
-            }
-        }
+        parent = currentNode; // Keep track of the parent node
+        if (x < currentNode->value) 
+            currentNode = currentNode->left; // Move to the left subtree
+        else 
+            currentNode = currentNode->right; // Move to the right subtree
     }
+
+    // Insert the new node as a child of the parent node
+    if (x < parent->value) 
+        parent->left = new BtreeNode(x); // Insert as left child
+    else 
+        parent->right = new BtreeNode(x); // Insert as right child
 }
 
 //***************************************************
@@ -154,7 +128,7 @@ void BinaryTree::inorder(vector <double>& v, BtreeNode* t) const
     if (t)
     {
         inorder(v, t->left);
-        cout << t->value << " ";
+        v.emplace_back(t->value);
         inorder(v, t->right);
     }
 }
@@ -186,6 +160,11 @@ int main()
     tree.insert(12.3);
     tree.insert(9.1);
     tree.insert(4.7);
+    tree.insert(54.2);
+    tree.insert(1.2);
+    tree.insert(4.4);
+    tree.insert(5.3);
+    tree.insert(8.7);
     cout << "Done.\n";
     tree.inorder(v);
     do
