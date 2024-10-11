@@ -36,6 +36,7 @@ public:
     void insert(double);
     bool search(double);
     void inorder(vector<double>&);
+    int size();
 };
 
 //**************************************************
@@ -126,7 +127,6 @@ void BinaryTree::inorder(vector <double>& v)
         v.emplace_back(rightSubTree->value);
         rightSubTree = rightSubTree->right;
     }
-
 }
 
 bool BinaryTree::search(double x, BtreeNode* t)
@@ -141,6 +141,27 @@ bool BinaryTree::search(double x, BtreeNode* t)
             t = t->right;
     }
     return false;
+}
+
+int BinaryTree::size()
+{
+    if (!root)
+        return 0;
+    int size = 0;
+    BtreeNode* leftSubTree = root;
+    BtreeNode* rightSubTree = root->right;
+
+    while (leftSubTree)
+    {
+        size++;
+        leftSubTree = leftSubTree->left;
+    }
+    while (rightSubTree)
+    {
+        size++;
+        rightSubTree = rightSubTree->right;
+    }
+    return size;
 }
 
 int main()
@@ -158,6 +179,7 @@ int main()
     tree.insert(9.1);
     tree.insert(4.7);
     cout << "Done.\n";
+    cout << "Size of the binary tree is " << tree.size() << endl;
     tree.inorder(v);
     do
     {
